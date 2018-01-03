@@ -20,12 +20,12 @@ namespace OrderManager
         public Display()
         {
         }
+
         /// <summary>
-        /// Metooda zwraca referencje do siatki znajdującej się w oknie.
+        /// Metoda zwraca referencje do siatki znajdującej się w oknie.
         /// </summary>
         /// <returns>siatka</returns>
         public DataGridView getDataGridView() { return dataGridView1; }
-
         
         public void DisplayTables()
         {
@@ -49,7 +49,7 @@ namespace OrderManager
                 (new CounterpartysStock()).GetById("1"));
             //Show();
 
-            DataTable trancheTable = new Tranche().GetById("1");
+            DataTable trancheTable = new Tranche().GetById("3");
             DataTable counterPartysStockTable = new CounterpartysStock().GetById("1");
             ITrancheDAO trancheDAO = new Tranche();
             ICounterpartysStockDAO counterpartysStockDAO = new CounterpartysStock();
@@ -57,12 +57,17 @@ namespace OrderManager
             DTO.CounterpartysStockMapper mapper = new DTO.CounterpartysStockMapper(counterpartysStockDAO);
             string res = string.Join(Environment.NewLine, trancheTable.Rows.OfType<DataRow>().Select(x => string.Join(" ; ", x.ItemArray)));
             //Console.WriteLine(new DTO.TrancheMapper(trancheDAO).MapFrom(table));
-            //Console.WriteLine(mapper.MapFrom(trancheStock));
+            //Console.WriteLine(mapper.MapFrom(trancheStock).PriceNetto);
             
             IOrderDAO orderDAO = new Order();
             DataTable orderTable = orderDAO.GetById("22");
             DTO.OrderMapper orderMapper = new DTO.OrderMapper(orderDAO);
-            Console.WriteLine(orderMapper.MapFrom(orderTable));
+            Domain.Entity.Order orderEntity = orderMapper.MapFrom(orderTable);
+            Console.WriteLine(orderEntity);
+            //Console.WriteLine(orderEntity.PriceNetto);
+            //Console.WriteLine(orderEntity.PriceBrutto);
+            var back = orderMapper.MapFrom(orderMapper.MapTo(orderEntity));
+            Console.WriteLine(orderEntity.ParentOrder);
         }
     }
 }

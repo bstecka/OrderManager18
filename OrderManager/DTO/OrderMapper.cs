@@ -38,7 +38,7 @@ namespace OrderManager.DTO
             var counterparty = (new CounterpartyMapper()).MapFrom(
                orderDAO.GetCounterparty(orderRow));
             var orderStateRow = orderDAO.GetOrderState(orderRow).Rows[0];
-            var tranches = (new TrancheMapper(new DAL.InternalSysDAO.Tranche())).MapFrom(
+            var tranches = (new TrancheMapper(new DAL.InternalSysDAO.Tranche())).MapAllFrom(
                 orderDAO.GetTranches(orderRow));
             var creator = (new UserMapper()).MapFrom(
                 orderDAO.GetUser(orderRow));
@@ -47,23 +47,21 @@ namespace OrderManager.DTO
                     Convert.ToInt32(orderRow["ID"]),
                     Convert.ToString(orderRow["nazwa"]),
                     counterparty,
-                    Convert.ToDouble(orderRow["SumaWartosciPozycjiNetto"]),
-                    Convert.ToDouble(orderRow["SumaWartosciPozycjiBrutto"]),
                     Convert.ToDateTime(orderRow["DataZlozenia"]),
                     Convert.ToString(orderRow["StanZamowieniaID"]),
-                    creator
+                    creator,
+                    tranches
                 );
             else
                 return new Domain.Entity.Order(
                     Convert.ToInt32(orderRow["ID"]),
                     Convert.ToString(orderRow["nazwa"]),
                     counterparty,
-                    Convert.ToDouble(orderRow["SumaWartosciPozycjiNetto"]),
-                    Convert.ToDouble(orderRow["SumaWartosciPozycjiBrutto"]),
                     Convert.ToDateTime(orderRow["DataZlozenia"]),
                     Convert.ToDateTime(orderRow["DataZakonczenia"]),
                     Convert.ToString(orderRow["StanZamowieniaID"]),
-                    creator
+                    creator,
+                    tranches
                 );
         }
 
@@ -74,22 +72,18 @@ namespace OrderManager.DTO
             dataTable.Columns.Add("ZamowienieNadrzedne");
             dataTable.Columns.Add("UzytkownikID");
             dataTable.Columns.Add("KontrahentID");
-            dataTable.Columns.Add("SumaWartosciPozycjiNetto");
-            dataTable.Columns.Add("SumaWartosciPozycjiBrutto");
             dataTable.Columns.Add("DataZlozenia");
             dataTable.Columns.Add("DataZakonczenia");
             dataTable.Columns.Add("StanZamowieniaID");
             dataTable.Columns.Add("Nazwa");
             DataRow dataRow = dataTable.NewRow();
             dataRow["ID"] = orderDomain.Id;
-            dataRow["ZamowienieNadrzedne"] = 1; //////////////////////////TEMPORARY
+            dataRow["ZamowienieNadrzedne"] = orderDomain.ParentOrder;
             dataRow["UzytkownikID"] = orderDomain.Creator.Id;
             dataRow["KontrahentID"] = orderDomain.Counterparty.Id;
-            dataRow["SumaWartosciPozycjiNetto"] = orderDomain.NettoSum;
-            dataRow["SumaWartosciPozycjiBrutto"] = orderDomain.BruttoSum;
             dataRow["DataZlozenia"] = orderDomain.DateOfCreation;
             dataRow["DataZakonczenia"] = orderDomain.DateOfConclusion;
-            dataRow["StanZamowieniaID"] = 1; /////////////////////////////TEMPORARY
+            dataRow["StanZamowieniaID"] = (int) orderDomain.State;
             dataRow["Nazwa"] = orderDomain.Name;
             dataTable.Rows.Add(dataRow);
             return dataTable;

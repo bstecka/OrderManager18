@@ -20,8 +20,8 @@ namespace OrderManager.Presentation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());
-            Application.Run(new MainStokView(new StockService(new Stock(), new StockMapper())));
+            Application.Run(new Form1());
+            //Application.Run(new MainStokView(new StockService(new Stock(), new StockMapper())));
         }
     }
 }

@@ -24,10 +24,16 @@ namespace OrderManager.DAL.InternalSysDAO
                 WHERE ID IN (" + order["StanZamowieniaID"] + ")");
         }
 
-        public DataTable GetParentOrder(DataRow order) ////////////////EXCEPTIONS
+        public DataTable GetParentOrder(DataRow order)
         {
-            return DBOperations.Select(@"SELECT * FROM Zamowienie 
-                WHERE ZamowienieID IN (" + order["ZamowienieNadrzedne"] + ")");
+            return DBOperations.Select(@"SELECT * FROM Zamowienie
+                WHERE ID IN (SELECT ZamowienieNadrzedne FROM Zamowienie WHERE ID IN (" + order["ID"] + ")");
+        }
+
+        public DataTable GetParentOrderById(int id)
+        {
+            return DBOperations.Select(@"SELECT * FROM Zamowienie
+                WHERE ID IN (SELECT ZamowienieNadrzedne FROM Zamowienie WHERE ID IN ("+ id + "))");
         }
 
         public DataTable GetTranches(DataRow order)
