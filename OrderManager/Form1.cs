@@ -17,8 +17,8 @@ namespace OrderManager
         public Form1()
         {
             InitializeComponent();
-            //(new Display()).DisplayTables();
-            (new Tester()).Show();
+            (new Display()).DisplayTables();
+            //(new Tester()).Show();
         }
 
         

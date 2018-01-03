@@ -1,5 +1,4 @@
 ﻿using OrderManager.DAL.InternalSysDAO;
-using OrderManager.DAL.InternalSysDAO;
 using OrderManager.Domain.Entity;
 using OrderManager.DTO;
 using System;

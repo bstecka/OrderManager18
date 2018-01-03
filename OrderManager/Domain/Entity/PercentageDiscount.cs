@@ -53,7 +53,7 @@ namespace OrderManager.Domain.Entity
 
         public override string ToString()
         {
-            return "Rabat procentowy ID:" + id;
+            return "Rabat procentowy ID:" + id + " " + sumNetto;
         }
 
         public override bool Equals(object obj)

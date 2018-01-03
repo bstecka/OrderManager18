@@ -1,5 +1,4 @@
 ﻿using OrderManager.DAL.InternalSysDAO;
-using OrderManager.DAL.InternalSysDAO;
 using OrderManager.DAO;
 using OrderManager.ExternalSysDAO;
 using System;
@@ -48,7 +47,22 @@ namespace OrderManager
             PercentageDiscount percentageDiscount = new PercentageDiscount();
             dataGridView1.DataSource = percentageDiscount.GetCounterpartysStockValidDicounts(
                 (new CounterpartysStock()).GetById("1"));
-            Show();
+            //Show();
+
+            DataTable trancheTable = new Tranche().GetById("1");
+            DataTable counterPartysStockTable = new CounterpartysStock().GetById("1");
+            ITrancheDAO trancheDAO = new Tranche();
+            ICounterpartysStockDAO counterpartysStockDAO = new CounterpartysStock();
+            var trancheStock = trancheDAO.GetCounterpartysStock(trancheTable.Rows[0]);
+            DTO.CounterpartysStockMapper mapper = new DTO.CounterpartysStockMapper(counterpartysStockDAO);
+            string res = string.Join(Environment.NewLine, trancheTable.Rows.OfType<DataRow>().Select(x => string.Join(" ; ", x.ItemArray)));
+            //Console.WriteLine(new DTO.TrancheMapper(trancheDAO).MapFrom(table));
+            //Console.WriteLine(mapper.MapFrom(trancheStock));
+            
+            IOrderDAO orderDAO = new Order();
+            DataTable orderTable = orderDAO.GetById("22");
+            DTO.OrderMapper orderMapper = new DTO.OrderMapper(orderDAO);
+            Console.WriteLine(orderMapper.MapFrom(orderTable));
         }
     }
 }

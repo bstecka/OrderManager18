@@ -1,5 +1,4 @@
 ﻿using OrderManager.DAL.InternalSysDAO;
-using OrderManager.DAL.InternalSysDAO;
 using OrderManager.Domain;
 using OrderManager.Domain.Service;
 using OrderManager.DTO;
@@ -62,21 +61,22 @@ namespace OrderManager
 
         public string runDiscountCounter()
         {
-            StockService stockService = new StockService(
-                new Stock(), new StockMapper());
-            var stockList = stockService.GetAll();
+            /* StockService stockService = new StockService(
+                 new Stock(), new StockMapper());
+             var stockList = stockService.GetAll();
 
-            Dictionary<Domain.Entity.Stock, int> toOrder = new Dictionary<Domain.Entity.Stock, int>();
-            foreach (var stock in stockList)
-                toOrder.Add(stock, 10);
-            DiscountCounter discountCounter = new DiscountCounter(toOrder);
+             Dictionary<Domain.Entity.Stock, int> toOrder = new Dictionary<Domain.Entity.Stock, int>();
+             foreach (var stock in stockList)
+                 toOrder.Add(stock, 10);
+             DiscountCounter discountCounter = new DiscountCounter(toOrder);
 
-            var parcels = discountCounter.BestChosenDiscounts();
+             var parcels = discountCounter.BestChosenDiscounts();
 
-            string result = "";
-            foreach (var parcel in parcels)
-                result = result + parcel.ToString();
-            return result;
+             string result = "";
+             foreach (var parcel in parcels)
+                 result = result + parcel.ToString();
+             return result;*/
+            return "";
         }
     }
 }

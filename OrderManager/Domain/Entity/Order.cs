@@ -8,10 +8,10 @@ namespace OrderManager.Domain.Entity
 {
     enum ORDERSTATE
     {
-        duringRealization,
-        duringReview,
-        cancelled,
-        realized
+        duringRealization = 1,
+        duringReview = 2,
+        cancelled = 3,
+        realized = 4
     }
 
     class Order
@@ -49,7 +49,21 @@ namespace OrderManager.Domain.Entity
             this.nettoSum = nettoSum;
             this.bruttoSum = bruttoSum;
             this.dateOfCreation = dateOfCreation;
+            this.dateOfConclusion = dateOfConclusion;
             this.state = (ORDERSTATE) Enum.Parse(typeof(ORDERSTATE), state);
+            this.ParentOrder = parentOrder;
+        }
+
+        public Order(int id, string name, Counterparty counterparty, double nettoSum, double bruttoSum, DateTime dateOfCreation, string state, User creator)
+        {
+            this.id = id;
+            this.name = name;
+            this.creator = creator;
+            this.counterparty = counterparty;
+            this.nettoSum = nettoSum;
+            this.bruttoSum = bruttoSum;
+            this.dateOfCreation = dateOfCreation;
+            this.state = (ORDERSTATE)Enum.Parse(typeof(ORDERSTATE), state);
             this.ParentOrder = parentOrder;
         }
 
@@ -65,6 +79,6 @@ namespace OrderManager.Domain.Entity
         internal User Creator { get => creator; set => creator = value; }
         internal List<Tranche> Tranches { get => tranches; set => tranches = value; }
 
-        public override string ToString() { return id + " " + name; }
+        public override string ToString() { return "Zamowienie " + id + " " + name + ", stan: " + state + ", user: " + creator.ToString() + ", data utworzenia: " + dateOfCreation + ", kontrahent: " + counterparty.ToString(); }
     }
 }

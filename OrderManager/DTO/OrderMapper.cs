@@ -42,16 +42,28 @@ namespace OrderManager.DTO
                 orderDAO.GetTranches(orderRow));
             var creator = (new UserMapper()).MapFrom(
                 orderDAO.GetUser(orderRow));
-            return new Domain.Entity.Order(
-                Convert.ToInt32(orderRow["ID"]),
-                Convert.ToString(orderRow["nazwa"]),
-                counterparty,
-                Convert.ToDouble(orderRow["SumaWartosciPozycjiNetto"]),
-                Convert.ToDouble(orderRow["SumaWartosciPozycjiBrutto"]),
-                Convert.ToDateTime(orderRow["DataZlozenia"]),
-                Convert.ToDateTime(orderRow["DataZakonczenia"]),
-                Convert.ToString(orderStateRow["StanZamowienia"]),
-                creator
+            if (DBNull.Value.Equals(orderRow["DataZakonczenia"]))
+                return new Domain.Entity.Order(
+                    Convert.ToInt32(orderRow["ID"]),
+                    Convert.ToString(orderRow["nazwa"]),
+                    counterparty,
+                    Convert.ToDouble(orderRow["SumaWartosciPozycjiNetto"]),
+                    Convert.ToDouble(orderRow["SumaWartosciPozycjiBrutto"]),
+                    Convert.ToDateTime(orderRow["DataZlozenia"]),
+                    Convert.ToString(orderRow["StanZamowieniaID"]),
+                    creator
+                );
+            else
+                return new Domain.Entity.Order(
+                    Convert.ToInt32(orderRow["ID"]),
+                    Convert.ToString(orderRow["nazwa"]),
+                    counterparty,
+                    Convert.ToDouble(orderRow["SumaWartosciPozycjiNetto"]),
+                    Convert.ToDouble(orderRow["SumaWartosciPozycjiBrutto"]),
+                    Convert.ToDateTime(orderRow["DataZlozenia"]),
+                    Convert.ToDateTime(orderRow["DataZakonczenia"]),
+                    Convert.ToString(orderRow["StanZamowieniaID"]),
+                    creator
                 );
         }
 

@@ -71,7 +71,6 @@
       <DependentUpon>Display.cs</DependentUpon>
     </Compile>
     <Compile Include="Domain\Entity\User.cs" />
-    <Compile Include="Domain\OrderGenerator\DiscountCounter.cs" />
     <Compile Include="Domain\Entity\Counterparty.cs" />
     <Compile Include="Domain\Entity\CounterpartysStock.cs" />
     <Compile Include="Domain\Entity\Order.cs" />
@@ -82,7 +81,6 @@
     <Compile Include="Domain\OrderGenerator\OrdersGenerator.cs" />
     <Compile Include="Domain\Service\CounterpartyService.cs" />
     <Compile Include="Domain\Service\CounterpartysStockService.cs" />
-    <Compile Include="Domain\Service\GenerateOrdersService.cs" />
     <Compile Include="Domain\Service\ICounterpartyService.cs" />
     <Compile Include="Domain\Service\ICounterpartysStockService.cs" />
     <Compile Include="Domain\Service\IEntityServiceBase.cs" />

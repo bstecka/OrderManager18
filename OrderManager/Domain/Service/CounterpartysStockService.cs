@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OrderManager.DAL.InternalSysDAO;
-using OrderManager.DAL.InternalSysDAO;
 using OrderManager.Domain.Entity;
 using OrderManager.DTO;
 
