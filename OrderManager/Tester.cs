@@ -1,4 +1,4 @@
-﻿using OrderManager.DAL.InternalSysDAO;
+﻿using OrderManager.DAL.ExternalSysDAO;
 using OrderManager.DAL.InternalSysDAO;
 using OrderManager.Domain;
 using OrderManager.Domain.Service;
@@ -47,17 +47,32 @@ namespace OrderManager
             foreach(Domain.Entity.Counterparty elem in list)
                 objToStr.Text +=elem.ToString();*/
             CounterpartysStockService service = new CounterpartysStockService(
-                new DAL.InternalSysDAO.CounterpartysStock(), 
-                new CounterpartysStockMapper(new DAL.InternalSysDAO.CounterpartysStock()));
+                new DAL.ExternalSysDAO.CounterpartysStock(), 
+                new CounterpartysStockMapper(new DAL.ExternalSysDAO.CounterpartysStock()));
             var list = service.GetAll().First().ValidDiscounts;
 
 
 
             //objToStr.Text = list.First().ToString();
-
-            objToStr.Text = runDiscountCounter();
+            runGenerator();
+            //objToStr.Text = runDiscountCounter();
             objToStr.Size = new Size(400, 100);
 
+        }
+
+        public void runGenerator()
+        {
+
+            StockService stockService = new StockService(
+                new Stock(), new StockMapper());
+            var stockList = stockService.GetAll();
+
+            Dictionary<Domain.Entity.Stock, int> toOrder = new Dictionary<Domain.Entity.Stock, int>();
+            foreach (var stock in stockList)
+                toOrder.Add(stock, 10);
+
+            (new OrdersGenerator(toOrder)).Generate(new PriorityService(
+                new DAL.InternalSysDAO.Priority(), new PriorityMapper()));
         }
 
         public string runDiscountCounter()
