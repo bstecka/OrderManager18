@@ -33,8 +33,8 @@ namespace OrderManager.Domain.Entity
             get
             {
                 if(stock == null)
-                    (new CounterpartyService(new ExternalSysDAO.Counterparty(), new CounterpartyMapper())).
-                    GetCounterpartysStock(this, new CounterpartysStockMapper(new DAL.InternalSysDAO.CounterpartysStock()));
+                    stock = (new CounterpartyService(new ExternalSysDAO.Counterparty(), new CounterpartyMapper())).
+                    GetCounterpartysStock(this, new CounterpartysStockMapper(new DAL.ExternalSysDAO.CounterpartysStock()));
                 return stock;
             }
             set => stock = value; }

@@ -71,6 +71,9 @@
       <DependentUpon>Display.cs</DependentUpon>
     </Compile>
     <Compile Include="Domain\Entity\User.cs" />
+    <Compile Include="Domain\OrderGenerator\
+                      .cs" />
+    <Compile Include="Domain\OrderGenerator\DiscountCounter.cs" />
     <Compile Include="Domain\Entity\Counterparty.cs" />
     <Compile Include="Domain\Entity\CounterpartysStock.cs" />
     <Compile Include="Domain\Entity\Order.cs" />
@@ -79,6 +82,8 @@
     <Compile Include="Domain\Entity\Tranche.cs" />
     <Compile Include="Domain\OrderGenerator\IOrdersGenerator.cs" />
     <Compile Include="Domain\OrderGenerator\OrdersGenerator.cs" />
+    <Compile Include="Domain\OrderGenerator\PriorityDistanceChoice.cs" />
+    <Compile Include="Domain\OrderGenerator\PriorityFrequencyChoice.cs" />
     <Compile Include="Domain\Service\CounterpartyService.cs" />
     <Compile Include="Domain\Service\CounterpartysStockService.cs" />
     <Compile Include="Domain\Service\ICounterpartyService.cs" />
@@ -105,16 +110,34 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\MainStokView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\MainStokView.Designer.cs">
+      <DependentUpon>MainStokView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\MainView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\MainView.Designer.cs">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
     <Compile Include="Tester.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Tester.Designer.cs">
       <DependentUpon>Tester.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Display.resx">
       <DependentUpon>Display.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\MainStokView.resx">
+      <DependentUpon>MainStokView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\MainView.resx">
+      <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -138,8 +161,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Presentation\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

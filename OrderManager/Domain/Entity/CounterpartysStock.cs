@@ -33,7 +33,7 @@ namespace OrderManager.Domain.Entity
             {
                 if(validDiscounts == null)
                 {
-                    DAL.InternalSysDAO.CounterpartysStock counterpartysStockDAO = new DAL.InternalSysDAO.CounterpartysStock();
+                    DAL.ExternalSysDAO.CounterpartysStock counterpartysStockDAO = new DAL.ExternalSysDAO.CounterpartysStock();
                     DAL.InternalSysDAO.PercentageDiscount percentageDiscountDAO = new DAL.InternalSysDAO.PercentageDiscount();
                     validDiscounts = (new CounterpartysStockService(counterpartysStockDAO,
                         new CounterpartysStockMapper(counterpartysStockDAO))).

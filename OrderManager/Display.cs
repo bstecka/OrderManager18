@@ -1,6 +1,6 @@
-﻿using OrderManager.DAL.InternalSysDAO;
+using OrderManager.DAL.ExternalSysDAO;
+using OrderManager.DAL.InternalSysDAO;
 using OrderManager.DAO;
-using OrderManager.ExternalSysDAO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

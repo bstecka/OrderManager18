@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrderManager.DAL.InternalSysDAO
+namespace OrderManager.DAL.ExternalSysDAO
 {
     class CounterpartysStock : ReaderDAO, ICounterpartysStockDAO
     {
