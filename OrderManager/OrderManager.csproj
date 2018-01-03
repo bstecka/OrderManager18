@@ -71,6 +71,7 @@
       <DependentUpon>Display.cs</DependentUpon>
     </Compile>
     <Compile Include="Domain\Entity\User.cs" />
+    <Compile Include="Domain\OrderGenerator\CouterpartysPropertyChoice.cs" />
     <Compile Include="Domain\OrderGenerator\DiscountCounter.cs" />
     <Compile Include="Domain\Entity\Counterparty.cs" />
     <Compile Include="Domain\Entity\CounterpartysStock.cs" />
