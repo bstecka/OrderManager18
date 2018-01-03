@@ -42,6 +42,25 @@ namespace OrderManager.Domain.Entity
             this.stock = stock;
         }
 
+
+        public Tranche(int? id, int numberOfItems, CounterpartysStock stock, List<PercentageDiscount> discounts)
+        {
+            this.id = id;
+            this.numberOfItems = numberOfItems;
+            this.discounts = discounts;
+            this.stock = stock;
+            orderId = 1;
+        }
+
+
+        public Tranche(int? id, CounterpartysStock stock, int numberOfItems)
+        {
+            this.id = id;
+            this.numberOfItems = numberOfItems;
+            this.stock = stock;
+            orderId = 1;
+        }
+
         public int? Id { get => id; set => id = value; }
         public int NumberOfItems { get => numberOfItems; set => numberOfItems = value; }
         public int OrderId { get => orderId; set => orderId = value; }

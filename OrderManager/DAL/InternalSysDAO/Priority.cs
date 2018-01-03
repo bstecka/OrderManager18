@@ -14,16 +14,15 @@ namespace OrderManager.DAL.InternalSysDAO
 
         public DataTable GetPriority(DataTable stock)
         {
-            throw new NotImplementedException();
+            return GetPriority(stock.Rows[0]);
         }
 
         public DataTable GetPriority(DataRow stock)
         {
-            
-            return DBOperations.Select(@"(SELECT PriorytetTowaruID AS ID FROM
-                PriorytetTowaru WHERE TowarID in (" + stock["ID"] + "))" +
-                " NATURAL JOIN Priorytet");
-                
+            return DBOperations.Select(@"SELECT ListaKryteriow 
+            FROM PriorytetTowaru JOIN Priorytet 
+            ON  PriorytetTowaru.PriorytetID = Priorytet.ID
+            WHERE TowarID in (" + stock["ID"] + ")");
         }
     }
 }

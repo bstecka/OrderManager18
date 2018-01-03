@@ -20,7 +20,7 @@ namespace OrderManager.Domain.Service
             this.priorityMapper = priorityMapper;
         }
 
-        public List<Priority> GetStockPriority(Stock stock, StockMapper stockMapper)
+        public List<Priority> GetStockPriority(Entity.Stock stock, StockMapper stockMapper)
         {
             return priorityMapper.MapFrom(
                 priorityDAO.GetPriority(stockMapper.MapTo(stock)));
