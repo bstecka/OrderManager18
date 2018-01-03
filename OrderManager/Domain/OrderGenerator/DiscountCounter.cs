@@ -26,6 +26,7 @@ namespace OrderManager.Domain
 
         public List<Tranche> BestChosenDiscounts()
         {
+            if (dictionary.Count == 0) return new List<Tranche>();
             List<CounterpartysStock> bestStockWithoutDiscounts = lowestPricesWithoutDiscount(dictionary);
             HashSet<PercentageDiscount> possibleDiscounts = new HashSet<PercentageDiscount>(
                 dictionary.Keys.Select(

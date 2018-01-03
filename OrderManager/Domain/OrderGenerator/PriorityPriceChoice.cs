@@ -18,7 +18,7 @@ namespace OrderManager.Domain.Service
 
         public List<Tranche> BestChosenOfferts()
         {
-            throw new NotImplementedException();
+            return (new DiscountCounter(stockToOrder)).BestChosenDiscounts();
         }
     }
 }
