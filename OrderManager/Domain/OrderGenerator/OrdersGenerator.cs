@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OrderManager.Domain.OrderGenerator;
 
 namespace OrderManager.Domain
 {
@@ -49,16 +50,10 @@ namespace OrderManager.Domain
             switch (priority)
             {
                 case Priority.Price: return new PriorityPriceChoice(stockToOrder);
-                case Priority.Distance: return null;
-                case Priority.Frequency: return null;
+                case Priority.Distance: return new PriorityDistanceChoice(stockToOrder);
+                case Priority.Frequency: return new PriorityFrequencyChoice(stockToOrder);
                 default: throw new ArgumentException();
             }
-        }
-
-        public static Dictionary<Stock, int> StockWithHighestPriority(this Priority priority,
-            Dictionary<Stock, int> stockToOrder)
-        {
-            return null;
         }
     }
 }
