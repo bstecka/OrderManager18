@@ -25,15 +25,13 @@ namespace OrderManager.DTO
             dataTable.Columns.Add("ZamowienieID");
             dataTable.Columns.Add("LiczbaSztuk");
             dataTable.Columns.Add("RabatKwotowy");
-            dataTable.Columns.Add("CenaNetto");
-            dataTable.Columns.Add("CenaBrutto");
+            dataTable.Columns.Add("TowarKontrahentaID");
             DataRow dataRow = dataTable.NewRow();
             dataRow["ID"] = trancheDomain.Id;
             dataRow["ZamowienieID"] = trancheDomain.OrderId;
             dataRow["LiczbaSztuk"] = trancheDomain.NumberOfItems;
             dataRow["RabatKwotowy"] = trancheDomain.QuotaDiscount;
-            dataRow["CenaNetto"] = trancheDomain.PriceNetto;
-            dataRow["CenaBrutto"] = trancheDomain.PriceBrutto;
+            dataRow["TowarKontrahentaID"] = trancheDomain.Stock.Id;
             dataTable.Rows.Add(dataRow);
             return dataTable;
         }
@@ -55,14 +53,14 @@ namespace OrderManager.DTO
         Domain.Entity.Tranche MapFrom(DataTable trancheTable, int numberOfRow)
         {
             DataRow trancheRow = trancheTable.Rows[numberOfRow];
-            var counterpartyStock = (new CounterpartysStockMapper(new DAL.ExternalSysDAO.CounterpartysStock())).MapFrom(
+            var counterpartysStock = (new CounterpartysStockMapper(new DAL.ExternalSysDAO.CounterpartysStock())).MapFrom(
                trancheDAO.GetCounterpartysStock(trancheRow));
             var percentageDiscounts = (new PercentageDiscountMapper(new DAL.InternalSysDAO.PercentageDiscount(), new DAL.ExternalSysDAO.CounterpartysStock())).MapAllFrom(
                trancheDAO.GetPercentageDiscounts(trancheRow));
             var quotaDiscount = DBNull.Value.Equals(trancheRow["RabatKwotowy"]) ? 0 : Convert.ToDouble(trancheRow["RabatKwotowy"]);
             return new Domain.Entity.Tranche(
                 Convert.ToInt32(trancheRow["ID"]),
-                counterpartyStock,
+                counterpartysStock,
                 Convert.ToInt32(trancheRow["LiczbaSztuk"]),
                 Convert.ToInt32(trancheRow["ZamowienieID"]),
                 quotaDiscount,

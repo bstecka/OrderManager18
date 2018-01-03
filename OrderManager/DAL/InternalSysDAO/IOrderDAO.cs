@@ -13,6 +13,7 @@ namespace OrderManager.DAL.InternalSysDAO
         DataTable GetUser(DataRow order);
         DataTable GetTranches(DataRow order);
         DataTable GetParentOrder(DataRow order);
+        DataTable GetParentOrderById(int id);
         DataTable GetOrderState(DataRow order);
     }
 }
