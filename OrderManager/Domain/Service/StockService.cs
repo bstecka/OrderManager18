@@ -29,7 +29,12 @@ namespace OrderManager.Domain.Service
         {
             return mapper.MapFrom(DAO.GetById(id));
         }
-        
+
+        public List<Entity.Order> GetStocksActiveOrders(Entity.Stock stock, IMapperBase<Entity.Order> orderMapper)
+        {
+            return orderMapper.MapAllFrom(DAO.GetStocksActiveOrders(mapper.MapTo(stock)));
+        }
+
         public List<Entity.CounterpartysStock> GetStocksCounterpartysStock(Entity.Stock stock,
             IMapperBase<Entity.CounterpartysStock> counterpartysStockMapper)
         {

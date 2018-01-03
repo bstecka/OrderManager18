@@ -45,10 +45,31 @@ namespace OrderManager.Presentation
                 dataRow["Kod"] = stock.Code;
                 dataRow["Nazwa"] = stock.Name;
                 dataRow["Minimum magazynowe"] = stock.MinInStockRoom;
+                dataRow["Stan zamówień"] = stock.NumOfItemsInOrders;
                 dataGridSource.Rows.Add(dataRow);
             }
 
             dataGridViewStock.DataSource = dataGridSource;
+
+            Dictionary<string, string[]> controlParams = new Dictionary<string, string[]>();
+            controlParams.Add("Stan mag.", new string[] { "Dowolny" });
+            controlParams.Add("Kategoria", new string[] { "Dowolna" });
+            controlParams.Add("Ostatnio zamawiany", new string[] { "Dowolnie" });
+
+            addFilters(controlParams);
+        }
+
+        private void addFilters(Dictionary<string, string[]> controlParams)
+        {
+            foreach(var control in controlParams)
+            {
+                Label label = new Label();
+                label.Text = control.Key;
+                flowLayoutPanelFilters.Controls.Add(label);
+                ComboBox comboBox = new ComboBox();
+                comboBox.Items.AddRange(control.Value);
+                flowLayoutPanelFilters.Controls.Add(comboBox);
+            }
         }
 
         private void addCheckBoxColumn()

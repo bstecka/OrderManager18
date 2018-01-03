@@ -37,12 +37,24 @@ namespace OrderManager.Domain.Entity
         public int Id { get => id; set => id = value; }
         public int MaxInStockroom { get => maxInStockroom; set => maxInStockroom = value; }
         public int MinInStockRoom { get => minInStockRoom; set => minInStockRoom = value; }
-        public int NumberOfImtems { get => numberOfImtems; set => numberOfImtems = value; }
+        public int NumberOfItemsInStockRoom { get => numberOfImtems; set => numberOfImtems = value; }
         public int WeightOfItem { get => weightOfItem; set => weightOfItem = value; }
         public int NumOfItems { get => numOfItems; set => numOfItems = value; }
         public int VAT { get => vat; set => vat = value; }
         public string Code { get => code; set => code = value; }
         public string Name { get => name; set => name = value; }
+
+        public int NumOfItemsInOrders
+        {
+            get
+            {
+                return (new StockService(new DAL.InternalSysDAO.Stock(), new StockMapper())
+                    .GetStocksActiveOrders(this, new OrderMapper(new DAL.InternalSysDAO.Order())))
+                    .Sum(order => order.Tranches.Where(tranche => tranche.Stock.Stock.Equals(this))
+                    .Sum(tranche => tranche.NumberOfItems));
+            }
+        }
+
         public List<CounterpartysStock> CounterpartysStock
         {
             get
