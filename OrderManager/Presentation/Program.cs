@@ -1,10 +1,13 @@
-﻿using System;
+﻿using OrderManager.DAL.ExternalSysDAO;
+using OrderManager.Domain.Service;
+using OrderManager.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace OrderManager
+namespace OrderManager.Presentation
 {
     static class Program
     {
@@ -17,6 +20,7 @@ namespace OrderManager
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            //Application.Run(new MainStokView(new StockService(new Stock(), new StockMapper())));
         }
     }
 }
