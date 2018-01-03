@@ -11,7 +11,7 @@ namespace OrderManager.Domain.Entity
     class Stock
     {
         int id;
-        int maxInStockroom;
+        int maxInStockRoom;
         int minInStockRoom;
         int numberOfImtems;
         int weightOfItem;
@@ -19,12 +19,13 @@ namespace OrderManager.Domain.Entity
         int vat;
         string code;
         string name;
+        Category category;
         private List<CounterpartysStock> counterpartysStock;
 
-        public Stock(int id, int maxInStockroom, int minInStockRoom, int numberOfImtems, int weightOfItem, int numOfItems, int VAT, string code, string name)
+        public Stock(int id, int maxInStockRoom, int minInStockRoom, int numberOfImtems, int weightOfItem, int numOfItems, int VAT, string code, string name, Category category)
         {
             this.id = id;
-            this.maxInStockroom = maxInStockroom;
+            this.maxInStockRoom = maxInStockRoom;
             this.minInStockRoom = minInStockRoom;
             this.numberOfImtems = numberOfImtems;
             this.weightOfItem = weightOfItem;
@@ -32,10 +33,11 @@ namespace OrderManager.Domain.Entity
             this.vat = VAT;
             this.code = code;
             this.name = name;
+            this.category = category;
         }
 
         public int Id { get => id; set => id = value; }
-        public int MaxInStockroom { get => maxInStockroom; set => maxInStockroom = value; }
+        public int MaxInStockRoom { get => maxInStockRoom; set => maxInStockRoom = value; }
         public int MinInStockRoom { get => minInStockRoom; set => minInStockRoom = value; }
         public int NumberOfItemsInStockRoom { get => numberOfImtems; set => numberOfImtems = value; }
         public int WeightOfItem { get => weightOfItem; set => weightOfItem = value; }
@@ -43,6 +45,7 @@ namespace OrderManager.Domain.Entity
         public int VAT { get => vat; set => vat = value; }
         public string Code { get => code; set => code = value; }
         public string Name { get => name; set => name = value; }
+        public Category Category { get => category; set => category = value; }
 
         public int NumOfItemsInOrders
         {

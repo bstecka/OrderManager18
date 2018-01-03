@@ -23,5 +23,12 @@ namespace OrderManager.DAL.InternalSysDAO
             return DBOperations.Select(@"SELECT * FROM TowarKontrahenta 
                 WHERE TowarID IN (" + stock.Rows[0]["ID"] + ")");
         }
+
+        public DataTable GetStocksCategory(DataTable stock)
+        {
+            return DBOperations.Select(@"SELECT * FROM Kategoria JOIN Towar
+                ON Kategoria.ID = Towar.KategoriaID
+                WHERE Towar.ID IN (" + stock.Rows[0]["ID"] + ")");
+        }
     }
 }
