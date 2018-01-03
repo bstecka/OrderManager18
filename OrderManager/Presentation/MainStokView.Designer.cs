@@ -32,9 +32,14 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridViewStock = new System.Windows.Forms.DataGridView();
             this.buttonGenerateOrders = new System.Windows.Forms.Button();
+            this.flowLayoutPanelFilters = new System.Windows.Forms.FlowLayoutPanel();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStock)).BeginInit();
+            this.flowLayoutPanelFilters.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -66,6 +71,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Controls.Add(this.dataGridViewStock, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.buttonGenerateOrders, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanelFilters, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(169, 50);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -100,6 +106,33 @@
             this.buttonGenerateOrders.UseVisualStyleBackColor = true;
             this.buttonGenerateOrders.Click += new System.EventHandler(this.buttonGenerateOrders_Click);
             // 
+            // flowLayoutPanelFilters
+            // 
+            this.flowLayoutPanelFilters.Controls.Add(this.label1);
+            this.flowLayoutPanelFilters.Controls.Add(this.comboBox1);
+            this.flowLayoutPanelFilters.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanelFilters.Location = new System.Drawing.Point(3, 45);
+            this.flowLayoutPanelFilters.Name = "flowLayoutPanelFilters";
+            this.flowLayoutPanelFilters.Size = new System.Drawing.Size(616, 57);
+            this.flowLayoutPanelFilters.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "label1";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(44, 3);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 1;
+            // 
             // MainStokView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -113,6 +146,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStock)).EndInit();
+            this.flowLayoutPanelFilters.ResumeLayout(false);
+            this.flowLayoutPanelFilters.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -123,5 +158,9 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.DataGridView dataGridViewStock;
         private System.Windows.Forms.Button buttonGenerateOrders;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelFilters;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

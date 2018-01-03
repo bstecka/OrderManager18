@@ -12,6 +12,12 @@ namespace OrderManager.DAL.InternalSysDAO
     {
         public Stock() : base("Towar") { }
 
+        public DataTable GetStocksActiveOrders(DataTable stock)
+        {
+            return DBOperations.Select(@"SELECT * FROM Zamowienie WHERE 
+                ID in (SELECT ZamowienieID FROM Transza WHERE TowarKontrahenta)");
+        }
+
         public DataTable GetStocksCounterpartysStock(DataTable stock)
         {
             return DBOperations.Select(@"SELECT * FROM TowarKontrahenta 

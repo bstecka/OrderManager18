@@ -10,5 +10,6 @@ namespace OrderManager.DAL.InternalSysDAO
     interface IStockDAO : IReadableDAO
     {
         DataTable GetStocksCounterpartysStock(DataTable stock);
+        DataTable GetStocksActiveOrders(DataTable stock);
     }
 }
