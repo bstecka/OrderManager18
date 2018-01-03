@@ -28,7 +28,7 @@ namespace OrderManager.DAL.InternalSysDAO
         {
             return DBOperations.Select(@"SELECT * FROM Transza_RabatProcentowy JOIN RabatProcentowy ON 
                 Transza_RabatProcentowy.RabatProcentowyID = RabatProcentowy.ID
-                WHERE TranszaID IN (" + tranche["RabatProcentowyID"] + ")");
+                WHERE TranszaID IN (" + tranche["ID"] + ")");
         }
 
         public void Remove(int id)

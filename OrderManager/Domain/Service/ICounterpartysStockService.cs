@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OrderManager.Domain.Service
 {
-    interface ICounterpartysStockService : IEntityServiceBase<CounterpartysStock>
+    interface ICounterpartysStockService : IEntityServiceBase<Entity.CounterpartysStock>
     {
         List<Entity.PercentageDiscount> GetValidDiscounts
                     (IPercentageDiscountDAO percentageDiscountDAO,

@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using OrderManager.DAL.ExternalSysDAO;
 using OrderManager.DAL.InternalSysDAO;
-using OrderManager.DAL.InternalSysDAO;
 using OrderManager.Domain.Entity;
 using OrderManager.DTO;
 

@@ -15,6 +15,14 @@ namespace OrderManager.Domain.Entity
         private List<PercentageDiscount> discounts;
         private int orderId;
 
+        public Tranche(int? id, CounterpartysStock stock, int numberOfItems)
+        {
+            this.id = id;
+            this.numberOfItems = numberOfItems;
+            this.stock = stock;
+            this.orderId = 1;
+        }
+
         public Tranche(int? id, CounterpartysStock stock, int numberOfItems, int orderId)
         {
             this.id = id;

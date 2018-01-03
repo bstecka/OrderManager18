@@ -59,15 +59,15 @@ namespace OrderManager.DTO
                trancheDAO.GetCounterpartysStock(trancheRow));
             var percentageDiscounts = (new PercentageDiscountMapper(new DAL.InternalSysDAO.PercentageDiscount(), new DAL.ExternalSysDAO.CounterpartysStock())).MapAllFrom(
                trancheDAO.GetPercentageDiscounts(trancheRow));
+            var quotaDiscount = DBNull.Value.Equals(trancheRow["RabatKwotowy"]) ? 0 : Convert.ToDouble(trancheRow["RabatKwotowy"]);
             return new Domain.Entity.Tranche(
                 Convert.ToInt32(trancheRow["ID"]),
                 counterpartyStock,
                 Convert.ToInt32(trancheRow["LiczbaSztuk"]),
                 Convert.ToInt32(trancheRow["ZamowienieID"]),
-                Convert.ToDouble(trancheRow["RabatKwotowy"]),
+                quotaDiscount,
                 percentageDiscounts
                 );
         }
-
     }
 }
