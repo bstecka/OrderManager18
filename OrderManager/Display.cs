@@ -60,14 +60,18 @@ namespace OrderManager
             //Console.WriteLine(mapper.MapFrom(trancheStock).PriceNetto);
             
             IOrderDAO orderDAO = new Order();
-            DataTable orderTable = orderDAO.GetById("22");
+            DataTable orderTable = orderDAO.GetById("1");
             DTO.OrderMapper orderMapper = new DTO.OrderMapper(orderDAO);
             Domain.Entity.Order orderEntity = orderMapper.MapFrom(orderTable);
-            Console.WriteLine(orderEntity);
+            //Console.WriteLine(orderEntity);
             //Console.WriteLine(orderEntity.PriceNetto);
             //Console.WriteLine(orderEntity.PriceBrutto);
             var back = orderMapper.MapFrom(orderMapper.MapTo(orderEntity));
-            Console.WriteLine(orderEntity.ParentOrder);
+            //Console.WriteLine(orderEntity.ParentOrder);
+
+            DataTable stockTable = new Stock().GetById("1");
+            DTO.StockMapper stockMapper = new DTO.StockMapper();
+            Console.WriteLine(stockMapper.MapFrom(stockTable).Category.Id);
         }
     }
 }
