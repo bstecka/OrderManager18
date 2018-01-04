@@ -71,8 +71,8 @@ namespace OrderManager
             foreach (var stock in stockList)
                 toOrder.Add(stock, 10);
 
-            (new OrdersGenerator(toOrder)).Generate(new PriorityService(
-                new DAL.InternalSysDAO.Priority(), new PriorityMapper()));
+            var tranches = (new OrdersGenerator(toOrder,DependencyInjector.ICounterpartyService, DependencyInjector.IPriorityService))
+                .Generate();
         }
 
         public string runDiscountCounter()

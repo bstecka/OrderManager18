@@ -11,12 +11,11 @@ namespace OrderManager.Domain.OrderGenerator
 {
     class PriorityFrequencyChoice : CouterpartysPropertyChoice
     {
-        public PriorityFrequencyChoice(Dictionary<Stock, int> stockToOrder) : base(stockToOrder) { }
+        public PriorityFrequencyChoice(Dictionary<Stock, int> stockToOrder, ICounterpartyService counterpartyService) : base(stockToOrder, counterpartyService) { }
 
         public override List<Counterparty> SortCounterparties()
         {
-            return (new CounterpartyService(new ExternalSysDAO.Counterparty(),
-                new CounterpartyMapper())).GetAll();
+            return counterpartyService.GetAll();
                 //.OrderBy(counterparty => counterparty).ToList();
         }
     }

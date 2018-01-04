@@ -19,10 +19,17 @@ namespace OrderManager.DAL.InternalSysDAO
 
         public DataTable GetPriority(DataRow stock)
         {
-            return DBOperations.Select(@"SELECT ListaKryteriow 
+            var stocksPriority = DBOperations.Select(@"SELECT ListaKryteriow 
             FROM PriorytetTowaru JOIN Priorytet 
             ON  PriorytetTowaru.PriorytetID = Priorytet.ID
             WHERE TowarID in (" + stock["ID"] + ")");
+            if(stocksPriority.Rows.Count == 0)
+            {
+                var generalPriority = stocksPriority.NewRow();
+                generalPriority[0] = Properties.Settings.Default["GeneralPriority"];
+                stocksPriority.Rows.Add(generalPriority);
+            }
+            return stocksPriority;
         }
     }
 }

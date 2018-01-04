@@ -12,13 +12,17 @@ namespace OrderManager.Domain
     class OrdersGenerator : IOrdersGenerator
     {
         private Dictionary<Stock, int> stockToOrder;
+        private ICounterpartyService counterpartyService;
+        private IPriorityService priorityService;
 
-        public OrdersGenerator(Dictionary<Stock, int> stockToOrder)
+        public OrdersGenerator(Dictionary<Stock, int> stockToOrder, ICounterpartyService counterpartyService, IPriorityService priorityService)
         {
             this.stockToOrder = stockToOrder;
+            this.counterpartyService = counterpartyService;
+            this.priorityService = priorityService;
         }
 
-        public List<Order> Generate(IPriorityService priorityService)
+        public List<Order> Generate()
         {
             List<IOffersChoice> strategies = new List<IOffersChoice>();
             List<Tranche> tranches = new List<Tranche>();
@@ -26,8 +30,9 @@ namespace OrderManager.Domain
             foreach (Priority priority in Enum.GetValues(typeof(Priority)))
                 strategies.Add(priority.Strategy(
                     stockToOrder.Where(tuple =>
-                    priorityService.GetStockPriority(tuple.Key, new DTO.StockMapper()).First()
-                    .Equals(priority)).ToDictionary(i => i.Key, i => i.Value)));
+                    priorityService.GetStockPriority(tuple.Key).First()
+                    .Equals(priority)).ToDictionary(i => i.Key, i => i.Value),
+                    counterpartyService));
             foreach (var strategy in strategies)
                 tranches.AddRange(strategy.BestChosenOfferts());
 
@@ -45,13 +50,13 @@ namespace OrderManager.Domain
     static class PriorityMethods
     {
         public static IOffersChoice Strategy(this Priority priority, 
-            Dictionary<Stock, int> stockToOrder)
+            Dictionary<Stock, int> stockToOrder, ICounterpartyService counterpartyService)
         {
             switch (priority)
             {
                 case Priority.Price: return new PriorityPriceChoice(stockToOrder);
-                case Priority.Distance: return new PriorityDistanceChoice(stockToOrder);
-                case Priority.Frequency: return new PriorityFrequencyChoice(stockToOrder);
+                case Priority.Distance: return new PriorityDistanceChoice(stockToOrder, counterpartyService);
+                case Priority.Frequency: return new PriorityFrequencyChoice(stockToOrder, counterpartyService);
                 default: throw new ArgumentException();
             }
         }

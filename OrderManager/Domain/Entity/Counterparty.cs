@@ -15,7 +15,6 @@ namespace OrderManager.Domain.Entity
         private int distance;
         private Int64 nip;
         private string name;
-        private List<CounterpartysStock> stock;
 
         public Counterparty(int id, long nip, string name, int distance)
         {
@@ -29,15 +28,6 @@ namespace OrderManager.Domain.Entity
         public int Distance { get => distance; set => distance = value; }
         public long Nip { get => nip; set => nip = value; }
         public string Name { get => name; set => name = value; }
-        public List<CounterpartysStock> Stock {
-            get
-            {
-                if(stock == null)
-                    stock = (new CounterpartyService(new ExternalSysDAO.Counterparty(), new CounterpartyMapper())).
-                    GetCounterpartysStock(this, new CounterpartysStockMapper(new DAL.ExternalSysDAO.CounterpartysStock()));
-                return stock;
-            }
-            set => stock = value; }
 
         public override string ToString() { return id + " " + name; }
     }

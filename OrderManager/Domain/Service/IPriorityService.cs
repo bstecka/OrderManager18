@@ -10,6 +10,6 @@ namespace OrderManager.Domain.Service
 {
     interface IPriorityService
     {
-        List<Priority> GetStockPriority(Stock stock, StockMapper stockMapper);
+        List<Priority> GetStockPriority(Stock stock);
     }
 }

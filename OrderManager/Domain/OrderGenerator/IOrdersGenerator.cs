@@ -10,6 +10,6 @@ namespace OrderManager.Domain
 {
     interface IOrdersGenerator
     {
-        List<Order> Generate(IPriorityService priorityService);
+        List<Order> Generate();
     }
 }

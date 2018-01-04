@@ -13,11 +13,14 @@ namespace OrderManager.Domain.Service
     {
         private ICounterpartyDAO DAO;
         private IMapperBase<Counterparty> mapper;
+        private IMapperBase<CounterpartysStock> counterpartysStockMapper;
 
-        public CounterpartyService(ICounterpartyDAO DAO, IMapperBase<Counterparty> mapper)
+        public CounterpartyService(ICounterpartyDAO DAO, IMapperBase<Counterparty> mapper,
+            IMapperBase<Entity.CounterpartysStock> counterpartysStockMapper)
         {
             this.DAO = DAO;
             this.mapper = mapper;
+            this.counterpartysStockMapper = counterpartysStockMapper;
         }
 
         public List<Counterparty> GetAll()
@@ -30,8 +33,7 @@ namespace OrderManager.Domain.Service
             return mapper.MapFrom(DAO.GetById(id));
         }
 
-        public List<Entity.CounterpartysStock> GetCounterpartysStock(Counterparty counterparty,
-            IMapperBase<Entity.CounterpartysStock> counterpartysStockMapper)
+        public List<Entity.CounterpartysStock> GetCounterpartysStock(Counterparty counterparty)
         {
             return counterpartysStockMapper.MapAllFrom(
                 DAO.GetCounterpartysStock(mapper.MapTo(counterparty)));

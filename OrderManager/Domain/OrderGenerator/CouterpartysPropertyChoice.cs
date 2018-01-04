@@ -10,11 +10,13 @@ namespace OrderManager.Domain.OrderGenerator
 {
     abstract class CouterpartysPropertyChoice : IOffersChoice
     {
-        Dictionary<Stock, int> stockToOrder;
+        protected Dictionary<Stock, int> stockToOrder;
+        protected ICounterpartyService counterpartyService;
 
-        protected CouterpartysPropertyChoice(Dictionary<Stock, int> stockToOrder)
+        protected CouterpartysPropertyChoice(Dictionary<Stock, int> stockToOrder, ICounterpartyService counterpartyService)
         {
             this.stockToOrder = stockToOrder;
+            this.counterpartyService = counterpartyService;
         }
 
         public abstract List<Counterparty> SortCounterparties();
@@ -29,10 +31,11 @@ namespace OrderManager.Domain.OrderGenerator
             foreach (Stock stock in stockToOrder.Keys)
                 bestChosenCounterparties.Add(
                     currentCounterpartysStock = 
-                    sortedCounterparties.FirstOrDefault(counterparty => counterparty.Stock
+                    counterpartyService.GetCounterpartysStock(
+                    sortedCounterparties.FirstOrDefault(counterparty => counterpartyService.GetCounterpartysStock(counterparty)
                     .Select(counterpartysStock => counterpartysStock.Stock)
-                    .Contains(stock))
-                    .Stock.FirstOrDefault(counterpartysStock => counterpartysStock.Stock.Equals(stock)),
+                    .Contains(stock)))
+                    .FirstOrDefault(counterpartysStock => counterpartysStock.Stock.Equals(stock)),
                     stockToOrder[currentCounterpartysStock.Stock]);
 
             return (new DiscountCounter(bestChosenCounterparties)).BestChosenDiscounts();

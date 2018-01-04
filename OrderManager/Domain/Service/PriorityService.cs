@@ -13,16 +13,18 @@ namespace OrderManager.Domain.Service
     {
         IPriorityDAO priorityDAO;
         IMapperBase<List<Priority>> priorityMapper;
+        IMapperBase<Entity.Stock> stockMapper;
 
-        public PriorityService(IPriorityDAO priorityDAO, IMapperBase<List<Priority>> priorityMapper)
+        public PriorityService(IPriorityDAO priorityDAO, IMapperBase<List<Priority>> priorityMapper, IMapperBase<Entity.Stock> stockMapper)
         {
             this.priorityDAO = priorityDAO;
+            this.stockMapper = stockMapper;
             this.priorityMapper = priorityMapper;
         }
 
-        public List<Priority> GetStockPriority(Entity.Stock stock, StockMapper stockMapper)
+        public List<Priority> GetStockPriority(Entity.Stock stock)
         {
-            return priorityMapper.MapFrom(
+            return stock == null ? null : priorityMapper.MapFrom(
                 priorityDAO.GetPriority(stockMapper.MapTo(stock)));
         }
     }

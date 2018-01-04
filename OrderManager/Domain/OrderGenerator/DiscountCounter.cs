@@ -32,18 +32,20 @@ namespace OrderManager.Domain
                 dictionary.Keys.Select(
                 counterpartysStock => counterpartysStock.ValidDiscounts)
                 .SelectMany(i => i));
-
-            foreach (var discount in possibleDiscounts)
-                adjustDiscountToDemand(discount);
-            possibleDiscounts.RemoveWhere(discount => !(discountCanBeUsed(discount)));
-            List<PercentageDiscount> allPossibleConfigurationsOfDiscounts = new List<PercentageDiscount>();
-            foreach (var discount in possibleDiscounts)
-                allPossibleConfigurationsOfDiscounts.AddRange(allPossibleCombinationsOfDiscount(discount));
-            var allCombosOfDiscounts = getAllCombos(allPossibleConfigurationsOfDiscounts);
-            allCombosOfDiscounts.RemoveAll(listOfDiscounts => !(discountsAreDisjunctive(listOfDiscounts)));
-            Dictionary<List<PercentageDiscount>, double> profits = getProfits(
-               allCombosOfDiscounts, bestStockWithoutDiscounts);
-
+            List<List<PercentageDiscount>> allCombosOfDiscounts = new List<List<PercentageDiscount>>();
+            if (possibleDiscounts.Count != 0)
+            {
+                foreach (var discount in possibleDiscounts)
+                    adjustDiscountToDemand(discount);
+                possibleDiscounts.RemoveWhere(discount => !(discountCanBeUsed(discount)));
+                List<PercentageDiscount> allPossibleConfigurationsOfDiscounts = new List<PercentageDiscount>();
+                foreach (var discount in possibleDiscounts)
+                    allPossibleConfigurationsOfDiscounts.AddRange(allPossibleCombinationsOfDiscount(discount));
+                allCombosOfDiscounts = getAllCombos(allPossibleConfigurationsOfDiscounts);
+                allCombosOfDiscounts.RemoveAll(listOfDiscounts => !(discountsAreDisjunctive(listOfDiscounts)));
+                Dictionary<List<PercentageDiscount>, double> profits = getProfits(
+                   allCombosOfDiscounts, bestStockWithoutDiscounts);
+            }
             return makeTranches(getProfits(
                allCombosOfDiscounts, bestStockWithoutDiscounts)
                .OrderByDescending(tuple => tuple.Value).First().Key,

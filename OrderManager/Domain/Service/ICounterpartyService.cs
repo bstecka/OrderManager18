@@ -10,7 +10,6 @@ namespace OrderManager.Domain.Service
 {
     interface ICounterpartyService : IEntityServiceBase<Counterparty>
     {
-        List<Entity.CounterpartysStock> GetCounterpartysStock(Counterparty counterparty,
-                    IMapperBase<Entity.CounterpartysStock> counterpartysStockMapper);
+        List<Entity.CounterpartysStock> GetCounterpartysStock(Counterparty counterparty);
     }
 }
