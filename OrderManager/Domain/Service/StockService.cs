@@ -13,11 +13,16 @@ namespace OrderManager.Domain.Service
     {
         private IStockDAO DAO;
         private IMapperBase<Entity.Stock> mapper;
+        private IMapperBase<Entity.Order> orderMapper;
+        private IMapperBase<Entity.CounterpartysStock> counterpartysStockMapper;
 
-        public StockService(IStockDAO DAO, IMapperBase<Entity.Stock> mapper)
+        public StockService(IStockDAO DAO, IMapperBase<Entity.Stock> mapper, 
+            IMapperBase<Entity.Order> orderMapper, IMapperBase<Entity.CounterpartysStock> counterpartysStockMapper)
         {
             this.DAO = DAO;
             this.mapper = mapper;
+            this.orderMapper = orderMapper;
+            this.counterpartysStockMapper = counterpartysStockMapper;
         }
 
         public List<Entity.Stock> GetAll()
@@ -30,13 +35,19 @@ namespace OrderManager.Domain.Service
             return mapper.MapFrom(DAO.GetById(id));
         }
 
-        public List<Entity.Order> GetStocksActiveOrders(Entity.Stock stock, IMapperBase<Entity.Order> orderMapper)
+        public int GetNumOfItemsInOrders(Entity.Stock stock)
+        {
+            return GetStocksActiveOrders(stock)
+                .Sum(order => order.Tranches.Where(tranche => tranche.Stock.Stock.Equals(this))
+                    .Sum(tranche => tranche.NumberOfItems));
+        }
+
+        public List<Entity.Order> GetStocksActiveOrders(Entity.Stock stock)
         {
             return orderMapper.MapAllFrom(DAO.GetStocksActiveOrders(mapper.MapTo(stock)));
         }
 
-        public List<Entity.CounterpartysStock> GetStocksCounterpartysStock(Entity.Stock stock,
-            IMapperBase<Entity.CounterpartysStock> counterpartysStockMapper)
+        public List<Entity.CounterpartysStock> GetStocksCounterpartysStock(Entity.Stock stock)
         {
             return counterpartysStockMapper.MapAllFrom(
                 DAO.GetStocksCounterpartysStock(mapper.MapTo(stock)));

@@ -45,8 +45,8 @@ namespace OrderManager
             //disc.Add(dt);
             Stock stock = new Stock();
             PercentageDiscount percentageDiscount = new PercentageDiscount();
-            dataGridView1.DataSource = percentageDiscount.GetCounterpartysStockValidDicounts(
-                (new CounterpartysStock()).GetById("1"));
+            //dataGridView1.DataSource = percentageDiscount.GetCounterpartysStockValidDicounts(
+                //(new CounterpartysStock()).GetById("1"));
             //Show();
 
             DataTable trancheTable = new Tranche().GetById("3");

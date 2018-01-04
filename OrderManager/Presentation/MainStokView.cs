@@ -45,7 +45,7 @@ namespace OrderManager.Presentation
                 dataRow["Kod"] = stock.Code;
                 dataRow["Nazwa"] = stock.Name;
                 dataRow["Minimum magazynowe"] = stock.MinInStockRoom;
-                dataRow["Stan zamówień"] = stock.NumOfItemsInOrders;
+                dataRow["Stan zamówień"] = stockService.GetNumOfItemsInOrders(stock);
                 dataGridSource.Rows.Add(dataRow);
             }
 

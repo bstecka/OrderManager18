@@ -11,7 +11,8 @@ namespace OrderManager.Domain.OrderGenerator
 {
     class PriorityDistanceChoice : CouterpartysPropertyChoice
     {
-        public PriorityDistanceChoice(Dictionary<Stock, int> stockToOrder, ICounterpartyService counterpartyService) : base(stockToOrder, counterpartyService) { }
+        public PriorityDistanceChoice(Dictionary<Stock, int> stockToOrder, ICounterpartyService counterpartyService,
+            ICounterpartysStockService counterpartysStockService, IStockService stockService) : base(stockToOrder, counterpartyService, counterpartysStockService, stockService) { }
 
         public override List<Counterparty> SortCounterparties()
         {

@@ -9,7 +9,6 @@ namespace OrderManager.DAL.InternalSysDAO
 {
     interface IPercentageDiscountDAO : IReadableDAO, IWritableDAO
     {
-        DataTable GetCounterpartysStockValidDicounts(DataTable counterpartysStock);
         DataTable GetCounterpartiesStockWithDiscount(DataTable discount);
         DataTable GetCounterpartiesStockWithDiscount(DataRow discount);
 

@@ -14,7 +14,6 @@ namespace OrderManager.Domain.Entity
         private Stock stock;
         private Counterparty counterparty;
         private double priceNetto;
-        private List<PercentageDiscount> validDiscounts;
 
         public CounterpartysStock(int id, Stock stock, Counterparty counterparty, double priceNetto)
         {
@@ -28,22 +27,6 @@ namespace OrderManager.Domain.Entity
         public double PriceNetto { get => priceNetto; set => priceNetto = value; }
         internal Stock Stock { get => stock; set => stock = value; }
         internal Counterparty Counterparty { get => counterparty; set => counterparty = value; }
-        internal List<PercentageDiscount> ValidDiscounts {
-            get
-            {
-                if(validDiscounts == null)
-                {
-                    DAL.ExternalSysDAO.CounterpartysStock counterpartysStockDAO = new DAL.ExternalSysDAO.CounterpartysStock();
-                    DAL.InternalSysDAO.PercentageDiscount percentageDiscountDAO = new DAL.InternalSysDAO.PercentageDiscount();
-                    validDiscounts = (new CounterpartysStockService(counterpartysStockDAO,
-                        new CounterpartysStockMapper(counterpartysStockDAO))).
-                        GetValidDiscounts(percentageDiscountDAO,
-                            new PercentageDiscountMapper(percentageDiscountDAO, counterpartysStockDAO), 
-                            this);
-                }
-                return validDiscounts;
-            }
-            set => validDiscounts = value; }
 
         public override string ToString()
         {

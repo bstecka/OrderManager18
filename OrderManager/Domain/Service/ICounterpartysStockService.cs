@@ -11,9 +11,6 @@ namespace OrderManager.Domain.Service
 {
     interface ICounterpartysStockService : IEntityServiceBase<Entity.CounterpartysStock>
     {
-        List<Entity.PercentageDiscount> GetValidDiscounts
-                    (IPercentageDiscountDAO percentageDiscountDAO,
-                    IMapperBase<Entity.PercentageDiscount> percentageDiscountMapper,
-                    Entity.CounterpartysStock counterpartysStock);
+        List<Entity.PercentageDiscount> GetValidDiscounts(Entity.CounterpartysStock counterpartysStock);
     }
 }

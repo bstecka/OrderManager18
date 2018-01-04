@@ -30,17 +30,5 @@ namespace OrderManager.DAL.InternalSysDAO
                 (SELECT TowarKontrahentaID FROM RabatProcentowy_TowarKontrahenta
                 WHERE RabatProcentowyID = " + discount["ID"].ToString() + ")");
         }
-
-        public DataTable GetCounterpartysStockValidDicounts(DataTable counterpartysStock)
-        {
-            
-            if (counterpartysStock.Rows.Count != 1 && !counterpartysStock.Columns.Contains("ID"))
-                throw new ArgumentOutOfRangeException();
-            return DBOperations.Select(
-              @"SELECT * FROM RabatProcentowy WHERE ID IN 
-              (SELECT RabatProcentowyID FROM RabatProcentowy_TowarKontrahenta 
-              WHERE TowarKontrahentaID = " + counterpartysStock.Rows[0]["ID"].ToString() + @")
-              AND OdKiedy <= GETDATE() AND DoKiedy >= GETDATE() AND Aktywny = 1");
-        }
     }
 }

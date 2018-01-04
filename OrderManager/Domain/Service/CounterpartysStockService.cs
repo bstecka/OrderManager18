@@ -14,11 +14,13 @@ namespace OrderManager.Domain.Service
     {
         private ICounterpartysStockDAO counterpartysStockDAO;
         private IMapperBase<Entity.CounterpartysStock> counterpartysStockMapper;
+        private IMapperBase<Entity.PercentageDiscount> percentageDiscountMapper;
 
-        public CounterpartysStockService(ICounterpartysStockDAO counterpartysStockDAO, IMapperBase<Entity.CounterpartysStock> counterpartysStockMapper)
+        public CounterpartysStockService(ICounterpartysStockDAO counterpartysStockDAO, IMapperBase<Entity.CounterpartysStock> counterpartysStockMapper, IMapperBase<Entity.PercentageDiscount> percentageDiscountMapper)
         {
             this.counterpartysStockDAO = counterpartysStockDAO;
             this.counterpartysStockMapper = counterpartysStockMapper;
+            this.percentageDiscountMapper = percentageDiscountMapper;
         }
 
         public List<Entity.CounterpartysStock> GetAll()
@@ -32,11 +34,9 @@ namespace OrderManager.Domain.Service
         }
 
         public List<Entity.PercentageDiscount> GetValidDiscounts
-            (IPercentageDiscountDAO percentageDiscountDAO,
-            IMapperBase<Entity.PercentageDiscount> percentageDiscountMapper,
-            Entity.CounterpartysStock counterpartysStock)
+            (Entity.CounterpartysStock counterpartysStock)
         {
-            return percentageDiscountMapper.MapAllFrom(percentageDiscountDAO.GetCounterpartysStockValidDicounts(
+            return percentageDiscountMapper.MapAllFrom(counterpartysStockDAO.GetCounterpartysStockValidDicounts(
                 counterpartysStockMapper.MapTo(counterpartysStock)));
         }
     }

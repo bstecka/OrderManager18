@@ -20,7 +20,6 @@ namespace OrderManager.Domain.Entity
         string code;
         string name;
         Category category;
-        private List<CounterpartysStock> counterpartysStock;
 
         public Stock(int id, int maxInStockRoom, int minInStockRoom, int numberOfImtems, int weightOfItem, int numOfItems, int VAT, string code, string name, Category category)
         {
@@ -46,29 +45,7 @@ namespace OrderManager.Domain.Entity
         public string Code { get => code; set => code = value; }
         public string Name { get => name; set => name = value; }
         public Category Category { get => category; set => category = value; }
-
-        public int NumOfItemsInOrders
-        {
-            get
-            {
-                return (new StockService(new DAL.InternalSysDAO.Stock(), new StockMapper())
-                    .GetStocksActiveOrders(this, new OrderMapper(new DAL.InternalSysDAO.Order())))
-                    .Sum(order => order.Tranches.Where(tranche => tranche.Stock.Stock.Equals(this))
-                    .Sum(tranche => tranche.NumberOfItems));
-            }
-        }
-
-        public List<CounterpartysStock> CounterpartysStock
-        {
-            get
-            {
-                if (counterpartysStock == null)
-                    counterpartysStock = (new StockService(new DAL.InternalSysDAO.Stock(), new StockMapper())).
-                        GetStocksCounterpartysStock(this, new CounterpartysStockMapper(new DAL.ExternalSysDAO.CounterpartysStock()));
-                return counterpartysStock;
-            }
-            set => counterpartysStock = value;
-        }
+        
         public override bool Equals(object obj)
         {
             return obj is Stock && ((Stock)obj).Id == id;

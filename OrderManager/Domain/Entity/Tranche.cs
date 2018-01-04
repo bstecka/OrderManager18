@@ -72,7 +72,7 @@ namespace OrderManager.Domain.Entity
         public double PriceBrutto
         {
             get => (stock.PriceNetto * (1 - discounts.Sum(discount => discount.Amount))
-                * numberOfItems) * stock.Stock.VAT * 0.01 - quotaDiscount;
+                * numberOfItems) * (1 + stock.Stock.VAT * 0.01) - quotaDiscount;
         }
         internal CounterpartysStock Stock { get => stock; set => stock = value; }
         internal List<PercentageDiscount> Discounts { get => discounts; set => discounts = value; }

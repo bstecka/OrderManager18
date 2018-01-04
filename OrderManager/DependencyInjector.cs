@@ -29,6 +29,22 @@ namespace OrderManager
             }
         }
 
+        public static ICounterpartysStockService ICounterpartysStockService
+        {
+            get
+            {
+                return new CounterpartysStockService(ICounterpartysStockDAO, IMapperBaseCounterpartysStock, IMapperrBasePercentageDiscount);
+            }
+        }
+
+        public static IStockService IStockService
+        {
+            get
+            {
+                return new StockService(IStockDAO, IMapperBaseStock, IMapperBaseOrder, IMapperBaseCounterpartysStock);
+            }
+        }
+
         public static ICounterpartyDAO ICounterpartyDAO
         {
             get
@@ -53,6 +69,29 @@ namespace OrderManager
             }
         }
 
+        public static IPercentageDiscountDAO IPercentageDiscountDAO
+        {
+            get
+            {
+                return new DAL.InternalSysDAO.PercentageDiscount();
+            }
+        }
+
+        public static IOrderDAO IOrderDAO
+        {
+            get
+            {
+                return new DAL.InternalSysDAO.Order();
+            }
+        }
+
+        public static IStockDAO IStockDAO
+        {
+            get
+            {
+                return new DAL.InternalSysDAO.Stock();
+            }
+        }
 
         public static IMapperBase<Counterparty> IMapperBaseCounterparty
         {
@@ -76,11 +115,28 @@ namespace OrderManager
                 return new PriorityMapper();
             }
         }
+
         public static IMapperBase<Domain.Entity.Stock> IMapperBaseStock
         {
             get
             {
                 return new StockMapper();
+            }
+        }
+
+        public static IMapperBase<Domain.Entity.PercentageDiscount> IMapperrBasePercentageDiscount
+        {
+            get
+            {
+                return new PercentageDiscountMapper(IPercentageDiscountDAO, ICounterpartysStockDAO);
+            }
+        }
+
+        public static IMapperBase<Domain.Entity.Order> IMapperBaseOrder
+        {
+            get
+            {
+                return new OrderMapper(IOrderDAO);
             }
         }
     }

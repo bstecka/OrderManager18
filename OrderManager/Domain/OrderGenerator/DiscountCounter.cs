@@ -1,4 +1,5 @@
 ﻿using OrderManager.Domain.Entity;
+using OrderManager.Domain.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,17 +11,27 @@ namespace OrderManager.Domain
     class DiscountCounter
     {
         private Dictionary<CounterpartysStock, int> dictionary;
+        private ICounterpartysStockService counterpartysStockService;
+        private IStockService stockService;
 
-        public DiscountCounter(Dictionary<CounterpartysStock, int> dictionary)
+        public DiscountCounter(Dictionary<CounterpartysStock, int> dictionary, 
+            ICounterpartysStockService counterpartysStockService,
+            IStockService stockService)
         {
             this.dictionary = dictionary;
+            this.counterpartysStockService = counterpartysStockService;
+            this.stockService = stockService;
         }
 
-        public DiscountCounter(Dictionary<Stock, int> dictionary)
+        public DiscountCounter(Dictionary<Stock, int> dictionary,
+            ICounterpartysStockService counterpartysStockService,
+            IStockService stockService)
         {
             this.dictionary = new Dictionary<CounterpartysStock, int>();
+            this.counterpartysStockService = counterpartysStockService;
+            this.stockService = stockService;
             foreach (var oneStock in dictionary)
-                foreach (var counterpartysStock in oneStock.Key.CounterpartysStock)
+                foreach (var counterpartysStock in stockService.GetStocksCounterpartysStock(oneStock.Key))
                     (this.dictionary).Add(counterpartysStock, oneStock.Value);
         }
 
@@ -30,7 +41,7 @@ namespace OrderManager.Domain
             List<CounterpartysStock> bestStockWithoutDiscounts = lowestPricesWithoutDiscount(dictionary);
             HashSet<PercentageDiscount> possibleDiscounts = new HashSet<PercentageDiscount>(
                 dictionary.Keys.Select(
-                counterpartysStock => counterpartysStock.ValidDiscounts)
+                counterpartysStock => counterpartysStockService.GetValidDiscounts(counterpartysStock))
                 .SelectMany(i => i));
             List<List<PercentageDiscount>> allCombosOfDiscounts = new List<List<PercentageDiscount>>();
             if (possibleDiscounts.Count != 0)
@@ -64,7 +75,7 @@ namespace OrderManager.Domain
             List<CounterpartysStock> result = new List<CounterpartysStock>();
             foreach (var stock in
                 new HashSet<Stock>(dictionary.Keys.Select(counterpartysStock => counterpartysStock.Stock)))
-                result.Add(stock.CounterpartysStock.Intersect(dictionary.Keys).OrderBy(
+                result.Add(stockService.GetStocksCounterpartysStock(stock).Intersect(dictionary.Keys).OrderBy(
                     counterpartysStock => counterpartysStock.PriceNetto).First());
             return result;
         }

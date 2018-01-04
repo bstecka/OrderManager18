@@ -12,11 +12,17 @@ namespace OrderManager.Domain.OrderGenerator
     {
         protected Dictionary<Stock, int> stockToOrder;
         protected ICounterpartyService counterpartyService;
+        protected ICounterpartysStockService counterpartysStockService;
+        protected IStockService stockService;
 
-        protected CouterpartysPropertyChoice(Dictionary<Stock, int> stockToOrder, ICounterpartyService counterpartyService)
+        protected CouterpartysPropertyChoice(Dictionary<Stock, int> stockToOrder, 
+            ICounterpartyService counterpartyService, 
+            ICounterpartysStockService counterpartysStockService, IStockService stockService)
         {
             this.stockToOrder = stockToOrder;
             this.counterpartyService = counterpartyService;
+            this.counterpartysStockService = counterpartysStockService;
+            this.stockService = stockService;
         }
 
         public abstract List<Counterparty> SortCounterparties();
@@ -38,7 +44,8 @@ namespace OrderManager.Domain.OrderGenerator
                     .FirstOrDefault(counterpartysStock => counterpartysStock.Stock.Equals(stock)),
                     stockToOrder[currentCounterpartysStock.Stock]);
 
-            return (new DiscountCounter(bestChosenCounterparties)).BestChosenDiscounts();
+            return (new DiscountCounter(bestChosenCounterparties, counterpartysStockService, stockService))
+                .BestChosenDiscounts();
         }
     }
 }

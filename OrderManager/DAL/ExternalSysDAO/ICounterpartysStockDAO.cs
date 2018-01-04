@@ -14,5 +14,6 @@ namespace OrderManager.DAL.ExternalSysDAO
         DataTable GetStock(DataRow counterpartysStock);
         DataTable GetCounterparty(DataRow counterpartysStock);
         DataTable GetStock(DataTable counterpartysStock);
+        DataTable GetCounterpartysStockValidDicounts(DataTable counterpartysStock);
     }
 }
