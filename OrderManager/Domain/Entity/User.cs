@@ -16,6 +16,8 @@ namespace OrderManager.Domain.Entity
         private string phoneNumber;
         private string type;
 
+        public User() { }
+
         public User(int id, string name, string surname, string login, string password, string phoneNumber, string type)
         {
             this.id = id;
