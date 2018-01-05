@@ -31,8 +31,8 @@ namespace OrderManager.Presentation
         {
             DataTable dataGridSource = new DataTable();
             listStock = stockService.GetAll();
-
-            addCheckBoxColumn();
+            (new DataGridviewCheckBoxColumnProwider(dataGridViewStock)).addCheckBoxColumn();
+            //addCheckBoxColumn();
 
             dataGridSource.Columns.Add("Kod");
             dataGridSource.Columns.Add("Nazwa");
@@ -53,6 +53,7 @@ namespace OrderManager.Presentation
             }
 
             dataGridViewStock.DataSource = dataGridSource;
+            dataGridViewStock.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             addDataSourceForFilters();
         }
@@ -124,9 +125,26 @@ namespace OrderManager.Presentation
                 }
             }
 
-            (new OrdersGenerator(stockToOrder, DependencyInjector.ICounterpartyService,
+            List<Order> orders = (new OrdersGenerator(stockToOrder, DependencyInjector.ICounterpartyService,
                 DependencyInjector.IPriorityService, DependencyInjector.ICounterpartysStockService,
                 DependencyInjector.IStockService, DependencyInjector.IEligibleOrdersNamesService)).Generate();
+            var orderedStock = new HashSet<Stock>(orders.Select(order => order.Tranches).SelectMany(i => i).Select(tranche => tranche.Stock.Stock));
+            var unorderedStock = (stockToOrder.Keys).Except(orderedStock);
+            if (unorderedStock.Count() != 0)
+                informAboutUnorderedStock(unorderedStock);
+            if (orders.Count == 0)
+                MessageBox.Show("Brak wygenerowanych zamówień.");
+            else
+                (new GeneratedOrders(orders)).Show();
+        }
+
+        private void informAboutUnorderedStock(IEnumerable<Stock> stock)
+        {
+            StringBuilder message = new StringBuilder("Nie udało się wygenerować zamówień dla części wybranych towarów."); 
+            message.AppendLine("Nie wygenerowano zamówień dla towarów: "); 
+            foreach (Stock unorderedStock in stock)
+                message.AppendLine(unorderedStock.Name);
+            MessageBox.Show(message.ToString());
         }
 
         private void comboBoxState_SelectedIndexChanged(object sender, EventArgs e)

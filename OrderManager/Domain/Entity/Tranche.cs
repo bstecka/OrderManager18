@@ -66,13 +66,17 @@ namespace OrderManager.Domain.Entity
         public double QuotaDiscount { get => quotaDiscount; set => quotaDiscount = value; }
         public double PriceNetto
         {
-            get => (stock.PriceNetto * (1 - discounts.Sum(discount => discount.Amount))
-                * numberOfItems) - quotaDiscount;
+            get => (stock.PriceNetto *
+                (discounts == null || discounts.Count == 0 ? 
+                1 : (1 - discounts.Sum(discount => discount.Amount))) * numberOfItems) 
+                - quotaDiscount;
         }
         public double PriceBrutto
         {
-            get => (stock.PriceNetto * (1 - discounts.Sum(discount => discount.Amount))
-                * numberOfItems) * (1 + stock.Stock.VAT * 0.01) - quotaDiscount;
+            get => (stock.PriceNetto *
+                (discounts == null || discounts.Count == 0 ? 
+                1 :(1 - discounts.Sum(discount => discount.Amount))* numberOfItems))
+                * (1 + stock.Stock.VAT * 0.01) - quotaDiscount;
         }
         internal CounterpartysStock Stock { get => stock; set => stock = value; }
         internal List<PercentageDiscount> Discounts { get => discounts; set => discounts = value; }

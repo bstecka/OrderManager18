@@ -116,6 +116,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\DataGridviewCheckBoxColumnProwider.cs" />
     <Compile Include="Presentation\GeneratedOrders.cs">
       <SubType>Form</SubType>
     </Compile>

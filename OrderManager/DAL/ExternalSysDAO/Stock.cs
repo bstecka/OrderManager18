@@ -17,7 +17,7 @@ namespace OrderManager.DAL.InternalSysDAO
             return DBOperations.Select(@"SELECT * FROM Zamowienie WHERE 
                 ID in (SELECT ZamowienieID FROM Transza JOIN TowarKontrahenta
                 ON Transza.TowarKontrahentaID = TowarKontrahenta.ID
-                WHERE TowarID = " + stock.Rows[0]["ID"] + ")");
+                WHERE TowarID = " + stock.Rows[0]["ID"] + ") AND StanZamowieniaID = 1");
         }
 
         public DataTable GetStocksCounterpartysStock(DataTable stock)

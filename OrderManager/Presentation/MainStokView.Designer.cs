@@ -96,6 +96,7 @@
             this.dataGridViewStock.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewStock.Location = new System.Drawing.Point(3, 108);
             this.dataGridViewStock.Name = "dataGridViewStock";
+            this.dataGridViewStock.RowHeadersVisible = false;
             this.dataGridViewStock.Size = new System.Drawing.Size(616, 249);
             this.dataGridViewStock.TabIndex = 0;
             // 
@@ -103,9 +104,9 @@
             // 
             this.buttonGenerateOrders.Location = new System.Drawing.Point(3, 380);
             this.buttonGenerateOrders.Name = "buttonGenerateOrders";
-            this.buttonGenerateOrders.Size = new System.Drawing.Size(75, 23);
+            this.buttonGenerateOrders.Size = new System.Drawing.Size(140, 23);
             this.buttonGenerateOrders.TabIndex = 1;
-            this.buttonGenerateOrders.Text = "button1";
+            this.buttonGenerateOrders.Text = "Wygeneruj zamówienia";
             this.buttonGenerateOrders.UseVisualStyleBackColor = true;
             this.buttonGenerateOrders.Click += new System.EventHandler(this.buttonGenerateOrders_Click);
             // 
