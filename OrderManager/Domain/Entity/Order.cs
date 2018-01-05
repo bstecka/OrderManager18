@@ -28,20 +28,20 @@ namespace OrderManager.Domain.Entity
         private List<Tranche> tranches;
 
         //no dateOfConclusion, no parentOrder
-        public Order(int? id, string name, Counterparty counterparty, DateTime dateOfCreation, string state, User creator, List<Tranche> tranches)
+        public Order(int? id, string name, Counterparty counterparty, DateTime dateOfCreation, ORDERSTATE state, User creator, List<Tranche> tranches)
         {
             this.id = id;
             this.name = name;
             this.creator = creator;
             this.counterparty = counterparty;
             this.dateOfCreation = dateOfCreation;
-            this.state = (ORDERSTATE)Enum.Parse(typeof(ORDERSTATE), state);
-            this.ParentOrder = parentOrder;
+            this.state = state;
             this.tranches = tranches;
         }
 
         //no parentOrder
-        public Order(int id, string name, Counterparty counterparty, DateTime dateOfCreation, DateTime dateOfConclusion, string state, User creator, List<Tranche> tranches)
+        public Order(int id, string name, Counterparty counterparty, DateTime dateOfCreation, DateTime dateOfConclusion, 
+            ORDERSTATE state, User creator, List<Tranche> tranches)
         {
             this.id = id;
             this.name = name;
@@ -49,25 +49,26 @@ namespace OrderManager.Domain.Entity
             this.counterparty = counterparty;
             this.dateOfCreation = dateOfCreation;
             this.dateOfConclusion = dateOfConclusion;
-            this.state = (ORDERSTATE)Enum.Parse(typeof(ORDERSTATE), state);
+            this.state = state;
             this.tranches = tranches;
         }
 
         //no dateOfConclusion
-        public Order(int id, string name, Counterparty counterparty, DateTime dateOfCreation, string state, User creator, List<Tranche> tranches, Order parentOrder)
+        public Order(int id, string name, Counterparty counterparty, DateTime dateOfCreation, ORDERSTATE state, User creator, List<Tranche> tranches, Order parentOrder)
         {
             this.id = id;
             this.name = name;
             this.creator = creator;
             this.counterparty = counterparty;
             this.dateOfCreation = dateOfCreation;
-            this.state = (ORDERSTATE)Enum.Parse(typeof(ORDERSTATE), state);
-            this.ParentOrder = parentOrder;
+            this.state = state;
+            this.parentOrder = parentOrder;
             this.tranches = tranches;
         }
 
         //all
-        public Order(int id, string name, Counterparty counterparty, DateTime dateOfCreation, DateTime dateOfConclusion, string state, User creator, List<Tranche> tranches, Order parentOrder)
+        public Order(int id, string name, Counterparty counterparty, DateTime dateOfCreation, DateTime dateOfConclusion, 
+            ORDERSTATE state, User creator, List<Tranche> tranches, Order parentOrder)
         {
             this.id = id;
             this.name = name;
@@ -75,8 +76,8 @@ namespace OrderManager.Domain.Entity
             this.counterparty = counterparty;
             this.dateOfCreation = dateOfCreation;
             this.dateOfConclusion = dateOfConclusion;
-            this.state = (ORDERSTATE)Enum.Parse(typeof(ORDERSTATE), state);
-            this.ParentOrder = parentOrder;
+            this.state = state;
+            this.parentOrder = parentOrder;
             this.tranches = tranches;
         }
 

@@ -1,4 +1,6 @@
 ﻿using OrderManager.DAL.ExternalSysDAO;
+using OrderManager.Domain;
+using OrderManager.Domain.Entity;
 using OrderManager.Domain.Service;
 using OrderManager.DTO;
 using System;
@@ -16,6 +18,7 @@ namespace OrderManager.Presentation
     public partial class MainStokView : Form
     {
         private IStockService stockService;
+        private List<Domain.Entity.Stock> listStock;
 
         internal MainStokView(IStockService stockService)
         {
@@ -27,7 +30,7 @@ namespace OrderManager.Presentation
         private void MainStokView_Load(object sender, EventArgs e)
         {
             DataTable dataGridSource = new DataTable();
-            List<Domain.Entity.Stock> listStock = stockService.GetAll();
+            listStock = stockService.GetAll();
 
             addCheckBoxColumn();
 
@@ -51,26 +54,21 @@ namespace OrderManager.Presentation
 
             dataGridViewStock.DataSource = dataGridSource;
 
-            Dictionary<string, string[]> controlParams = new Dictionary<string, string[]>();
-            controlParams.Add("Stan mag.", new string[] { "Dowolny" });
-            controlParams.Add("Kategoria", new string[] { "Dowolna" });
-            controlParams.Add("Ostatnio zamawiany", new string[] { "Dowolnie" });
-
-            addFilters(controlParams);
+            addDataSourceForFilters();
         }
 
-        private void addFilters(Dictionary<string, string[]> controlParams)
+        private void addDataSourceForFilters()
         {
-            foreach(var control in controlParams)
-            {
-                Label label = new Label();
-                label.Text = control.Key;
-                flowLayoutPanelFilters.Controls.Add(label);
-                ComboBox comboBox = new ComboBox();
-                comboBox.Items.AddRange(control.Value);
-                flowLayoutPanelFilters.Controls.Add(comboBox);
-            }
+
+            string[] comboBoxStateDataSource = { "Dowolny", "Ponizej minimum" };
+            string[] comboBoxCategoryDataSource = { "Dowolna" };
+            string[] comboBoxOrderedDataSource = { "Dowolnie", "W poprzedzim cyklu" };
+
+            comboBoxState.DataSource = comboBoxStateDataSource;
+            comboBoxCategory.DataSource = comboBoxCategoryDataSource;
+            comboBoxOrdered.DataSource = comboBoxOrderedDataSource;
         }
+        
 
         private void addCheckBoxColumn()
         {
@@ -112,11 +110,31 @@ namespace OrderManager.Presentation
 
         private void buttonGenerateOrders_Click(object sender, EventArgs e)
         {
-            var list = dataGridViewStock;
-            for (int i = 0; i < list.RowCount; i++)
+            Dictionary<Stock, int> stockToOrder = new Dictionary<Stock, int>();
+            foreach(DataGridViewRow row in dataGridViewStock.Rows)
             {
-                if (list[0, i].Value.Equals(((CheckBox)list.Controls.Find("checkboxHeader", true)[0]).Checked))
-                    MessageBox.Show(list[1, i].ToString());
+                if (Convert.ToBoolean(row.Cells[0].Value))
+                {
+                    Stock currentStock =
+                        listStock.FirstOrDefault(stock => stock.Code.Equals(row.Cells[1].Value));
+                    int numberOfItemsToOrder = (30 + currentStock.MinInStockRoom) - currentStock.NumberOfItemsInStockRoom
+                        - stockService.GetNumOfItemsInOrders(currentStock);
+                    if (numberOfItemsToOrder > 0)
+                        stockToOrder.Add(currentStock, numberOfItemsToOrder);
+                }
+            }
+
+            (new OrdersGenerator(stockToOrder, DependencyInjector.ICounterpartyService,
+                DependencyInjector.IPriorityService, DependencyInjector.ICounterpartysStockService,
+                DependencyInjector.IStockService, DependencyInjector.IEligibleOrdersNamesService)).Generate();
+        }
+
+        private void comboBoxState_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch(comboBoxState.SelectedValue)
+            {
+                case "Dowolny": label1.Text = "Dowolny"; break;
+                case "Ponizej minimum": label1.Text = "";break;
             }
         }
     }

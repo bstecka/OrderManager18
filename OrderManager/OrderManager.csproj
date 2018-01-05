@@ -51,6 +51,8 @@
     <Compile Include="DAL\ExternalSysDAO\ICounterpartyDAO.cs" />
     <Compile Include="DAL\ExternalSysDAO\ICounterpartysStockDAO.cs" />
     <Compile Include="DAL\ExternalSysDAO\IStockDAO.cs" />
+    <Compile Include="DAL\InternalSysDAO\EligibleOrdersNames.cs" />
+    <Compile Include="DAL\InternalSysDAO\IEligibleOrdersNamesDAO.cs" />
     <Compile Include="DAL\InternalSysDAO\IOrderDAO.cs" />
     <Compile Include="DAL\InternalSysDAO\ITrancheDAO.cs" />
     <Compile Include="DAL\ExternalSysDAO\Stock.cs" />
@@ -87,8 +89,10 @@
     <Compile Include="Domain\OrderGenerator\PriorityFrequencyChoice.cs" />
     <Compile Include="Domain\Service\CounterpartyService.cs" />
     <Compile Include="Domain\Service\CounterpartysStockService.cs" />
+    <Compile Include="Domain\Service\EligibleORersNamesService.cs" />
     <Compile Include="Domain\Service\ICounterpartyService.cs" />
     <Compile Include="Domain\Service\ICounterpartysStockService.cs" />
+    <Compile Include="Domain\Service\IEligibleOrdersNamesService.cs" />
     <Compile Include="Domain\Service\IEntityServiceBase.cs" />
     <Compile Include="Domain\OrderGenerator\IOffersChoice.cs" />
     <Compile Include="Domain\Service\IPriorityService.cs" />
@@ -98,6 +102,7 @@
     <Compile Include="Domain\Service\StockService.cs" />
     <Compile Include="DTO\CounterpartyMapper.cs" />
     <Compile Include="DTO\CounterpartysStockMapper.cs" />
+    <Compile Include="DTO\EligibleOrdersNamesMapper.cs" />
     <Compile Include="DTO\IMapperBase.cs" />
     <Compile Include="DTO\OrderMapper.cs" />
     <Compile Include="DTO\PercentageDiscountMapper.cs" />
@@ -110,6 +115,12 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\GeneratedOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\GeneratedOrders.Designer.cs">
+      <DependentUpon>GeneratedOrders.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\MainStokView.cs">
       <SubType>Form</SubType>
@@ -133,6 +144,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Display.resx">
       <DependentUpon>Display.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\GeneratedOrders.resx">
+      <DependentUpon>GeneratedOrders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\MainStokView.resx">
       <DependentUpon>MainStokView.cs</DependentUpon>

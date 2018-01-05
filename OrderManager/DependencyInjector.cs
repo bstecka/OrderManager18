@@ -45,6 +45,14 @@ namespace OrderManager
             }
         }
 
+        public static IEligibleOrdersNamesService IEligibleOrdersNamesService
+        {
+            get
+            {
+                return new EligibleORersNamesService(IEligibleOrdersNamesDAO, IMapperBaseOrdersNames);
+            }
+        }
+
         public static ICounterpartyDAO ICounterpartyDAO
         {
             get
@@ -93,6 +101,14 @@ namespace OrderManager
             }
         }
 
+        public static IEligibleOrdersNamesDAO IEligibleOrdersNamesDAO
+        {
+            get
+            {
+                return new EligibleOrdersNames();
+            }
+        }
+
         public static IMapperBase<Counterparty> IMapperBaseCounterparty
         {
             get
@@ -137,6 +153,14 @@ namespace OrderManager
             get
             {
                 return new OrderMapper(IOrderDAO);
+            }
+        }
+
+        public static IMapperBase<string> IMapperBaseOrdersNames
+        {
+            get
+            {
+                return new EligibleOrdersNamesMapper();
             }
         }
     }
