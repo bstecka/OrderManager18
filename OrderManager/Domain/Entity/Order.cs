@@ -17,18 +17,18 @@ namespace OrderManager.Domain.Entity
 
     class Order
     {
-        private int id;
+        private int? id;
         private string name;
         private Counterparty counterparty;
         private User creator;
         private Order parentOrder;
         private DateTime dateOfCreation;
-        private DateTime dateOfConclusion;
+        private DateTime? dateOfConclusion;
         private ORDERSTATE state;
         private List<Tranche> tranches;
 
         //no dateOfConclusion, no parentOrder
-        public Order(int id, string name, Counterparty counterparty, DateTime dateOfCreation, string state, User creator, List<Tranche> tranches)
+        public Order(int? id, string name, Counterparty counterparty, DateTime dateOfCreation, string state, User creator, List<Tranche> tranches)
         {
             this.id = id;
             this.name = name;
@@ -80,10 +80,10 @@ namespace OrderManager.Domain.Entity
             this.tranches = tranches;
         }
 
-        public int Id { get => id; set => id = value; }
+        public int? Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
         public DateTime DateOfCreation { get => dateOfCreation; set => dateOfCreation = value; }
-        public DateTime DateOfConclusion { get => dateOfConclusion; set => dateOfConclusion = value; }
+        public DateTime? DateOfConclusion { get => dateOfConclusion; set => dateOfConclusion = value; }
         internal Counterparty Counterparty { get => counterparty; set => counterparty = value; }
         internal ORDERSTATE State { get => state; set => state = value; }
         internal User Creator { get => creator; set => creator = value; }
@@ -97,7 +97,7 @@ namespace OrderManager.Domain.Entity
                 {
                     DAL.InternalSysDAO.Order orderDAO = new DAL.InternalSysDAO.Order();
                     DTO.OrderMapper orderMapper = new DTO.OrderMapper(orderDAO);
-                    DataTable parentTable = orderDAO.GetParentOrderById(id);
+                    DataTable parentTable = orderDAO.GetParentOrderById(0);//poprawic
                     if (parentTable.Rows.Count < 1)
                         parentOrder = null;
                     else

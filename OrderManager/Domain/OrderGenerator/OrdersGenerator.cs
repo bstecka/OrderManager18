@@ -3,8 +3,6 @@ using OrderManager.Domain.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using OrderManager.Domain.OrderGenerator;
 
 namespace OrderManager.Domain
@@ -33,30 +31,30 @@ namespace OrderManager.Domain
             List<Tranche> tranches = new List<Tranche>();
 
             foreach (Priority priority in Enum.GetValues(typeof(Priority)))
-                strategies.Add(priority.Strategy(
+                strategies.Add(GetStrategy(priority, 
                     stockToOrder.Where(tuple =>
                     priorityService.GetStockPriority(tuple.Key).First()
-                    .Equals(priority)).ToDictionary(i => i.Key, i => i.Value),
-                    counterpartyService, counterpartysStockService, stockService));
+                    .Equals(priority)).ToDictionary(i => i.Key, i => i.Value)));
             foreach (var strategy in strategies)
                 tranches.AddRange(strategy.BestChosenOfferts());
 
-            return null;
+            return groupTranchesInOrders(tranches);
         }
 
-        private List<Stock> StockWithPriority(Priority priority)
+        private List<Order> groupTranchesInOrders(List<Tranche> tranches)
         {
-            return null;
+            List<Order> orders = new List<Order>();
+            foreach(var counterparty in tranches.ToLookup(tranche => tranche.Stock.Counterparty, tranche => tranche))
+            {
+                List<Tranche> tranchesInOrder = new List<Tranche>();
+                foreach (Tranche trancheInOrder in counterparty)
+                    tranchesInOrder.Add(trancheInOrder);
+                orders.Add(new Order(null, "todo", counterparty.Key, DateTime.Now, "duringRealization", null, tranchesInOrder));
+            }
+            return orders;
         }
-    }
 
-    enum Priority { Price, Frequency, Distance};
-
-    static class PriorityMethods
-    {
-        public static IOffersChoice Strategy(this Priority priority, 
-            Dictionary<Stock, int> stockToOrder, ICounterpartyService counterpartyService, 
-            ICounterpartysStockService counterpartysStockService, IStockService stockService)
+        private IOffersChoice GetStrategy(Priority priority, Dictionary<Stock, int> stockToOrder)
         {
             switch (priority)
             {
@@ -67,4 +65,7 @@ namespace OrderManager.Domain
             }
         }
     }
+
+    enum Priority { Price, Frequency, Distance};
+    
 }

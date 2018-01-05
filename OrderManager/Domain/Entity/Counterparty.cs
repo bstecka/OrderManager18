@@ -30,5 +30,14 @@ namespace OrderManager.Domain.Entity
         public string Name { get => name; set => name = value; }
 
         public override string ToString() { return id + " " + name; }
+        public override bool Equals(object obj)
+        {
+            return obj is Counterparty && ((Counterparty)obj).Id == id;
+        }
+
+        public override int GetHashCode()
+        {
+            return id;
+        }
     }
 }
