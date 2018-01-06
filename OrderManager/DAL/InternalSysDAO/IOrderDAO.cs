@@ -9,6 +9,7 @@ namespace OrderManager.DAL.InternalSysDAO
 {
     interface IOrderDAO : IReadableDAO, IWritableDAO
     {
+        DataTable GetAllDuringRealization();
         DataTable GetCounterparty(DataRow order);
         DataTable GetUser(DataRow order);
         DataTable GetTranches(DataRow order);

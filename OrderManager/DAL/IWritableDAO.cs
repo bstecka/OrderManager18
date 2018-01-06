@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OrderManager.DAL
 {
-    interface IWritableDAO
+    public interface IWritableDAO
     {
         void Add(DataTable entity);
         void Update(DataTable entity);

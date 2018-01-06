@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OrderManager.Domain.Entity
 {
-    class Counterparty
+    public class Counterparty
     {
         private int id;
         private int distance;

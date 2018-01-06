@@ -19,7 +19,7 @@ namespace OrderManager.DAL.InternalSysDAO
 
         public DataTable GetPriority(DataRow stock)
         {
-            var stocksPriority = DBOperations.Select(@"SELECT ListaKryteriow 
+            var stocksPriority = DBOperations.Query(@"SELECT ListaKryteriow 
             FROM PriorytetTowaru JOIN Priorytet 
             ON  PriorytetTowaru.PriorytetID = Priorytet.ID
             WHERE TowarID in (" + stock["ID"] + ")");

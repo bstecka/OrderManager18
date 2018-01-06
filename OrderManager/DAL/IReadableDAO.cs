@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OrderManager.DAL
 {
-    interface IReadableDAO
+    public interface IReadableDAO
     {
         //DataTable GetWhereFieldEqual(DataTable parameters);
         DataTable GetById(string id);
