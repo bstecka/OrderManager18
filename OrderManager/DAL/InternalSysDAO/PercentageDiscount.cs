@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OrderManager.DAL.InternalSysDAO
 {
-    class PercentageDiscount : ReaderAndWriterDAO, IPercentageDiscountDAO
+    public class PercentageDiscount : ReaderAndWriterDAO, IPercentageDiscountDAO
     {
         public PercentageDiscount() : base("RabatProcentowy") { }
 
@@ -16,16 +16,15 @@ namespace OrderManager.DAL.InternalSysDAO
         {
             if (discount.Rows.Count != 1 && !discount.Columns.Contains("ID"))
                 throw new ArgumentOutOfRangeException();
-            return DBOperations.Select(
+            return DBOperations.Query(
                 @"SELECT * FROM TowarKontrahenta WHERE ID IN
                 (SELECT TowarKontrahentaID FROM RabatProcentowy_TowarKontrahenta
                 WHERE RabatProcentowyID = " + discount.Rows[0]["ID"].ToString() + ")");
         }
 
-
         public DataTable GetCounterpartiesStockWithDiscount(DataRow discount)
         {
-            return DBOperations.Select(
+            return DBOperations.Query(
                 @"SELECT * FROM TowarKontrahenta WHERE ID IN
                 (SELECT TowarKontrahentaID FROM RabatProcentowy_TowarKontrahenta
                 WHERE RabatProcentowyID = " + discount["ID"].ToString() + ")");

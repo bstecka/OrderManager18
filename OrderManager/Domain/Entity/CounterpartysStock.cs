@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OrderManager.Domain.Entity
 {
-    class CounterpartysStock
+    public class CounterpartysStock
     {
         private int id;
         private Stock stock;

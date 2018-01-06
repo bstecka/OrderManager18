@@ -14,38 +14,46 @@ namespace OrderManager.DAL.InternalSysDAO
 
         public DataTable GetCounterparty(DataRow order)
         {
-            return DBOperations.Select(@"SELECT * FROM Kontrahent 
+            return DBOperations.Query(@"SELECT * FROM Kontrahent 
                 WHERE ID IN (" + order["KontrahentID"] + ")");
         }
 
         public DataTable GetOrderState(DataRow order)
         {
-            return DBOperations.Select(@"SELECT * FROM StanZamowienia 
+            return DBOperations.Query(@"SELECT * FROM StanZamowienia 
                 WHERE ID IN (" + order["StanZamowieniaID"] + ")");
         }
 
         public DataTable GetParentOrder(DataRow order)
         {
-            return DBOperations.Select(@"SELECT * FROM Zamowienie
+            return DBOperations.Query(@"SELECT * FROM Zamowienie
                 WHERE ID IN (SELECT ZamowienieNadrzedne FROM Zamowienie WHERE ID IN (" + order["ID"] + ")");
         }
 
         public DataTable GetParentOrderById(int id)
         {
-            return DBOperations.Select(@"SELECT * FROM Zamowienie
+            return DBOperations.Query(@"SELECT * FROM Zamowienie
                 WHERE ID IN (SELECT ZamowienieNadrzedne FROM Zamowienie WHERE ID IN ("+ id + "))");
         }
 
         public DataTable GetTranches(DataRow order)
         {
-            return DBOperations.Select(@"SELECT * FROM Transza 
+            return DBOperations.Query(@"SELECT * FROM Transza 
                 WHERE ZamowienieID IN (" + order["ID"] + ")");
         }
 
         public DataTable GetUser(DataRow order)
         {
-            return DBOperations.Select(@"SELECT * FROM Uzytkownik 
+            return DBOperations.Query(@"SELECT * FROM Uzytkownik 
                 WHERE ID IN (" + order["UzytkownikID"] + ")");
+        }
+
+        //Nie umiem w architekturę więc nie wiem czy to na pewno powinno być tutaj, ale gdyby to wrzucić do service'u,
+        //to trzeba by było mapować wszystkie zamówienia, żeby tylko wyciągnąć te w trakcie realizacji
+        public DataTable GetAllDuringRealization() 
+        {
+            return DBOperations.Query(@"SELECT * FROM Zamowienie 
+                WHERE StanZamowienia = 1");
         }
     }
 }
