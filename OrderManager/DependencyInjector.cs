@@ -17,7 +17,7 @@ namespace OrderManager
         {
             get
             {
-                return new CounterpartyService(ICounterpartyDAO, IMapperBaseCounterparty, IMapperBaseCounterpartysStock);
+                return new CounterpartyService(ICounterpartyDAO, IMapperBaseCounterparty, IMapperBaseCounterpartysStock, IMapperBaseOrder);
             }
         }
 

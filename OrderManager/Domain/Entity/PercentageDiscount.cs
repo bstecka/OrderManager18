@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OrderManager.Domain.Entity
 {
-    class PercentageDiscount
+    public class PercentageDiscount
     {
         int id;
         DateTime since;

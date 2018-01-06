@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OrderManager.Domain.Entity
 {
-    enum ORDERSTATE
+    public enum ORDERSTATE
     {
         duringRealization = 1,
         duringReview = 2,
@@ -15,7 +15,7 @@ namespace OrderManager.Domain.Entity
         realized = 4
     }
 
-    class Order
+    public class Order
     {
         private int? id;
         private string name;
@@ -131,6 +131,15 @@ namespace OrderManager.Domain.Entity
             }
         }
 
+        public override bool Equals(object obj)
+        {
+            return obj is Order && ((Order)obj).Name.Equals(name);
+        }
+
+        public override int GetHashCode()
+        {
+            return name.GetHashCode();
+        }
         public override string ToString() { return "Zamowienie " + id + " " + name + ", stan: " + state + ", user: " + creator.ToString() + ", data utworzenia: " + dateOfCreation + ", kontrahent: " + counterparty.ToString(); }
     }
 }

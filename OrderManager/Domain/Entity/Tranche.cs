@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OrderManager.Domain.Entity
 {
-    class Tranche
+    public class Tranche
     {
         private int? id;
         private int numberOfItems;
@@ -75,7 +75,7 @@ namespace OrderManager.Domain.Entity
         {
             get => (stock.PriceNetto *
                 (discounts == null || discounts.Count == 0 ? 
-                1 :(1 - discounts.Sum(discount => discount.Amount))* numberOfItems))
+                1 :(1 - discounts.Sum(discount => discount.Amount))) * numberOfItems)
                 * (1 + stock.Stock.VAT * 0.01) - quotaDiscount;
         }
         internal CounterpartysStock Stock { get => stock; set => stock = value; }

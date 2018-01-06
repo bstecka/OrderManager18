@@ -32,8 +32,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.2.1\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq, Version=4.8.0.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.8.0\lib\net45\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.4.0\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,9 +55,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\ExternalSysDAO\Category.cs" />
     <Compile Include="DAL\ExternalSysDAO\Counterparty.cs" />
     <Compile Include="DAL\DBOperations.cs" />
     <Compile Include="DAL\ExternalSysDAO\CounterpartysStock.cs" />
+    <Compile Include="DAL\ExternalSysDAO\ICategoryDAO.cs" />
     <Compile Include="DAL\ExternalSysDAO\ICounterpartyDAO.cs" />
     <Compile Include="DAL\ExternalSysDAO\ICounterpartysStockDAO.cs" />
     <Compile Include="DAL\ExternalSysDAO\IStockDAO.cs" />
@@ -74,6 +86,7 @@
       <DependentUpon>Display.cs</DependentUpon>
     </Compile>
     <Compile Include="Domain\Entity\Category.cs" />
+    <Compile Include="Domain\Entity\LoggedUser.cs" />
     <Compile Include="Domain\Entity\User.cs" />
     <Compile Include="Domain\OrderGenerator\CouterpartysPropertyChoice.cs" />
     <Compile Include="Domain\OrderGenerator\DiscountCounter.cs" />
@@ -87,9 +100,11 @@
     <Compile Include="Domain\OrderGenerator\OrdersGenerator.cs" />
     <Compile Include="Domain\OrderGenerator\PriorityDistanceChoice.cs" />
     <Compile Include="Domain\OrderGenerator\PriorityFrequencyChoice.cs" />
+    <Compile Include="Domain\Service\CategoryService.cs" />
     <Compile Include="Domain\Service\CounterpartyService.cs" />
     <Compile Include="Domain\Service\CounterpartysStockService.cs" />
     <Compile Include="Domain\Service\EligibleORersNamesService.cs" />
+    <Compile Include="Domain\Service\ICategoryService.cs" />
     <Compile Include="Domain\Service\ICounterpartyService.cs" />
     <Compile Include="Domain\Service\ICounterpartysStockService.cs" />
     <Compile Include="Domain\Service\IEligibleOrdersNamesService.cs" />
@@ -100,6 +115,7 @@
     <Compile Include="Domain\OrderGenerator\PriorityPriceChoice.cs" />
     <Compile Include="Domain\Service\PriorityService.cs" />
     <Compile Include="Domain\Service\StockService.cs" />
+    <Compile Include="DTO\CategoryMapper.cs" />
     <Compile Include="DTO\CounterpartyMapper.cs" />
     <Compile Include="DTO\CounterpartysStockMapper.cs" />
     <Compile Include="DTO\EligibleOrdersNamesMapper.cs" />
@@ -110,13 +126,13 @@
     <Compile Include="DTO\StockMapper.cs" />
     <Compile Include="DTO\TrancheMapper.cs" />
     <Compile Include="DTO\UserMapper.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Presentation\DataGridviewCheckBoxColumnProwider.cs" />
+    <Compile Include="Presentation\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Presentation\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\DataGridviewCheckBoxColumnProwider.cs" />
     <Compile Include="Presentation\GeneratedOrders.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +162,9 @@
     <EmbeddedResource Include="Display.resx">
       <DependentUpon>Display.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\GeneratedOrders.resx">
       <DependentUpon>GeneratedOrders.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,6 +183,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

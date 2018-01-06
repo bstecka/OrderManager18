@@ -56,7 +56,7 @@ namespace OrderManager.Domain
                 List<Tranche> tranchesInOrder = new List<Tranche>();
                 foreach (Tranche trancheInOrder in counterparty)
                     tranchesInOrder.Add(trancheInOrder);
-                orders.Add(new Order(null, eligibleNames[numberOfName], counterparty.Key, DateTime.Now, ORDERSTATE.duringRealization, null, tranchesInOrder));
+                orders.Add(new Order(null, eligibleNames[numberOfName], counterparty.Key, DateTime.Now, ORDERSTATE.duringRealization, LoggedUser.User, tranchesInOrder));
                 numberOfName++;
             }
             return orders;
@@ -72,6 +72,8 @@ namespace OrderManager.Domain
                 default: throw new ArgumentException();
             }
         }
+
+
     }
 
     enum Priority { Price, Frequency, Distance};

@@ -42,6 +42,13 @@ namespace OrderManager.Domain.Service
                     .Sum(tranche => tranche.NumberOfItems));
         }
 
+        public int GetNumOfItemsToOrder(Entity.Stock stock)
+        {
+            int numberOfItems = (30 + stock.MinInStockRoom) - stock.NumberOfItemsInStockRoom
+                        - GetNumOfItemsInOrders(stock);
+            return numberOfItems > 0 ? numberOfItems : 0;
+        }
+
         public List<Entity.Order> GetStocksActiveOrders(Entity.Stock stock)
         {
             return orderMapper.MapAllFrom(DAO.GetStocksActiveOrders(mapper.MapTo(stock)));

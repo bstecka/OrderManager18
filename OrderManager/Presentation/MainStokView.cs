@@ -23,15 +23,33 @@ namespace OrderManager.Presentation
         internal MainStokView(IStockService stockService)
         {
             InitializeComponent();
-            //this.stockService = new StockService(new Stock(), new StockMapper());
             this.stockService = stockService;
+            listStock = stockService.GetAll();
+            (new DataGridviewCheckBoxColumnProwider(dataGridViewStock)).addCheckBoxColumn();
+
+            fillGridview(listStock);
+            addDataSourceForFilters();
         }
 
         private void MainStokView_Load(object sender, EventArgs e)
         {
+        }
+
+        private void addDataSourceForFilters()
+        {
+
+            string[] comboBoxStateDataSource = { "Dowolny", "Ponizej minimum" };
+            string[] comboBoxCategoryDataSource = { "Dowolna" };
+            string[] comboBoxOrderedDataSource = { "Dowolnie", "W poprzedzim cyklu" };
+
+            comboBoxState.DataSource = comboBoxStateDataSource;
+            comboBoxCategory.DataSource = comboBoxCategoryDataSource;
+            comboBoxOrdered.DataSource = comboBoxOrderedDataSource;
+        }
+        
+        private void fillGridview(IEnumerable<Stock> listStock)
+        {
             DataTable dataGridSource = new DataTable();
-            listStock = stockService.GetAll();
-            (new DataGridviewCheckBoxColumnProwider(dataGridViewStock)).addCheckBoxColumn();
             //addCheckBoxColumn();
 
             dataGridSource.Columns.Add("Kod");
@@ -48,28 +66,21 @@ namespace OrderManager.Presentation
                 dataRow["Kod"] = stock.Code;
                 dataRow["Nazwa"] = stock.Name;
                 dataRow["Minimum magazynowe"] = stock.MinInStockRoom;
-                dataRow["Stan zamówień"] = stockService.GetNumOfItemsInOrders(stock);
+                int numOfItemsInOrders = stockService.GetNumOfItemsInOrders(stock);
+                dataRow["Stan zamówień"] = numOfItemsInOrders;
+                dataRow["Stan razem"] = numOfItemsInOrders + stock.NumberOfItemsInStockRoom;
                 dataGridSource.Rows.Add(dataRow);
             }
 
             dataGridViewStock.DataSource = dataGridSource;
             dataGridViewStock.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            addDataSourceForFilters();
+            foreach (DataGridViewColumn column in dataGridViewStock.Columns)
+                if (column.Index.Equals(7) || column.Index.Equals(0))
+                    column.ReadOnly = false;
+                else
+                    column.ReadOnly = true;
         }
-
-        private void addDataSourceForFilters()
-        {
-
-            string[] comboBoxStateDataSource = { "Dowolny", "Ponizej minimum" };
-            string[] comboBoxCategoryDataSource = { "Dowolna" };
-            string[] comboBoxOrderedDataSource = { "Dowolnie", "W poprzedzim cyklu" };
-
-            comboBoxState.DataSource = comboBoxStateDataSource;
-            comboBoxCategory.DataSource = comboBoxCategoryDataSource;
-            comboBoxOrdered.DataSource = comboBoxOrderedDataSource;
-        }
-        
 
         private void addCheckBoxColumn()
         {
@@ -118,8 +129,8 @@ namespace OrderManager.Presentation
                 {
                     Stock currentStock =
                         listStock.FirstOrDefault(stock => stock.Code.Equals(row.Cells[1].Value));
-                    int numberOfItemsToOrder = (30 + currentStock.MinInStockRoom) - currentStock.NumberOfItemsInStockRoom
-                        - stockService.GetNumOfItemsInOrders(currentStock);
+                    int numberOfItemsToOrder = stockService.GetNumOfItemsToOrder(currentStock) 
+                        + getNumberOfItemsInIndividualOrdersColumn(row);
                     if (numberOfItemsToOrder > 0)
                         stockToOrder.Add(currentStock, numberOfItemsToOrder);
                 }
@@ -153,6 +164,27 @@ namespace OrderManager.Presentation
             {
                 case "Dowolny": label1.Text = "Dowolny"; break;
                 case "Ponizej minimum": label1.Text = "";break;
+            }
+        }
+
+        private int getNumberOfItemsInIndividualOrdersColumn(DataGridViewRow row)
+        {
+            int number;
+            return int.TryParse(row.Cells[7].Value.ToString(), out number) ? number : 0;
+        }
+
+        private void tableLayoutPanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
+        {
+            e.Graphics.DrawLine(Pens.Black, e.CellBounds.Location, new Point(e.CellBounds.Right, e.CellBounds.Top));
+        }
+
+        private void comboBoxState_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+            switch (comboBoxState.SelectedValue)
+            {
+                case "Dowolny": fillGridview(listStock); break;
+                case "Ponizej minimum": fillGridview(listStock.Where(stock => stock.NumberOfItemsInStockRoom < stock.MinInStockRoom)); break;
             }
         }
     }

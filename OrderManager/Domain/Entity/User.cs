@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OrderManager.Domain.Entity
 {
-    class User
+    public class User
     {
         private int id;
         private string name;
@@ -15,8 +15,6 @@ namespace OrderManager.Domain.Entity
         private string password;
         private string phoneNumber;
         private string type;
-
-        public User() { }
 
         public User(int id, string name, string surname, string login, string password, string phoneNumber, string type)
         {

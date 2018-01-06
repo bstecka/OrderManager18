@@ -16,8 +16,8 @@ namespace OrderManager.Domain.OrderGenerator
 
         public override List<Counterparty> SortCounterparties()
         {
-            return counterpartyService.GetAll();
-                //.OrderBy(counterparty => counterparty).ToList();
+            return counterpartyService.GetAll()
+                .OrderByDescending(counterparty => counterpartyService.GetCounterpartysOrders(counterparty).Count).ToList();
         }
     }
 }

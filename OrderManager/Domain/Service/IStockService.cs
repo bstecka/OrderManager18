@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace OrderManager.Domain.Service
 {
-    interface IStockService : IEntityServiceBase<Stock>
+    public interface IStockService : IEntityServiceBase<Stock>
     {
         List<CounterpartysStock> GetStocksCounterpartysStock(Stock stock);
         List<Order> GetStocksActiveOrders(Stock stock);
         int GetNumOfItemsInOrders(Stock stock);
+        int GetNumOfItemsToOrder(Stock stock);
     }
 }
