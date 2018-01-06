@@ -38,8 +38,15 @@ namespace OrderManager.Domain.Service
         public int GetNumOfItemsInOrders(Entity.Stock stock)
         {
             return GetStocksActiveOrders(stock)
-                .Sum(order => order.Tranches.Where(tranche => tranche.Stock.Stock.Equals(this))
+                .Sum(order => order.Tranches.Where(tranche => tranche.Stock.Stock.Equals(stock))
                     .Sum(tranche => tranche.NumberOfItems));
+        }
+
+        public int GetNumOfItemsToOrder(Entity.Stock stock)
+        {
+            int numberOfItems = (30 + stock.MinInStockRoom) - stock.NumberOfItemsInStockRoom
+                        - GetNumOfItemsInOrders(stock);
+            return numberOfItems > 0 ? numberOfItems : 0;
         }
 
         public List<Entity.Order> GetStocksActiveOrders(Entity.Stock stock)

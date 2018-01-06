@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OrderManager.Domain.Entity
 {
-    class Category
+    public class Category
     {
         int id;
         string name;

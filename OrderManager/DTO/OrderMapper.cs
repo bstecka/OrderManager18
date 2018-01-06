@@ -1,4 +1,5 @@
 ﻿using OrderManager.DAL.InternalSysDAO;
+using OrderManager.Domain.Entity;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -48,7 +49,8 @@ namespace OrderManager.DTO
                     Convert.ToString(orderRow["nazwa"]),
                     counterparty,
                     Convert.ToDateTime(orderRow["DataZlozenia"]),
-                    Convert.ToString(orderRow["StanZamowieniaID"]),
+                    (ORDERSTATE)Enum.Parse(typeof(ORDERSTATE),
+                    orderRow["StanZamowieniaID"].ToString()),
                     creator,
                     tranches
                 );
@@ -59,7 +61,8 @@ namespace OrderManager.DTO
                     counterparty,
                     Convert.ToDateTime(orderRow["DataZlozenia"]),
                     Convert.ToDateTime(orderRow["DataZakonczenia"]),
-                    Convert.ToString(orderRow["StanZamowieniaID"]),
+                    (ORDERSTATE)Enum.Parse(typeof(ORDERSTATE),
+                    orderRow["StanZamowieniaID"].ToString()),
                     creator,
                     tranches
                 );

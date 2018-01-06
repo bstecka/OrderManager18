@@ -10,5 +10,6 @@ namespace OrderManager.DAL.InternalSysDAO
     interface ICounterpartyDAO : IReadableDAO
     {
         DataTable GetCounterpartysStock(DataTable counterparty);
+        DataTable GetCounterpartysOrders(DataTable counterparty);
     }
 }

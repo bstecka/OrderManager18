@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OrderManager.Domain.Service
 {
-    interface IEntityServiceBase<T>
+    public interface IEntityServiceBase<T>
     {
         T GetById(string id);
         List<T> GetAll();

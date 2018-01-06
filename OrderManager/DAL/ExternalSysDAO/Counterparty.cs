@@ -15,6 +15,12 @@ namespace OrderManager.ExternalSysDAO
     {
         public Counterparty() : base("Kontrahent") { }
 
+        public DataTable GetCounterpartysOrders(DataTable counterparty)
+        {
+            return DBOperations.Select(@"SELECT * FROM Zamowienie
+                WHERE KontrahentID IN (" + counterparty.Rows[0]["ID"] + ")");
+        }
+
         public DataTable GetCounterpartysStock(DataTable counterparty)
         {
             return DBOperations.Select(@"SELECT * FROM TowarKontrahenta 

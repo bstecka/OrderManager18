@@ -11,5 +11,6 @@ namespace OrderManager.Domain.Service
     interface ICounterpartyService : IEntityServiceBase<Counterparty>
     {
         List<Entity.CounterpartysStock> GetCounterpartysStock(Counterparty counterparty);
+        List<Order> GetCounterpartysOrders(Counterparty counterparty);
     }
 }

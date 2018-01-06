@@ -44,7 +44,7 @@ namespace OrderManager
 
             var tranches = (new OrdersGenerator(toOrder,DependencyInjector.ICounterpartyService, 
                 DependencyInjector.IPriorityService, DependencyInjector.ICounterpartysStockService,
-                DependencyInjector.IStockService))
+                DependencyInjector.IStockService, DependencyInjector.IEligibleOrdersNamesService))
                 .Generate();
         }
 
