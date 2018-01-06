@@ -113,6 +113,7 @@
     <Compile Include="Domain\Service\IPriorityService.cs" />
     <Compile Include="Domain\Service\IStockService.cs" />
     <Compile Include="Domain\OrderGenerator\PriorityPriceChoice.cs" />
+    <Compile Include="Domain\Service\OrderService.cs" />
     <Compile Include="Domain\Service\PriorityService.cs" />
     <Compile Include="Domain\Service\StockService.cs" />
     <Compile Include="DTO\CategoryMapper.cs" />

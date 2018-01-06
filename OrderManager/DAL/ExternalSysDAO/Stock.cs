@@ -14,7 +14,7 @@ namespace OrderManager.DAL.InternalSysDAO
 
         public DataTable GetStocksActiveOrders(DataTable stock)
         {
-            return DBOperations.Select(@"SELECT * FROM Zamowienie WHERE 
+            return DBOperations.Query(@"SELECT * FROM Zamowienie WHERE 
                 ID in (SELECT ZamowienieID FROM Transza JOIN TowarKontrahenta
                 ON Transza.TowarKontrahentaID = TowarKontrahenta.ID
                 WHERE TowarID = " + stock.Rows[0]["ID"] + ") AND StanZamowieniaID = 1");
@@ -22,13 +22,13 @@ namespace OrderManager.DAL.InternalSysDAO
 
         public DataTable GetStocksCounterpartysStock(DataTable stock)
         {
-            return DBOperations.Select(@"SELECT * FROM TowarKontrahenta 
+            return DBOperations.Query(@"SELECT * FROM TowarKontrahenta 
                 WHERE TowarID IN (" + stock.Rows[0]["ID"] + ")");
         }
 
         public DataTable GetStocksCategory(DataTable stock)
         {
-            return DBOperations.Select(@"SELECT * FROM Kategoria JOIN Towar
+            return DBOperations.Query(@"SELECT * FROM Kategoria JOIN Towar
                 ON Kategoria.ID = Towar.KategoriaID
                 WHERE Towar.ID IN (" + stock.Rows[0]["ID"] + ")");
         }

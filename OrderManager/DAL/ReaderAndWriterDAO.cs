@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OrderManager.DAO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OrderManager.DAL
 {
-    class ReaderAndWriterDAO : ReaderDAO, IWritableDAO
+    public class ReaderAndWriterDAO : ReaderDAO, IWritableDAO
     {
         public ReaderAndWriterDAO(string tableName) : base(tableName) { }
 
@@ -18,12 +19,12 @@ namespace OrderManager.DAL
 
         public void Remove(int id)
         {
-            throw new NotImplementedException();
+            DBOperations.Query("DELETE FROM " + tableName + " WHERE ID = " + id);
         }
 
         public void Update(DataTable entity)
         {
-            throw new NotImplementedException();
+            DBOperations.Update(entity, tableName);
         }
     }
 }

@@ -9,7 +9,7 @@ using System.Data;
 
 namespace OrderManager.DTO
 {
-    class CounterpartyMapper : IMapperBase<Counterparty>
+    public class CounterpartyMapper : IMapperBase<Counterparty>
     {
         public Domain.Entity.Counterparty MapFrom(DataTable counterpartiesDAO)
         {

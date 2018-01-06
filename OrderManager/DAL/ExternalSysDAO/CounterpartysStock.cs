@@ -14,13 +14,13 @@ namespace OrderManager.DAL.ExternalSysDAO
 
         public DataTable GetCounterparty(DataTable counterpartysStock)
         {
-           return DBOperations.Select("SELECT * FROM Kontrahent WHERE ID IN ("
+           return DBOperations.Query("SELECT * FROM Kontrahent WHERE ID IN ("
                 + counterpartysStock.Rows[0]["KontrahentID"] + ")");
         }
 
         public DataTable GetCounterparty(DataRow counterpartysStock)
         {
-            return DBOperations.Select("SELECT * FROM Kontrahent WHERE ID IN ("
+            return DBOperations.Query("SELECT * FROM Kontrahent WHERE ID IN ("
                + counterpartysStock["KontrahentID"] + ")");
         }
 
@@ -31,13 +31,13 @@ namespace OrderManager.DAL.ExternalSysDAO
 
         public DataTable GetStock(DataTable counterpartysStock)
         {
-            return DBOperations.Select("SELECT * FROM Towar WHERE ID IN ("
+            return DBOperations.Query("SELECT * FROM Towar WHERE ID IN ("
                 + counterpartysStock.Rows[0]["TowarID"] + ")");
         }
 
         public DataTable GetStock(DataRow counterpartysStock)
         {
-            return DBOperations.Select("SELECT * FROM Towar WHERE ID IN ("
+            return DBOperations.Query("SELECT * FROM Towar WHERE ID IN ("
                + counterpartysStock["TowarID"] + ")");
         }
 
@@ -46,7 +46,7 @@ namespace OrderManager.DAL.ExternalSysDAO
 
             if (counterpartysStock.Rows.Count != 1 && !counterpartysStock.Columns.Contains("ID"))
                 throw new ArgumentOutOfRangeException();
-            return DBOperations.Select(
+            return DBOperations.Query(
               @"SELECT * FROM RabatProcentowy WHERE ID IN 
               (SELECT RabatProcentowyID FROM RabatProcentowy_TowarKontrahenta 
               WHERE TowarKontrahentaID = " + counterpartysStock.Rows[0]["ID"].ToString() + @")

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OrderManager.DTO
 {
-    interface IMapperBase<T>
+    public interface IMapperBase<T>
     {
         T MapFrom(DataTable tDAO);
         DataTable MapTo(T tDomain);
