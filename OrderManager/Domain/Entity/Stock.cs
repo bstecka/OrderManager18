@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OrderManager.Domain.Entity
 {
-    class Stock
+    public class Stock
     {
         int id;
         int maxInStockRoom;

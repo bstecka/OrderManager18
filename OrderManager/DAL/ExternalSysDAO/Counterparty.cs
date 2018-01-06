@@ -17,7 +17,7 @@ namespace OrderManager.ExternalSysDAO
 
         public DataTable GetCounterpartysStock(DataTable counterparty)
         {
-            return DBOperations.Select(@"SELECT * FROM TowarKontrahenta 
+            return DBOperations.Query(@"SELECT * FROM TowarKontrahenta 
                 WHERE KontrahentID IN (" + counterparty.Rows[0]["ID"] + ")");
         }
     }
