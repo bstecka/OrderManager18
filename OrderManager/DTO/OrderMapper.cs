@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace OrderManager.DTO
 {
 
-    class OrderMapper : IMapperBase<Domain.Entity.Order>
+    class OrderMapper : IMapperBase<Order>
     {
         IOrderDAO orderDAO;
 
@@ -19,21 +19,21 @@ namespace OrderManager.DTO
             this.orderDAO = orderDAO;
         }
 
-        public List<Domain.Entity.Order> MapAllFrom(DataTable orderTable)
+        public List<Order> MapAllFrom(DataTable orderTable)
         {
-            List<Domain.Entity.Order> result = new List<Domain.Entity.Order>();
+            List<Order> result = new List<Order>();
             foreach (DataRow orderRow in orderTable.Rows)
                 result.Add(MapFrom(orderTable,
                     orderTable.Rows.IndexOf(orderRow)));
             return result;
         }
 
-        public Domain.Entity.Order MapFrom(DataTable orderTable)
+        public Order MapFrom(DataTable orderTable)
         {
             return MapFrom(orderTable, 0);
         }
 
-        Domain.Entity.Order MapFrom(DataTable orderTable, int numberOfRow)
+        Order MapFrom(DataTable orderTable, int numberOfRow)
         {
             DataRow orderRow = orderTable.Rows[numberOfRow];
             var counterparty = (new CounterpartyMapper()).MapFrom(
@@ -44,7 +44,7 @@ namespace OrderManager.DTO
             var creator = (new UserMapper()).MapFrom(
                 orderDAO.GetUser(orderRow));
             if (DBNull.Value.Equals(orderRow["DataZakonczenia"]))
-                return new Domain.Entity.Order(
+                return new Order(
                     Convert.ToInt32(orderRow["ID"]),
                     Convert.ToString(orderRow["nazwa"]),
                     counterparty,
@@ -55,7 +55,7 @@ namespace OrderManager.DTO
                     tranches
                 );
             else
-                return new Domain.Entity.Order(
+                return new Order(
                     Convert.ToInt32(orderRow["ID"]),
                     Convert.ToString(orderRow["nazwa"]),
                     counterparty,
@@ -68,7 +68,7 @@ namespace OrderManager.DTO
                 );
         }
 
-        public DataTable MapTo(Domain.Entity.Order orderDomain)
+        public DataTable MapTo(Order orderDomain)
         {
             DataTable dataTable = new DataTable();
             dataTable.Columns.Add("ID");

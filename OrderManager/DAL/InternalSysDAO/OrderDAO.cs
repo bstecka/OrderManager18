@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OrderManager.DAL.InternalSysDAO
 {
-    class OrderDAO : ReaderAndWriterDAO, IOrderDAO
+    public class OrderDAO : ReaderAndWriterDAO, IOrderDAO
     {
         public OrderDAO() : base("Zamowienie") { }
 

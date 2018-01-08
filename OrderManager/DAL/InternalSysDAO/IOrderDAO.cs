@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OrderManager.DAL.InternalSysDAO
 {
-    interface IOrderDAO : IReadableDAO, IWritableDAO
+    public interface IOrderDAO : IReadableDAO, IWritableDAO
     {
         DataTable GetAllDuringRealization();
         DataTable GetCounterparty(DataRow order);
