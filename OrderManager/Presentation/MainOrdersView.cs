@@ -15,12 +15,12 @@ using System.Windows.Forms;
 
 namespace OrderManager.Presentation
 {
-    public partial class MainStokView : Form
+    public partial class MainOrdersView : Form
     {
         private IStockService stockService;
         private List<Domain.Entity.Stock> listStock;
 
-        internal MainStokView(IStockService stockService)
+        internal MainOrdersView(IStockService stockService)
         {
             InitializeComponent();
             this.stockService = stockService;
@@ -29,10 +29,10 @@ namespace OrderManager.Presentation
 
             fillGridview(listStock);
             addDataSourceForFilters();
-            this.FormClosing += MainStokView_FormClosing;
+            this.FormClosing += MainOrdersView_FormClosing;
         }
 
-        private void MainStokView_Load(object sender, EventArgs e)
+        private void MainOrdersView_Load(object sender, EventArgs e)
         {
         }
 
@@ -189,7 +189,7 @@ namespace OrderManager.Presentation
             }
         }
 
-        private void MainStokView_FormClosing(object sender, FormClosingEventArgs e)
+        private void MainOrdersView_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("Czy chcesz zamknąć to okno?", "", MessageBoxButtons.YesNo) == DialogResult.No)
                 e.Cancel = true;
