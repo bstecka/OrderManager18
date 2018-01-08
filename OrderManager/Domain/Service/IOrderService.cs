@@ -11,7 +11,5 @@ namespace OrderManager.Domain.Service
     public interface IOrderService : IEntityServiceBase<Order>
     {
         List<Order> GetAllDuringRealization();
-
-
     }
 }

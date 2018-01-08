@@ -57,7 +57,7 @@ namespace OrderManager
         {
             get
             {
-                return new ExternalSysDAO.Counterparty();
+                return new ExternalSysDAO.CounterpartyDAO();
             }
         }
 
@@ -97,7 +97,7 @@ namespace OrderManager
         {
             get
             {
-                return new DAL.InternalSysDAO.Stock();
+                return new DAL.InternalSysDAO.StockDAO();
             }
         }
 
