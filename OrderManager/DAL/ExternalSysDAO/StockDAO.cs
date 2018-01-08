@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace OrderManager.DAL.InternalSysDAO
 {
-    class Stock : ReaderDAO, IStockDAO
+    class StockDAO : ReaderDAO, IStockDAO
     {
-        public Stock() : base("Towar") { }
+        public StockDAO() : base("Towar") { }
 
         public DataTable GetStocksActiveOrders(DataTable stock)
         {

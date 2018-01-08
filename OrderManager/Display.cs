@@ -43,7 +43,7 @@ namespace OrderManager
             dt.Rows.Add(dr);
             PercentageDiscountDAO disc = new PercentageDiscountDAO();
             //disc.Add(dt);
-            Stock stock = new Stock();
+            StockDAO stock = new StockDAO();
             PercentageDiscountDAO percentageDiscount = new PercentageDiscountDAO();
             //dataGridView1.DataSource = percentageDiscount.GetCounterpartysStockValidDicounts(
                 //(new CounterpartysStock()).GetById("1"));
@@ -69,7 +69,7 @@ namespace OrderManager
             var back = orderMapper.MapFrom(orderMapper.MapTo(orderEntity));
             //Console.WriteLine(orderEntity.ParentOrder);
 
-            DataTable stockTable = new Stock().GetById("1");
+            DataTable stockTable = new StockDAO().GetById("1");
             DTO.StockMapper stockMapper = new DTO.StockMapper();
             Console.WriteLine(stockMapper.MapFrom(stockTable).Category.Id);
         }

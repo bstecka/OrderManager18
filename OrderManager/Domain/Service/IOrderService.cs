@@ -1,4 +1,5 @@
-﻿using OrderManager.Domain.Entity;
+﻿using OrderManager.DAL.InternalSysDAO;
+using OrderManager.Domain.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace OrderManager.Domain.Service
 {
-    interface IOrderService : IEntityServiceBase<Order>
+    public interface IOrderService : IEntityServiceBase<Order>
     {
-        
+        List<Order> GetAllDuringRealization();
+
+
     }
 }
