@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace OrderManager.DAL.InternalSysDAO
 {
-    public class PercentageDiscount : ReaderAndWriterDAO, IPercentageDiscountDAO
+    public class PercentageDiscountDAO : ReaderAndWriterDAO, IPercentageDiscountDAO
     {
-        public PercentageDiscount() : base("RabatProcentowy") { }
+        public PercentageDiscountDAO() : base("RabatProcentowy") { }
 
         public DataTable GetCounterpartiesStockWithDiscount(DataTable discount)
         {

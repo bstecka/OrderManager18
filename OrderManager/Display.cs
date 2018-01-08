@@ -41,25 +41,25 @@ namespace OrderManager
             dr["Nazwa"] = "Apart";
             dr["NIP"] = "2221243";
             dt.Rows.Add(dr);
-            PercentageDiscount disc = new PercentageDiscount();
+            PercentageDiscountDAO disc = new PercentageDiscountDAO();
             //disc.Add(dt);
             Stock stock = new Stock();
-            PercentageDiscount percentageDiscount = new PercentageDiscount();
+            PercentageDiscountDAO percentageDiscount = new PercentageDiscountDAO();
             //dataGridView1.DataSource = percentageDiscount.GetCounterpartysStockValidDicounts(
                 //(new CounterpartysStock()).GetById("1"));
             //Show();
 
-            DataTable trancheTable = new Tranche().GetById("3");
-            DataTable counterPartysStockTable = new CounterpartysStock().GetById("1");
-            ITrancheDAO trancheDAO = new Tranche();
-            ICounterpartysStockDAO counterpartysStockDAO = new CounterpartysStock();
+            DataTable trancheTable = new TrancheDAO().GetById("3");
+            DataTable counterPartysStockTable = new CounterpartysStockDAO().GetById("1");
+            ITrancheDAO trancheDAO = new TrancheDAO();
+            ICounterpartysStockDAO counterpartysStockDAO = new CounterpartysStockDAO();
             var trancheStock = trancheDAO.GetCounterpartysStock(trancheTable.Rows[0]);
             DTO.CounterpartysStockMapper mapper = new DTO.CounterpartysStockMapper(counterpartysStockDAO);
             string res = string.Join(Environment.NewLine, trancheTable.Rows.OfType<DataRow>().Select(x => string.Join(" ; ", x.ItemArray)));
             //Console.WriteLine(new DTO.TrancheMapper(trancheDAO).MapFrom(table));
             //Console.WriteLine(mapper.MapFrom(trancheStock).PriceNetto);
             
-            IOrderDAO orderDAO = new Order();
+            IOrderDAO orderDAO = new OrderDAO();
             DataTable orderTable = orderDAO.GetById("1");
             DTO.OrderMapper orderMapper = new DTO.OrderMapper(orderDAO);
             Domain.Entity.Order orderEntity = orderMapper.MapFrom(orderTable);

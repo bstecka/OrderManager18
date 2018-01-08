@@ -65,7 +65,7 @@ namespace OrderManager
         {
             get
             {
-                return new DAL.ExternalSysDAO.CounterpartysStock();
+                return new DAL.ExternalSysDAO.CounterpartysStockDAO();
             }
         }
 
@@ -73,7 +73,7 @@ namespace OrderManager
         {
             get
             {
-                return new Priority();
+                return new PriorityDAO();
             }
         }
 
@@ -81,7 +81,7 @@ namespace OrderManager
         {
             get
             {
-                return new DAL.InternalSysDAO.PercentageDiscount();
+                return new DAL.InternalSysDAO.PercentageDiscountDAO();
             }
         }
 
@@ -89,7 +89,7 @@ namespace OrderManager
         {
             get
             {
-                return new DAL.InternalSysDAO.Order();
+                return new DAL.InternalSysDAO.OrderDAO();
             }
         }
 

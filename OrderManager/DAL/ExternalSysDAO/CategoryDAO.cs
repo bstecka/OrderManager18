@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace OrderManager.DAL.ExternalSysDAO
 {
-    class Category : ReaderDAO, ICategoryDAO
+    class CategoryDAO : ReaderDAO, ICategoryDAO
     {
-        public Category() : base("Kategoria")
+        public CategoryDAO() : base("Kategoria")
         {
         }
     }

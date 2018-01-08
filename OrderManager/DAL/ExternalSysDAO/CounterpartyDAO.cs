@@ -11,13 +11,13 @@ using OrderManager.DAO;
 
 namespace OrderManager.ExternalSysDAO
 {
-    class Counterparty : ReaderDAO, ICounterpartyDAO
+    class CounterpartyDAO : ReaderDAO, ICounterpartyDAO
     {
-        public Counterparty() : base("Kontrahent") { }
+        public CounterpartyDAO() : base("Kontrahent") { }
 
         public DataTable GetCounterpartysOrders(DataTable counterparty)
         {
-            return DBOperations.Select(@"SELECT * FROM Zamowienie
+            return DBOperations.Query(@"SELECT * FROM Zamowienie
                 WHERE KontrahentID IN (" + counterparty.Rows[0]["ID"] + ")");
         }
 

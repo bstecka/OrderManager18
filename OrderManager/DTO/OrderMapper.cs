@@ -39,7 +39,7 @@ namespace OrderManager.DTO
             var counterparty = (new CounterpartyMapper()).MapFrom(
                orderDAO.GetCounterparty(orderRow));
             var orderStateRow = orderDAO.GetOrderState(orderRow).Rows[0];
-            var tranches = (new TrancheMapper(new DAL.InternalSysDAO.Tranche())).MapAllFrom(
+            var tranches = (new TrancheMapper(new DAL.InternalSysDAO.TrancheDAO())).MapAllFrom(
                 orderDAO.GetTranches(orderRow));
             var creator = (new UserMapper()).MapFrom(
                 orderDAO.GetUser(orderRow));

@@ -53,9 +53,9 @@ namespace OrderManager.DTO
         Domain.Entity.Tranche MapFrom(DataTable trancheTable, int numberOfRow)
         {
             DataRow trancheRow = trancheTable.Rows[numberOfRow];
-            var counterpartysStock = (new CounterpartysStockMapper(new DAL.ExternalSysDAO.CounterpartysStock())).MapFrom(
+            var counterpartysStock = (new CounterpartysStockMapper(new DAL.ExternalSysDAO.CounterpartysStockDAO())).MapFrom(
                trancheDAO.GetCounterpartysStock(trancheRow));
-            var percentageDiscounts = (new PercentageDiscountMapper(new DAL.InternalSysDAO.PercentageDiscount(), new DAL.ExternalSysDAO.CounterpartysStock())).MapAllFrom(
+            var percentageDiscounts = (new PercentageDiscountMapper(new DAL.InternalSysDAO.PercentageDiscountDAO(), new DAL.ExternalSysDAO.CounterpartysStockDAO())).MapAllFrom(
                trancheDAO.GetPercentageDiscounts(trancheRow));
             var quotaDiscount = DBNull.Value.Equals(trancheRow["RabatKwotowy"]) ? 0 : Convert.ToDouble(trancheRow["RabatKwotowy"]);
             return new Domain.Entity.Tranche(

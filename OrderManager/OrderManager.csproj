@@ -55,10 +55,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAL\ExternalSysDAO\Category.cs" />
-    <Compile Include="DAL\ExternalSysDAO\Counterparty.cs" />
+    <Compile Include="DAL\ExternalSysDAO\CategoryDAO.cs" />
+    <Compile Include="DAL\ExternalSysDAO\CounterpartyDAO.cs" />
     <Compile Include="DAL\DBOperations.cs" />
-    <Compile Include="DAL\ExternalSysDAO\CounterpartysStock.cs" />
+    <Compile Include="DAL\ExternalSysDAO\CounterpartysStockDAO.cs" />
     <Compile Include="DAL\ExternalSysDAO\ICategoryDAO.cs" />
     <Compile Include="DAL\ExternalSysDAO\ICounterpartyDAO.cs" />
     <Compile Include="DAL\ExternalSysDAO\ICounterpartysStockDAO.cs" />
@@ -67,13 +67,13 @@
     <Compile Include="DAL\InternalSysDAO\IEligibleOrdersNamesDAO.cs" />
     <Compile Include="DAL\InternalSysDAO\IOrderDAO.cs" />
     <Compile Include="DAL\InternalSysDAO\ITrancheDAO.cs" />
-    <Compile Include="DAL\ExternalSysDAO\Stock.cs" />
-    <Compile Include="DAL\InternalSysDAO\Order.cs" />
-    <Compile Include="DAL\InternalSysDAO\Tranche.cs" />
+    <Compile Include="DAL\ExternalSysDAO\StockDAO.cs" />
+    <Compile Include="DAL\InternalSysDAO\OrderDAO.cs" />
+    <Compile Include="DAL\InternalSysDAO\TrancheDAO.cs" />
     <Compile Include="DAL\InternalSysDAO\IPercentageDiscountDAO.cs" />
     <Compile Include="DAL\InternalSysDAO\IPriorityDAO.cs" />
-    <Compile Include="DAL\InternalSysDAO\PercentageDiscount.cs" />
-    <Compile Include="DAL\InternalSysDAO\Priority.cs" />
+    <Compile Include="DAL\InternalSysDAO\PercentageDiscountDAO.cs" />
+    <Compile Include="DAL\InternalSysDAO\PriorityDAO.cs" />
     <Compile Include="DAL\IReadableDAO.cs" />
     <Compile Include="DAL\IWritableDAO.cs" />
     <Compile Include="DAL\ReaderAndWriterDAO.cs" />
@@ -110,6 +110,7 @@
     <Compile Include="Domain\Service\IEligibleOrdersNamesService.cs" />
     <Compile Include="Domain\Service\IEntityServiceBase.cs" />
     <Compile Include="Domain\OrderGenerator\IOffersChoice.cs" />
+    <Compile Include="Domain\Service\IOrderService.cs" />
     <Compile Include="Domain\Service\IPriorityService.cs" />
     <Compile Include="Domain\Service\IStockService.cs" />
     <Compile Include="Domain\OrderGenerator\PriorityPriceChoice.cs" />

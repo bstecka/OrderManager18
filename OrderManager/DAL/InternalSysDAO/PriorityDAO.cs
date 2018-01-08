@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace OrderManager.DAL.InternalSysDAO
 {
-    class Priority : ReaderAndWriterDAO, IPriorityDAO
+    class PriorityDAO : ReaderAndWriterDAO, IPriorityDAO
     {
-        public Priority() : base("PriorytetTowaru") { }
+        public PriorityDAO() : base("PriorytetTowaru") { }
 
         public DataTable GetPriority(DataTable stock)
         {

@@ -96,7 +96,7 @@ namespace OrderManager.Domain.Entity
             {
                 if (parentOrder == null)
                 {
-                    DAL.InternalSysDAO.Order orderDAO = new DAL.InternalSysDAO.Order();
+                    DAL.InternalSysDAO.OrderDAO orderDAO = new DAL.InternalSysDAO.OrderDAO();
                     DTO.OrderMapper orderMapper = new DTO.OrderMapper(orderDAO);
                     DataTable parentTable = orderDAO.GetParentOrderById(0);//poprawic
                     if (parentTable.Rows.Count < 1)
