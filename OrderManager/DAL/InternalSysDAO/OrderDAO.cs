@@ -53,7 +53,13 @@ namespace OrderManager.DAL.InternalSysDAO
         public DataTable GetAllDuringRealization() 
         {
             return DBOperations.Query(@"SELECT * FROM Zamowienie 
-                WHERE StanZamowienia = 1");
+                WHERE StanZamowieniaID = 1");
+        }
+
+        public DataTable GetAllByState(int stateId)
+        {
+            return DBOperations.Query(@"SELECT * FROM Zamowienie 
+                WHERE StanZamowieniaID IN (" + stateId + ")");
         }
     }
 }

@@ -34,5 +34,10 @@ namespace OrderManager.Domain.Service
         {
             return mapper.MapFrom(DAO.GetById(id));
         }
+
+        public List<Order> GetAllByState(int stateId)
+        {
+            return mapper.MapAllFrom(DAO.GetAllByState(stateId));
+        }
     }
 }
