@@ -14,7 +14,7 @@ namespace OrderManager.DAL.InternalSysDAO
 
         public DataTable FetchNames(int numberOfNames)
         {
-            return DBOperations.Select(@"
+            return DBOperations.Query(@"
             SELECT Nazwa FROM(
             SELECT Nazwa, DENSE_RANK() OVER (ORDER BY Nazwa) AS miejsce FROM WolneNazwyZamowien) 
             AS UszeregowaneNazwy
