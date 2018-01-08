@@ -24,7 +24,7 @@ namespace OrderManager.Domain.Entity
         }
 
         public int Id { get => id; set => id = value; }
-        public double PriceNetto { get => priceNetto; set => priceNetto = value; }
+        public virtual double PriceNetto { get => priceNetto; set => priceNetto = value; }
         internal Stock Stock { get => stock; set => stock = value; }
         internal Counterparty Counterparty { get => counterparty; set => counterparty = value; }
 

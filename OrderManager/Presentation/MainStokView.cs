@@ -29,6 +29,7 @@ namespace OrderManager.Presentation
 
             fillGridview(listStock);
             addDataSourceForFilters();
+            this.FormClosing += MainStokView_FormClosing;
         }
 
         private void MainStokView_Load(object sender, EventArgs e)
@@ -186,6 +187,14 @@ namespace OrderManager.Presentation
                 case "Dowolny": fillGridview(listStock); break;
                 case "Ponizej minimum": fillGridview(listStock.Where(stock => stock.NumberOfItemsInStockRoom < stock.MinInStockRoom)); break;
             }
+        }
+
+        private void MainStokView_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Czy chcesz zamknąć to okno? Czy może nie chcesz.", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                e.Cancel = true;
+            else
+                e.Cancel = false;
         }
     }
     
