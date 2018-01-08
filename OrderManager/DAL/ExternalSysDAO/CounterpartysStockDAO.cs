@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace OrderManager.DAL.ExternalSysDAO
 {
-    class CounterpartysStock : ReaderDAO, ICounterpartysStockDAO
+    class CounterpartysStockDAO : ReaderDAO, ICounterpartysStockDAO
     {
-        public CounterpartysStock() : base("TowarKontrahenta") { }
+        public CounterpartysStockDAO() : base("TowarKontrahenta") { }
 
         public DataTable GetCounterparty(DataTable counterpartysStock)
         {

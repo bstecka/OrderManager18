@@ -9,9 +9,9 @@ using OrderManager.DAO;
 
 namespace OrderManager.DAL.InternalSysDAO
 {
-    class Tranche : ReaderDAO, ITrancheDAO
+    class TrancheDAO : ReaderDAO, ITrancheDAO
     {
-        public Tranche() : base("Transza") { }
+        public TrancheDAO() : base("Transza") { }
 
         public void Add(DataTable entity)
         {

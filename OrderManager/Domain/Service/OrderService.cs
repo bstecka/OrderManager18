@@ -11,27 +11,37 @@ namespace OrderManager.Domain.Service
     class OrderService
     {
         private IOrderDAO DAO;
-        private IMapperBase<Order> mapper;
+        private IMapperBase<OrderDAO> mapper;
 
-        public OrderService(IOrderDAO DAO, IMapperBase<Order> mapper)
+        public OrderService(IOrderDAO DAO, IMapperBase<OrderDAO> mapper)
         {
             this.DAO = DAO;
             this.mapper = mapper;
         }
 
-        public List<Order> GetAll()
+        public List<OrderDAO> GetAll()
         {
             return mapper.MapAllFrom(DAO.GetAll());
         }
 
-        public List<Order> GetAllDuringRealization()
+        public List<OrderDAO> GetAllDuringRealization()
         {
             return mapper.MapAllFrom(DAO.GetAllDuringRealization());
         }
 
-        public Order GetById(string id)
+        public OrderDAO GetById(string id)
         {
             return mapper.MapFrom(DAO.GetById(id));
+        }
+
+        List<Entity.Order> IEntityServiceBase<Entity.Order>.GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        Entity.Order IEntityServiceBase<Entity.Order>.GetById(string id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace OrderManager.DAL.InternalSysDAO
 {
-    class Order : ReaderAndWriterDAO, IOrderDAO
+    class OrderDAO : ReaderAndWriterDAO, IOrderDAO
     {
-        public Order() : base("Zamowienie") { }
+        public OrderDAO() : base("Zamowienie") { }
 
         public DataTable GetCounterparty(DataRow order)
         {
