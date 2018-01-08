@@ -13,41 +13,32 @@ namespace OrderManager.Domain.Entity
         private double quotaDiscount;
         private CounterpartysStock stock;
         private List<PercentageDiscount> discounts;
-        private int orderId;
-
+        private int? orderId;
+        
         public Tranche(int? id, CounterpartysStock stock, int numberOfItems)
         {
+            if (stock == null || numberOfItems < 0)
+                throw new ArgumentException();
             this.id = id;
             this.numberOfItems = numberOfItems;
             this.stock = stock;
-            this.orderId = 1;
         }
 
-        public Tranche(int? id, CounterpartysStock stock, int numberOfItems, int orderId)
+        public Tranche(int? id, CounterpartysStock stock, int numberOfItems, int? orderId) : this(id, stock, numberOfItems)
         {
-            this.id = id;
-            this.numberOfItems = numberOfItems;
-            this.stock = stock;
             this.orderId = orderId;
         }
 
-        public Tranche(int? id, CounterpartysStock stock, int numberOfItems, int orderId, List<PercentageDiscount> discounts)
+        public Tranche(int? id, CounterpartysStock stock, int numberOfItems, int? orderId, List<PercentageDiscount> discounts) : this(id, stock, numberOfItems, orderId)
         {
-            this.id = id;
-            this.numberOfItems = numberOfItems;
             this.discounts = discounts;
-            this.stock = stock;
-            this.orderId = orderId;
         }
 
-        public Tranche(int? id, CounterpartysStock stock, int numberOfItems, int orderId, double quotaDiscount, List<PercentageDiscount> discounts)
+        public Tranche(int? id, CounterpartysStock stock, int numberOfItems, int? orderId, double quotaDiscount, List<PercentageDiscount> discounts) : this(id, stock, numberOfItems, orderId, discounts)
         {
-            this.id = id;
-            this.numberOfItems = numberOfItems;
-            this.orderId = orderId;
+            if (quotaDiscount > PriceNetto)
+                throw new ArgumentException();
             this.quotaDiscount = quotaDiscount;
-            this.discounts = discounts;
-            this.stock = stock;
         }
 
 
@@ -57,13 +48,18 @@ namespace OrderManager.Domain.Entity
             this.numberOfItems = numberOfItems;
             this.discounts = discounts;
             this.stock = stock;
-            orderId = 1;
         }
 
         public int? Id { get => id; set => id = value; }
         public int NumberOfItems { get => numberOfItems; set => numberOfItems = value; }
-        public int OrderId { get => orderId; set => orderId = value; }
-        public double QuotaDiscount { get => quotaDiscount; set => quotaDiscount = value; }
+        public int? OrderId { get => orderId; set => orderId = value; }
+        public double QuotaDiscount { get => quotaDiscount;
+            set
+            {
+                if (quotaDiscount > PriceNetto) throw new ArgumentException();
+                quotaDiscount = value;
+            }
+        }
         public double PriceNetto
         {
             get => (stock.PriceNetto *

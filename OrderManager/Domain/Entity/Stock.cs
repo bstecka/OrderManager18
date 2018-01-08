@@ -15,7 +15,7 @@ namespace OrderManager.Domain.Entity
         int minInStockRoom;
         int numberOfImtems;
         int weightOfItem;
-        int numOfItems;
+        int maxNumOfItemsOnEuropallet;
         int vat;
         string code;
         string name;
@@ -23,12 +23,15 @@ namespace OrderManager.Domain.Entity
 
         public Stock(int id, int maxInStockRoom, int minInStockRoom, int numberOfImtems, int weightOfItem, int numOfItems, int VAT, string code, string name, Category category)
         {
+            if (minInStockRoom < 0 || maxInStockRoom < minInStockRoom || numberOfImtems < 0
+                || numOfItems < 0 || weightOfItem < 0)
+                throw new ArgumentException();
             this.id = id;
             this.maxInStockRoom = maxInStockRoom;
             this.minInStockRoom = minInStockRoom;
             this.numberOfImtems = numberOfImtems;
             this.weightOfItem = weightOfItem;
-            this.numOfItems = numOfItems;
+            this.maxNumOfItemsOnEuropallet = numOfItems;
             this.vat = VAT;
             this.code = code;
             this.name = name;
@@ -40,7 +43,7 @@ namespace OrderManager.Domain.Entity
         public int MinInStockRoom { get => minInStockRoom; set => minInStockRoom = value; }
         public int NumberOfItemsInStockRoom { get => numberOfImtems; set => numberOfImtems = value; }
         public int WeightOfItem { get => weightOfItem; set => weightOfItem = value; }
-        public int NumOfItems { get => numOfItems; set => numOfItems = value; }
+        public int maxNumberOfItemsOnEuropallet { get => maxNumOfItemsOnEuropallet; set => maxNumOfItemsOnEuropallet = value; }
         public int VAT { get => vat; set => vat = value; }
         public string Code { get => code; set => code = value; }
         public string Name { get => name; set => name = value; }
