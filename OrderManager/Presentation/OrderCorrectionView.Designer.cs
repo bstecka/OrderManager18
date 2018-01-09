@@ -306,6 +306,7 @@
             this.dataGridViewTranches.RowHeadersVisible = false;
             this.dataGridViewTranches.Size = new System.Drawing.Size(546, 89);
             this.dataGridViewTranches.TabIndex = 1;
+            this.dataGridViewTranches.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTranches_CellContentClick);
             // 
             // label2
             // 
