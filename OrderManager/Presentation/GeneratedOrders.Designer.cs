@@ -88,7 +88,7 @@
             this.labelTitle.TabIndex = 1;
             this.labelTitle.Text = "label1";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelTitle.Click += new System.EventHandler(this.labelTitle_Click);
+            this.labelTitle.Click += new System.EventHandler(this.LabelTitle_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -115,7 +115,7 @@
             this.buttonEdit.TabIndex = 2;
             this.buttonEdit.Text = "Edytuj";
             this.buttonEdit.UseVisualStyleBackColor = true;
-            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            this.buttonEdit.Click += new System.EventHandler(this.ButtonEdit_Click);
             // 
             // buttonSave
             // 

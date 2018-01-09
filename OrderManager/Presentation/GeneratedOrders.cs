@@ -20,11 +20,11 @@ namespace OrderManager.Presentation
             InitializeComponent();
             labelTitle.Text = "Wygenerowane zamówienia z dnia " + DateTime.Now.Date.ToString("dd/MM/yyyy");
             this.orders = orders;
-            fillDataGridView();
+            FillDataGridView();
             //tableLayoutPanel3.CellPaint += tableLayoutPanel_CellPaint;
         }
         
-        private void fillDataGridView()
+        private void FillDataGridView()
         {
             DataTable dataGridSource = new DataTable();
             (new DataGridviewCheckBoxColumnProwider(dataGridViewOrders)).addCheckBoxColumn();
@@ -46,7 +46,7 @@ namespace OrderManager.Presentation
             dataGridViewOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
-        private void buttonEdit_Click(object sender, EventArgs e)
+        private void ButtonEdit_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dataGridViewOrders.Rows)
             {
@@ -59,12 +59,12 @@ namespace OrderManager.Presentation
             }
         }
 
-        private void labelTitle_Click(object sender, EventArgs e)
+        private void LabelTitle_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void tableLayoutPanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
+        private void TableLayoutPanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
         {
             e.Graphics.DrawLine(Pens.Black, e.CellBounds.Location, new Point(e.CellBounds.Right, e.CellBounds.Bottom));
         }

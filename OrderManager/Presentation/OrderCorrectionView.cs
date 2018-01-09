@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace OrderManager.Presentation
 {
-    public partial class Form1 : Form
+    public partial class OrderCorrectionView : Form
     {
         private Order order;
-        public Form1(Order order)
+        public OrderCorrectionView(Order order)
         {
             InitializeComponent();
             this.order = order;
@@ -33,6 +33,7 @@ namespace OrderManager.Presentation
             labelBrutto.Text = order.PriceBrutto.ToString();
             labelAuthor.Text = order.Creator.Name + " " + order.Creator.Surname;
             FillTranches();
+            AddActionColumns();
         }
 
         private void FillTranches()
@@ -62,7 +63,21 @@ namespace OrderManager.Presentation
             }
             dataGridViewTranches.DataSource = dataGridSource;
             dataGridViewTranches.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
 
+        private void AddActionColumns()
+        {
+            var list = dataGridViewTranches;
+            DataGridViewLinkColumn editColumn = new DataGridViewLinkColumn();
+            editColumn.Width = 10;
+            editColumn.DefaultCellStyle.NullValue = "Edytuj";
+            editColumn.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            list.Columns.Insert(list.ColumnCount, editColumn);
+            DataGridViewLinkColumn deleteColumn = new DataGridViewLinkColumn();
+            deleteColumn.Width = 10;
+            deleteColumn.DefaultCellStyle.NullValue = "Usuń";
+            deleteColumn.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            list.Columns.Insert(list.ColumnCount, deleteColumn);
         }
 
         private void TableLayoutPanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
@@ -70,15 +85,23 @@ namespace OrderManager.Presentation
             e.Graphics.DrawLine(Pens.Black, e.CellBounds.Location, new Point(e.CellBounds.Right, e.CellBounds.Top));
         }
 
-
-        private void Label1_Click(object sender, EventArgs e)
+        private void Button3_Click(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("Czy chcesz zamknąć to okno? Wprowadzone zmiany nie zostały zapisane.", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                this.Close();
         }
 
-        private void TableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        private void OrderCorrectionView_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (MessageBox.Show("Czy chcesz zamknąć to okno? Wprowadzone zmiany nie zostały zapisane.", "", MessageBoxButtons.YesNo) == DialogResult.No)
+                e.Cancel = true;
+            else
+                e.Cancel = false;
+        }
 
+        private void OrderCorrectionView_Load(object sender, EventArgs e)
+        {
+            this.FormClosing += new FormClosingEventHandler(OrderCorrectionView_FormClosing);
         }
     }
 }
