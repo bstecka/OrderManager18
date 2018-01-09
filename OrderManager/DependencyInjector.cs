@@ -45,6 +45,14 @@ namespace OrderManager
             }
         }
 
+        public static IOrderService IOrderService
+        {
+            get
+            {
+                return new OrderService(IOrderDAO, IMapperBaseOrder);
+            }
+        }
+
         public static IEligibleOrdersNamesService IEligibleOrdersNamesService
         {
             get
