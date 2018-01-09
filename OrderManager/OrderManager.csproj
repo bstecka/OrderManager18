@@ -165,6 +165,12 @@
     <Compile Include="Presentation\OrderCorrectionView.Designer.cs">
       <DependentUpon>OrderCorrectionView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\TrancheCorrectionView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\TrancheCorrectionView.Designer.cs">
+      <DependentUpon>TrancheCorrectionView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Tester.cs">
       <SubType>Form</SubType>
@@ -193,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\OrderCorrectionView.resx">
       <DependentUpon>OrderCorrectionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\TrancheCorrectionView.resx">
+      <DependentUpon>TrancheCorrectionView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

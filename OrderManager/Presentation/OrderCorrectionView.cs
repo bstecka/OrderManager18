@@ -40,6 +40,7 @@ namespace OrderManager.Presentation
         {
             DataTable dataGridSource = new DataTable();
             dataGridSource.Columns.Add("Lp");
+            dataGridSource.Columns.Add("Id");
             dataGridSource.Columns.Add("Nazwa");
             dataGridSource.Columns.Add("Ilość");
             dataGridSource.Columns.Add("Cena netto");
@@ -52,6 +53,7 @@ namespace OrderManager.Presentation
             {
                 DataRow dataRow = dataGridSource.NewRow();
                 dataRow["Lp"] = lp;
+                dataRow["Id"] = tranche.Id;
                 dataRow["Nazwa"] = tranche.Stock.Stock.Name;
                 dataRow["Ilość"] = tranche.NumberOfItems;
                 dataRow["VAT"] = tranche.Stock.Stock.VAT + "%";
@@ -87,8 +89,7 @@ namespace OrderManager.Presentation
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Czy chcesz zamknąć to okno? Wprowadzone zmiany nie zostały zapisane.", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                this.Close();
+            this.Close();
         }
 
         private void OrderCorrectionView_FormClosing(object sender, FormClosingEventArgs e)
@@ -102,6 +103,29 @@ namespace OrderManager.Presentation
         private void OrderCorrectionView_Load(object sender, EventArgs e)
         {
             this.FormClosing += new FormClosingEventHandler(OrderCorrectionView_FormClosing);
+        }
+
+        private void dataGridViewTranches_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex.Equals(0))
+            {
+                DataGridViewRow row = dataGridViewTranches.Rows[e.RowIndex];
+                Tranche tranche = null;
+                foreach (Tranche tr in order.Tranches)
+                {
+                    if (tr.Id.ToString().Equals(row.Cells["Id"].Value.ToString()))
+                        tranche = tr;
+                }
+                if (tranche != null)
+                {
+                    var form = new TrancheCorrectionView(tranche);
+                    form.Show();
+                }
+            }
+            else if (e.ColumnIndex.Equals(1))
+            {
+                dataGridViewTranches.Rows.RemoveAt(e.RowIndex);
+            }
         }
     }
 }
