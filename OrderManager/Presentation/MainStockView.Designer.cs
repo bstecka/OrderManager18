@@ -1,6 +1,6 @@
 ﻿namespace OrderManager.Presentation
 {
-    partial class MainStokView
+    partial class MainStockView
     {
         /// <summary>
         /// Required designer variable.
@@ -133,7 +133,7 @@
             this.buttonGenerateOrders.TabIndex = 1;
             this.buttonGenerateOrders.Text = "Wygeneruj zamówienia";
             this.buttonGenerateOrders.UseVisualStyleBackColor = true;
-            this.buttonGenerateOrders.Click += new System.EventHandler(this.buttonGenerateOrders_Click);
+            this.buttonGenerateOrders.Click += new System.EventHandler(this.ButtonGenerateOrders_Click);
             // 
             // labelTitle
             // 
@@ -353,7 +353,7 @@
             this.comboBoxState.Name = "comboBoxState";
             this.comboBoxState.Size = new System.Drawing.Size(121, 21);
             this.comboBoxState.TabIndex = 13;
-            this.comboBoxState.SelectedIndexChanged += new System.EventHandler(this.comboBoxState_SelectedIndexChanged_1);
+            this.comboBoxState.SelectedIndexChanged += new System.EventHandler(this.ComboBoxState_SelectedIndexChanged_1);
             // 
             // label2
             // 
@@ -433,10 +433,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 479);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "MainStokView";
-            this.Text = "MainStokView";
+            this.Name = "MainStockView";
+            this.Text = "MainStockView";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.MainStokView_Load);
+            this.Load += new System.EventHandler(this.MainStockView_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);

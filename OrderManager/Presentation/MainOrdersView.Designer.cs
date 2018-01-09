@@ -112,6 +112,8 @@
             // 
             this.dataGridViewStock.AllowUserToAddRows = false;
             this.dataGridViewStock.AllowUserToDeleteRows = false;
+            this.dataGridViewStock.AllowUserToResizeColumns = false;
+            this.dataGridViewStock.AllowUserToResizeRows = false;
             this.dataGridViewStock.BackgroundColor = System.Drawing.Color.DimGray;
             this.dataGridViewStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewStock.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -185,6 +187,7 @@
             this.button3.TabIndex = 4;
             this.button3.Text = "Edytuj";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // button2
             // 
@@ -255,7 +258,7 @@
             this.comboBoxState.Name = "comboBoxState";
             this.comboBoxState.Size = new System.Drawing.Size(152, 21);
             this.comboBoxState.TabIndex = 13;
-            this.comboBoxState.SelectedIndexChanged += new System.EventHandler(this.comboBoxState_SelectedIndexChanged);
+            this.comboBoxState.SelectedIndexChanged += new System.EventHandler(this.ComboBoxState_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -404,7 +407,7 @@
             this.ClientSize = new System.Drawing.Size(838, 479);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "MainOrdersView";
-            this.Text = "MainStokView";
+            this.Text = "MainOrdersView";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainOrdersView_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

@@ -27,8 +27,8 @@ namespace OrderManager.Presentation
             listOrder = orderService.GetAllDuringRealization();
             (new DataGridviewCheckBoxColumnProwider(dataGridViewStock)).addCheckBoxColumn();
 
-            fillGridview(listOrder);
-            addDataSourceForFilters();
+            FillGridview(listOrder);
+            AddDataSourceForFilters();
             this.FormClosing += MainOrdersView_FormClosing;
         }
 
@@ -37,14 +37,14 @@ namespace OrderManager.Presentation
 
         }
 
-        private void addDataSourceForFilters()
+        private void AddDataSourceForFilters()
         {
             string[] comboBoxStateDataSource = {"W trakcie realizacji", "Zrealizowane", "Anulowane", "W trakcie reklamacji"};
             comboBoxState.DataSource = comboBoxStateDataSource;
             comboBoxState.DropDownStyle = ComboBoxStyle.DropDownList;
         }
         
-        private void fillGridview(IEnumerable<Order> listOrder)
+        private void FillGridview(IEnumerable<Order> listOrder)
         {
             DataTable dataGridSource = new DataTable();
             dataGridSource.Columns.Add("Nazwa");
@@ -77,7 +77,7 @@ namespace OrderManager.Presentation
                     column.ReadOnly = true;
         }
 
-        private void addCheckBoxColumn()
+        private void AddCheckBoxColumn()
         {
             var list = dataGridViewStock;
             DataGridViewCheckBoxColumn checkboxColumn = new DataGridViewCheckBoxColumn();
@@ -94,12 +94,12 @@ namespace OrderManager.Presentation
             checkboxHeader.Name = "checkboxHeader";
             checkboxHeader.Size = new Size(18, 18);
             checkboxHeader.Location = rect.Location;
-            checkboxHeader.CheckedChanged += new EventHandler(checkboxHeader_CheckedChanged);
+            checkboxHeader.CheckedChanged += new EventHandler(CheckboxHeader_CheckedChanged);
 
             list.Controls.Add(checkboxHeader);
         }
 
-        private void checkboxHeader_CheckedChanged(object sender, EventArgs e)
+        private void CheckboxHeader_CheckedChanged(object sender, EventArgs e)
         {
             var list = dataGridViewStock;
             for (int i = 0; i < list.RowCount; i++)
@@ -109,56 +109,12 @@ namespace OrderManager.Presentation
             list.EndEdit();
         }
 
-        private void dataGridViewStock_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridViewStock_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
-        /*private void buttonGenerateOrders_Click(object sender, EventArgs e)
-        {
-            Dictionary<Stock, int> stockToOrder = new Dictionary<Stock, int>();
-            foreach(DataGridViewRow row in dataGridViewStock.Rows)
-            {
-                if (Convert.ToBoolean(row.Cells[0].Value))
-                {
-                    Stock currentStock =
-                        listStock.FirstOrDefault(stock => stock.Code.Equals(row.Cells[1].Value));
-                    int numberOfItemsToOrder = stockService.GetNumOfItemsToOrder(currentStock) 
-                        + getNumberOfItemsInIndividualOrdersColumn(row);
-                    if (numberOfItemsToOrder > 0)
-                        stockToOrder.Add(currentStock, numberOfItemsToOrder);
-                }
-            }
-
-            List<Order> orders = (new OrdersGenerator(stockToOrder, DependencyInjector.ICounterpartyService,
-                DependencyInjector.IPriorityService, DependencyInjector.ICounterpartysStockService,
-                DependencyInjector.IStockService, DependencyInjector.IEligibleOrdersNamesService)).Generate();
-            var orderedStock = new HashSet<Stock>(orders.Select(order => order.Tranches).SelectMany(i => i).Select(tranche => tranche.Stock.Stock));
-            var unorderedStock = (stockToOrder.Keys).Except(orderedStock);
-            if (unorderedStock.Count() != 0)
-                informAboutUnorderedStock(unorderedStock);
-            if (orders.Count == 0)
-                MessageBox.Show("Brak wygenerowanych zamówień.");
-            else
-                (new GeneratedOrders(orders)).Show();
-        }*/
-
-        private void informAboutUnorderedStock(IEnumerable<Stock> stock)
-        {
-            StringBuilder message = new StringBuilder("Nie udało się wygenerować zamówień dla części wybranych towarów."); 
-            message.AppendLine("Nie wygenerowano zamówień dla towarów: "); 
-            foreach (Stock unorderedStock in stock)
-                message.AppendLine(unorderedStock.Name);
-            MessageBox.Show(message.ToString());
-        }
-
-        private int getNumberOfItemsInIndividualOrdersColumn(DataGridViewRow row)
-        {
-            int number;
-            return int.TryParse(row.Cells[7].Value.ToString(), out number) ? number : 0;
-        }
-
-        private void tableLayoutPanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
+        private void TableLayoutPanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
         {
             e.Graphics.DrawLine(Pens.Black, e.CellBounds.Location, new Point(e.CellBounds.Right, e.CellBounds.Top));
         }
@@ -171,24 +127,37 @@ namespace OrderManager.Presentation
                 e.Cancel = false;
         }
 
-        private void setButtonsForOrdersDuringRealization(bool value)
+        private void SetButtonsForOrdersDuringRealization(bool value)
         {
             button3.Enabled = value;
             button4.Enabled = value;
         }
 
-        private void comboBoxState_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBoxState_SelectedIndexChanged(object sender, EventArgs e)
         {
             List<Order> orders = listOrder;
-            setButtonsForOrdersDuringRealization(false);
+            SetButtonsForOrdersDuringRealization(false);
             switch (comboBoxState.SelectedValue)
             {
-                case "W trakcie realizacji": orders = orderService.GetAllDuringRealization(); setButtonsForOrdersDuringRealization(true); break;
+                case "W trakcie realizacji": orders = orderService.GetAllDuringRealization(); SetButtonsForOrdersDuringRealization(true); break;
                 case "Zrealizowane": orders = orderService.GetAllByState(4); break;
                 case "Anulowane": orders = orderService.GetAllByState(3); break;
                 case "W trakcie reklamacji": orders = orderService.GetAllByState(2); break;
             }
-            fillGridview(orders);
+            FillGridview(orders);
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridViewStock.Rows)
+            {
+                var tmp1 = Convert.ToBoolean(row.Cells[0].Value);
+                var tmp = listOrder.FirstOrDefault(
+                        order => order.Name.Equals(row.Cells["Nazwa"].Value.ToString()));
+                if (Convert.ToBoolean(row.Cells[0].Value) && tmp != null)
+                    (new OrderCorrectionView(listOrder.FirstOrDefault(
+                        order => order.Name.Equals(row.Cells["Nazwa"].Value.ToString())))).Show();
+            }
         }
     }
     

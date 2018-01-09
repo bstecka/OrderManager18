@@ -15,30 +15,29 @@ using System.Windows.Forms;
 
 namespace OrderManager.Presentation
 {
-    public partial class MainStokView : Form
+    public partial class MainStockView : Form
     {
         private IStockService stockService;
         private List<Domain.Entity.Stock> listStock;
 
-        internal MainStokView(IStockService stockService)
+        internal MainStockView(IStockService stockService)
         {
             InitializeComponent();
             this.stockService = stockService;
             listStock = stockService.GetAll();
             (new DataGridviewCheckBoxColumnProwider(dataGridViewStock)).addCheckBoxColumn();
 
-            fillGridview(listStock);
-            addDataSourceForFilters();
-            this.FormClosing += MainStokView_FormClosing;
+            FillGridview(listStock);
+            AddDataSourceForFilters();
+            this.FormClosing += MainStockView_FormClosing;
         }
 
-        private void MainStokView_Load(object sender, EventArgs e)
+        private void MainStockView_Load(object sender, EventArgs e)
         {
         }
 
-        private void addDataSourceForFilters()
+        private void AddDataSourceForFilters()
         {
-
             string[] comboBoxStateDataSource = { "Dowolny", "Ponizej minimum" };
             string[] comboBoxCategoryDataSource = { "Dowolna" };
             string[] comboBoxOrderedDataSource = { "Dowolnie", "W poprzedzim cyklu" };
@@ -48,7 +47,7 @@ namespace OrderManager.Presentation
             comboBoxOrdered.DataSource = comboBoxOrderedDataSource;
         }
         
-        private void fillGridview(IEnumerable<Stock> listStock)
+        private void FillGridview(IEnumerable<Stock> listStock)
         {
             DataTable dataGridSource = new DataTable();
             //addCheckBoxColumn();
@@ -83,9 +82,8 @@ namespace OrderManager.Presentation
                     column.ReadOnly = true;
         }
 
-        private void addCheckBoxColumn()
+        private void AddCheckBoxColumn()
         {
-
             var list = dataGridViewStock;
             DataGridViewCheckBoxColumn checkboxColumn = new DataGridViewCheckBoxColumn();
             checkboxColumn.Width = 30;
@@ -101,12 +99,12 @@ namespace OrderManager.Presentation
             checkboxHeader.Name = "checkboxHeader";
             checkboxHeader.Size = new Size(18, 18);
             checkboxHeader.Location = rect.Location;
-            checkboxHeader.CheckedChanged += new EventHandler(checkboxHeader_CheckedChanged);
+            checkboxHeader.CheckedChanged += new EventHandler(CheckboxHeader_CheckedChanged);
 
             list.Controls.Add(checkboxHeader);
         }
 
-        private void checkboxHeader_CheckedChanged(object sender, EventArgs e)
+        private void CheckboxHeader_CheckedChanged(object sender, EventArgs e)
         {
             var list = dataGridViewStock;
             for (int i = 0; i < list.RowCount; i++)
@@ -116,12 +114,12 @@ namespace OrderManager.Presentation
             list.EndEdit();
         }
 
-        private void dataGridViewStock_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridViewStock_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
-        private void buttonGenerateOrders_Click(object sender, EventArgs e)
+        private void ButtonGenerateOrders_Click(object sender, EventArgs e)
         {
             Dictionary<Stock, int> stockToOrder = new Dictionary<Stock, int>();
             foreach(DataGridViewRow row in dataGridViewStock.Rows)
@@ -131,7 +129,7 @@ namespace OrderManager.Presentation
                     Stock currentStock =
                         listStock.FirstOrDefault(stock => stock.Code.Equals(row.Cells[1].Value));
                     int numberOfItemsToOrder = stockService.GetNumOfItemsToOrder(currentStock) 
-                        + getNumberOfItemsInIndividualOrdersColumn(row);
+                        + GetNumberOfItemsInIndividualOrdersColumn(row);
                     if (numberOfItemsToOrder > 0)
                         stockToOrder.Add(currentStock, numberOfItemsToOrder);
                 }
@@ -143,14 +141,14 @@ namespace OrderManager.Presentation
             var orderedStock = new HashSet<Stock>(orders.Select(order => order.Tranches).SelectMany(i => i).Select(tranche => tranche.Stock.Stock));
             var unorderedStock = (stockToOrder.Keys).Except(orderedStock);
             if (unorderedStock.Count() != 0)
-                informAboutUnorderedStock(unorderedStock);
+                InformAboutUnorderedStock(unorderedStock);
             if (orders.Count == 0)
                 MessageBox.Show("Brak wygenerowanych zamówień.");
             else
                 (new GeneratedOrders(orders)).Show();
         }
 
-        private void informAboutUnorderedStock(IEnumerable<Stock> stock)
+        private void InformAboutUnorderedStock(IEnumerable<Stock> stock)
         {
             StringBuilder message = new StringBuilder("Nie udało się wygenerować zamówień dla części wybranych towarów."); 
             message.AppendLine("Nie wygenerowano zamówień dla towarów: "); 
@@ -159,7 +157,7 @@ namespace OrderManager.Presentation
             MessageBox.Show(message.ToString());
         }
 
-        private void comboBoxState_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBoxState_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch(comboBoxState.SelectedValue)
             {
@@ -168,28 +166,27 @@ namespace OrderManager.Presentation
             }
         }
 
-        private int getNumberOfItemsInIndividualOrdersColumn(DataGridViewRow row)
+        private int GetNumberOfItemsInIndividualOrdersColumn(DataGridViewRow row)
         {
             int number;
             return int.TryParse(row.Cells[7].Value.ToString(), out number) ? number : 0;
         }
 
-        private void tableLayoutPanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
+        private void TableLayoutPanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
         {
             e.Graphics.DrawLine(Pens.Black, e.CellBounds.Location, new Point(e.CellBounds.Right, e.CellBounds.Top));
         }
 
-        private void comboBoxState_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void ComboBoxState_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-
             switch (comboBoxState.SelectedValue)
             {
-                case "Dowolny": fillGridview(listStock); break;
-                case "Ponizej minimum": fillGridview(listStock.Where(stock => stock.NumberOfItemsInStockRoom < stock.MinInStockRoom)); break;
+                case "Dowolny": FillGridview(listStock); break;
+                case "Ponizej minimum": FillGridview(listStock.Where(stock => stock.NumberOfItemsInStockRoom < stock.MinInStockRoom)); break;
             }
         }
 
-        private void MainStokView_FormClosing(object sender, FormClosingEventArgs e)
+        private void MainStockView_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("Czy chcesz zamknąć to okno?", "", MessageBoxButtons.YesNo) == DialogResult.No)
                 e.Cancel = true;

@@ -22,6 +22,7 @@ namespace OrderManager.Presentation
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Tester());
             Application.Run(new MainOrdersView(DependencyInjector.IOrderService));
+            //Application.Run(new MainStockView(DependencyInjector.IStockService));
         }
     }
 }
