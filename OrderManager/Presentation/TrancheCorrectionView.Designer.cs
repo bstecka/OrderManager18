@@ -34,6 +34,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.textBoxQuota = new System.Windows.Forms.TextBox();
             this.labelTrancheName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,10 +43,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.labelSomething = new System.Windows.Forms.Label();
+            this.labelStockPrice = new System.Windows.Forms.Label();
             this.labelVAT = new System.Windows.Forms.Label();
-            this.labelNumberOfItems = new System.Windows.Forms.Label();
-            this.labelQuota = new System.Windows.Forms.Label();
+            this.textBoxNumberOfItems = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridViewTranches = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
@@ -55,6 +55,8 @@
             this.labelBrutto = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.labelTitle = new System.Windows.Forms.Label();
+            this.labelQuota = new System.Windows.Forms.Label();
+            this.labelNumberOfItems = new System.Windows.Forms.Label();
             this.labelObsolete2 = new System.Windows.Forms.Label();
             this.labelObsolete = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
@@ -147,6 +149,7 @@
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel3.Controls.Add(this.textBoxQuota, 1, 5);
             this.tableLayoutPanel3.Controls.Add(this.labelTrancheName, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.label3, 0, 1);
@@ -155,10 +158,9 @@
             this.tableLayoutPanel3.Controls.Add(this.label5, 0, 3);
             this.tableLayoutPanel3.Controls.Add(this.label7, 0, 4);
             this.tableLayoutPanel3.Controls.Add(this.label6, 0, 5);
-            this.tableLayoutPanel3.Controls.Add(this.labelSomething, 1, 2);
+            this.tableLayoutPanel3.Controls.Add(this.labelStockPrice, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.labelVAT, 1, 3);
-            this.tableLayoutPanel3.Controls.Add(this.labelNumberOfItems, 1, 4);
-            this.tableLayoutPanel3.Controls.Add(this.labelQuota, 1, 5);
+            this.tableLayoutPanel3.Controls.Add(this.textBoxNumberOfItems, 1, 4);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -171,6 +173,17 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(462, 241);
             this.tableLayoutPanel3.TabIndex = 0;
+            // 
+            // textBoxQuota
+            // 
+            this.textBoxQuota.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBoxQuota.Location = new System.Drawing.Point(141, 210);
+            this.textBoxQuota.Name = "textBoxQuota";
+            this.textBoxQuota.Size = new System.Drawing.Size(62, 20);
+            this.textBoxQuota.TabIndex = 14;
+            this.textBoxQuota.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxQuota_KeyPress);
+            this.textBoxQuota.TextChanged += new System.EventHandler(this.TextBoxQuota_TextChanged);
+
             // 
             // labelTrancheName
             // 
@@ -250,14 +263,14 @@
             this.label6.TabIndex = 6;
             this.label6.Text = "Rabat kwotowy";
             // 
-            // labelSomething
+            // labelStockPrice
             // 
-            this.labelSomething.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelSomething.AutoSize = true;
-            this.labelSomething.Location = new System.Drawing.Point(141, 93);
-            this.labelSomething.Name = "labelSomething";
-            this.labelSomething.Size = new System.Drawing.Size(0, 13);
-            this.labelSomething.TabIndex = 9;
+            this.labelStockPrice.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.labelStockPrice.AutoSize = true;
+            this.labelStockPrice.Location = new System.Drawing.Point(141, 93);
+            this.labelStockPrice.Name = "labelStockPrice";
+            this.labelStockPrice.Size = new System.Drawing.Size(0, 13);
+            this.labelStockPrice.TabIndex = 9;
             // 
             // labelVAT
             // 
@@ -268,23 +281,15 @@
             this.labelVAT.Size = new System.Drawing.Size(0, 13);
             this.labelVAT.TabIndex = 10;
             // 
-            // labelNumberOfItems
+            // textBoxNumberOfItems
             // 
-            this.labelNumberOfItems.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelNumberOfItems.AutoSize = true;
-            this.labelNumberOfItems.Location = new System.Drawing.Point(141, 173);
-            this.labelNumberOfItems.Name = "labelNumberOfItems";
-            this.labelNumberOfItems.Size = new System.Drawing.Size(0, 13);
-            this.labelNumberOfItems.TabIndex = 11;
-            // 
-            // labelQuota
-            // 
-            this.labelQuota.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelQuota.AutoSize = true;
-            this.labelQuota.Location = new System.Drawing.Point(141, 214);
-            this.labelQuota.Name = "labelQuota";
-            this.labelQuota.Size = new System.Drawing.Size(0, 13);
-            this.labelQuota.TabIndex = 12;
+            this.textBoxNumberOfItems.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBoxNumberOfItems.Location = new System.Drawing.Point(141, 170);
+            this.textBoxNumberOfItems.Name = "textBoxNumberOfItems";
+            this.textBoxNumberOfItems.Size = new System.Drawing.Size(62, 20);
+            this.textBoxNumberOfItems.TabIndex = 13;
+            this.textBoxNumberOfItems.TextChanged += new System.EventHandler(this.TextBoxNumberOfItems_TextChanged);
+            this.textBoxNumberOfItems.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxNumberOfItems_KeyPress);
             // 
             // tableLayoutPanel4
             // 
@@ -395,6 +400,24 @@
             this.labelTitle.TabIndex = 1;
             this.labelTitle.Text = "Korekta pozycji ";
             // 
+            // labelQuota
+            // 
+            this.labelQuota.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.labelQuota.AutoSize = true;
+            this.labelQuota.Location = new System.Drawing.Point(141, 214);
+            this.labelQuota.Name = "labelQuota";
+            this.labelQuota.Size = new System.Drawing.Size(0, 13);
+            this.labelQuota.TabIndex = 12;
+            // 
+            // labelNumberOfItems
+            // 
+            this.labelNumberOfItems.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.labelNumberOfItems.AutoSize = true;
+            this.labelNumberOfItems.Location = new System.Drawing.Point(141, 173);
+            this.labelNumberOfItems.Name = "labelNumberOfItems";
+            this.labelNumberOfItems.Size = new System.Drawing.Size(0, 13);
+            this.labelNumberOfItems.TabIndex = 11;
+            // 
             // labelObsolete2
             // 
             this.labelObsolete2.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -454,7 +477,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label labelSomething;
+        private System.Windows.Forms.Label labelStockPrice;
         private System.Windows.Forms.Label labelVAT;
         private System.Windows.Forms.Label labelNumberOfItems;
         private System.Windows.Forms.Label labelObsolete2;
@@ -471,5 +494,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label labelBrutto;
+        private System.Windows.Forms.TextBox textBoxNumberOfItems;
+        private System.Windows.Forms.TextBox textBoxQuota;
     }
 }

@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,10 +15,15 @@ namespace OrderManager.Presentation
     public partial class TrancheCorrectionView : Form
     {
         private Tranche tranche;
+        double priceNetto;
+        double priceBrutto;
+
         public TrancheCorrectionView(Tranche tranche)
         {
             InitializeComponent();
             this.tranche = tranche;
+            this.priceNetto = tranche.PriceNetto;
+            this.priceBrutto = tranche.PriceBrutto;
             FillForm();
             tableLayoutPanel4.CellPaint += TableLayoutPanel_CellPaint;
         }
@@ -27,10 +33,10 @@ namespace OrderManager.Presentation
             labelTitle.Text += tranche.Stock.Stock.Name;
             labelTrancheName.Text = tranche.Stock.Stock.Name;
             labelCode.Text = tranche.Stock.Stock.Code;
-            labelSomething.Text = "" + tranche.Stock.PriceNetto;
+            labelStockPrice.Text = "" + tranche.Stock.PriceNetto;
             labelVAT.Text = "" + tranche.Stock.Stock.VAT;
-            labelNumberOfItems.Text = "" + tranche.NumberOfItems;
-            labelQuota.Text = "" + tranche.QuotaDiscount;
+            textBoxNumberOfItems.Text = "" + tranche.NumberOfItems;
+            textBoxQuota.Text = "" + tranche.QuotaDiscount;
             labelNetto.Text = "" + tranche.PriceNetto;
             labelBrutto.Text = "" + tranche.PriceBrutto;
             FillDiscounts();
@@ -83,6 +89,40 @@ namespace OrderManager.Presentation
         private void Button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void TextBoxNumberOfItems_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back))
+                e.Handled = true;
+        }
+
+        private void TextBoxQuota_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == 44))
+                e.Handled = true;
+        }
+
+        private void TextBoxNumberOfItems_TextChanged(object sender, EventArgs e)
+        {
+            int nr = 0;
+            if (textBoxNumberOfItems.Text.Length > 0 && textBoxNumberOfItems.Text.Length < 10)
+                nr = Int32.Parse(textBoxNumberOfItems.Text);
+            priceNetto = tranche.Stock.PriceNetto * nr;
+            labelNetto.Text = "" + priceNetto;
+            priceBrutto = priceNetto / 100 * (100 + tranche.Stock.Stock.VAT);
+            labelBrutto.Text = "" + priceBrutto;
+        }
+
+        private void TextBoxQuota_TextChanged(object sender, EventArgs e)
+        {
+            Regex regexObj = new Regex(@"-?\d+(?:\,\d+)?");
+            Match matchResult = regexObj.Match(textBoxQuota.Text);
+            double quota = 0.0;
+            if (textBoxQuota.Text.Length > 0 && textBoxQuota.Text.Length < 10 && matchResult.Length > 0)
+                quota = Double.Parse(textBoxQuota.Text);
+            double amount = priceBrutto - quota;
+            labelBrutto.Text = "" + amount;
         }
     }
 }
