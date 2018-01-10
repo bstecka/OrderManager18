@@ -122,7 +122,7 @@ namespace OrderManager.Presentation
             this.FormClosing += new FormClosingEventHandler(OrderCorrectionView_FormClosing);
         }
 
-        private void dataGridViewTranches_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridViewTranches_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex.Equals(0) || e.ColumnIndex.Equals(1))
             {
