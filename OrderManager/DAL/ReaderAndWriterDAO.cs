@@ -14,7 +14,7 @@ namespace OrderManager.DAL
 
         public void Add(DataTable entity)
         {
-            throw new NotImplementedException();
+            DBOperations.Insert(entity, tableName);
         }
 
         public void Remove(int id)

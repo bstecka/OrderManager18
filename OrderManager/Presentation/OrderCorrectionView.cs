@@ -1,4 +1,5 @@
 ﻿using OrderManager.Domain.Entity;
+using OrderManager.Domain.Service;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,13 +17,17 @@ namespace OrderManager.Presentation
         private Order order;
         private List<Tranche> tranchesToUpdate;
         private List<Tranche> tranchesToDelete;
+        private IOrderService orderService;
+        private Boolean saved;
 
-        public OrderCorrectionView(Order order)
+        public OrderCorrectionView(Order order, IOrderService orderService)
         {
             InitializeComponent();
             this.order = order;
-            tranchesToUpdate = new List<Tranche>();
-            tranchesToDelete = new List<Tranche>();
+            this.orderService = orderService;
+            this.tranchesToUpdate = new List<Tranche>();
+            this.tranchesToDelete = new List<Tranche>();
+            this.saved = false;
             FillForm();
             tableLayoutPanel4.CellPaint += TableLayoutPanel_CellPaint;
         }
@@ -99,10 +104,17 @@ namespace OrderManager.Presentation
 
         private void OrderCorrectionView_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Czy chcesz zamknąć to okno? Wprowadzone zmiany nie zostały zapisane.", "", MessageBoxButtons.YesNo) == DialogResult.No)
-                e.Cancel = true;
+            if (!this.saved)
+            {
+                if (MessageBox.Show("Czy chcesz zamknąć to okno? Wprowadzone zmiany nie zostały zapisane.", "", MessageBoxButtons.YesNo) == DialogResult.No)
+                    e.Cancel = true;
+                else
+                    e.Cancel = false;
+            }
             else
-                e.Cancel = false;
+            {
+                MessageBox.Show("Wprowadzone zmiany zostały zapisane.", "");
+            }
         }
 
         private void OrderCorrectionView_Load(object sender, EventArgs e)
@@ -152,6 +164,18 @@ namespace OrderManager.Presentation
                     }
                 }
             }
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            Order newOrder = this.order;
+            newOrder.State = ORDERSTATE.duringReview;
+            orderService.InsertOrder(newOrder);
+            Order cancelledOrder = this.order;
+            cancelledOrder.State = ORDERSTATE.cancelled;
+            orderService.UpdateOrder(cancelledOrder);
+            this.saved = true;
+            this.Close();
         }
     }
 }

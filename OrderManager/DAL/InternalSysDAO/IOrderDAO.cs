@@ -17,5 +17,7 @@ namespace OrderManager.DAL.InternalSysDAO
         DataTable GetParentOrder(DataRow order);
         DataTable GetParentOrderById(int id);
         DataTable GetOrderState(DataRow order);
+        void UpdateOrders(DataTable table);
+        void UpdateOrder(DataRow row);
     }
 }

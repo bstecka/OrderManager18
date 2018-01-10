@@ -157,7 +157,7 @@ namespace OrderManager.Presentation
                 if (Convert.ToBoolean(row.Cells[0].Value) && tmp != null)
                 {
                     var form = new OrderCorrectionView(listOrder.FirstOrDefault(
-                        order => order.Name.Equals(row.Cells["Nazwa"].Value.ToString())));
+                        order => order.Name.Equals(row.Cells["Nazwa"].Value.ToString())), orderService);
                     //var x = Location.X + (Width - form.Width) / 2;
                     //var y = Location.Y + (Height - form.Height) / 2;
                     //form.Location = new Point(Math.Max(x, 0), Math.Max(y, 0));

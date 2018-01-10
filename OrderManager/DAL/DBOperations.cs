@@ -32,6 +32,43 @@ namespace OrderManager.DAO
             return dataTable;
         }
 
+        public static void Insert(DataTable entity, string tableName)
+        {
+            connection.Open();
+            String commandText = "";
+            String valuesText = "";
+            foreach (DataRow row in entity.Rows)
+            {
+                foreach (DataColumn column in entity.Columns)
+                {
+                    if (!column.ColumnName.ToString().Equals("ID"))
+                    {
+                        commandText += column.ColumnName.ToString() + ", ";
+                    }
+                }
+                foreach (DataColumn column in entity.Columns)
+                {
+                    if (!column.ColumnName.ToString().Equals("ID"))
+                    {
+                        valuesText += "@" + column.ColumnName.ToString() + "A, ";
+                    }
+                }
+                commandText = commandText.Remove(commandText.Trim().Length - 1);
+                valuesText = valuesText.Remove(valuesText.Trim().Length - 1);
+                commandText = "INSERT INTO " + tableName + " (" + commandText + ") VALUES (" + valuesText + ")";
+                SqlCommand command = new SqlCommand(commandText, connection);
+                foreach (DataColumn column in entity.Columns)
+                {
+                    if (!column.ColumnName.ToString().Equals("ID"))
+                    {
+                        command.Parameters.AddWithValue("@" + column.ColumnName.ToString() + "A", row[column.ColumnName.ToString()]);
+                    }
+                }
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
         public static void Update(DataTable entity, string tableName)
         {
             connection.Open();

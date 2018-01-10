@@ -353,6 +353,7 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "Zapisz";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // labelTitle
             // 
