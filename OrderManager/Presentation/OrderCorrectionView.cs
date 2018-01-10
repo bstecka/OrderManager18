@@ -14,10 +14,15 @@ namespace OrderManager.Presentation
     public partial class OrderCorrectionView : Form
     {
         private Order order;
+        private List<Tranche> tranchesToUpdate;
+        private List<Tranche> tranchesToDelete;
+
         public OrderCorrectionView(Order order)
         {
             InitializeComponent();
             this.order = order;
+            tranchesToUpdate = new List<Tranche>();
+            tranchesToDelete = new List<Tranche>();
             FillForm();
             tableLayoutPanel4.CellPaint += TableLayoutPanel_CellPaint;
         }
@@ -107,7 +112,7 @@ namespace OrderManager.Presentation
 
         private void dataGridViewTranches_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex.Equals(0))
+            if (e.ColumnIndex.Equals(0) || e.ColumnIndex.Equals(1))
             {
                 DataGridViewRow row = dataGridViewTranches.Rows[e.RowIndex];
                 Tranche tranche = null;
@@ -116,15 +121,26 @@ namespace OrderManager.Presentation
                     if (tr.Id.ToString().Equals(row.Cells["Id"].Value.ToString()))
                         tranche = tr;
                 }
-                if (tranche != null)
+                if (tranche != null && e.ColumnIndex.Equals(0))
                 {
-                    var form = new TrancheCorrectionView(tranche);
+                    var form = new TrancheCorrectionView(tranche);     
+                    form.FormClosed += new FormClosedEventHandler(TrancheCorrectionView_Closed);
                     form.Show();
                 }
+                else if (tranche != null && e.ColumnIndex.Equals(1))
+                {
+                    this.tranchesToDelete.Add(tranche);
+                    dataGridViewTranches.Rows.RemoveAt(e.RowIndex);
+                }
             }
-            else if (e.ColumnIndex.Equals(1))
+        }
+
+        void TrancheCorrectionView_Closed(object sender, FormClosedEventArgs e)
+        {
+            TrancheCorrectionView form = (TrancheCorrectionView) sender;
+            if (form.Saved)
             {
-                dataGridViewTranches.Rows.RemoveAt(e.RowIndex);
+                this.tranchesToUpdate.Add(form.Tranche);
             }
         }
     }
