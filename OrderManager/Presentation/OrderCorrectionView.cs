@@ -18,13 +18,15 @@ namespace OrderManager.Presentation
         private List<Tranche> tranchesToUpdate;
         private List<Tranche> tranchesToDelete;
         private IOrderService orderService;
+        private ITrancheService trancheService;
         private Boolean saved;
 
-        public OrderCorrectionView(Order order, IOrderService orderService)
+        public OrderCorrectionView(Order order, IOrderService orderService, ITrancheService trancheService)
         {
             InitializeComponent();
             this.order = order;
             this.orderService = orderService;
+            this.trancheService = trancheService;
             this.tranchesToUpdate = new List<Tranche>();
             this.tranchesToDelete = new List<Tranche>();
             this.saved = false;
@@ -170,10 +172,23 @@ namespace OrderManager.Presentation
         {
             Order newOrder = this.order;
             newOrder.State = ORDERSTATE.duringReview;
-            string newOrderId = "" + orderService.InsertOrder(newOrder);
+            int newOrderId = orderService.InsertOrder(newOrder);
+            foreach (Tranche tranche in newOrder.Tranches)
+            {
+                Boolean shouldBeOmitted = false;
+                tranche.OrderId = newOrderId;
+                foreach (Tranche toDelete in tranchesToDelete)
+                {
+                    if (toDelete.Id == tranche.Id)
+                        shouldBeOmitted = true;
+                }
+                if (!shouldBeOmitted)
+                    trancheService.InsertTranche(tranche);
+            }
+
             Order cancelledOrder = this.order;
             cancelledOrder.State = ORDERSTATE.cancelled;
-            cancelledOrder.ParentOrder = orderService.GetById(newOrderId);
+            cancelledOrder.ParentOrder = orderService.GetById("" + newOrderId);
             orderService.UpdateOrder(cancelledOrder);
             this.saved = true;
             this.Close();
