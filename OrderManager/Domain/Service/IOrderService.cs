@@ -13,6 +13,6 @@ namespace OrderManager.Domain.Service
         List<Order> GetAllDuringRealization();
         List<Order> GetAllByState(int stateId);
         void UpdateOrder(Order order);
-        void InsertOrder(Order order);
+        int InsertOrder(Order order);
     }
 }

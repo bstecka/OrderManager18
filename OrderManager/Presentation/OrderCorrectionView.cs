@@ -170,9 +170,10 @@ namespace OrderManager.Presentation
         {
             Order newOrder = this.order;
             newOrder.State = ORDERSTATE.duringReview;
-            orderService.InsertOrder(newOrder);
+            string newOrderId = "" + orderService.InsertOrder(newOrder);
             Order cancelledOrder = this.order;
             cancelledOrder.State = ORDERSTATE.cancelled;
+            cancelledOrder.ParentOrder = orderService.GetById(newOrderId);
             orderService.UpdateOrder(cancelledOrder);
             this.saved = true;
             this.Close();

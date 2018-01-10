@@ -12,9 +12,9 @@ namespace OrderManager.DAL
     {
         public ReaderAndWriterDAO(string tableName) : base(tableName) { }
 
-        public void Add(DataTable entity)
+        public int Add(DataTable entity)
         {
-            DBOperations.Insert(entity, tableName);
+            return DBOperations.Insert(entity, tableName);
         }
 
         public void Remove(int id)

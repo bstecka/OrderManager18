@@ -47,10 +47,10 @@ namespace OrderManager.Domain.Service
             DAO.UpdateOrders(table);
         }
 
-        public void InsertOrder(Order order)
+        public int InsertOrder(Order order)
         {
             DataTable table = mapper.MapTo(order);
-            DAO.Add(table);
+            return DAO.Add(table);
         }
     }
 }

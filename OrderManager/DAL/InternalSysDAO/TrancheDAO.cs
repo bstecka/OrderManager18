@@ -13,7 +13,7 @@ namespace OrderManager.DAL.InternalSysDAO
     {
         public TrancheDAO() : base("Transza") { }
 
-        public void Add(DataTable entity)
+        public int Add(DataTable entity)
         {
             throw new NotImplementedException();
         }
