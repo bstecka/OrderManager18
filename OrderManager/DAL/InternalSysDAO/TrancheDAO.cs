@@ -9,14 +9,9 @@ using OrderManager.DAO;
 
 namespace OrderManager.DAL.InternalSysDAO
 {
-    class TrancheDAO : ReaderDAO, ITrancheDAO
+    class TrancheDAO : ReaderAndWriterDAO, ITrancheDAO
     {
         public TrancheDAO() : base("Transza") { }
-
-        public int Add(DataTable entity)
-        {
-            throw new NotImplementedException();
-        }
 
         public DataTable GetCounterpartysStock(DataRow tranche)
         {
@@ -29,16 +24,6 @@ namespace OrderManager.DAL.InternalSysDAO
             return DBOperations.Query(@"SELECT * FROM Transza_RabatProcentowy JOIN RabatProcentowy ON 
                 Transza_RabatProcentowy.RabatProcentowyID = RabatProcentowy.ID
                 WHERE TranszaID IN (" + tranche["ID"] + ")");
-        }
-
-        public void Remove(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(DataTable entity)
-        {
-            throw new NotImplementedException();
         }
     }
 }

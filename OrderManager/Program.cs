@@ -21,7 +21,7 @@ namespace OrderManager.Presentation
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Tester());
-            Application.Run(new MainOrdersView(DependencyInjector.IOrderService));
+            Application.Run(new MainOrdersView(DependencyInjector.IOrderService, DependencyInjector.ITrancheService));
             //Application.Run(new MainStockView(DependencyInjector.IStockService));
         }
     }

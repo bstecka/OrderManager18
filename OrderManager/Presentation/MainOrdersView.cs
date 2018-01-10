@@ -18,12 +18,14 @@ namespace OrderManager.Presentation
     public partial class MainOrdersView : Form
     {
         private IOrderService orderService;
+        private ITrancheService trancheService;
         private List<Order> listOrder;
 
-        internal MainOrdersView(IOrderService orderService)
+        internal MainOrdersView(IOrderService orderService, ITrancheService trancheService)
         {
             InitializeComponent();
             this.orderService = orderService;
+            this.trancheService = trancheService;
             listOrder = orderService.GetAllDuringRealization();
             (new DataGridviewCheckBoxColumnProwider(dataGridViewStock)).addCheckBoxColumn();
 
@@ -157,7 +159,7 @@ namespace OrderManager.Presentation
                 if (Convert.ToBoolean(row.Cells[0].Value) && tmp != null)
                 {
                     var form = new OrderCorrectionView(listOrder.FirstOrDefault(
-                        order => order.Name.Equals(row.Cells["Nazwa"].Value.ToString())), orderService);
+                        order => order.Name.Equals(row.Cells["Nazwa"].Value.ToString())), orderService, trancheService);
                     //var x = Location.X + (Width - form.Width) / 2;
                     //var y = Location.Y + (Height - form.Height) / 2;
                     //form.Location = new Point(Math.Max(x, 0), Math.Max(y, 0));

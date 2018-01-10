@@ -110,10 +110,12 @@
     <Compile Include="Domain\Service\IEligibleOrdersNamesService.cs" />
     <Compile Include="Domain\Service\IEntityServiceBase.cs" />
     <Compile Include="Domain\OrderGenerator\IOffersChoice.cs" />
+    <Compile Include="Domain\Service\ITrancheService.cs" />
     <Compile Include="Domain\Service\IOrderService.cs" />
     <Compile Include="Domain\Service\IPriorityService.cs" />
     <Compile Include="Domain\Service\IStockService.cs" />
     <Compile Include="Domain\OrderGenerator\PriorityPriceChoice.cs" />
+    <Compile Include="Domain\Service\TrancheService.cs" />
     <Compile Include="Domain\Service\OrderService.cs" />
     <Compile Include="Domain\Service\PriorityService.cs" />
     <Compile Include="Domain\Service\StockService.cs" />
