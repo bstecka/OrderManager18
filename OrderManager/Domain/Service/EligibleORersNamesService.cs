@@ -21,7 +21,10 @@ namespace OrderManager.Domain.Service
 
         public List<string> FetchNames(int numberOfNames)
         {
-            return mapper.MapAllFrom(eligibleOrdersNamesDAO.FetchNames(numberOfNames));
+            var names = mapper.MapAllFrom(eligibleOrdersNamesDAO.FetchNames(numberOfNames));
+            if (names.Count() < numberOfNames)
+                throw new Exception("Brak wolnych nazwa zamówień");
+            return names;
         }
     }
 }

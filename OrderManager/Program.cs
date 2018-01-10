@@ -20,8 +20,9 @@ namespace OrderManager.Presentation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new OrderManager.ThePrettiestGUIEver());
             //Application.Run(new Tester());
-            Application.Run(new MainStokView(DependencyInjector.IStockService));
+           // Application.Run(new MainStokView(DependencyInjector.IStockService));
         }
     }
 }

@@ -82,39 +82,7 @@ namespace OrderManager.Presentation
                 else
                     column.ReadOnly = true;
         }
-
-        private void addCheckBoxColumn()
-        {
-
-            var list = dataGridViewStock;
-            DataGridViewCheckBoxColumn checkboxColumn = new DataGridViewCheckBoxColumn();
-            checkboxColumn.Width = 30;
-            checkboxColumn.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            list.Columns.Insert(0, checkboxColumn);
-
-            // add checkbox header
-            Rectangle rect = list.GetCellDisplayRectangle(0, -1, true);
-            // set checkbox header to center of header cell. +1 pixel to position correctly.
-            rect.X = rect.Location.X + (rect.Width / 4);
-
-            CheckBox checkboxHeader = new CheckBox();
-            checkboxHeader.Name = "checkboxHeader";
-            checkboxHeader.Size = new Size(18, 18);
-            checkboxHeader.Location = rect.Location;
-            checkboxHeader.CheckedChanged += new EventHandler(checkboxHeader_CheckedChanged);
-
-            list.Controls.Add(checkboxHeader);
-        }
-
-        private void checkboxHeader_CheckedChanged(object sender, EventArgs e)
-        {
-            var list = dataGridViewStock;
-            for (int i = 0; i < list.RowCount; i++)
-            {
-                list[0, i].Value = ((CheckBox)list.Controls.Find("checkboxHeader", true)[0]).Checked;
-            }
-            list.EndEdit();
-        }
+        
 
         private void dataGridViewStock_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -123,31 +91,38 @@ namespace OrderManager.Presentation
 
         private void buttonGenerateOrders_Click(object sender, EventArgs e)
         {
-            Dictionary<Stock, int> stockToOrder = new Dictionary<Stock, int>();
-            foreach(DataGridViewRow row in dataGridViewStock.Rows)
+            try
             {
-                if (Convert.ToBoolean(row.Cells[0].Value))
+                Dictionary<Stock, int> stockToOrder = new Dictionary<Stock, int>();
+                foreach (DataGridViewRow row in dataGridViewStock.Rows)
                 {
-                    Stock currentStock =
-                        listStock.FirstOrDefault(stock => stock.Code.Equals(row.Cells[1].Value));
-                    int numberOfItemsToOrder = stockService.GetNumOfItemsToOrder(currentStock) 
-                        + getNumberOfItemsInIndividualOrdersColumn(row);
-                    if (numberOfItemsToOrder > 0)
-                        stockToOrder.Add(currentStock, numberOfItemsToOrder);
+                    if (Convert.ToBoolean(row.Cells[0].Value))
+                    {
+                        Stock currentStock =
+                            listStock.FirstOrDefault(stock => stock.Code.Equals(row.Cells[1].Value));
+                        int numberOfItemsToOrder = stockService.GetNumOfItemsToOrder(currentStock)
+                            + getNumberOfItemsInIndividualOrdersColumn(row);
+                        if (numberOfItemsToOrder > 0)
+                            stockToOrder.Add(currentStock, numberOfItemsToOrder);
+                    }
                 }
-            }
 
-            List<Order> orders = (new OrdersGenerator(stockToOrder, DependencyInjector.ICounterpartyService,
-                DependencyInjector.IPriorityService, DependencyInjector.ICounterpartysStockService,
-                DependencyInjector.IStockService, DependencyInjector.IEligibleOrdersNamesService)).Generate();
-            var orderedStock = new HashSet<Stock>(orders.Select(order => order.Tranches).SelectMany(i => i).Select(tranche => tranche.Stock.Stock));
-            var unorderedStock = (stockToOrder.Keys).Except(orderedStock);
-            if (unorderedStock.Count() != 0)
-                informAboutUnorderedStock(unorderedStock);
-            if (orders.Count == 0)
-                MessageBox.Show("Brak wygenerowanych zamówień.");
-            else
-                (new GeneratedOrders(orders)).Show();
+                List<Order> orders = (new OrdersGenerator(stockToOrder, DependencyInjector.ICounterpartyService,
+                    DependencyInjector.IPriorityService, DependencyInjector.ICounterpartysStockService,
+                    DependencyInjector.IStockService, DependencyInjector.IEligibleOrdersNamesService)).Generate();
+                var orderedStock = new HashSet<Stock>(orders.Select(order => order.Tranches).SelectMany(i => i).Select(tranche => tranche.Stock.Stock));
+                var unorderedStock = (stockToOrder.Keys).Except(orderedStock);
+                if (unorderedStock.Count() != 0)
+                    informAboutUnorderedStock(unorderedStock);
+                if (orders.Count == 0)
+                    MessageBox.Show("Brak wygenerowanych zamówień.");
+                else
+                    (new GeneratedOrders(orders)).Show();
+            }
+            catch(Exception exception)
+            {
+                MessageBox.Show("Nie udało się wygenerować zamówień." + Environment.NewLine + exception.ToString());
+            }
         }
 
         private void informAboutUnorderedStock(IEnumerable<Stock> stock)
@@ -191,10 +166,10 @@ namespace OrderManager.Presentation
 
         private void MainStokView_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Czy chcesz zamknąć to okno? Czy może nie chcesz.", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                e.Cancel = true;
-            else
+            if (MessageBox.Show("Czy chcesz opuścić kartotekę towarów?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 e.Cancel = false;
+            else
+                e.Cancel = true;
         }
     }
     

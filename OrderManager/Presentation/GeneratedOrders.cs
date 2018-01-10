@@ -27,8 +27,8 @@ namespace OrderManager.Presentation
         private void fillDataGridView()
         {
             DataTable dataGridSource = new DataTable();
-            (new DataGridviewCheckBoxColumnProwider(dataGridViewOrders)).addCheckBoxColumn();
-
+            //(new DataGridviewCheckBoxColumnProwider(dataGridViewOrders)).addCheckBoxColumn();
+            addCheckBoxColumn();
             dataGridSource.Columns.Add("Nazwa");
             dataGridSource.Columns.Add("Kontrahent");
             dataGridSource.Columns.Add("Wartość netto");
@@ -67,6 +67,49 @@ namespace OrderManager.Presentation
         private void tableLayoutPanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
         {
             e.Graphics.DrawLine(Pens.Black, e.CellBounds.Location, new Point(e.CellBounds.Right, e.CellBounds.Bottom));
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        public void addCheckBoxColumn()
+        {
+            var list = dataGridViewOrders;
+            DataGridViewCheckBoxColumn checkboxColumn = new DataGridViewCheckBoxColumn();
+            checkboxColumn.Width = 30;
+            checkboxColumn.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            list.Columns.Insert(0, checkboxColumn);
+            
+            CheckBox checkboxHeader = new CheckBox();
+            checkboxHeader.Name = "checkboxHeader";
+            checkboxHeader.Size = new Size(18, 18);
+            checkboxHeader.CheckedChanged += new EventHandler(checkboxHeader_CheckedChanged);
+
+            list.Controls.Add(checkboxHeader);
+        }
+
+        private void checkboxHeader_CheckedChanged(object sender, EventArgs e)
+        {
+            var list = dataGridViewOrders;
+
+            for (int i = 0; i < list.RowCount; i++)
+            {
+                list[0, i].Value = ((CheckBox)list.Controls.Find("checkboxHeader", true)[0]).Checked;
+            }
+            list.EndEdit();
         }
     }
 }

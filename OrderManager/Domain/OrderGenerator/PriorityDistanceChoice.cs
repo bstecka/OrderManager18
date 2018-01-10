@@ -12,7 +12,7 @@ namespace OrderManager.Domain.OrderGenerator
     class PriorityDistanceChoice : CouterpartysPropertyChoice
     {
         public PriorityDistanceChoice(Dictionary<Stock, int> stockToOrder, ICounterpartyService counterpartyService,
-            ICounterpartysStockService counterpartysStockService, IOrderService stockService) : base(stockToOrder, counterpartyService, counterpartysStockService, stockService) { }
+            ICounterpartysStockService counterpartysStockService, IStockService stockService) : base(stockToOrder, counterpartyService, counterpartysStockService, stockService) { }
 
         public override List<Counterparty> SortCounterparties()
         {

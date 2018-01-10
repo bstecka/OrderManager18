@@ -20,7 +20,7 @@ namespace OrderManager.Presentation
         public void addCheckBoxColumn()
         {
             DataGridViewCheckBoxColumn checkboxColumn = new DataGridViewCheckBoxColumn();
-            checkboxColumn.Width = 30;
+            checkboxColumn.Width = 10;
             checkboxColumn.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             list.Columns.Insert(0, checkboxColumn);
 
