@@ -45,6 +45,14 @@ namespace OrderManager
             }
         }
 
+        public static IOrderService IOrderService
+        {
+            get
+            {
+                return new OrderService(IOrderDAO, IMapperBaseOrder);
+            }
+        }
+
         public static IEligibleOrdersNamesService IEligibleOrdersNamesService
         {
             get
@@ -58,6 +66,22 @@ namespace OrderManager
             get
             {
                 return new ExternalSysDAO.CounterpartyDAO();
+            }
+        }
+
+        public static ITrancheDAO ITrancheDAO
+        {
+            get
+            {
+                return new TrancheDAO();
+            }
+        }
+
+        public static ITrancheService ITrancheService
+        {
+            get
+            {
+                return new TrancheService(ITrancheDAO, IMapperBaseTranche);
             }
         }
 
@@ -114,6 +138,14 @@ namespace OrderManager
             get
             {
                 return new CounterpartyMapper();
+            }
+        }
+
+        public static IMapperBase<Tranche> IMapperBaseTranche
+        {
+            get
+            {
+                return new TrancheMapper(ITrancheDAO);
             }
         }
 

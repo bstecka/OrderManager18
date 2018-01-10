@@ -18,6 +18,18 @@ namespace OrderManager.DAL.InternalSysDAO
                 WHERE ID IN (" + order["KontrahentID"] + ")");
         }
 
+        public void UpdateOrders(DataTable table)
+        {
+            DBOperations.Update(table, "Zamowienie");
+        }
+
+        public void UpdateOrder(DataRow row)
+        {
+            DataTable table = new DataTable();
+            table.Rows.InsertAt(row, 0);
+            DBOperations.Update(table, "Zamowienie");
+        }
+
         public DataTable GetOrderState(DataRow order)
         {
             return DBOperations.Query(@"SELECT * FROM StanZamowienia 
@@ -48,12 +60,16 @@ namespace OrderManager.DAL.InternalSysDAO
                 WHERE ID IN (" + order["UzytkownikID"] + ")");
         }
 
-        //Nie umiem w architekturę więc nie wiem czy to na pewno powinno być tutaj, ale gdyby to wrzucić do service'u,
-        //to trzeba by było mapować wszystkie zamówienia, żeby tylko wyciągnąć te w trakcie realizacji
         public DataTable GetAllDuringRealization() 
         {
             return DBOperations.Query(@"SELECT * FROM Zamowienie 
-                WHERE StanZamowienia = 1");
+                WHERE StanZamowieniaID = 1");
+        }
+
+        public DataTable GetAllByState(int stateId)
+        {
+            return DBOperations.Query(@"SELECT * FROM Zamowienie 
+                WHERE StanZamowieniaID IN (" + stateId + ")");
         }
     }
 }

@@ -81,7 +81,10 @@ namespace OrderManager.DTO
             dataTable.Columns.Add("Nazwa");
             DataRow dataRow = dataTable.NewRow();
             dataRow["ID"] = orderDomain.Id;
-            dataRow["ZamowienieNadrzedne"] = orderDomain.ParentOrder;
+            if (orderDomain.ParentOrder != null)
+                dataRow["ZamowienieNadrzedne"] = orderDomain.ParentOrder.Id;
+            else
+                dataRow["ZamowienieNadrzedne"] = orderDomain.ParentOrder;
             dataRow["UzytkownikID"] = orderDomain.Creator.Id;
             dataRow["KontrahentID"] = orderDomain.Counterparty.Id;
             dataRow["DataZlozenia"] = orderDomain.DateOfCreation;

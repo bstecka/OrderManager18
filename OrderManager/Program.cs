@@ -22,7 +22,9 @@ namespace OrderManager.Presentation
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new OrderManager.ThePrettiestGUIEver());
             //Application.Run(new Tester());
-           // Application.Run(new MainStokView(DependencyInjector.IStockService));
+
+            //Application.Run(new MainOrdersView(DependencyInjector.IOrderService, DependencyInjector.ITrancheService));
+            //Application.Run(new MainStockView(DependencyInjector.IStockService));
         }
     }
 }

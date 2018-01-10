@@ -18,11 +18,11 @@ namespace OrderManager.Presentation
         {
             InitializeComponent();
             this.order = order;
-            fillForm();
-            tableLayoutPanel4.CellPaint += tableLayoutPanel_CellPaint;
+            FillForm();
+            tableLayoutPanel4.CellPaint += TableLayoutPanel_CellPaint;
         }
 
-        private void fillForm()
+        private void FillForm()
         {
             labelTitle.Text += order.Name;
             labelOrdersName.Text = order.Name;
@@ -32,12 +32,11 @@ namespace OrderManager.Presentation
             labelNetto.Text = order.PriceNetto.ToString();
             labelBrutto.Text = order.PriceBrutto.ToString();
             labelAuthor.Text = order.Creator.Name + " " + order.Creator.Surname;
-            fillTranches();
+            FillTranches();
         }
 
-        private void fillTranches()
+        private void FillTranches()
         {
-
             DataTable dataGridSource = new DataTable();
             dataGridSource.Columns.Add("Lp");
             dataGridSource.Columns.Add("Nazwa");
@@ -66,18 +65,18 @@ namespace OrderManager.Presentation
 
         }
 
-        private void tableLayoutPanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
+        private void TableLayoutPanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
         {
             e.Graphics.DrawLine(Pens.Black, e.CellBounds.Location, new Point(e.CellBounds.Right, e.CellBounds.Top));
         }
 
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        private void TableLayoutPanel3_Paint(object sender, PaintEventArgs e)
         {
 
         }

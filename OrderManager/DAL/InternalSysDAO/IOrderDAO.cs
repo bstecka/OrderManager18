@@ -10,11 +10,14 @@ namespace OrderManager.DAL.InternalSysDAO
     public interface IOrderDAO : IReadableDAO, IWritableDAO
     {
         DataTable GetAllDuringRealization();
+        DataTable GetAllByState(int stateId);
         DataTable GetCounterparty(DataRow order);
         DataTable GetUser(DataRow order);
         DataTable GetTranches(DataRow order);
         DataTable GetParentOrder(DataRow order);
         DataTable GetParentOrderById(int id);
         DataTable GetOrderState(DataRow order);
+        void UpdateOrders(DataTable table);
+        void UpdateOrder(DataRow row);
     }
 }

@@ -110,10 +110,12 @@
     <Compile Include="Domain\Service\IEligibleOrdersNamesService.cs" />
     <Compile Include="Domain\Service\IEntityServiceBase.cs" />
     <Compile Include="Domain\OrderGenerator\IOffersChoice.cs" />
+    <Compile Include="Domain\Service\ITrancheService.cs" />
     <Compile Include="Domain\Service\IOrderService.cs" />
     <Compile Include="Domain\Service\IPriorityService.cs" />
     <Compile Include="Domain\Service\IStockService.cs" />
     <Compile Include="Domain\OrderGenerator\PriorityPriceChoice.cs" />
+    <Compile Include="Domain\Service\TrancheService.cs" />
     <Compile Include="Domain\Service\OrderService.cs" />
     <Compile Include="Domain\Service\PriorityService.cs" />
     <Compile Include="Domain\Service\StockService.cs" />
@@ -147,17 +149,35 @@
     <Compile Include="Presentation\GeneratedOrders.Designer.cs">
       <DependentUpon>GeneratedOrders.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\MainStokView.cs">
+    <Compile Include="Presentation\MainOrdersView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\MainStokView.Designer.cs">
-      <DependentUpon>MainStokView.cs</DependentUpon>
+    <Compile Include="Presentation\MainOrdersView.Designer.cs">
+      <DependentUpon>MainOrdersView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\MainStockView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\MainStockView.Designer.cs">
+      <DependentUpon>MainStockView.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\MainView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentation\MainView.Designer.cs">
       <DependentUpon>MainView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\OrderCorrectionView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\OrderCorrectionView.Designer.cs">
+      <DependentUpon>OrderCorrectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\TrancheCorrectionView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\TrancheCorrectionView.Designer.cs">
+      <DependentUpon>TrancheCorrectionView.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Tester.cs">
@@ -179,11 +199,20 @@
     <EmbeddedResource Include="Presentation\GeneratedOrders.resx">
       <DependentUpon>GeneratedOrders.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\MainStokView.resx">
-      <DependentUpon>MainStokView.cs</DependentUpon>
+    <EmbeddedResource Include="Presentation\MainOrdersView.resx">
+      <DependentUpon>MainOrdersView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\MainStockView.resx">
+      <DependentUpon>MainStockView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\OrderCorrectionView.resx">
+      <DependentUpon>OrderCorrectionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\TrancheCorrectionView.resx">
+      <DependentUpon>TrancheCorrectionView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

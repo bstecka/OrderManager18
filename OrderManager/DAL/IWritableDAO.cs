@@ -9,7 +9,7 @@ namespace OrderManager.DAL
 {
     public interface IWritableDAO
     {
-        void Add(DataTable entity);
+        int Add(DataTable entity);
         void Update(DataTable entity);
         void Remove(int id);
     }

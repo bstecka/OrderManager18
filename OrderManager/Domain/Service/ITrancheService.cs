@@ -8,11 +8,9 @@ using System.Threading.Tasks;
 
 namespace OrderManager.Domain.Service
 {
-    public interface IOrderService : IEntityServiceBase<Order>
+    public interface ITrancheService : IEntityServiceBase<Tranche>
     {
-        List<Order> GetAllDuringRealization();
-        List<Order> GetAllByState(int stateId);
-        void UpdateOrder(Order order);
-        int InsertOrder(Order order);
+        void UpdateTranche(Tranche tranche);
+        int InsertTranche(Tranche tranche);
     }
 }
