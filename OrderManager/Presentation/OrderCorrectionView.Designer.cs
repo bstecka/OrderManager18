@@ -306,7 +306,7 @@
             this.dataGridViewTranches.RowHeadersVisible = false;
             this.dataGridViewTranches.Size = new System.Drawing.Size(546, 89);
             this.dataGridViewTranches.TabIndex = 1;
-            this.dataGridViewTranches.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTranches_CellContentClick);
+            this.dataGridViewTranches.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewTranches_CellContentClick);
             // 
             // label2
             // 
@@ -353,6 +353,7 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "Zapisz";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // labelTitle
             // 

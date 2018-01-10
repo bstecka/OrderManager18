@@ -3,6 +3,7 @@ using OrderManager.Domain.Entity;
 using OrderManager.DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,6 +39,18 @@ namespace OrderManager.Domain.Service
         public List<Order> GetAllByState(int stateId)
         {
             return mapper.MapAllFrom(DAO.GetAllByState(stateId));
+        }
+
+        public void UpdateOrder(Order order)
+        {
+            DataTable table = mapper.MapTo(order);
+            DAO.UpdateOrders(table);
+        }
+
+        public int InsertOrder(Order order)
+        {
+            DataTable table = mapper.MapTo(order);
+            return DAO.Add(table);
         }
     }
 }

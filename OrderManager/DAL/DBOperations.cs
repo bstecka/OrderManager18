@@ -32,6 +32,45 @@ namespace OrderManager.DAO
             return dataTable;
         }
 
+        public static int Insert(DataTable entity, string tableName)
+        {  
+            connection.Open();
+            String commandText = "";
+            String valuesText = "";
+            int insertedRowId = 0;
+            foreach (DataRow row in entity.Rows)
+            {
+                foreach (DataColumn column in entity.Columns)
+                {
+                    if (!column.ColumnName.ToString().Equals("ID"))
+                    {
+                        commandText += column.ColumnName.ToString() + ", ";
+                    }
+                }
+                foreach (DataColumn column in entity.Columns)
+                {
+                    if (!column.ColumnName.ToString().Equals("ID"))
+                    {
+                        valuesText += "@" + column.ColumnName.ToString() + "A, ";
+                    }
+                }
+                commandText = commandText.Remove(commandText.Trim().Length - 1);
+                valuesText = valuesText.Remove(valuesText.Trim().Length - 1);
+                commandText = "INSERT INTO " + tableName + " (" + commandText + ") OUTPUT INSERTED.ID VALUES (" + valuesText + ")";
+                SqlCommand command = new SqlCommand(commandText, connection);
+                foreach (DataColumn column in entity.Columns)
+                {
+                    if (!column.ColumnName.ToString().Equals("ID"))
+                    {
+                        command.Parameters.AddWithValue("@" + column.ColumnName.ToString() + "A", row[column.ColumnName.ToString()]);
+                    }
+                }
+                insertedRowId = (int) command.ExecuteScalar();
+            }
+            connection.Close();
+            return insertedRowId;
+        }
+
         public static void Update(DataTable entity, string tableName)
         {
             connection.Open();
