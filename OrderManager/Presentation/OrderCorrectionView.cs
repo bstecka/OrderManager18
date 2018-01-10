@@ -141,6 +141,16 @@ namespace OrderManager.Presentation
             if (form.Saved)
             {
                 this.tranchesToUpdate.Add(form.Tranche);
+                foreach (DataGridViewRow row in dataGridViewTranches.Rows)
+                {
+                    if (form.Tranche.Id.ToString().Equals(row.Cells["Id"].Value.ToString()))
+                    {
+                        row.Cells["Ilość"].Value = form.Tranche.NumberOfItems;
+                        row.Cells["Cena netto"].Value = Math.Round(form.Tranche.Stock.PriceNetto, 2);
+                        row.Cells["Wartość netto"].Value = Math.Round(form.Tranche.PriceNetto, 2);
+                        row.Cells["Wartość brutto"].Value = Math.Round(form.Tranche.PriceBrutto, 2);
+                    }
+                }
             }
         }
     }
