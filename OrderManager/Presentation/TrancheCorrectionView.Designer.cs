@@ -133,6 +133,7 @@
             this.button4.TabIndex = 3;
             this.button4.Text = "Zapisz";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.Button4_Click);
             // 
             // button1
             // 
@@ -181,9 +182,8 @@
             this.textBoxQuota.Name = "textBoxQuota";
             this.textBoxQuota.Size = new System.Drawing.Size(62, 20);
             this.textBoxQuota.TabIndex = 14;
-            this.textBoxQuota.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxQuota_KeyPress);
             this.textBoxQuota.TextChanged += new System.EventHandler(this.TextBoxQuota_TextChanged);
-
+            this.textBoxQuota.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxQuota_KeyPress);
             // 
             // labelTrancheName
             // 

@@ -15,8 +15,11 @@ namespace OrderManager.Presentation
     public partial class TrancheCorrectionView : Form
     {
         private Tranche tranche;
-        double priceNetto;
-        double priceBrutto;
+        private double priceNetto;
+        private double priceBrutto;
+        private int numberOfItems;
+        private double quotaDiscount;
+        private Boolean saved;
 
         public TrancheCorrectionView(Tranche tranche)
         {
@@ -24,9 +27,17 @@ namespace OrderManager.Presentation
             this.tranche = tranche;
             this.priceNetto = tranche.PriceNetto;
             this.priceBrutto = tranche.PriceBrutto;
+            this.numberOfItems = tranche.NumberOfItems;
+            this.quotaDiscount = tranche.QuotaDiscount;
+            this.saved = false;
             FillForm();
             tableLayoutPanel4.CellPaint += TableLayoutPanel_CellPaint;
         }
+
+        public int NumberOfItems { get => numberOfItems; }
+        public double QuotaDiscount { get => quotaDiscount; }
+        public Boolean Saved { get => saved; }
+        public Tranche Tranche { get => tranche; }
 
         private void FillForm()
         {
@@ -70,10 +81,13 @@ namespace OrderManager.Presentation
 
         private void TrancheCorrectionView_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Czy chcesz zamknąć to okno? Wprowadzone zmiany nie zostały zapisane.", "", MessageBoxButtons.YesNo) == DialogResult.No)
-                e.Cancel = true;
-            else
-                e.Cancel = false;
+            if (!this.saved)
+            {
+                if (MessageBox.Show("Czy chcesz zamknąć to okno? Wprowadzone zmiany nie zostały zapisane.", "", MessageBoxButtons.YesNo) == DialogResult.No)
+                    e.Cancel = true;
+                else
+                    e.Cancel = false;
+            }
         }
 
         private void OrderCorrectionView_Load(object sender, EventArgs e)
@@ -105,10 +119,9 @@ namespace OrderManager.Presentation
 
         private void TextBoxNumberOfItems_TextChanged(object sender, EventArgs e)
         {
-            int nr = 0;
             if (textBoxNumberOfItems.Text.Length > 0 && textBoxNumberOfItems.Text.Length < 10)
-                nr = Int32.Parse(textBoxNumberOfItems.Text);
-            priceNetto = tranche.Stock.PriceNetto * nr;
+                this.numberOfItems = Int32.Parse(textBoxNumberOfItems.Text);
+            priceNetto = tranche.Stock.PriceNetto * this.numberOfItems;
             labelNetto.Text = "" + priceNetto;
             priceBrutto = priceNetto / 100 * (100 + tranche.Stock.Stock.VAT);
             labelBrutto.Text = "" + priceBrutto;
@@ -118,11 +131,18 @@ namespace OrderManager.Presentation
         {
             Regex regexObj = new Regex(@"-?\d+(?:\,\d+)?");
             Match matchResult = regexObj.Match(textBoxQuota.Text);
-            double quota = 0.0;
             if (textBoxQuota.Text.Length > 0 && textBoxQuota.Text.Length < 10 && matchResult.Length > 0)
-                quota = Double.Parse(textBoxQuota.Text);
-            double amount = priceBrutto - quota;
+                this.quotaDiscount = Double.Parse(textBoxQuota.Text);
+            double amount = priceBrutto - this.quotaDiscount;
             labelBrutto.Text = "" + amount;
+        }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            this.tranche.NumberOfItems = this.numberOfItems;
+            this.tranche.QuotaDiscount = this.quotaDiscount;
+            this.saved = true;
+            this.Close();
         }
     }
 }
