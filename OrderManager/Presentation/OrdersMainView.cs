@@ -45,7 +45,9 @@ namespace OrderManager.Presentation
         {
             string[] comboBoxStateDataSource = { "W trakcie realizacji", "Zrealizowane", "Anulowane", "W trakcie reklamacji" };
             comboBoxState.DataSource = comboBoxStateDataSource;
+            comboBoxCategory.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxState.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxOrdered.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void FillGridview(IEnumerable<Order> listOrder)

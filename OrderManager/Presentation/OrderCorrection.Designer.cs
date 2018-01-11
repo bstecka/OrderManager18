@@ -105,7 +105,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 432F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 470F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(716, 470);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
@@ -522,7 +522,7 @@
             this.labelTitle.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.labelTitle.Size = new System.Drawing.Size(716, 86);
             this.labelTitle.TabIndex = 1;
-            this.labelTitle.Text = "Zamówienie";
+            this.labelTitle.Text = "Zamówienie ";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // OrderCorrection
