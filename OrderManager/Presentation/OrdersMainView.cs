@@ -66,7 +66,7 @@ namespace OrderManager.Presentation
 
                 dataRow["Nazwa"] = order.Name;
                 dataRow["Kontrahent"] = order.Counterparty;
-                dataRow["Status"] = order.State;
+                dataRow["Status"] = GetTranslatedOrderStateString(order.State);
                 dataRow["Data złożenia"] = order.DateOfCreation;
                 dataRow["Suma wart. poz. Netto"] = order.PriceNetto;
                 dataRow["Suma wart. poz. Brutto"] = order.PriceBrutto;
@@ -91,9 +91,7 @@ namespace OrderManager.Presentation
             checkboxColumn.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             list.Columns.Insert(0, checkboxColumn);
 
-            // add checkbox header
             Rectangle rect = list.GetCellDisplayRectangle(0, -1, true);
-            // set checkbox header to center of header cell. +1 pixel to position correctly.
             rect.X = rect.Location.X + (rect.Width / 4);
 
             CheckBox checkboxHeader = new CheckBox();
@@ -165,12 +163,30 @@ namespace OrderManager.Presentation
                 {
                     var form = new OrderCorrection(listOrder.FirstOrDefault(
                         order => order.Name.Equals(row.Cells["Nazwa"].Value.ToString())), orderService, trancheService);
-                    //var x = Location.X + (Width - form.Width) / 2;
-                    //var y = Location.Y + (Height - form.Height) / 2;
-                    //form.Location = new Point(Math.Max(x, 0), Math.Max(y, 0));
                     form.Show();
                 }
             }
+        }
+
+        private string GetTranslatedOrderStateString(ORDERSTATE state)
+        {
+            String value = "";
+            switch (state)
+            {
+                case ORDERSTATE.duringRealization:
+                    value = "W trakcie realizacji";
+                    break;
+                case ORDERSTATE.cancelled:
+                    value = "Anulowane";
+                    break;
+                case ORDERSTATE.duringReview:
+                    value = "W trakcie reklamacji";
+                    break;
+                case ORDERSTATE.realized:
+                    value = "Zrealizowane";
+                    break;
+            }
+            return value;
         }
 
         private void pictureBoxFilter_Click(object sender, EventArgs e)
