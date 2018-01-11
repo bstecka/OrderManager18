@@ -107,10 +107,6 @@ namespace OrderManager
 
         private void MainStockView_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Czy chcesz zamknąć to okno?", "", MessageBoxButtons.YesNo) == DialogResult.No)
-                e.Cancel = true;
-            else
-                e.Cancel = false;
         }
 
         private void prepareFiltersPanel()
@@ -178,6 +174,23 @@ namespace OrderManager
             var ordersForm = new OrdersMainView();
             ordersForm.Closed += (s, args) => this.Close();
             ordersForm.Show();
+        }
+
+        private void ThePrettiestGUIEver_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (MessageBox.Show("Czy chcesz zamknąć to okno?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                Close();
+        }
+
+        private void ThePrettiestGUIEver_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(((Form) sender).Visible)
+            {
+                if (MessageBox.Show("Czy chcesz zamknąć to okno?", "", MessageBoxButtons.YesNo) == DialogResult.No)
+                    e.Cancel = true;
+                else
+                    e.Cancel = false;
+            }
         }
     }
 }

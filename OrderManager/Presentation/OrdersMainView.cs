@@ -32,6 +32,7 @@ namespace OrderManager.Presentation
             FillGridview(listOrder);
             AddDataSourceForFilters();
             comboBoxState.SelectedIndexChanged += comboBoxState_SelectedIndexChanged;
+
             this.FormClosing += MainOrdersView_FormClosing;
         }
 
@@ -114,10 +115,13 @@ namespace OrderManager.Presentation
 
         private void MainOrdersView_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Czy chcesz zamknąć to okno?", "", MessageBoxButtons.YesNo) == DialogResult.No)
-                e.Cancel = true;
-            else
-                e.Cancel = false;
+            if (((Form)sender).Visible)
+            {
+                if (MessageBox.Show("Czy chcesz zamknąć to okno?", "", MessageBoxButtons.YesNo) == DialogResult.No)
+                    e.Cancel = true;
+                else
+                    e.Cancel = false;
+            }
         }
 
         private void SetButtonsForOrdersDuringRealization(bool value)
@@ -157,7 +161,7 @@ namespace OrderManager.Presentation
                         order => order.Name.Equals(row.Cells["Nazwa"].Value.ToString()));
                 if (Convert.ToBoolean(row.Cells[0].Value) && tmp != null)
                 {
-                    var form = new OrderCorrectionView(listOrder.FirstOrDefault(
+                    var form = new OrderCorrection(listOrder.FirstOrDefault(
                         order => order.Name.Equals(row.Cells["Nazwa"].Value.ToString())), orderService, trancheService);
                     //var x = Location.X + (Width - form.Width) / 2;
                     //var y = Location.Y + (Height - form.Height) / 2;
