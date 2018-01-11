@@ -230,8 +230,10 @@
             this.dataGridViewTranches.Location = new System.Drawing.Point(3, 36);
             this.dataGridViewTranches.Name = "dataGridViewTranches";
             this.dataGridViewTranches.ReadOnly = true;
+            this.dataGridViewTranches.RowHeadersVisible = false;
             this.dataGridViewTranches.Size = new System.Drawing.Size(532, 93);
             this.dataGridViewTranches.TabIndex = 1;
+            this.dataGridViewTranches.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewTranches_CellContentClick);
             // 
             // label3
             // 
