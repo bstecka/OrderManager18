@@ -137,7 +137,7 @@ namespace OrderManager.Presentation
                 }
                 if (tranche != null && e.ColumnIndex.Equals(0))
                 {
-                    var form = new TrancheCorrectionView(tranche);     
+                    var form = new TrancheCorrectionView(tranche, trancheService);
                     form.FormClosed += new FormClosedEventHandler(TrancheCorrectionView_Closed);
                     form.Show();
                 }

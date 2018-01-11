@@ -35,7 +35,6 @@ namespace OrderManager.DTO
             return MapFrom(tDAO, 0);
         }
 
-
         private Domain.Entity.PercentageDiscount MapFrom(DataTable discountTable, int numberOfRow)
         {
             CounterpartysStockMapper counterpartysStockMapper = new CounterpartysStockMapper(counterpartysStockDAO);
@@ -51,9 +50,26 @@ namespace OrderManager.DTO
             counterpartysStockMapper.MapAllFrom(percentageDiscountDAO.GetCounterpartiesStockWithDiscount(discountTable.Rows[numberOfRow])));
         }
 
-        public DataTable MapTo(Domain.Entity.PercentageDiscount tDomain)
+        public DataTable MapTo(Domain.Entity.PercentageDiscount discountDomain)
         {
-            throw new NotImplementedException();
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("ID");
+            dataTable.Columns.Add("OdKiedy");
+            dataTable.Columns.Add("DoKiedy");
+            dataTable.Columns.Add("SumaWartosciPozycjiNetto");
+            dataTable.Columns.Add("Wysokosc");
+            dataTable.Columns.Add("Sumowanie");
+            dataTable.Columns.Add("Aktywny");
+            DataRow dataRow = dataTable.NewRow();
+            dataRow["ID"] = discountDomain.Id;
+            dataRow["OdKiedy"] = discountDomain.Since;
+            dataRow["DoKiedy"] = discountDomain.Until;
+            dataRow["SumaWartosciPozycjiNetto"] = discountDomain.SumNetto;
+            dataRow["Wysokosc"] = discountDomain.Amount;
+            dataRow["Sumowanie"] = discountDomain.Summing;
+            dataRow["Aktywny"] = discountDomain.Active;
+            dataTable.Rows.Add(dataRow);
+            return dataTable;
         }
 
 

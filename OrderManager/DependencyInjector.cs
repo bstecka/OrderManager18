@@ -33,7 +33,7 @@ namespace OrderManager
         {
             get
             {
-                return new CounterpartysStockService(ICounterpartysStockDAO, IMapperBaseCounterpartysStock, IMapperrBasePercentageDiscount);
+                return new CounterpartysStockService(ICounterpartysStockDAO, IMapperBaseCounterpartysStock, IMapperBasePercentageDiscount);
             }
         }
 
@@ -81,7 +81,7 @@ namespace OrderManager
         {
             get
             {
-                return new TrancheService(ITrancheDAO, IMapperBaseTranche);
+                return new TrancheService(ITrancheDAO, IMapperBaseTranche, IMapperBasePercentageDiscount);
             }
         }
 
@@ -172,7 +172,7 @@ namespace OrderManager
             }
         }
 
-        public static IMapperBase<Domain.Entity.PercentageDiscount> IMapperrBasePercentageDiscount
+        public static IMapperBase<Domain.Entity.PercentageDiscount> IMapperBasePercentageDiscount
         {
             get
             {

@@ -11,5 +11,7 @@ namespace OrderManager.DAL.InternalSysDAO
     {
         DataTable GetCounterpartysStock(DataRow tranche);
         DataTable GetPercentageDiscounts(DataRow tranche);
+        DataTable GetViableDiscounts(DataRow tranche);
+        void AssignDiscountToTranche(DataRow tranche, DataRow discount);
     }
 }

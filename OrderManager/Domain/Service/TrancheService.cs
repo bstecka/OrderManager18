@@ -14,16 +14,30 @@ namespace OrderManager.Domain.Service
     {
         private ITrancheDAO DAO;
         private IMapperBase<Tranche> mapper;
+        private IMapperBase<PercentageDiscount> discountMapper;
 
-        public TrancheService(ITrancheDAO DAO, IMapperBase<Tranche> mapper)
+        public TrancheService(ITrancheDAO DAO, IMapperBase<Tranche> mapper, IMapperBase<PercentageDiscount> discountMapper)
         {
             this.DAO = DAO;
             this.mapper = mapper;
+            this.discountMapper = discountMapper;
         }
 
         public List<Tranche> GetAll()
         {
             return mapper.MapAllFrom(DAO.GetAll());
+        }
+
+        public List<PercentageDiscount> GetPercentageDiscounts(Tranche tranche)
+        {
+            DataRow row = mapper.MapTo(tranche).Rows[0];
+            return discountMapper.MapAllFrom(DAO.GetPercentageDiscounts(row));
+        }
+
+        public List<PercentageDiscount> GetViableDiscounts(Tranche tranche)
+        {
+            DataRow row = mapper.MapTo(tranche).Rows[0];
+            return discountMapper.MapAllFrom(DAO.GetViableDiscounts(row));
         }
 
         public Tranche GetById(string id)
@@ -41,6 +55,13 @@ namespace OrderManager.Domain.Service
         {
             DataTable table = mapper.MapTo(tranche);
             return DAO.Add(table);
+        }
+
+        public void AssignDiscountToTranche(Tranche tranche, PercentageDiscount discount)
+        {
+            DataRow trancheRow = mapper.MapTo(tranche).Rows[0];
+            DataRow discountRow = discountMapper.MapTo(discount).Rows[0];
+            DAO.AssignDiscountToTranche(trancheRow, discountRow);
         }
     }
 }

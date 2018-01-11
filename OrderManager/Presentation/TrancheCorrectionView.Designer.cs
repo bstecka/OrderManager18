@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThePrettiestGUIEver));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -47,7 +48,7 @@
             this.labelVAT = new System.Windows.Forms.Label();
             this.textBoxNumberOfItems = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridViewTranches = new System.Windows.Forms.DataGridView();
+            this.dataGridDiscounts = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.label8 = new System.Windows.Forms.Label();
@@ -64,7 +65,7 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTranches)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridDiscounts)).BeginInit();
             this.tableLayoutPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -296,7 +297,7 @@
             this.tableLayoutPanel4.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Controls.Add(this.dataGridViewTranches, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.dataGridDiscounts, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 250);
@@ -309,18 +310,18 @@
             // 
             // dataGridViewTranches
             // 
-            this.dataGridViewTranches.AllowUserToAddRows = false;
-            this.dataGridViewTranches.AllowUserToDeleteRows = false;
-            this.dataGridViewTranches.AllowUserToResizeColumns = false;
-            this.dataGridViewTranches.AllowUserToResizeRows = false;
-            this.dataGridViewTranches.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewTranches.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewTranches.Location = new System.Drawing.Point(3, 48);
-            this.dataGridViewTranches.Name = "dataGridViewTranches";
-            this.dataGridViewTranches.ReadOnly = true;
-            this.dataGridViewTranches.RowHeadersVisible = false;
-            this.dataGridViewTranches.Size = new System.Drawing.Size(456, 131);
-            this.dataGridViewTranches.TabIndex = 1;
+            this.dataGridDiscounts.AllowUserToAddRows = false;
+            this.dataGridDiscounts.AllowUserToDeleteRows = false;
+            this.dataGridDiscounts.AllowUserToResizeColumns = false;
+            this.dataGridDiscounts.AllowUserToResizeRows = false;
+            this.dataGridDiscounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridDiscounts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridDiscounts.Location = new System.Drawing.Point(3, 48);
+            this.dataGridDiscounts.Name = "dataGridViewTranches";
+            this.dataGridDiscounts.ReadOnly = true;
+            this.dataGridDiscounts.RowHeadersVisible = false;
+            this.dataGridDiscounts.Size = new System.Drawing.Size(456, 131);
+            this.dataGridDiscounts.TabIndex = 1;
             // 
             // label2
             // 
@@ -445,9 +446,10 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.MaximumSize = new System.Drawing.Size(520, 700);
             this.Name = "TrancheCorrectionView";
-            this.Text = "Form1";
+            this.Text = "Korekta pozycji ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.OrderCorrectionView_Load);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -456,7 +458,7 @@
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTranches)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridDiscounts)).EndInit();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             this.ResumeLayout(false);
@@ -484,7 +486,7 @@
         private System.Windows.Forms.Label labelObsolete;
         private System.Windows.Forms.Label labelQuota;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.DataGridView dataGridViewTranches;
+        private System.Windows.Forms.DataGridView dataGridDiscounts;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Button button1;

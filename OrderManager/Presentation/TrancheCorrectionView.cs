@@ -1,4 +1,5 @@
 ﻿using OrderManager.Domain.Entity;
+using OrderManager.Domain.Service;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,21 +16,24 @@ namespace OrderManager.Presentation
     public partial class TrancheCorrectionView : Form
     {
         private Tranche tranche;
+        private ITrancheService trancheService;
         private double priceNetto;
         private double priceBrutto;
         private int numberOfItems;
         private double quotaDiscount;
         private Boolean saved;
 
-        public TrancheCorrectionView(Tranche tranche)
+        public TrancheCorrectionView(Tranche tranche, ITrancheService trancheService)
         {
             InitializeComponent();
+            this.trancheService = trancheService;
             this.tranche = tranche;
             this.priceNetto = tranche.PriceNetto;
             this.priceBrutto = tranche.PriceBrutto;
             this.numberOfItems = tranche.NumberOfItems;
             this.quotaDiscount = tranche.QuotaDiscount;
             this.saved = false;
+            this.Text += tranche.Stock.Stock.Name;
             FillForm();
             tableLayoutPanel4.CellPaint += TableLayoutPanel_CellPaint;
         }
@@ -50,28 +54,54 @@ namespace OrderManager.Presentation
             textBoxQuota.Text = "" + tranche.QuotaDiscount;
             labelNetto.Text = "" + tranche.PriceNetto;
             labelBrutto.Text = "" + tranche.PriceBrutto;
+            AddCheckBoxColumn();
             FillDiscounts();
+        }
+
+        private void AddCheckBoxColumn()
+        {
+            var list = dataGridDiscounts;
+            DataGridViewCheckBoxColumn checkboxColumn = new DataGridViewCheckBoxColumn();
+            checkboxColumn.Width = 30;
+            checkboxColumn.Name = "Zaznacz";
+            checkboxColumn.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            list.Columns.Insert(0, checkboxColumn);
+            dataGridDiscounts.ReadOnly = false;
+
+            foreach (DataGridViewColumn column in dataGridDiscounts.Columns)
+            {
+                if (column.DisplayIndex != 0)
+                    column.ReadOnly = true;
+            }
+            foreach (DataGridViewRow row in dataGridDiscounts.Rows)
+            {
+                row.Cells["Zaznacz"].Value = true;
+            }
         }
 
         private void FillDiscounts()
         {
             DataTable dataGridSource = new DataTable();
+            dataGridSource.Columns.Add("Id");
             dataGridSource.Columns.Add("Wysokość");
             dataGridSource.Columns.Add("Data rozpoczęcia");
             dataGridSource.Columns.Add("Data zakończenia");
 
+            List<PercentageDiscount> previouslyAssignedDiscounts = trancheService.GetPercentageDiscounts(tranche);
+            List<PercentageDiscount> viableDiscounts = trancheService.GetViableDiscounts(tranche);
             int lp = 1;
-            foreach (var discount in tranche.Discounts)
+            foreach (var discount in viableDiscounts)
             {
                 DataRow dataRow = dataGridSource.NewRow();
+                dataRow["Id"] = discount.Id;
                 dataRow["Wysokość"] = discount.Amount;
                 dataRow["Data rozpoczęcia"] = discount.Since;
                 dataRow["Data zakończenia"] = discount.Until;
                 dataGridSource.Rows.Add(dataRow);
                 lp++;
             }
-            dataGridViewTranches.DataSource = dataGridSource;
-            dataGridViewTranches.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridDiscounts.DataSource = dataGridSource;
+            dataGridDiscounts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void TableLayoutPanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
@@ -139,8 +169,25 @@ namespace OrderManager.Presentation
 
         private void Button4_Click(object sender, EventArgs e)
         {
+            List<PercentageDiscount> chosenDiscounts = new List<PercentageDiscount>();
             this.tranche.NumberOfItems = this.numberOfItems;
             this.tranche.QuotaDiscount = this.quotaDiscount;
+            var checkedRows = this.dataGridDiscounts.Rows.Cast<DataGridViewRow>().Where(row => (bool?)row.Cells[0].Value == true).ToList();
+            List<PercentageDiscount> viableDiscounts = trancheService.GetViableDiscounts(tranche);
+            foreach (PercentageDiscount discount in viableDiscounts)
+            {
+                Boolean shouldBeAdded = false;
+                foreach (DataGridViewRow row in checkedRows)
+                {
+                    var id1 = discount.Id.ToString();
+                    var id2 = row.Cells["Id"].Value.ToString();
+                    if (id1.Equals(id2))
+                        shouldBeAdded = true;
+                }
+                if (shouldBeAdded)
+                    chosenDiscounts.Add(discount);
+            }
+            this.tranche.Discounts = chosenDiscounts;
             this.saved = true;
             this.Close();
         }
