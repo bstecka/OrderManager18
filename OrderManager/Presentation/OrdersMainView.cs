@@ -161,7 +161,7 @@ namespace OrderManager.Presentation
                         order => order.Name.Equals(row.Cells["Nazwa"].Value.ToString()));
                 if (Convert.ToBoolean(row.Cells[0].Value) && tmp != null)
                 {
-                    var form = new OrderCorrection(listOrder.FirstOrDefault(
+                    var form = new OrderCorrectionView(listOrder.FirstOrDefault(
                         order => order.Name.Equals(row.Cells["Nazwa"].Value.ToString())), orderService, trancheService);
                     form.Show();
                 }
