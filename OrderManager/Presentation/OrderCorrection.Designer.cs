@@ -1,6 +1,6 @@
 ﻿namespace OrderManager.Presentation
 {
-    partial class GeneratedOrderView
+    partial class OrderCorrection
     {
         /// <summary>
         /// Required designer variable.
@@ -89,8 +89,8 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(778, 540);
-            this.tableLayoutPanel1.TabIndex = 1;
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(716, 586);
+            this.tableLayoutPanel1.TabIndex = 2;
             // 
             // tableLayoutPanel2
             // 
@@ -100,13 +100,13 @@
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanelContent, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 108);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 116);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 432F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(778, 432);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(716, 470);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tableLayoutPanel4
@@ -118,6 +118,7 @@
             this.tableLayoutPanel4.Controls.Add(this.label5, 0, 3);
             this.tableLayoutPanel4.Controls.Add(this.linkLabel1, 0, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -134,7 +135,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(155, 432);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(142, 470);
             this.tableLayoutPanel4.TabIndex = 4;
             // 
             // label12
@@ -142,7 +143,7 @@
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label12.Location = new System.Drawing.Point(18, 101);
+            this.label12.Location = new System.Drawing.Point(18, 111);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(64, 13);
             this.label12.TabIndex = 6;
@@ -153,7 +154,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(18, 138);
+            this.label5.Location = new System.Drawing.Point(18, 152);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 13);
             this.label5.TabIndex = 0;
@@ -165,7 +166,7 @@
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.linkLabel1.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel1.Location = new System.Drawing.Point(18, 64);
+            this.linkLabel1.Location = new System.Drawing.Point(18, 70);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(39, 13);
             this.linkLabel1.TabIndex = 7;
@@ -180,7 +181,7 @@
             this.tableLayoutPanelContent.Controls.Add(this.tableLayoutPanel6, 0, 3);
             this.tableLayoutPanelContent.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.tableLayoutPanelContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelContent.Location = new System.Drawing.Point(170, 15);
+            this.tableLayoutPanelContent.Location = new System.Drawing.Point(157, 15);
             this.tableLayoutPanelContent.Margin = new System.Windows.Forms.Padding(15);
             this.tableLayoutPanelContent.Name = "tableLayoutPanelContent";
             this.tableLayoutPanelContent.RowCount = 5;
@@ -190,7 +191,7 @@
             this.tableLayoutPanelContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanelContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263157F));
             this.tableLayoutPanelContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelContent.Size = new System.Drawing.Size(593, 402);
+            this.tableLayoutPanelContent.Size = new System.Drawing.Size(544, 440);
             this.tableLayoutPanelContent.TabIndex = 5;
             // 
             // tableLayoutPanel9
@@ -208,12 +209,12 @@
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(587, 130);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(538, 162);
             this.tableLayoutPanel9.TabIndex = 7;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(3, 103);
+            this.button1.Location = new System.Drawing.Point(3, 135);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(140, 24);
             this.button1.TabIndex = 0;
@@ -226,17 +227,17 @@
             this.dataGridViewTranches.AllowUserToDeleteRows = false;
             this.dataGridViewTranches.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTranches.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewTranches.Location = new System.Drawing.Point(3, 28);
+            this.dataGridViewTranches.Location = new System.Drawing.Point(3, 36);
             this.dataGridViewTranches.Name = "dataGridViewTranches";
             this.dataGridViewTranches.ReadOnly = true;
-            this.dataGridViewTranches.Size = new System.Drawing.Size(581, 69);
+            this.dataGridViewTranches.Size = new System.Drawing.Size(532, 93);
             this.dataGridViewTranches.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 6);
+            this.label3.Location = new System.Drawing.Point(3, 10);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(97, 13);
             this.label3.TabIndex = 2;
@@ -252,17 +253,17 @@
             this.tableLayoutPanel6.Controls.Add(this.button3, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.buttonGenerateOrders, 2, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 363);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 399);
             this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(593, 30);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(544, 30);
             this.tableLayoutPanel6.TabIndex = 5;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(226, 3);
+            this.button2.Location = new System.Drawing.Point(202, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(140, 23);
             this.button2.TabIndex = 3;
@@ -272,7 +273,7 @@
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(80, 3);
+            this.button3.Location = new System.Drawing.Point(56, 3);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(140, 23);
             this.button3.TabIndex = 2;
@@ -281,7 +282,7 @@
             // 
             // buttonGenerateOrders
             // 
-            this.buttonGenerateOrders.Location = new System.Drawing.Point(372, 3);
+            this.buttonGenerateOrders.Location = new System.Drawing.Point(348, 3);
             this.buttonGenerateOrders.Name = "buttonGenerateOrders";
             this.buttonGenerateOrders.Size = new System.Drawing.Size(140, 23);
             this.buttonGenerateOrders.TabIndex = 1;
@@ -303,7 +304,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 57.14286F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.57143F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(593, 210);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(544, 210);
             this.tableLayoutPanel3.TabIndex = 6;
             // 
             // tableLayoutPanel5
@@ -329,14 +330,14 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(587, 113);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(538, 113);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // labelCounterpartysCode
             // 
             this.labelCounterpartysCode.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelCounterpartysCode.AutoSize = true;
-            this.labelCounterpartysCode.Location = new System.Drawing.Point(179, 92);
+            this.labelCounterpartysCode.Location = new System.Drawing.Point(164, 92);
             this.labelCounterpartysCode.Name = "labelCounterpartysCode";
             this.labelCounterpartysCode.Size = new System.Drawing.Size(86, 13);
             this.labelCounterpartysCode.TabIndex = 10;
@@ -346,7 +347,7 @@
             // 
             this.labelCounterpartysName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelCounterpartysName.AutoSize = true;
-            this.labelCounterpartysName.Location = new System.Drawing.Point(179, 63);
+            this.labelCounterpartysName.Location = new System.Drawing.Point(164, 63);
             this.labelCounterpartysName.Name = "labelCounterpartysName";
             this.labelCounterpartysName.Size = new System.Drawing.Size(86, 13);
             this.labelCounterpartysName.TabIndex = 9;
@@ -356,7 +357,7 @@
             // 
             this.labelDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelDate.AutoSize = true;
-            this.labelDate.Location = new System.Drawing.Point(179, 35);
+            this.labelDate.Location = new System.Drawing.Point(164, 35);
             this.labelDate.Name = "labelDate";
             this.labelDate.Size = new System.Drawing.Size(86, 13);
             this.labelDate.TabIndex = 8;
@@ -366,7 +367,7 @@
             // 
             this.labelOrdersName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelOrdersName.AutoSize = true;
-            this.labelOrdersName.Location = new System.Drawing.Point(179, 7);
+            this.labelOrdersName.Location = new System.Drawing.Point(164, 7);
             this.labelOrdersName.Name = "labelOrdersName";
             this.labelOrdersName.Size = new System.Drawing.Size(86, 13);
             this.labelOrdersName.TabIndex = 7;
@@ -429,7 +430,7 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(587, 53);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(538, 53);
             this.tableLayoutPanel7.TabIndex = 1;
             // 
             // label13
@@ -446,7 +447,7 @@
             // 
             this.labelBrutto.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelBrutto.AutoSize = true;
-            this.labelBrutto.Location = new System.Drawing.Point(179, 33);
+            this.labelBrutto.Location = new System.Drawing.Point(164, 33);
             this.labelBrutto.Name = "labelBrutto";
             this.labelBrutto.Size = new System.Drawing.Size(86, 13);
             this.labelBrutto.TabIndex = 11;
@@ -466,7 +467,7 @@
             // 
             this.labelNetto.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelNetto.AutoSize = true;
-            this.labelNetto.Location = new System.Drawing.Point(179, 6);
+            this.labelNetto.Location = new System.Drawing.Point(164, 6);
             this.labelNetto.Name = "labelNetto";
             this.labelNetto.Size = new System.Drawing.Size(135, 13);
             this.labelNetto.TabIndex = 9;
@@ -485,14 +486,14 @@
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(587, 26);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(538, 26);
             this.tableLayoutPanel8.TabIndex = 2;
             // 
             // labelAuthor
             // 
             this.labelAuthor.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelAuthor.AutoSize = true;
-            this.labelAuthor.Location = new System.Drawing.Point(179, 6);
+            this.labelAuthor.Location = new System.Drawing.Point(164, 6);
             this.labelAuthor.Name = "labelAuthor";
             this.labelAuthor.Size = new System.Drawing.Size(86, 13);
             this.labelAuthor.TabIndex = 11;
@@ -515,23 +516,23 @@
             this.labelTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelTitle.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelTitle.ForeColor = System.Drawing.SystemColors.Info;
-            this.labelTitle.Location = new System.Drawing.Point(0, 27);
+            this.labelTitle.Location = new System.Drawing.Point(0, 29);
             this.labelTitle.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.labelTitle.Size = new System.Drawing.Size(778, 80);
+            this.labelTitle.Size = new System.Drawing.Size(716, 86);
             this.labelTitle.TabIndex = 1;
             this.labelTitle.Text = "Zamówienie";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // GeneratedOrderView
+            // OrderCorrection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(778, 540);
+            this.ClientSize = new System.Drawing.Size(716, 586);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "GeneratedOrderView";
-            this.Text = "OrderManager2018";
+            this.Name = "OrderCorrection";
+            this.Text = "OrderCorrection";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -558,36 +559,36 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelContent;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button buttonGenerateOrders;
-        private System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelContent;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridViewTranches;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label labelNetto;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label labelOrdersName;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonGenerateOrders;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label labelCounterpartysCode;
         private System.Windows.Forms.Label labelCounterpartysName;
         private System.Windows.Forms.Label labelDate;
+        private System.Windows.Forms.Label labelOrdersName;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label labelBrutto;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label labelNetto;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Label labelAuthor;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label labelTitle;
     }
 }

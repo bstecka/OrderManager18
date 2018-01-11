@@ -22,6 +22,8 @@ namespace OrderManager.Presentation
             this.orders = orders;
             (new DataGridviewCheckBoxColumnProwider(dataGridViewOrders)).addCheckBoxColumn();
             FillDataGridView();
+            foreach (DataGridViewColumn column in dataGridViewOrders.Columns)
+                column.ReadOnly = true;
         }
 
         private void FillDataGridView()
