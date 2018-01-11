@@ -130,6 +130,24 @@
     <Compile Include="DTO\StockMapper.cs" />
     <Compile Include="DTO\TrancheMapper.cs" />
     <Compile Include="DTO\UserMapper.cs" />
+    <Compile Include="Presentation\GeneratedOrdersView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\GeneratedOrdersView.Designer.cs">
+      <DependentUpon>GeneratedOrdersView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\GeneratedOrderView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\GeneratedOrderView.Designer.cs">
+      <DependentUpon>GeneratedOrderView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\OrdersMainView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\OrdersMainView.Designer.cs">
+      <DependentUpon>OrdersMainView.cs</DependentUpon>
+    </Compile>
     <Compile Include="ThePrettiestGUIEver.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,16 +155,16 @@
       <DependentUpon>ThePrettiestGUIEver.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\DataGridviewCheckBoxColumnProwider.cs" />
-    <Compile Include="Presentation\Form1.cs">
+    <Compile Include="Presentation\ToDelete\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\Form1.Designer.cs">
+    <Compile Include="Presentation\ToDelete\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\GeneratedOrders.cs">
+    <Compile Include="Presentation\ToDelete\GeneratedOrders.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\GeneratedOrders.Designer.cs">
+    <Compile Include="Presentation\ToDelete\GeneratedOrders.Designer.cs">
       <DependentUpon>GeneratedOrders.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\MainOrdersView.cs">
@@ -155,16 +173,16 @@
     <Compile Include="Presentation\MainOrdersView.Designer.cs">
       <DependentUpon>MainOrdersView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\MainStockView.cs">
+    <Compile Include="Presentation\ToDelete\MainStockView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\MainStockView.Designer.cs">
+    <Compile Include="Presentation\ToDelete\MainStockView.Designer.cs">
       <DependentUpon>MainStockView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\MainView.cs">
+    <Compile Include="Presentation\ToDelete\MainView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\MainView.Designer.cs">
+    <Compile Include="Presentation\ToDelete\MainView.Designer.cs">
       <DependentUpon>MainView.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\OrderCorrectionView.cs">
@@ -190,22 +208,31 @@
     <EmbeddedResource Include="Display.resx">
       <DependentUpon>Display.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\GeneratedOrdersView.resx">
+      <DependentUpon>GeneratedOrdersView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\GeneratedOrderView.resx">
+      <DependentUpon>GeneratedOrderView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\OrdersMainView.resx">
+      <DependentUpon>OrdersMainView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ThePrettiestGUIEver.resx">
       <DependentUpon>ThePrettiestGUIEver.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\Form1.resx">
+    <EmbeddedResource Include="Presentation\ToDelete\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\GeneratedOrders.resx">
+    <EmbeddedResource Include="Presentation\ToDelete\GeneratedOrders.resx">
       <DependentUpon>GeneratedOrders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\MainOrdersView.resx">
       <DependentUpon>MainOrdersView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\MainStockView.resx">
+    <EmbeddedResource Include="Presentation\ToDelete\MainStockView.resx">
       <DependentUpon>MainStockView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\MainView.resx">
+    <EmbeddedResource Include="Presentation\ToDelete\MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\OrderCorrectionView.resx">
@@ -222,6 +249,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -237,6 +265,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="arrow.png" />
+    <None Include="Resources\ArrowDown1.bmp" />
+    <None Include="arrowDown.png" />
+    <None Include="Resources\ArrowRight.bmp" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
