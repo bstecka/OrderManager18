@@ -31,6 +31,7 @@ namespace OrderManager.Presentation
             this.tranchesToUpdate = new List<Tranche>();
             this.tranchesToDelete = new List<Tranche>();
             this.saved = false;
+            this.Text += order.Name;
             FillForm();
         }
 
@@ -94,7 +95,7 @@ namespace OrderManager.Presentation
             list.Columns.Insert(list.ColumnCount, deleteColumn);
         }
 
-        private void Button3_Click(object sender, EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -132,7 +133,7 @@ namespace OrderManager.Presentation
                 }
                 if (tranche != null && e.ColumnIndex.Equals(0))
                 {
-                    var form = new TrancheCorrectionView(tranche);
+                    var form = new TrancheCorrectionView(tranche, trancheService);
                     form.FormClosed += new FormClosedEventHandler(TrancheCorrectionView_Closed);
                     form.Show();
                 }
@@ -146,9 +147,10 @@ namespace OrderManager.Presentation
 
         void TrancheCorrectionView_Closed(object sender, FormClosedEventArgs e)
         {
-            TrancheCorrectionView form = (TrancheCorrectionView)sender;
+            TrancheCorrectionView form = (TrancheCorrectionView) sender;
             if (form.Saved)
             {
+                Tranche tr = form.Tranche;
                 this.tranchesToUpdate.Add(form.Tranche);
                 foreach (DataGridViewRow row in dataGridViewTranches.Rows)
                 {
@@ -178,9 +180,15 @@ namespace OrderManager.Presentation
                         shouldBeOmitted = true;
                 }
                 if (!shouldBeOmitted)
-                    trancheService.InsertTranche(tranche);
+                {
+                    int newTrancheId = trancheService.InsertTranche(tranche);
+                    tranche.Id = newTrancheId;
+                    foreach (PercentageDiscount discount in tranche.Discounts)
+                    {
+                        trancheService.AssignDiscountToTranche(tranche, discount);
+                    }
+                }
             }
-
             Order cancelledOrder = this.order;
             cancelledOrder.State = ORDERSTATE.cancelled;
             cancelledOrder.ParentOrder = orderService.GetById("" + newOrderId);

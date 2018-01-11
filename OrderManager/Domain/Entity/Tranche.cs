@@ -81,5 +81,18 @@ namespace OrderManager.Domain.Entity
         {
             return id + " " + numberOfItems + " " + stock.Stock.Name;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == this) return true;
+            if (!(obj is Tranche)) return false;
+            Tranche tr = (Tranche) obj;
+            return this.id == tr.Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return id.GetHashCode();
+        }
     }
 }

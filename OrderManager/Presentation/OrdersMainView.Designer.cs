@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrdersMainView));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThePrettiestGUIEver));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -539,7 +539,8 @@
             this.ClientSize = new System.Drawing.Size(680, 466);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "OrdersMainView";
-            this.Text = "OrdersMainView";
+            this.Text = "OrderManager2018";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

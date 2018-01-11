@@ -12,5 +12,8 @@ namespace OrderManager.Domain.Service
     {
         void UpdateTranche(Tranche tranche);
         int InsertTranche(Tranche tranche);
+        List<PercentageDiscount> GetPercentageDiscounts(Tranche tranche);
+        List<PercentageDiscount> GetViableDiscounts(Tranche tranche);
+        void AssignDiscountToTranche(Tranche tranche, PercentageDiscount discount);
     }
 }
