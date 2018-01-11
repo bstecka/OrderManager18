@@ -108,7 +108,7 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(623, 426);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // dataGridViewStock
+            // dataGridViewOrders
             // 
             this.dataGridViewStock.AllowUserToAddRows = false;
             this.dataGridViewStock.AllowUserToDeleteRows = false;
@@ -119,7 +119,7 @@
             this.dataGridViewStock.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewStock.Location = new System.Drawing.Point(0, 63);
             this.dataGridViewStock.Margin = new System.Windows.Forms.Padding(0);
-            this.dataGridViewStock.Name = "dataGridViewStock";
+            this.dataGridViewStock.Name = "dataGridViewOrders";
             this.dataGridViewStock.RowHeadersVisible = false;
             this.dataGridViewStock.Size = new System.Drawing.Size(623, 298);
             this.dataGridViewStock.TabIndex = 0;
