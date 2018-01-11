@@ -1,6 +1,6 @@
 ﻿namespace OrderManager.Presentation
 {
-    partial class OrderCorrection
+    partial class OrderCorrectionView
     {
         /// <summary>
         /// Required designer variable.

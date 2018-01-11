@@ -30,8 +30,8 @@ namespace OrderManager.Presentation
             this.tranchesToUpdate = new List<Tranche>();
             this.tranchesToDelete = new List<Tranche>();
             this.saved = false;
+            this.Text += order.Name;
             FillForm();
-            tableLayoutPanel4.CellPaint += TableLayoutPanel_CellPaint;
         }
 
         private void FillForm()
@@ -94,12 +94,7 @@ namespace OrderManager.Presentation
             list.Columns.Insert(list.ColumnCount, deleteColumn);
         }
 
-        private void TableLayoutPanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
-        {
-            e.Graphics.DrawLine(Pens.Black, e.CellBounds.Location, new Point(e.CellBounds.Right, e.CellBounds.Top));
-        }
-
-        private void Button3_Click(object sender, EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -154,6 +149,7 @@ namespace OrderManager.Presentation
             TrancheCorrectionView form = (TrancheCorrectionView) sender;
             if (form.Saved)
             {
+                Tranche tr = form.Tranche;
                 this.tranchesToUpdate.Add(form.Tranche);
                 foreach (DataGridViewRow row in dataGridViewTranches.Rows)
                 {
@@ -183,9 +179,15 @@ namespace OrderManager.Presentation
                         shouldBeOmitted = true;
                 }
                 if (!shouldBeOmitted)
-                    trancheService.InsertTranche(tranche);
+                {
+                    int newTrancheId = trancheService.InsertTranche(tranche);
+                    tranche.Id = newTrancheId;
+                    foreach (PercentageDiscount discount in tranche.Discounts)
+                    {
+                        trancheService.AssignDiscountToTranche(tranche, discount);
+                    }
+                }
             }
-
             Order cancelledOrder = this.order;
             cancelledOrder.State = ORDERSTATE.cancelled;
             cancelledOrder.ParentOrder = orderService.GetById("" + newOrderId);

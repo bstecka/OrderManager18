@@ -142,11 +142,11 @@
     <Compile Include="Presentation\GeneratedOrderView.Designer.cs">
       <DependentUpon>GeneratedOrderView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\OrderCorrection.cs">
+    <Compile Include="Presentation\OrderCorrectionView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\OrderCorrection.Designer.cs">
-      <DependentUpon>OrderCorrection.cs</DependentUpon>
+    <Compile Include="Presentation\OrderCorrectionView.Designer.cs">
+      <DependentUpon>OrderCorrectionView.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\OrdersMainView.cs">
       <SubType>Form</SubType>
@@ -191,12 +191,6 @@
     <Compile Include="Presentation\ToDelete\MainView.Designer.cs">
       <DependentUpon>MainView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\ToDelete\OrderCorrectionView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Presentation\ToDelete\OrderCorrectionView.Designer.cs">
-      <DependentUpon>OrderCorrectionView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Presentation\TrancheCorrectionView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,8 +214,8 @@
     <EmbeddedResource Include="Presentation\GeneratedOrderView.resx">
       <DependentUpon>GeneratedOrderView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\OrderCorrection.resx">
-      <DependentUpon>OrderCorrection.cs</DependentUpon>
+    <EmbeddedResource Include="Presentation\OrderCorrectionView.resx">
+      <DependentUpon>OrderCorrectionView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\OrdersMainView.resx">
       <DependentUpon>OrdersMainView.cs</DependentUpon>
@@ -243,9 +237,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\ToDelete\MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\ToDelete\OrderCorrectionView.resx">
-      <DependentUpon>OrderCorrectionView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\TrancheCorrectionView.resx">
       <DependentUpon>TrancheCorrectionView.cs</DependentUpon>
