@@ -45,6 +45,9 @@ namespace OrderManager
             comboBoxState.DataSource = comboBoxStateDataSource;
             comboBoxCategory.DataSource = comboBoxCategoryDataSource;
             comboBoxOrdered.DataSource = comboBoxOrderedDataSource;
+            comboBoxState.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxCategory.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxOrdered.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void FillGridview(IEnumerable<Stock> listStock)

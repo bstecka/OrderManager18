@@ -188,7 +188,7 @@
             this.label9.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label9.Location = new System.Drawing.Point(18, 194);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(81, 13);
+            this.label9.Size = new System.Drawing.Size(82, 13);
             this.label9.TabIndex = 4;
             this.label9.Text = "USTAWIENIA";
             // 
@@ -202,7 +202,7 @@
             this.linkLabel1.Location = new System.Drawing.Point(18, 318);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.linkLabel1.Size = new System.Drawing.Size(58, 13);
+            this.linkLabel1.Size = new System.Drawing.Size(59, 13);
             this.linkLabel1.TabIndex = 7;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Towary";
@@ -498,7 +498,7 @@
             this.dataGridViewOrders.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewOrders.Location = new System.Drawing.Point(3, 98);
             this.dataGridViewOrders.Name = "dataGridViewOrders";
-            this.dataGridViewOrders.ReadOnly = true;
+            this.dataGridViewOrders.RowHeadersVisible = false;
             this.dataGridViewOrders.Size = new System.Drawing.Size(509, 178);
             this.dataGridViewOrders.TabIndex = 3;
             // 
