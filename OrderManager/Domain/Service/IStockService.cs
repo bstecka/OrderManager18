@@ -14,5 +14,6 @@ namespace OrderManager.Domain.Service
         List<Order> GetStocksActiveOrders(Stock stock);
         int GetNumOfItemsInOrders(Stock stock);
         int GetNumOfItemsToOrder(Stock stock);
+        bool SetPossibilityToGenerateOrder(int id, int value);
     }
 }

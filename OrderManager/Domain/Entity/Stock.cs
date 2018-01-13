@@ -20,8 +20,11 @@ namespace OrderManager.Domain.Entity
         string code;
         string name;
         Category category;
+        bool inGeneratedOrders;
+        
 
-        public Stock(int id, int maxInStockRoom, int minInStockRoom, int numberOfImtems, int weightOfItem, int numOfItems, int VAT, string code, string name, Category category)
+
+        public Stock(int id, int maxInStockRoom, int minInStockRoom, int numberOfImtems, int weightOfItem, int numOfItems, int VAT, string code, string name, Category category, bool inGeneratedOrders)
         {
             if (minInStockRoom < 0 || maxInStockRoom < minInStockRoom || numberOfImtems < 0
                 || numOfItems < 0 || weightOfItem < 0)
@@ -36,6 +39,7 @@ namespace OrderManager.Domain.Entity
             this.code = code;
             this.name = name;
             this.category = category;
+            this.inGeneratedOrders = inGeneratedOrders;
         }
 
         public virtual int Id { get => id; set => id = value; }
@@ -48,7 +52,8 @@ namespace OrderManager.Domain.Entity
         public string Code { get => code; set => code = value; }
         public string Name { get => name; set => name = value; }
         public Category Category { get => category; set => category = value; }
-        
+        public bool InGeneratedOrders { get => inGeneratedOrders; set => inGeneratedOrders = value; }
+
         public override bool Equals(object obj)
         {
             return obj is Stock && ((Stock)obj).Id == id;

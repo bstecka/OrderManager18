@@ -59,6 +59,10 @@ namespace OrderManager.Domain.Service
             return counterpartysStockMapper.MapAllFrom(
                 DAO.GetStocksCounterpartysStock(mapper.MapTo(stock)));
         }
-        
+
+        public bool SetPossibilityToGenerateOrder(int id, int value)
+        {
+            return DAO.SetPossibilityToGenerateOrder(id, value);
+        }
     }
 }

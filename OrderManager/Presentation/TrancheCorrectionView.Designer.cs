@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThePrettiestGUIEver));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -84,7 +83,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(504, 662);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(504, 661);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -105,7 +104,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(468, 590);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(468, 589);
             this.tableLayoutPanel2.TabIndex = 0;
             this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.TableLayoutPanel2_Paint);
             // 
@@ -122,7 +121,7 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(462, 33);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(462, 32);
             this.tableLayoutPanel5.TabIndex = 3;
             // 
             // button4
@@ -130,7 +129,7 @@
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.Location = new System.Drawing.Point(88, 3);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(140, 27);
+            this.button4.Size = new System.Drawing.Size(140, 26);
             this.button4.TabIndex = 3;
             this.button4.Text = "Zapisz";
             this.button4.UseVisualStyleBackColor = true;
@@ -140,7 +139,7 @@
             // 
             this.button1.Location = new System.Drawing.Point(234, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(140, 27);
+            this.button1.Size = new System.Drawing.Size(140, 26);
             this.button1.TabIndex = 2;
             this.button1.Text = "Anuluj";
             this.button1.UseVisualStyleBackColor = true;
@@ -308,7 +307,7 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(462, 182);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
-            // dataGridViewTranches
+            // dataGridDiscounts
             // 
             this.dataGridDiscounts.AllowUserToAddRows = false;
             this.dataGridDiscounts.AllowUserToDeleteRows = false;
@@ -317,8 +316,7 @@
             this.dataGridDiscounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridDiscounts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridDiscounts.Location = new System.Drawing.Point(3, 48);
-            this.dataGridDiscounts.Name = "dataGridViewTranches";
-            this.dataGridDiscounts.ReadOnly = true;
+            this.dataGridDiscounts.Name = "dataGridDiscounts";
             this.dataGridDiscounts.RowHeadersVisible = false;
             this.dataGridDiscounts.Size = new System.Drawing.Size(456, 131);
             this.dataGridDiscounts.TabIndex = 1;
@@ -442,14 +440,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(504, 662);
+            this.ClientSize = new System.Drawing.Size(504, 661);
             this.Controls.Add(this.tableLayoutPanel1);
             this.MaximumSize = new System.Drawing.Size(520, 700);
             this.Name = "TrancheCorrectionView";
             this.Text = "Korekta pozycji ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.OrderCorrectionView_Load);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);

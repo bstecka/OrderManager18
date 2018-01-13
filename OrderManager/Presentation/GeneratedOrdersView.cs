@@ -1,4 +1,5 @@
 ﻿using OrderManager.Domain.Entity;
+using OrderManager.Domain.Service;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace OrderManager.Presentation
     public partial class GeneratedOrdersView : Form
     {
         private List<Order> orders;
+        private IStockService stockService;
 
         internal GeneratedOrdersView(List<Order> orders)
         {
@@ -24,6 +26,8 @@ namespace OrderManager.Presentation
             FillDataGridView();
             foreach (DataGridViewColumn column in dataGridViewOrders.Columns)
                 column.ReadOnly = true;
+            stockService = DependencyInjector.IStockService;
+            this.FormClosing += GeneratedOrders_FormClosing;
         }
 
         private void FillDataGridView()
@@ -57,6 +61,22 @@ namespace OrderManager.Presentation
                 if (Convert.ToBoolean(row.Cells[0].Value) && tmp != null)
                     (new GeneratedOrderView(orders.FirstOrDefault(
                         order => order.Name.Equals(row.Cells["Nazwa"].Value.ToString())))).Show();
+            }
+        }
+        
+        private void GeneratedOrders_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (((Form)sender).Visible)
+            {
+                if (MessageBox.Show("Czy chcesz zamknąć to okno?", "", MessageBoxButtons.YesNo) == DialogResult.No)
+                    e.Cancel = true;
+                else
+                {
+                    foreach (Stock stock in orders.Select
+                        (o => o.Tranches.Select(t => t.Stock.Stock)).SelectMany(i => i))
+                        stockService.SetPossibilityToGenerateOrder(stock.Id, 0);
+                    e.Cancel = false;
+                }
             }
         }
     }

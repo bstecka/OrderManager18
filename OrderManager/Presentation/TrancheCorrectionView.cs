@@ -36,6 +36,7 @@ namespace OrderManager.Presentation
             this.Text += tranche.Stock.Stock.Name;
             FillForm();
             tableLayoutPanel4.CellPaint += TableLayoutPanel_CellPaint;
+            
         }
 
         public int NumberOfItems { get => numberOfItems; }
@@ -54,7 +55,9 @@ namespace OrderManager.Presentation
             textBoxQuota.Text = "" + tranche.QuotaDiscount;
             labelNetto.Text = "" + tranche.PriceNetto;
             labelBrutto.Text = "" + tranche.PriceBrutto;
-            AddCheckBoxColumn();
+            //AddCheckBoxColumn();
+
+            (new DataGridviewCheckBoxColumnProwider(dataGridDiscounts)).addCheckBoxColumn();
             FillDiscounts();
         }
 
@@ -102,6 +105,20 @@ namespace OrderManager.Presentation
             }
             dataGridDiscounts.DataSource = dataGridSource;
             dataGridDiscounts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            foreach (DataGridViewColumn column in dataGridDiscounts.Columns)
+                if (column.Index.Equals(0))
+                    column.ReadOnly = false;
+                else
+                    column.ReadOnly = true;
+
+            var list = dataGridDiscounts;
+            //((CheckBox)list.Controls.Find("checkboxHeader", true)[0]).Checked = true;
+            foreach(DataGridViewRow row in dataGridDiscounts.Rows)
+            {
+                DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[0];
+                chk.Value = chk.FalseValue;
+            }
         }
 
         private void TableLayoutPanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e)

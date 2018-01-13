@@ -36,10 +36,17 @@ namespace OrderManager
             this.FormClosing += MainStockView_FormClosing;
         }
 
+        private string[] getCategories()
+        {
+            HashSet<string> categories = new HashSet<string>(listStock.Select(s => s.Category.Name));
+            categories.Add("Dowolna");
+            return categories.ToArray();
+        }
+
         private void AddDataSourceForFilters()
         {
             string[] comboBoxStateDataSource = { "Dowolny", "Ponizej minimum" };
-            string[] comboBoxCategoryDataSource = { "Dowolna" };
+            string[] comboBoxCategoryDataSource = getCategories();
             string[] comboBoxOrderedDataSource = { "Dowolnie", "W poprzedzim cyklu" };
 
             comboBoxState.DataSource = comboBoxStateDataSource;
@@ -48,6 +55,7 @@ namespace OrderManager
             comboBoxState.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxCategory.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxOrdered.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxCategory.SelectedIndexChanged += comboBoxCategory_SelectedIndexChanged;
         }
 
         private void FillGridview(IEnumerable<Stock> listStock)
@@ -71,6 +79,7 @@ namespace OrderManager
                 int numOfItemsInOrders = stockService.GetNumOfItemsInOrders(stock);
                 dataRow["Stan zamówień"] = numOfItemsInOrders;
                 dataRow["Stan razem"] = numOfItemsInOrders + stock.NumberOfItemsInStockRoom;
+                dataRow["Kategoria"] = stock.Category.Name;
                 dataGridSource.Rows.Add(dataRow);
             }
 
@@ -84,12 +93,14 @@ namespace OrderManager
                     column.ReadOnly = true;
         }
 
-        private void InformAboutUnorderedStock(IEnumerable<Stock> stock)
+        private void InformAboutUnorderedStock(IEnumerable<Stock> stock, String extraMessage)
         {
             StringBuilder message = new StringBuilder("Nie udało się wygenerować zamówień dla części wybranych towarów.");
             message.AppendLine("Nie wygenerowano zamówień dla towarów: ");
             foreach (Stock unorderedStock in stock)
                 message.AppendLine(unorderedStock.Name);
+            if(extraMessage != null)
+                message.AppendLine(extraMessage);
             MessageBox.Show(message.ToString());
         }
         
@@ -106,6 +117,14 @@ namespace OrderManager
                 case "Dowolny": FillGridview(listStock); break;
                 case "Ponizej minimum": FillGridview(listStock.Where(stock => stock.NumberOfItemsInStockRoom < stock.MinInStockRoom)); break;
             }
+        }
+
+        private void comboBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxCategory.SelectedValue.Equals("Dowolna"))
+                FillGridview(listStock);
+            else
+                FillGridview(listStock.Where(s => s.Category.Name.Equals(comboBoxCategory.SelectedValue)));
         }
 
         private void MainStockView_FormClosing(object sender, FormClosingEventArgs e)
@@ -138,9 +157,11 @@ namespace OrderManager
 
         private void buttonGenerateOrders_MouseClick(object sender, MouseEventArgs e)
         {
+            listStock = stockService.GetAll();
             try
             {
                 Dictionary<Stock, int> stockToOrder = new Dictionary<Stock, int>();
+                List<Stock> blockedStock = new List<Stock>();
                 foreach (DataGridViewRow row in dataGridViewStock.Rows)
                 {
                     if (Convert.ToBoolean(row.Cells[0].Value))
@@ -150,7 +171,11 @@ namespace OrderManager
                         int numberOfItemsToOrder = stockService.GetNumOfItemsToOrder(currentStock)
                             + GetNumberOfItemsInIndividualOrdersColumn(row);
                         if (numberOfItemsToOrder > 0)
-                            stockToOrder.Add(currentStock, numberOfItemsToOrder);
+                            if (currentStock.InGeneratedOrders ||
+                            !stockService.SetPossibilityToGenerateOrder(currentStock.Id, 1))
+                                blockedStock.Add(currentStock);
+                            else
+                                stockToOrder.Add(currentStock, numberOfItemsToOrder);
                     }
                 }
                 List<Order> orders = (new OrdersGenerator(stockToOrder, DependencyInjector.ICounterpartyService,
@@ -158,8 +183,10 @@ namespace OrderManager
                     DependencyInjector.IStockService, DependencyInjector.IEligibleOrdersNamesService)).Generate();
                 var orderedStock = new HashSet<Stock>(orders.Select(order => order.Tranches).SelectMany(i => i).Select(tranche => tranche.Stock.Stock));
                 var unorderedStock = (stockToOrder.Keys).Except(orderedStock);
+                if (blockedStock.Count() != 0)
+                    InformAboutUnorderedStock(blockedStock, "Inny pracownik jest w trakcie generowania zamówienia na te towary.");
                 if (unorderedStock.Count() != 0)
-                    InformAboutUnorderedStock(unorderedStock);
+                    InformAboutUnorderedStock(unorderedStock, "Żaden z kontrahentów nie ma w ofercie tych towarów.");
                 if (orders.Count == 0)
                     MessageBox.Show("Brak wygenerowanych zamówień.");
                 else
