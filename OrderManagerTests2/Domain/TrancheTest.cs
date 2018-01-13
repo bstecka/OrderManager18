@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using System.Linq;
 
 namespace OrderManager.Domain.Entity.Tests
 {
@@ -21,63 +23,238 @@ namespace OrderManager.Domain.Entity.Tests
         }
 
         [TestMethod()]
-        public void TrancheTest()
+        public void TrancheTests1()
+        {
+            int numberOfItems = 10;
+            setExemplaryCounterpartysStock(2);
+
+            Tranche tranche = new Tranche(1, counterpartysStockMock.Object, numberOfItems);
+            
+            Assert.AreEqual(tranche.Id, 1);
+            Assert.AreEqual(tranche.Stock, counterpartysStockMock.Object);
+            Assert.AreEqual(tranche.NumberOfItems, numberOfItems);
+        }
+
+        [TestMethod()]
+        public void TrancheTests2()
+        {
+            int numberOfItems = 0;
+            setExemplaryCounterpartysStock(2);
+            Assert.ThrowsException<ArgumentException>(() => new Tranche(1, counterpartysStockMock.Object, numberOfItems));
+        }
+
+        [TestMethod()]
+        public void TrancheTests3()
+        {
+            int numberOfItems = -100;
+            setExemplaryCounterpartysStock(2);
+            Assert.ThrowsException<ArgumentException>(() => new Tranche(1, counterpartysStockMock.Object, numberOfItems));
+        }
+
+        [TestMethod()]
+        public void TrancheTests4()
+        {
+            int numberOfItems = 10;
+            setExemplaryCounterpartysStock(2);
+            Assert.ThrowsException<ArgumentException>(() => new Tranche(1, null, numberOfItems));
+        }
+
+        [TestMethod()]
+        public void TrancheNumberOfItemsTest()
+        {
+            int numberOfItems = 10;
+            setExemplaryCounterpartysStock(2);
+            Tranche tranche = new Tranche(1, counterpartysStockMock.Object, numberOfItems);
+            numberOfItems = 100;
+            tranche.NumberOfItems = numberOfItems;
+            Assert.AreEqual(tranche.NumberOfItems, numberOfItems);
+        }
+
+        [TestMethod()]
+        public void TrancheNumberOfItemsTest1()
+        {
+            int numberOfItems = 10;
+            setExemplaryCounterpartysStock(2);
+            Tranche tranche = new Tranche(1, counterpartysStockMock.Object, numberOfItems);
+            Assert.ThrowsException<ArgumentException>(() => tranche.NumberOfItems = 0);
+        }
+
+        [TestMethod()]
+        public void TrancheNumberOfItemsTest2()
+        {
+            int numberOfItems = 10;
+            setExemplaryCounterpartysStock(2);
+            Tranche tranche = new Tranche(1, counterpartysStockMock.Object, numberOfItems);
+            Assert.ThrowsException<ArgumentException>(() => tranche.NumberOfItems = -30);
+        }
+
+        [TestMethod()]
+        public void TrancheQuotDiscountTest()
+        {
+            //happy path, brak rabatów procentowych
+            int numberOfItems = 22;
+            setExemplaryCounterpartysStock(7);
+            Tranche tranche = new Tranche(1, counterpartysStockMock.Object, numberOfItems);
+            tranche.QuotaDiscount = 1;
+            Assert.AreEqual(tranche.PriceNetto, 132);
+        }
+
+        [TestMethod()]
+        public void TrancheQuotDiscountTest1()
+        {
+            //happy path, suma wartości rabatów procentowych i kwotoego nie przekracza wartości transzy
+            Tranche tranche = getExemplaryTrancheWithDisounts(10, 50, 0.1, 0);
+            tranche.QuotaDiscount = 2;
+            Assert.AreEqual(tranche.PriceNetto, 300);
+        }
+
+        [TestMethod()]
+        public void TrancheQuotDiscountTest2()
+        {
+            //happy path, suma wartości rabatów procentowych i kwotoego nie przekracza wartości transzy
+            Tranche tranche = getExemplaryTrancheWithDisounts(10, 50, 0.1, 0);
+            tranche.QuotaDiscount = 3;
+            Assert.AreEqual(tranche.PriceNetto, 250);
+        }
+
+        [TestMethod()]
+        public void TrancheQuotDiscountTest3()
+        {
+            //Wartość rabatu kwotowego jest wwiększa od wartości transzy, brak rabatów procentowych
+            int numberOfItems = 22;
+            setExemplaryCounterpartysStock(7);
+            Tranche tranche = new Tranche(1, counterpartysStockMock.Object, numberOfItems);
+            Double priceNettoBeforeQD = tranche.PriceNetto;
+            Assert.ThrowsException<ArgumentException>(() => tranche.QuotaDiscount = 400);
+            Assert.AreEqual(tranche.PriceNetto, priceNettoBeforeQD);
+        }
+
+        [TestMethod()]
+        public void TrancheQuotDiscountTest4()
+        {
+            Tranche tranche = getExemplaryTrancheWithDisounts(10, 5, 0.4, 0);
+            Double priceNettoBeforeQD = tranche.PriceNetto;
+            Assert.ThrowsException<ArgumentException>(() => tranche.QuotaDiscount = -10);
+            Assert.AreEqual(tranche.PriceNetto, priceNettoBeforeQD);
+        }
+
+        [TestMethod()]
+        public void TrancheQuotDiscountTest5()
+        {
+            //Wartość rabatu kwotowego jest mniejsza od wartości transzy ez uwzglądniania innych rabatów, 
+            //ale po uwzględnieniu rabatów procentowych, wartość transzy jest mniejsz od 0.01
+            Tranche tranche = getExemplaryTrancheWithDisounts(10, 5, 0.4, 0);
+            Double priceNettoBeforeQD = tranche.PriceNetto;
+            Assert.ThrowsException<ArgumentException>(() => tranche.QuotaDiscount = 10);
+            Assert.AreEqual(tranche.PriceNetto, priceNettoBeforeQD);
+        }
+
+        [TestMethod()]
+        public void TrancheDiscountsTest()
+        {
+            //happy path
+            int numberOfItems = 10;
+            setExemplaryCounterpartysStock(124);
+            Tranche tranche = new Tranche(1, counterpartysStockMock.Object, numberOfItems);
+            tranche.Discounts = getExemplaryPercentageDiscounts(0.3).Select(t => t.Object).ToList();
+            Assert.AreEqual(tranche.PriceNetto, 496);
+        }
+
+        [TestMethod()]
+        public void TrancheDiscountsTest1()
+        {
+            //Wartość transzy po naliczeniu zniek dodatni, ale wartość towaru w transzy < 0.01
+            int numberOfItems = 10;
+            setExemplaryCounterpartysStock(0.05);
+            Tranche tranche = new Tranche(1, counterpartysStockMock.Object, numberOfItems);
+            double priceNettoWithoutDiscounts = tranche.PriceNetto;
+            Assert.ThrowsException<ArgumentException>(() =>
+            tranche.Discounts = getExemplaryPercentageDiscounts(0.45).Select(t => t.Object).ToList());
+            Assert.AreEqual(priceNettoWithoutDiscounts, tranche.PriceNetto);
+        }
+
+        [TestMethod()]
+        public void TrancheDiscountsTest2()
+        {
+            //Wartość transzy z raatem kwotowym po naliczeniu zniżek mniejsza od 0.01
+            int numberOfItems = 10;
+            setExemplaryCounterpartysStock(124);
+            Tranche tranche = new Tranche(1, counterpartysStockMock.Object, numberOfItems);
+            tranche.QuotaDiscount = 50;
+            double priceNettoWithoutDiscounts = tranche.PriceNetto;
+            Assert.ThrowsException<ArgumentException>(() => 
+            tranche.Discounts = getExemplaryPercentageDiscounts(0.3).Select(t => t.Object).ToList());
+            Assert.AreEqual(priceNettoWithoutDiscounts, tranche.PriceNetto);
+        }
+
+        [TestMethod()]
+        public void TranchePriceNettoTest()
         {
             int stocksPrice = random.Next(1, 20);
             int numberOfItems = random.Next(1, 20);
-            counterpartysStockMock.CallBase = true;
-            counterpartysStockMock.Setup(c => c.PriceNetto).Returns(stocksPrice);
-
+            setExemplaryCounterpartysStock(stocksPrice);
             var tranche = new Tranche(null, counterpartysStockMock.Object, numberOfItems);
             Assert.AreEqual(tranche.PriceNetto, stocksPrice * numberOfItems);
         }
 
         [TestMethod()]
-        public void TrancheTest1()
+        public void TranchePriceNettoTest1()
         {
-            int stocksPrice = 0;
-            int numberOfItems = random.Next(0, 20);
+            Tranche tranche = null;
+            int numberOfItems = random.Next(-20, 200);
+            try
+            {
+                double stocksPrice = random.Next(-10, 200) + Math.Round(random.NextDouble(), 2);
+                double quotaDiscount = random.Next(-10, 300) + Math.Round(random.NextDouble(), 2);
+                double amountForPercentageDiscounts = Math.Round(random.NextDouble(), 2) + 0.01;
+                setExemplaryCounterpartysStock(stocksPrice);
+                tranche = new Tranche(null, counterpartysStockMock.Object, numberOfItems, null, quotaDiscount,
+                    getExemplaryPercentageDiscounts(amountForPercentageDiscounts).Select(d => d.Object).ToList());
+            }
+            catch(Exception) { }
+            if(tranche !=  null)
+                Assert.IsTrue(tranche.PriceNetto > numberOfItems * 0.01);
+        }
+        
+
+        private void setExemplaryCounterpartysStock(double stocksPrice)
+        {
+
             counterpartysStockMock.CallBase = true;
             counterpartysStockMock.Setup(c => c.PriceNetto).Returns(stocksPrice);
 
-            var tranche = new Tranche(null, counterpartysStockMock.Object, numberOfItems);
-            Assert.AreEqual(tranche.PriceNetto, 0);
         }
 
-        [TestMethod()]
-        public void TrancheTest2()
+        private Tranche getExemplaryTrancheWithDisounts(double stockPrice, int numberOfItems, 
+            double amountForBothPercentageDiscounts, int quotaDiscount)
         {
-            int stocksPrice = random.Next(1, 20);
-            int numberOfItems = random.Next(1, 20);
             counterpartysStockMock.CallBase = true;
-            counterpartysStockMock.Setup(c => c.PriceNetto).Returns(stocksPrice);
+            counterpartysStockMock.Setup(c => c.PriceNetto).Returns(stockPrice);
             var tranche = new Tranche(null, counterpartysStockMock.Object, numberOfItems);
-
-            int quotaDiscount = 0;
-            tranche.QuotaDiscount = quotaDiscount;
-            var prevPriceNetto = tranche.PriceNetto;
-            while ((quotaDiscount = random.Next(1, 400)) > tranche.PriceNetto) { }
-            tranche.QuotaDiscount = quotaDiscount;
-
-            Assert.IsTrue(prevPriceNetto > tranche.PriceNetto);
+            tranche.Discounts = getExemplaryPercentageDiscounts(amountForBothPercentageDiscounts).Select(pdMock => pdMock.Object).ToList();
+            if(quotaDiscount != 0)
+                tranche.QuotaDiscount = quotaDiscount;
+            return tranche;
         }
 
-        [TestMethod()]
-        public void TrancheTest3()
+        private List<Mock<PercentageDiscount>> getExemplaryPercentageDiscounts(double amountForBothPercentageDiscounts)
         {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void TrancheTest4()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void ToStringTest()
-        {
-            Assert.Fail();
+            List<Mock<PercentageDiscount>> percentageDiscounts = new List<Mock<PercentageDiscount>>();
+            //(int id, DateTime since, DateTime until, double sumNetto, double amount,
+            //bool summing, bool active, List < CounterpartysStock > counterpartysStock)
+            DateTime dateSince = new DateTime(2018, 1, 1);
+            DateTime dateUntil = new DateTime(2018, 7, 1);
+            var counterpartysStockList = new List<Mock<CounterpartysStock>>();
+            counterpartysStockList.Add(counterpartysStockMock);
+            percentageDiscounts.Add(new Mock<PercentageDiscount>(1, dateSince, dateUntil,
+                1, amountForBothPercentageDiscounts, false, true, counterpartysStockList.Select(cs => cs.Object).ToList()));
+            percentageDiscounts[0].CallBase = true;
+            percentageDiscounts[0].Setup(pd => pd.Amount).Returns(amountForBothPercentageDiscounts);
+            percentageDiscounts.Add(new Mock<PercentageDiscount>(2, dateSince, dateUntil,
+                1, amountForBothPercentageDiscounts, false, true, counterpartysStockList.Select(cs => cs.Object).ToList()));
+            percentageDiscounts[1].CallBase = true;
+            percentageDiscounts[1].Setup(pd => pd.Amount).Returns(amountForBothPercentageDiscounts);
+            return percentageDiscounts;
         }
     }
 }

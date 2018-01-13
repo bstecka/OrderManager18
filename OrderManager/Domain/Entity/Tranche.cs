@@ -17,65 +17,92 @@ namespace OrderManager.Domain.Entity
         
         public Tranche(int? id, CounterpartysStock stock, int numberOfItems)
         {
-            if (stock == null || numberOfItems < 0)
-                throw new ArgumentException();
-            this.id = id;
-            this.numberOfItems = numberOfItems;
-            this.stock = stock;
+            Id = id;
+            NumberOfItems = numberOfItems;
+            Stock = stock;
         }
 
         public Tranche(int? id, CounterpartysStock stock, int numberOfItems, int? orderId) : this(id, stock, numberOfItems)
         {
-            this.orderId = orderId;
+            OrderId = orderId;
         }
 
         public Tranche(int? id, CounterpartysStock stock, int numberOfItems, int? orderId, List<PercentageDiscount> discounts) : this(id, stock, numberOfItems, orderId)
         {
-            this.discounts = discounts;
+            Discounts = discounts;
         }
 
         public Tranche(int? id, CounterpartysStock stock, int numberOfItems, int? orderId, double quotaDiscount, List<PercentageDiscount> discounts) : this(id, stock, numberOfItems, orderId, discounts)
         {
-            if (quotaDiscount > PriceNetto)
-                throw new ArgumentException();
-            this.quotaDiscount = quotaDiscount;
+            QuotaDiscount = quotaDiscount;
         }
 
 
         public Tranche(int? id, int numberOfItems, CounterpartysStock stock, List<PercentageDiscount> discounts)
         {
-            this.id = id;
-            this.numberOfItems = numberOfItems;
-            this.discounts = discounts;
-            this.stock = stock;
+            Id = id;
+            NumberOfItems = numberOfItems;
+            Discounts = discounts;
+            Stock = stock;
         }
 
         public int? Id { get => id; set => id = value; }
-        public int NumberOfItems { get => numberOfItems; set => numberOfItems = value; }
+        public int NumberOfItems { get => numberOfItems;
+            set
+            {
+                if (value <= 0)
+                    throw new ArgumentException("Nieprawidłowa liczba sztuk towaru w transzy.");
+                numberOfItems = value;
+            }
+        }
         public int? OrderId { get => orderId; set => orderId = value; }
         public double QuotaDiscount { get => quotaDiscount;
             set
             {
-                if (quotaDiscount > PriceNetto) throw new ArgumentException();
+                if (value <= 0 || stocksPriceWithDiscounts(discounts, value) < 0.01)
+                    throw new ArgumentException("Naliczenie rabatu spowoduje obniżenie ceny transzy poniżej 0.01 zł.");
                 quotaDiscount = value;
             }
         }
+        public CounterpartysStock Stock { get => stock;
+            set
+            {
+                if (value == null || value.PriceNetto < 0.01)
+                    throw new ArgumentException("Nieprawidłowe dane towaru kontrahenta.");
+                stock = value;
+            }
+        }
+        public List<PercentageDiscount> Discounts { get => discounts;
+            set
+            {
+                if (stocksPriceWithDiscounts(value, quotaDiscount) < 0.01)
+                    throw new ArgumentException("Naliczenie rabatów spowoduje obniżenie ceny transzy poniżej 0.01 zł.");
+                discounts = value;
+            } 
+        }
+
         public double PriceNetto
         {
-            get => (stock.PriceNetto *
-                (discounts == null || discounts.Count == 0 ? 
-                1 : (1 - discounts.Sum(discount => discount.Amount))) * numberOfItems) 
-                - quotaDiscount;
+            get
+            {
+                return stocksPriceWithDiscounts(discounts, quotaDiscount) * numberOfItems;
+            }
         }
+
         public double PriceBrutto
         {
-            get => (stock.PriceNetto *
-                (discounts == null || discounts.Count == 0 ? 
-                1 :(1 - discounts.Sum(discount => discount.Amount))) * numberOfItems)
-                * (1 + stock.Stock.VAT * 0.01) - quotaDiscount;
+            get
+            {
+                return stocksPriceWithDiscounts(discounts, quotaDiscount) 
+                    * (1 + stock.Stock.VAT * 0.01) * numberOfItems;
+            }
         }
-        internal CounterpartysStock Stock { get => stock; set => stock = value; }
-        internal List<PercentageDiscount> Discounts { get => discounts; set => discounts = value; }
+
+        private double stocksPriceWithDiscounts(List<PercentageDiscount> discounts, double quotaDiscount)
+        {
+            return stock.PriceNetto * (discounts == null || discounts.Count == 0 ? 1
+            : 1 - discounts.Sum(discount => discount.Amount)) - quotaDiscount;
+        }
 
         public override string ToString()
         {
