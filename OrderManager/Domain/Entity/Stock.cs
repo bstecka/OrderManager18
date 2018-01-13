@@ -38,7 +38,7 @@ namespace OrderManager.Domain.Entity
             this.category = category;
         }
 
-        public int Id { get => id; set => id = value; }
+        public virtual int Id { get => id; set => id = value; }
         public int MaxInStockRoom { get => maxInStockRoom; set => maxInStockRoom = value; }
         public int MinInStockRoom { get => minInStockRoom; set => minInStockRoom = value; }
         public int NumberOfItemsInStockRoom { get => numberOfImtems; set => numberOfImtems = value; }

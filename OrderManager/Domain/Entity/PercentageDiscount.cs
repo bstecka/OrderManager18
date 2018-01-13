@@ -20,6 +20,8 @@ namespace OrderManager.Domain.Entity
         public PercentageDiscount(int id, DateTime since, DateTime until, double sumNetto, double amount, 
             bool summing, bool active, List<CounterpartysStock> counterpartysStock)
         {
+            if (since > until || sumNetto < 0 || amount > 1)
+                throw new ArgumentException();
             this.id = id;
             this.since = since;
             this.until = until;
@@ -45,7 +47,7 @@ namespace OrderManager.Domain.Entity
         public DateTime Since { get => since; set => since = value; }
         public DateTime Until { get => until; set => until = value; }
         public double SumNetto { get => sumNetto; set => sumNetto = value; }
-        public double Amount { get => amount; set => amount = value; }
+        public virtual double Amount { get => amount; set => amount = value; }
         public bool Summing { get => summing; set => summing = value; }
         public bool Active { get => active; set => active = value; }
         public List<CounterpartysStock> CounterpartysStock { get => counterpartysStock; set => counterpartysStock = value; }
