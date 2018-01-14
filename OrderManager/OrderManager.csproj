@@ -86,6 +86,7 @@
       <DependentUpon>Display.cs</DependentUpon>
     </Compile>
     <Compile Include="Domain\Entity\Category.cs" />
+    <Compile Include="Domain\Entity\CloneObj.cs" />
     <Compile Include="Domain\Entity\LoggedUser.cs" />
     <Compile Include="Domain\Entity\User.cs" />
     <Compile Include="Domain\OrderGenerator\CouterpartysPropertyChoice.cs" />

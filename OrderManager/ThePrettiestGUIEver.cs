@@ -107,7 +107,8 @@ namespace OrderManager
         private int GetNumberOfItemsInIndividualOrdersColumn(DataGridViewRow row)
         {
             int number;
-            return int.TryParse(row.Cells[7].Value.ToString(), out number) ? number : 0;
+            return int.TryParse(row.Cells[7].Value.ToString(), out number) && number > 0 ?
+                number : 0;
         }
 
         private void comboBoxState_SelectedIndexChanged(object sender, EventArgs e)

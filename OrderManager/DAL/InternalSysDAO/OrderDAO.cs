@@ -71,5 +71,10 @@ namespace OrderManager.DAL.InternalSysDAO
             return DBOperations.Query(@"SELECT * FROM Zamowienie 
                 WHERE StanZamowieniaID IN (" + stateId + ")");
         }
+
+        public void OrderCorrection(DataTable oldOrder, DataTable newOrder)
+        {
+            DBOperations.UpdateAndSave(oldOrder, newOrder, tableName);
+        }
     }
 }

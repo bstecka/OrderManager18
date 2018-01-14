@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace OrderManager.Domain.Entity
 {
+    [Serializable]
     public class Tranche
     {
         private int? id;
@@ -121,5 +122,6 @@ namespace OrderManager.Domain.Entity
         {
             return id.GetHashCode();
         }
+        
     }
 }

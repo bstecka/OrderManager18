@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace OrderManager.Domain.Entity
 {
+    [Serializable]
     public class Category
     {
         int id;

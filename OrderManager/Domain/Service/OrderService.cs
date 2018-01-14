@@ -28,7 +28,10 @@ namespace OrderManager.Domain.Service
 
         public List<Order> GetAll()
         {
-            return mapper.MapAllFrom(DAO.GetAll());
+            var orders = mapper.MapAllFrom(DAO.GetAll());
+            foreach (Order order in orders)
+                order.ParentOrder = GetParentOrder(order);
+            return orders;
         }
 
         public Order GetById(string id)
@@ -51,6 +54,24 @@ namespace OrderManager.Domain.Service
         {
             DataTable table = mapper.MapTo(order);
             return DAO.Add(table);
+        }
+
+        public Order GetParentOrder(Order order)
+        {
+            DataTable parentTable = DAO.GetParentOrderById(order.Id.GetValueOrDefault()); //DLACZEGO TU BYLO 0????
+            if (parentTable.Rows.Count < 1)
+                return null;
+            else
+                return mapper.MapFrom(parentTable);
+        }
+
+        public void OrderCorrection(Order oldOrder, Order newOrder)
+        {
+            DataTable oldOrderTable = mapper.MapTo(oldOrder);
+            DataTable newOrderTable = mapper.MapTo(newOrder);
+            DAO.OrderCorrection(
+                mapper.MapTo(oldOrder), 
+                mapper.MapTo(newOrder));
         }
     }
 }

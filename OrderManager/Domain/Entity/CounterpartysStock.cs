@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace OrderManager.Domain.Entity
 {
+    [Serializable]
     public class CounterpartysStock
     {
         private int id;
@@ -18,13 +19,13 @@ namespace OrderManager.Domain.Entity
         public CounterpartysStock(int id, Stock stock, Counterparty counterparty, double priceNetto)
         {
             this.id = id;
-            this.stock = stock;
+            this.Stock = stock;
             this.counterparty = counterparty;
             this.priceNetto = priceNetto;
         }
 
         public int Id { get => id; set => id = value; }
-        public virtual double PriceNetto { get => priceNetto; set => priceNetto = value; }
+        public virtual double PriceNetto { get => priceNetto; set { if (value < 0.01) throw new ArgumentException(); priceNetto = value; } }
         internal Stock Stock { get => stock; set => stock = value; }
         internal Counterparty Counterparty { get => counterparty; set => counterparty = value; }
 

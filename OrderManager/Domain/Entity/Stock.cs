@@ -8,46 +8,46 @@ using System.Threading.Tasks;
 
 namespace OrderManager.Domain.Entity
 {
+    [Serializable]
     public class Stock
     {
-        int id;
-        int maxInStockRoom;
-        int minInStockRoom;
-        int numberOfImtems;
-        int weightOfItem;
-        int maxNumOfItemsOnEuropallet;
-        int vat;
-        string code;
-        string name;
-        Category category;
-        bool inGeneratedOrders;
-        
+        private int id;
+        private int maxInStockRoom;
+        private int minInStockRoom;
+        private int numberOfImtems;
+        private int weightOfItem;
+        private int maxNumOfItemsOnEuropallet;
+        private int vat;
+        private string code;
+        private string name;
+        private Category category;
+        private bool inGeneratedOrders;
 
-
-        public Stock(int id, int maxInStockRoom, int minInStockRoom, int numberOfImtems, int weightOfItem, int numOfItems, int VAT, string code, string name, Category category, bool inGeneratedOrders)
+        public Stock(int id, int maxInStockRoom, int minInStockRoom, int numberOfImtems, int weightOfItem, int maxNumOfItemsOnEuropallet, int vat, string code, string name, Category category, bool inGeneratedOrders)
         {
-            if (minInStockRoom < 0 || maxInStockRoom < minInStockRoom || numberOfImtems < 0
-                || numOfItems < 0 || weightOfItem < 0)
-                throw new ArgumentException();
-            this.id = id;
-            this.maxInStockRoom = maxInStockRoom;
-            this.minInStockRoom = minInStockRoom;
+            this.Id = id;
+            this.MaxInStockRoom = maxInStockRoom;
+            this.MinInStockRoom = minInStockRoom;
             this.numberOfImtems = numberOfImtems;
-            this.weightOfItem = weightOfItem;
-            this.maxNumOfItemsOnEuropallet = numOfItems;
-            this.vat = VAT;
-            this.code = code;
-            this.name = name;
-            this.category = category;
-            this.inGeneratedOrders = inGeneratedOrders;
+            this.WeightOfItem = weightOfItem;
+            this.MaxNumberOfItemsOnEuropallet = maxNumOfItemsOnEuropallet;
+            this.VAT = vat;
+            this.Code = code;
+            this.Name = name;
+            this.Category = category;
+            this.InGeneratedOrders = inGeneratedOrders;
         }
 
         public virtual int Id { get => id; set => id = value; }
-        public int MaxInStockRoom { get => maxInStockRoom; set => maxInStockRoom = value; }
-        public int MinInStockRoom { get => minInStockRoom; set => minInStockRoom = value; }
-        public int NumberOfItemsInStockRoom { get => numberOfImtems; set => numberOfImtems = value; }
-        public int WeightOfItem { get => weightOfItem; set => weightOfItem = value; }
-        public int maxNumberOfItemsOnEuropallet { get => maxNumOfItemsOnEuropallet; set => maxNumOfItemsOnEuropallet = value; }
+        public int MaxInStockRoom { get => maxInStockRoom;
+        set { if (value < minInStockRoom) throw new ArgumentException(); maxInStockRoom = value; }
+        }
+        public int MinInStockRoom { get => minInStockRoom;
+            set { if (value < 0) throw new ArgumentException(); minInStockRoom = value; }
+        }
+        public int NumberOfItemsInStockRoom { get => numberOfImtems;}
+        public int WeightOfItem { get => weightOfItem; set { if (value <= 0) throw new ArgumentException(); weightOfItem = value; } }
+        public int MaxNumberOfItemsOnEuropallet { get => maxNumOfItemsOnEuropallet; set { if (value < 0) throw new ArgumentException(); maxNumOfItemsOnEuropallet = value; } }
         public int VAT { get => vat; set => vat = value; }
         public string Code { get => code; set => code = value; }
         public string Name { get => name; set => name = value; }

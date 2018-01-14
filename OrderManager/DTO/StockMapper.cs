@@ -50,7 +50,7 @@ namespace OrderManager.DTO
             dataRow["ID"] = tDomain.Id;
             dataRow["MinimumMagazynowe"] = tDomain.MinInStockRoom;
             dataRow["WagaSztuki"] = tDomain.WeightOfItem;
-            dataRow["MaksLiczbaSztukNaEuropalecie"] = tDomain.maxNumberOfItemsOnEuropallet;
+            dataRow["MaksLiczbaSztukNaEuropalecie"] = tDomain.MaxNumberOfItemsOnEuropallet;
             dataRow["LiczbaSztuk"] = tDomain.NumberOfItemsInStockRoom;
             dataRow["MaksimumMagazynowe"] = tDomain.MaxInStockRoom;
             dataRow["VAT"] = tDomain.VAT;
