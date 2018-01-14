@@ -59,7 +59,7 @@ namespace OrderManager.Domain.Entity
         public double QuotaDiscount { get => quotaDiscount;
             set
             {
-                if (value <= 0 || stocksPriceWithDiscounts(discounts, value) < 0.01)
+                if (value < 0 || stocksPriceWithDiscounts(discounts, value) < 0.01)
                     throw new ArgumentException("Naliczenie rabatu spowoduje obniżenie ceny transzy poniżej 0.01 zł.");
                 quotaDiscount = value;
             }

@@ -167,7 +167,7 @@ namespace OrderManager.Presentation
         private void SaveButton_Click(object sender, EventArgs e)
         {
             Order newOrder = this.order;
-            newOrder.State = ORDERSTATE.duringReview;
+            newOrder.State = ORDERSTATE.realized;
             int newOrderId = orderService.InsertOrder(newOrder);
             foreach (Tranche tranche in newOrder.Tranches)
             {

@@ -151,7 +151,11 @@ namespace OrderManager.Presentation
         {
             if (textBoxNumberOfItems.Text.Length > 0 && textBoxNumberOfItems.Text.Length < 10)
                 this.numberOfItems = Int32.Parse(textBoxNumberOfItems.Text);
-            priceNetto = tranche.Stock.PriceNetto * this.numberOfItems;
+            Regex regexObj = new Regex(@"-?\d+(?:\,\d+)?");
+            Match matchResult = regexObj.Match(textBoxQuota.Text);
+            if (textBoxQuota.Text.Length > 0 && textBoxQuota.Text.Length < 10 && matchResult.Length > 0)
+                this.quotaDiscount = Double.Parse(textBoxQuota.Text);
+            priceNetto = (tranche.Stock.PriceNetto - this.quotaDiscount) * this.numberOfItems;
             labelNetto.Text = "" + priceNetto;
             priceBrutto = priceNetto / 100 * (100 + tranche.Stock.Stock.VAT);
             labelBrutto.Text = "" + priceBrutto;
@@ -159,37 +163,47 @@ namespace OrderManager.Presentation
 
         private void TextBoxQuota_TextChanged(object sender, EventArgs e)
         {
+            if (textBoxNumberOfItems.Text.Length > 0 && textBoxNumberOfItems.Text.Length < 10)
+                this.numberOfItems = Int32.Parse(textBoxNumberOfItems.Text);
             Regex regexObj = new Regex(@"-?\d+(?:\,\d+)?");
             Match matchResult = regexObj.Match(textBoxQuota.Text);
             if (textBoxQuota.Text.Length > 0 && textBoxQuota.Text.Length < 10 && matchResult.Length > 0)
                 this.quotaDiscount = Double.Parse(textBoxQuota.Text);
-            double amount = priceBrutto - this.quotaDiscount;
-            labelBrutto.Text = "" + amount;
+            priceNetto = (tranche.Stock.PriceNetto - this.quotaDiscount) * this.numberOfItems;
+            labelNetto.Text = "" + priceNetto;
+            priceBrutto = priceNetto / 100 * (100 + tranche.Stock.Stock.VAT);
+            labelBrutto.Text = "" + priceBrutto;
         }
 
         private void Button4_Click(object sender, EventArgs e)
         {
-            List<PercentageDiscount> chosenDiscounts = new List<PercentageDiscount>();
-            this.tranche.NumberOfItems = this.numberOfItems;
-            this.tranche.QuotaDiscount = this.quotaDiscount;
-            var checkedRows = this.dataGridDiscounts.Rows.Cast<DataGridViewRow>().Where(row => (bool?)row.Cells[0].Value == true).ToList();
-            List<PercentageDiscount> viableDiscounts = trancheService.GetViableDiscounts(tranche);
-            foreach (PercentageDiscount discount in viableDiscounts)
+            try
             {
-                Boolean shouldBeAdded = false;
-                foreach (DataGridViewRow row in checkedRows)
+                List<PercentageDiscount> chosenDiscounts = new List<PercentageDiscount>();
+                this.tranche.NumberOfItems = this.numberOfItems;
+                this.tranche.QuotaDiscount = this.quotaDiscount;
+                var checkedRows = this.dataGridDiscounts.Rows.Cast<DataGridViewRow>().Where(row => (bool?)row.Cells[0].Value == true).ToList();
+                List<PercentageDiscount> viableDiscounts = trancheService.GetViableDiscounts(tranche);
+                foreach (PercentageDiscount discount in viableDiscounts)
                 {
-                    var id1 = discount.Id.ToString();
-                    var id2 = row.Cells["Id"].Value.ToString();
-                    if (id1.Equals(id2))
-                        shouldBeAdded = true;
+                    Boolean shouldBeAdded = false;
+                    foreach (DataGridViewRow row in checkedRows)
+                    {
+                        var id1 = discount.Id.ToString();
+                        var id2 = row.Cells["Id"].Value.ToString();
+                        if (id1.Equals(id2))
+                            shouldBeAdded = true;
+                    }
+                    if (shouldBeAdded)
+                        chosenDiscounts.Add(discount);
                 }
-                if (shouldBeAdded)
-                    chosenDiscounts.Add(discount);
+                this.tranche.Discounts = chosenDiscounts;
+                this.saved = true;
+                this.Close();
+            } catch (ArgumentException exception)
+            {
+                MessageBox.Show("Naliczenie rabatów spowoduje obniżenie ceny transzy poniżej 0.01 zł.");
             }
-            this.tranche.Discounts = chosenDiscounts;
-            this.saved = true;
-            this.Close();
         }
     }
 }
