@@ -63,13 +63,12 @@ namespace OrderManager.Presentation
             foreach (var order in listOrder)
             {
                 DataRow dataRow = dataGridSource.NewRow();
-
                 dataRow["Nazwa"] = order.Name;
                 dataRow["Kontrahent"] = order.Counterparty;
                 dataRow["Status"] = GetTranslatedOrderStateString(order.State);
                 dataRow["Data złożenia"] = order.DateOfCreation;
-                dataRow["Suma wart. poz. Netto"] = order.PriceNetto;
-                dataRow["Suma wart. poz. Brutto"] = order.PriceBrutto;
+                dataRow["Suma wart. poz. Netto"] = Math.Round(order.PriceNetto, 2).ToString();
+                dataRow["Suma wart. poz. Brutto"] = Math.Round(order.PriceBrutto, 2).ToString();
                 dataGridSource.Rows.Add(dataRow);
             }
 

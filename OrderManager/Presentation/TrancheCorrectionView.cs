@@ -249,12 +249,12 @@ namespace OrderManager.Presentation
             labelTitle.Text += tranche.Stock.Stock.Name;
             labelTrancheName.Text = tranche.Stock.Stock.Name;
             labelCode.Text = tranche.Stock.Stock.Code;
-            labelStockPrice.Text = "" + tranche.Stock.PriceNetto;
+            labelStockPrice.Text = "" + Math.Round(tranche.Stock.PriceNetto, 2).ToString();
             labelVAT.Text = "" + tranche.Stock.Stock.VAT;
             textBoxNumberOfItems.Text = "" + tranche.NumberOfItems;
             textBoxQuota.Text = "" + tranche.QuotaDiscount;
-            labelNetto.Text = "" + tranche.PriceNetto;
-            labelBrutto.Text = "" + tranche.PriceBrutto;
+            labelNetto.Text = "" + Math.Round(tranche.PriceNetto, 2).ToString();
+            labelBrutto.Text = "" + Math.Round(tranche.PriceBrutto, 2).ToString();
             //AddCheckBoxColumn();
 
             (new DataGridviewCheckBoxColumnProwider(dataGridDiscounts)).addCheckBoxColumn();
