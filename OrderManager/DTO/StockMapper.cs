@@ -65,7 +65,7 @@ namespace OrderManager.DTO
         {
             DataRow stockRow = stockTable.Rows[numberOfRow];
             IStockDAO stockDAO = new StockDAO();
-            DataRow categoryRow = stockDAO.GetStocksCategory(stockTable).Rows[0];
+            DataRow categoryRow = stockDAO.GetStocksCategory(stockRow).Rows[0];
             Stock stock = new Stock(
             Convert.ToInt32(stockRow["ID"]),
             Convert.ToInt32(stockRow["MaksimumMagazynowe"]),

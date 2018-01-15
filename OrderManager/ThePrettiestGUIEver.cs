@@ -67,6 +67,7 @@ namespace OrderManager
                 DataRow dataRow = dataGridSource.NewRow();
                 dataRow["Kod"] = stock.Code;
                 dataRow["Nazwa"] = stock.Name;
+                dataRow["Kategoria"] = stock.Category.Name;
                 dataRow["Minimum magazynowe"] = stock.MinInStockRoom;
                 int numOfItemsInOrders = stockService.GetNumOfItemsInOrders(stock);
                 dataRow["Stan zamówień"] = numOfItemsInOrders;

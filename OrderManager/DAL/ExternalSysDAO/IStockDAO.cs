@@ -11,6 +11,6 @@ namespace OrderManager.DAL.InternalSysDAO
     {
         DataTable GetStocksCounterpartysStock(DataTable stock);
         DataTable GetStocksActiveOrders(DataTable stock);
-        DataTable GetStocksCategory(DataTable stock);
+        DataTable GetStocksCategory(DataRow stock);
     }
 }

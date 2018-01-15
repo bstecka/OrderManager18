@@ -68,13 +68,14 @@ namespace OrderManager.Presentation
                 dataRow["Kontrahent"] = order.Counterparty;
                 dataRow["Status"] = GetTranslatedOrderStateString(order.State);
                 dataRow["Data złożenia"] = order.DateOfCreation;
-                dataRow["Suma wart. poz. Netto"] = order.PriceNetto;
-                dataRow["Suma wart. poz. Brutto"] = order.PriceBrutto;
+                dataRow["Suma wart. poz. Netto"] = Math.Round(order.PriceNetto,2);
+                dataRow["Suma wart. poz. Brutto"] = Math.Round(order.PriceBrutto,2);
                 dataGridSource.Rows.Add(dataRow);
             }
 
             dataGridViewOrders.DataSource = dataGridSource;
             dataGridViewOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewOrders.Columns[5].DefaultCellStyle.Format = "N3";
 
             foreach (DataGridViewColumn column in dataGridViewOrders.Columns)
                 if (column.Index.Equals(0))

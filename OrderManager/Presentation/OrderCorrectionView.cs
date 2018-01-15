@@ -41,8 +41,8 @@ namespace OrderManager.Presentation
             labelDate.Text = order.DateOfCreation.ToString("dd/MM/yyyy");
             labelCounterpartysName.Text = order.Counterparty.Name;
             labelCounterpartysCode.Text = order.Counterparty.Nip.ToString();
-            labelNetto.Text = order.PriceNetto.ToString();
-            labelBrutto.Text = order.PriceBrutto.ToString();
+            labelNetto.Text = Math.Round(order.PriceNetto, 2).ToString();
+            labelBrutto.Text = Math.Round(order.PriceBrutto, 2).ToString();
             labelAuthor.Text = order.Creator.Name + " " + order.Creator.Surname;
             FillTranches();
             AddActionColumns();
@@ -167,7 +167,7 @@ namespace OrderManager.Presentation
         private void SaveButton_Click(object sender, EventArgs e)
         {
             Order newOrder = this.order;
-            newOrder.State = ORDERSTATE.duringReview;
+            newOrder.State = ORDERSTATE.duringRealization;
             int newOrderId = orderService.InsertOrder(newOrder);
             foreach (Tranche tranche in newOrder.Tranches)
             {

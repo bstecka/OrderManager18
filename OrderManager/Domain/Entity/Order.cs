@@ -92,20 +92,7 @@ namespace OrderManager.Domain.Entity
 
         internal Order ParentOrder
         {
-            get
-            {
-                if (parentOrder == null)
-                {
-                    DAL.InternalSysDAO.OrderDAO orderDAO = new DAL.InternalSysDAO.OrderDAO();
-                    DTO.OrderMapper orderMapper = new DTO.OrderMapper(orderDAO);
-                    DataTable parentTable = orderDAO.GetParentOrderById(0);//poprawic
-                    if (parentTable.Rows.Count < 1)
-                        parentOrder = null;
-                    else
-                        parentOrder = orderMapper.MapFrom(parentTable);
-                }
-                return parentOrder;
-            }
+            get => parentOrder;
             set => parentOrder = value;
         }
 

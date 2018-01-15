@@ -14,5 +14,6 @@ namespace OrderManager.Domain.Service
         List<Order> GetAllByState(int stateId);
         void UpdateOrder(Order order);
         int InsertOrder(Order order);
+        Order GetParentOrder(Order order);
     }
 }
