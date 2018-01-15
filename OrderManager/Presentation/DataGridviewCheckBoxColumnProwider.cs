@@ -23,10 +23,8 @@ namespace OrderManager.Presentation
             checkboxColumn.Width = 10;
             checkboxColumn.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             list.Columns.Insert(0, checkboxColumn);
-
-            // add checkbox header
+            
             Rectangle rect = list.GetCellDisplayRectangle(0, -1, true);
-            // set checkbox header to center of header cell. +1 pixel to position correctly.
             rect.X = rect.Location.X + (rect.Width / 4);
 
             CheckBox checkboxHeader = new CheckBox();

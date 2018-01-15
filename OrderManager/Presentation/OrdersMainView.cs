@@ -14,7 +14,6 @@ namespace OrderManager.Presentation
 {
     public partial class OrdersMainView : Form
     {
-
         private IOrderService orderService;
         private ITrancheService trancheService;
         private List<Order> listOrder;
@@ -146,7 +145,7 @@ namespace OrderManager.Presentation
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
-            var stockForm = new ThePrettiestGUIEver();
+            var stockForm = new StockMainView();
             stockForm.Closed += (s, args) => this.Close();
             stockForm.Show();
         }

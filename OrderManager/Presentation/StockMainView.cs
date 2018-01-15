@@ -14,13 +14,13 @@ using System.Windows.Forms;
 
 namespace OrderManager
 {
-    public partial class ThePrettiestGUIEver : Form
+    public partial class StockMainView : Form
     {
         private int filtersHeight;
         private IStockService stockService;
         private List<Domain.Entity.Stock> listStock;
 
-        internal ThePrettiestGUIEver()
+        internal StockMainView()
         {
             InitializeComponent();
 
@@ -228,20 +228,7 @@ namespace OrderManager
 
         private void dataGridViewStock_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
-            /*
-            dataGridViewStock.Rows[e.RowIndex].ErrorText = "";
-            int newInteger;
 
-            // Don't try to validate the 'new row' until finished 
-            // editing since there
-            // is not any point in validating its initial value.
-            if (dataGridViewStock.Rows[e.RowIndex].IsNewRow) { return; }
-            if (!int.TryParse(e.FormattedValue.ToString(),
-                out newInteger) || newInteger < 0)
-            {
-                e.Cancel = true;
-                dataGridViewStock.Rows[e.RowIndex].ErrorText = "the value must be a non-negative integer";
-            }*/
         }
     }
 }
