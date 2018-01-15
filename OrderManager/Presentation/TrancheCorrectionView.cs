@@ -48,12 +48,12 @@ namespace OrderManager.Presentation
             labelTitle.Text += tranche.Stock.Stock.Name;
             labelTrancheName.Text = tranche.Stock.Stock.Name;
             labelCode.Text = tranche.Stock.Stock.Code;
-            labelStockPrice.Text = "" + tranche.Stock.PriceNetto;
+            labelStockPrice.Text = "" + Math.Round(tranche.Stock.PriceNetto, 2);
             labelVAT.Text = "" + tranche.Stock.Stock.VAT;
             textBoxNumberOfItems.Text = "" + tranche.NumberOfItems;
             textBoxQuota.Text = "" + tranche.QuotaDiscount;
-            labelNetto.Text = "" + tranche.PriceNetto;
-            labelBrutto.Text = "" + tranche.PriceBrutto;
+            labelNetto.Text = "" + Math.Round(tranche.PriceNetto, 2);
+            labelBrutto.Text = "" + Math.Round(tranche.PriceBrutto, 2);
             AddCheckBoxColumn();
             FillDiscounts();
         }
@@ -94,7 +94,7 @@ namespace OrderManager.Presentation
             {
                 DataRow dataRow = dataGridSource.NewRow();
                 dataRow["Id"] = discount.Id;
-                dataRow["Wysokość"] = discount.Amount;
+                dataRow["Wysokość"] = Math.Round(discount.Amount, 2);
                 dataRow["Data rozpoczęcia"] = discount.Since;
                 dataRow["Data zakończenia"] = discount.Until;
                 dataGridSource.Rows.Add(dataRow);

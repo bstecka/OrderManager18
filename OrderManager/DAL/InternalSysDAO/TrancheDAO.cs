@@ -20,8 +20,7 @@ namespace OrderManager.DAL.InternalSysDAO
 
         public DataTable GetCounterpartysStock(DataRow tranche)
         {
-            return DBOperations.Query(@"SELECT * FROM TowarKontrahenta 
-                WHERE TowarID IN (" + tranche["TowarKontrahentaID"] + ")");
+            return DBOperations.Query(@"SELECT * FROM TowarKontrahenta WHERE ID = " + tranche["TowarKontrahentaID"] + " AND KontrahentID IN (SELECT KontrahentID FROM Transza FULL JOIN Zamowienie ON Transza.ZamowienieID = Zamowienie.ID WHERE TRANSZA.ID = " + tranche["ID"] + " )");
         }
 
         public DataTable GetPercentageDiscounts(DataRow tranche)

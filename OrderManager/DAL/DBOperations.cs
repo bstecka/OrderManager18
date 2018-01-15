@@ -19,7 +19,7 @@ namespace OrderManager.DAO
             get
             {
                 if(connection == null)
-                    connection = new SqlConnection("Server=PIOTRDELL; database=OrderManager18; Trusted_Connection=yes");
+                    connection = new SqlConnection("Server=PIOTRDELL; database=OrderManager3; Trusted_Connection=yes");
                 return connection;
             }
         }
