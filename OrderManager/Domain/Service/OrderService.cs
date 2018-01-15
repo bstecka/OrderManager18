@@ -28,18 +28,25 @@ namespace OrderManager.Domain.Service
 
         public List<Order> GetAll()
         {
-            return mapper.MapAllFrom(DAO.GetAll());
+            var orders = mapper.MapAllFrom(DAO.GetAll());
+            foreach (Order order in orders)
+                order.ParentOrder = GetParentOrder(order);
+            return orders;
         }
 
         public Order GetById(string id)
         {
-            return mapper.MapFrom(DAO.GetById(id));
+            var order = mapper.MapFrom(DAO.GetById(id));
+            order.ParentOrder = GetParentOrder(order);
+            return order;
         }
 
         public List<Order> GetAllByState(int stateId)
         {
-            var x = DAO.GetAllByState(stateId);
-            return mapper.MapAllFrom(x);
+            var orders = mapper.MapAllFrom(DAO.GetAllByState(stateId));
+            foreach (Order order in orders)
+                order.ParentOrder = GetParentOrder(order);
+            return orders;
         }
 
         public void UpdateOrder(Order order)
