@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneratedOrderView));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -514,14 +515,14 @@
             this.labelTitle.BackColor = System.Drawing.Color.SlateGray;
             this.labelTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelTitle.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelTitle.ForeColor = System.Drawing.SystemColors.Info;
+            this.labelTitle.ForeColor = System.Drawing.Color.White;
             this.labelTitle.Location = new System.Drawing.Point(0, 27);
             this.labelTitle.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.labelTitle.Size = new System.Drawing.Size(778, 80);
             this.labelTitle.TabIndex = 1;
-            this.labelTitle.Text = "Zamówienie";
+            this.labelTitle.Text = "Zamówienie ";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // GeneratedOrderView
@@ -530,6 +531,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(778, 540);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GeneratedOrderView";
             this.Text = "OrderManager2018";
             this.tableLayoutPanel1.ResumeLayout(false);

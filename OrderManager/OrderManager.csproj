@@ -155,10 +155,10 @@
     <Compile Include="Presentation\OrdersMainView.Designer.cs">
       <DependentUpon>OrdersMainView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ThePrettiestGUIEver.cs">
+    <Compile Include="Presentation\ThePrettiestGUIEver.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ThePrettiestGUIEver.Designer.cs">
+    <Compile Include="Presentation\ThePrettiestGUIEver.Designer.cs">
       <DependentUpon>ThePrettiestGUIEver.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\DataGridviewCheckBoxColumnProwider.cs" />
@@ -221,7 +221,7 @@
     <EmbeddedResource Include="Presentation\OrdersMainView.resx">
       <DependentUpon>OrdersMainView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ThePrettiestGUIEver.resx">
+    <EmbeddedResource Include="Presentation\ThePrettiestGUIEver.resx">
       <DependentUpon>ThePrettiestGUIEver.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\ToDelete\Form1.resx">

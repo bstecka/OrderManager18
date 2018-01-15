@@ -16,16 +16,21 @@ namespace OrderManager.Presentation
     {
         private List<Order> orders;
         private IStockService stockService;
+        private List<GeneratedOrderView> displayedOrders;
 
         internal GeneratedOrdersView(List<Order> orders)
         {
             InitializeComponent();
             labelTitle.Text = "Wygenerowane zamówienia z dnia " + DateTime.Now.Date.ToString("dd/MM/yyyy");
             this.orders = orders;
+            displayedOrders = new List<GeneratedOrderView>();
             (new DataGridviewCheckBoxColumnProwider(dataGridViewOrders)).addCheckBoxColumn();
             FillDataGridView();
             foreach (DataGridViewColumn column in dataGridViewOrders.Columns)
-                column.ReadOnly = true;
+                if (column.Index.Equals(0))
+                    column.ReadOnly = false;
+                else
+                    column.ReadOnly = true;
             stockService = DependencyInjector.IStockService;
             this.FormClosing += GeneratedOrders_FormClosing;
         }
@@ -59,9 +64,13 @@ namespace OrderManager.Presentation
                 var tmp = orders.FirstOrDefault(
                         order => order.Name.Equals(row.Cells["Nazwa"].Value.ToString()));
                 if (Convert.ToBoolean(row.Cells[0].Value) && tmp != null)
-                    (new GeneratedOrderView(orders.FirstOrDefault(
-                        order => order.Name.Equals(row.Cells["Nazwa"].Value.ToString())))).Show();
-            }
+                {
+                    var ordersForm = (new GeneratedOrderView(orders.FirstOrDefault(
+                        order => order.Name.Equals(row.Cells["Nazwa"].Value.ToString()))));
+                    displayedOrders.Add(ordersForm);
+                    ordersForm.Show();
+                }
+                   }
         }
         
         private void GeneratedOrders_FormClosing(object sender, FormClosingEventArgs e)
@@ -75,6 +84,8 @@ namespace OrderManager.Presentation
                     foreach (Stock stock in orders.Select
                         (o => o.Tranches.Select(t => t.Stock.Stock)).SelectMany(i => i))
                         stockService.SetPossibilityToGenerateOrder(stock.Id, 0);
+                    foreach(var child in displayedOrders)
+                        child.Close();
                     e.Cancel = false;
                 }
             }

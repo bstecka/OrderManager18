@@ -20,7 +20,7 @@ namespace OrderManager.Presentation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new OrderManager.ThePrettiestGUIEver());
+            Application.Run(new ThePrettiestGUIEver());
             //Application.Run(new Tester());
 
             //Application.Run(new MainOrdersView(DependencyInjector.IOrderService, DependencyInjector.ITrancheService));

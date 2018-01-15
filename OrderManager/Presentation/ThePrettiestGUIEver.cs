@@ -116,7 +116,9 @@ namespace OrderManager
             switch (comboBoxState.SelectedValue)
             {
                 case "Dowolny": FillGridview(listStock); break;
-                case "Ponizej minimum": FillGridview(listStock.Where(stock => stock.NumberOfItemsInStockRoom < stock.MinInStockRoom)); break;
+                case "Ponizej minimum": FillGridview(listStock.Where
+                    (stock => stock.NumberOfItemsInStockRoom + stockService.GetNumOfItemsInOrders(stock)
+                    < stock.MinInStockRoom)); break;
             }
         }
 
@@ -222,6 +224,24 @@ namespace OrderManager
                 else
                     e.Cancel = false;
             }
+        }
+
+        private void dataGridViewStock_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            /*
+            dataGridViewStock.Rows[e.RowIndex].ErrorText = "";
+            int newInteger;
+
+            // Don't try to validate the 'new row' until finished 
+            // editing since there
+            // is not any point in validating its initial value.
+            if (dataGridViewStock.Rows[e.RowIndex].IsNewRow) { return; }
+            if (!int.TryParse(e.FormattedValue.ToString(),
+                out newInteger) || newInteger < 0)
+            {
+                e.Cancel = true;
+                dataGridViewStock.Rows[e.RowIndex].ErrorText = "the value must be a non-negative integer";
+            }*/
         }
     }
 }
