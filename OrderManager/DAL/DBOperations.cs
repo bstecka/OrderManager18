@@ -19,7 +19,7 @@ namespace OrderManager.DAO
             get
             {
                 if(connection == null)
-                    connection = new SqlConnection("Server=PIOTRDELL; database=OrderManager18; Trusted_Connection=yes");
+                    connection = new SqlConnection("Server=PIOTRDELL; database=OrderManager3; Trusted_Connection=yes");
                 return connection;
             }
         }
@@ -32,22 +32,64 @@ namespace OrderManager.DAO
             return dataTable;
         }
 
-        public static int Insert(DataTable entity, string tableName)
+        public static int Insert(DataTable entityToSave, string tableName)
         {  
             connection.Open();
+            int insertedRowId = insertWithoutCommit(entityToSave, tableName);
+            connection.Close();
+            return insertedRowId;
+        }
+
+        public static void Update(DataTable entityToUpdate, string tableName)
+        {
+            connection.Open();
+            updateWithoutCommit(entityToUpdate, tableName);
+            connection.Close();
+        }
+
+        private static void updateWithoutCommit(DataTable entityToUpdate, string tableName)
+        {
+
+            String commandText = "";
+            foreach (DataRow row in entityToUpdate.Rows)
+            {
+                foreach (DataColumn column in entityToUpdate.Columns)
+                {
+                    if (!column.ColumnName.ToString().Equals("ID"))
+                    {
+                        commandText += column.ColumnName.ToString() + " = @" + column.ColumnName.ToString() + "A, ";
+                    }
+                }
+                commandText = commandText.Remove(commandText.Trim().Length - 1);
+                commandText = "UPDATE " + tableName + " SET " + commandText + " WHERE ID = " + row["ID"];
+                SqlCommand command = new SqlCommand(commandText, connection);
+                foreach (DataColumn column in entityToUpdate.Columns)
+                {
+                    if (!column.ColumnName.ToString().Equals("ID"))
+                    {
+                        command.Parameters.AddWithValue("@" + column.ColumnName.ToString() + "A", row[column.ColumnName.ToString()]);
+                    }
+                }
+                command.ExecuteNonQuery();
+            }
+        }
+
+        private static int insertWithoutCommit(DataTable entityToSave, string tableName)
+        {
+
             String commandText = "";
             String valuesText = "";
             int insertedRowId = 0;
-            foreach (DataRow row in entity.Rows)
+            foreach (DataRow row in entityToSave.Rows)
             {
-                foreach (DataColumn column in entity.Columns)
+                foreach (DataColumn column in entityToSave.Columns)
                 {
                     if (!column.ColumnName.ToString().Equals("ID"))
                     {
                         commandText += column.ColumnName.ToString() + ", ";
                     }
                 }
-                foreach (DataColumn column in entity.Columns)
+                foreach (DataColumn column in entityToSave.Columns)
                 {
                     if (!column.ColumnName.ToString().Equals("ID"))
                     {
@@ -58,45 +100,34 @@ namespace OrderManager.DAO
                 valuesText = valuesText.Remove(valuesText.Trim().Length - 1);
                 commandText = "INSERT INTO " + tableName + " (" + commandText + ") OUTPUT INSERTED.ID VALUES (" + valuesText + ")";
                 SqlCommand command = new SqlCommand(commandText, connection);
-                foreach (DataColumn column in entity.Columns)
+                foreach (DataColumn column in entityToSave.Columns)
                 {
                     if (!column.ColumnName.ToString().Equals("ID"))
                     {
                         command.Parameters.AddWithValue("@" + column.ColumnName.ToString() + "A", row[column.ColumnName.ToString()]);
                     }
                 }
-                insertedRowId = (int) command.ExecuteScalar();
+                insertedRowId = (int)command.ExecuteScalar();
             }
-            connection.Close();
             return insertedRowId;
         }
 
-        public static void Update(DataTable entity, string tableName)
+        public static void UpdateAndSave(DataTable entityToUpdate, DataTable entityToSave, string tableName)
         {
-            connection.Open();
-            String commandText = "";
-            foreach (DataRow row in entity.Rows)
-            {              
-                foreach (DataColumn column in entity.Columns)
+            using(IDbTransaction tran = connection.BeginTransaction())
+            {
+                try
                 {
-                    if (!column.ColumnName.ToString().Equals("ID"))
-                    {
-                        commandText += column.ColumnName.ToString() + " = @" + column.ColumnName.ToString() + "A, ";
-                    }
+                    insertWithoutCommit(entityToSave, tableName);
+                    updateWithoutCommit(entityToUpdate, tableName);
+                    tran.Commit();
                 }
-                commandText = commandText.Remove(commandText.Trim().Length - 1);
-                commandText = "UPDATE " + tableName + " SET " + commandText + " WHERE ID = " + row["ID"];
-                SqlCommand command = new SqlCommand(commandText, connection);
-                foreach (DataColumn column in entity.Columns)
+                catch
                 {
-                    if (!column.ColumnName.ToString().Equals("ID"))
-                    {
-                        command.Parameters.AddWithValue("@" + column.ColumnName.ToString() + "A", row[column.ColumnName.ToString()]);
-                    }
+                    tran.Rollback();
+                    throw;
                 }
-                command.ExecuteNonQuery();
             }
-            connection.Close();
         }
 
         public static void OpertionThatRequiresOpeningDBConnection(string command)

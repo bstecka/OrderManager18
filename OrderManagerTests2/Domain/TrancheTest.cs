@@ -16,7 +16,7 @@ namespace OrderManager.Domain.Entity.Tests
 
         public TrancheTests()
         {
-            stockMock = new Mock<Stock>(1, 1, 1, 1, 1, 1, 23, "Code", "TestStock", null);
+            stockMock = new Mock<Stock>(1, 1, 1, 1, 1, 1, 23, "Code", "TestStock", null, false);
             counterpartyMock = new Mock<Counterparty>(1, 11111111111, "TestCounterparty", 1);
             counterpartysStockMock = new Mock<CounterpartysStock>(1, stockMock.Object, counterpartyMock.Object, 1);
             random = new Random();
@@ -124,9 +124,8 @@ namespace OrderManager.Domain.Entity.Tests
             int numberOfItems = 22;
             setExemplaryCounterpartysStock(7);
             Tranche tranche = new Tranche(1, counterpartysStockMock.Object, numberOfItems);
-            Double priceNettoBeforeQD = tranche.PriceNetto;
-            Assert.ThrowsException<ArgumentException>(() => tranche.QuotaDiscount = 400);
-            Assert.AreEqual(tranche.PriceNetto, priceNettoBeforeQD);
+            tranche.QuotaDiscount = 400;
+            Assert.AreEqual(tranche.PriceNetto, 0.01 * numberOfItems);
         }
 
         [TestMethod()]
@@ -144,9 +143,8 @@ namespace OrderManager.Domain.Entity.Tests
             //Wartość rabatu kwotowego jest mniejsza od wartości transzy ez uwzglądniania innych rabatów, 
             //ale po uwzględnieniu rabatów procentowych, wartość transzy jest mniejsz od 0.01
             Tranche tranche = getExemplaryTrancheWithDisounts(10, 5, 0.4, 0);
-            Double priceNettoBeforeQD = tranche.PriceNetto;
-            Assert.ThrowsException<ArgumentException>(() => tranche.QuotaDiscount = 10);
-            Assert.AreEqual(tranche.PriceNetto, priceNettoBeforeQD);
+            tranche.QuotaDiscount = 10;
+            Assert.AreEqual(tranche.PriceNetto, 0.01 * 5);
         }
 
         [TestMethod()]
@@ -168,9 +166,8 @@ namespace OrderManager.Domain.Entity.Tests
             setExemplaryCounterpartysStock(0.05);
             Tranche tranche = new Tranche(1, counterpartysStockMock.Object, numberOfItems);
             double priceNettoWithoutDiscounts = tranche.PriceNetto;
-            Assert.ThrowsException<ArgumentException>(() =>
-            tranche.Discounts = getExemplaryPercentageDiscounts(0.45).Select(t => t.Object).ToList());
-            Assert.AreEqual(priceNettoWithoutDiscounts, tranche.PriceNetto);
+            tranche.Discounts = getExemplaryPercentageDiscounts(0.45).Select(t => t.Object).ToList();
+            Assert.AreEqual(0.01 * numberOfItems, tranche.PriceNetto);
         }
 
         [TestMethod()]
@@ -180,11 +177,9 @@ namespace OrderManager.Domain.Entity.Tests
             int numberOfItems = 10;
             setExemplaryCounterpartysStock(124);
             Tranche tranche = new Tranche(1, counterpartysStockMock.Object, numberOfItems);
-            tranche.QuotaDiscount = 50;
-            double priceNettoWithoutDiscounts = tranche.PriceNetto;
-            Assert.ThrowsException<ArgumentException>(() => 
-            tranche.Discounts = getExemplaryPercentageDiscounts(0.3).Select(t => t.Object).ToList());
-            Assert.AreEqual(priceNettoWithoutDiscounts, tranche.PriceNetto);
+            tranche.QuotaDiscount = 50; 
+            tranche.Discounts = getExemplaryPercentageDiscounts(0.3).Select(t => t.Object).ToList();
+            Assert.AreEqual(0.01 * numberOfItems, tranche.PriceNetto);
         }
 
         [TestMethod()]
@@ -213,7 +208,7 @@ namespace OrderManager.Domain.Entity.Tests
             }
             catch(Exception) { }
             if(tranche !=  null)
-                Assert.IsTrue(tranche.PriceNetto > numberOfItems * 0.01);
+                Assert.IsTrue(tranche.PriceNetto >= numberOfItems * 0.01);
         }
         
 

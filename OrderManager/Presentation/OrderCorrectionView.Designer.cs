@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThePrettiestGUIEver));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -37,7 +36,6 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.tableLayoutPanelContent = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
             this.dataGridViewTranches = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
@@ -199,27 +197,17 @@
             this.tableLayoutPanel9.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel9.ColumnCount = 1;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Controls.Add(this.button1, 0, 2);
             this.tableLayoutPanel9.Controls.Add(this.dataGridViewTranches, 0, 1);
             this.tableLayoutPanel9.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 213);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-            this.tableLayoutPanel9.RowCount = 3;
+            this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel9.Size = new System.Drawing.Size(538, 162);
             this.tableLayoutPanel9.TabIndex = 7;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(3, 135);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(140, 24);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Dodaj pozycję";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // dataGridViewTranches
             // 
@@ -227,11 +215,11 @@
             this.dataGridViewTranches.AllowUserToDeleteRows = false;
             this.dataGridViewTranches.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTranches.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewTranches.Location = new System.Drawing.Point(3, 36);
+            this.dataGridViewTranches.Location = new System.Drawing.Point(3, 43);
             this.dataGridViewTranches.Name = "dataGridViewTranches";
             this.dataGridViewTranches.ReadOnly = true;
             this.dataGridViewTranches.RowHeadersVisible = false;
-            this.dataGridViewTranches.Size = new System.Drawing.Size(532, 93);
+            this.dataGridViewTranches.Size = new System.Drawing.Size(532, 116);
             this.dataGridViewTranches.TabIndex = 1;
             this.dataGridViewTranches.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewTranches_CellContentClick);
             // 
@@ -239,7 +227,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 10);
+            this.label3.Location = new System.Drawing.Point(3, 13);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(97, 13);
             this.label3.TabIndex = 2;
@@ -518,15 +506,14 @@
             this.labelTitle.Text = "Zamówienie ";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // OrderCorrection
+            // OrderCorrectionView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(716, 586);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "OrderCorrection";
+            this.Name = "OrderCorrectionView";
             this.Text = "Korekta Zamówienia ";
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Load += new System.EventHandler(this.OrderCorrectionView_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -559,7 +546,6 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelContent;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridViewTranches;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;

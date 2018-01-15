@@ -16,16 +16,19 @@ namespace OrderManager.Presentation
     public partial class TrancheCorrectionView : Form
     {
         private Tranche tranche;
+        private List<PercentageDiscount> discounts;
         private ITrancheService trancheService;
         private double priceNetto;
         private double priceBrutto;
         private int numberOfItems;
         private double quotaDiscount;
         private Boolean saved;
+        private List<PercentageDiscount> viableDiscounts;
 
         public TrancheCorrectionView(Tranche tranche, ITrancheService trancheService)
         {
             InitializeComponent();
+            discounts = trancheService.GetViableDiscounts(tranche);
             this.trancheService = trancheService;
             this.tranche = tranche;
             this.priceNetto = tranche.PriceNetto;
@@ -48,14 +51,31 @@ namespace OrderManager.Presentation
             labelTitle.Text += tranche.Stock.Stock.Name;
             labelTrancheName.Text = tranche.Stock.Stock.Name;
             labelCode.Text = tranche.Stock.Stock.Code;
-            labelStockPrice.Text = "" + tranche.Stock.PriceNetto;
+            labelStockPrice.Text = "" + Math.Round(tranche.Stock.PriceNetto, 2).ToString();
             labelVAT.Text = "" + tranche.Stock.Stock.VAT;
             textBoxNumberOfItems.Text = "" + tranche.NumberOfItems;
             textBoxQuota.Text = "" + tranche.QuotaDiscount;
-            labelNetto.Text = "" + tranche.PriceNetto;
-            labelBrutto.Text = "" + tranche.PriceBrutto;
-            AddCheckBoxColumn();
+            labelNetto.Text = "" + Math.Round(tranche.PriceNetto, 2).ToString();
+            labelBrutto.Text = "" + Math.Round(tranche.PriceBrutto, 2).ToString();
+
+            (new DataGridviewCheckBoxColumnProwider(dataGridDiscounts)).addCheckBoxColumn();
             FillDiscounts();
+            dataGridDiscounts.CellValueChanged += checkedDiscountsChanged;
+        }
+
+        private void checkedDiscountsChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            List<PercentageDiscount> discounts = new List<PercentageDiscount>();
+            foreach (DataGridViewRow row in dataGridDiscounts.Rows)
+            {
+                DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[0];
+                if (Convert.ToBoolean(row.Cells[0].Value))
+                    discounts.Add(this.viableDiscounts.FirstOrDefault
+                        (d => d.Id == Convert.ToInt32(row.Cells["Id"].Value)));
+            }
+            tranche.Discounts = discounts;
+            labelNetto.Text = Math.Round(tranche.PriceNetto, 2).ToString();
+            labelBrutto.Text = Math.Round(tranche.PriceBrutto, 2).ToString();
         }
 
         private void AddCheckBoxColumn()
@@ -88,20 +108,34 @@ namespace OrderManager.Presentation
             dataGridSource.Columns.Add("Data zakończenia");
 
             List<PercentageDiscount> previouslyAssignedDiscounts = trancheService.GetPercentageDiscounts(tranche);
-            List<PercentageDiscount> viableDiscounts = trancheService.GetViableDiscounts(tranche);
+            viableDiscounts = trancheService.GetViableDiscounts(tranche);
             int lp = 1;
             foreach (var discount in viableDiscounts)
             {
                 DataRow dataRow = dataGridSource.NewRow();
                 dataRow["Id"] = discount.Id;
-                dataRow["Wysokość"] = discount.Amount;
-                dataRow["Data rozpoczęcia"] = discount.Since;
-                dataRow["Data zakończenia"] = discount.Until;
+                dataRow["Wysokość"] = Math.Round(discount.Amount,2);
+                dataRow["Data rozpoczęcia"] = discount.Since.ToShortDateString();
+                dataRow["Data zakończenia"] = discount.Until.ToShortDateString();
                 dataGridSource.Rows.Add(dataRow);
                 lp++;
             }
             dataGridDiscounts.DataSource = dataGridSource;
             dataGridDiscounts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            foreach (DataGridViewColumn column in dataGridDiscounts.Columns)
+                if (column.Index.Equals(0))
+                    column.ReadOnly = false;
+                else
+                    column.ReadOnly = true;
+
+            var list = dataGridDiscounts;
+
+            foreach (DataGridViewRow row in dataGridDiscounts.Rows)
+            {
+                DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[0];
+                chk.Value = chk.FalseValue;
+            }
         }
 
         private void TableLayoutPanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
@@ -125,11 +159,6 @@ namespace OrderManager.Presentation
             this.FormClosing += new FormClosingEventHandler(TrancheCorrectionView_FormClosing);
         }
 
-        private void TableLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void Button1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -150,11 +179,10 @@ namespace OrderManager.Presentation
         private void TextBoxNumberOfItems_TextChanged(object sender, EventArgs e)
         {
             if (textBoxNumberOfItems.Text.Length > 0 && textBoxNumberOfItems.Text.Length < 10)
-                this.numberOfItems = Int32.Parse(textBoxNumberOfItems.Text);
-            priceNetto = tranche.Stock.PriceNetto * this.numberOfItems;
-            labelNetto.Text = "" + priceNetto;
-            priceBrutto = priceNetto / 100 * (100 + tranche.Stock.Stock.VAT);
-            labelBrutto.Text = "" + priceBrutto;
+                try { tranche.NumberOfItems = Int32.Parse(textBoxNumberOfItems.Text); }
+                catch(ArgumentException) { MessageBox.Show("Nieprawidłowa wartość."); }
+            labelNetto.Text = Math.Round(tranche.PriceNetto, 2).ToString();
+            labelBrutto.Text = Math.Round(tranche.PriceBrutto, 2).ToString();
         }
 
         private void TextBoxQuota_TextChanged(object sender, EventArgs e)
@@ -162,32 +190,14 @@ namespace OrderManager.Presentation
             Regex regexObj = new Regex(@"-?\d+(?:\,\d+)?");
             Match matchResult = regexObj.Match(textBoxQuota.Text);
             if (textBoxQuota.Text.Length > 0 && textBoxQuota.Text.Length < 10 && matchResult.Length > 0)
-                this.quotaDiscount = Double.Parse(textBoxQuota.Text);
-            double amount = priceBrutto - this.quotaDiscount;
-            labelBrutto.Text = "" + amount;
+                try { tranche.QuotaDiscount = Double.Parse(textBoxQuota.Text); }
+                catch (ArgumentException) { MessageBox.Show("Nieprawidłowa wartość."); }
+            labelNetto.Text = Math.Round(tranche.PriceNetto, 2).ToString();
+            labelBrutto.Text = Math.Round(tranche.PriceBrutto, 2).ToString();
         }
 
         private void Button4_Click(object sender, EventArgs e)
         {
-            List<PercentageDiscount> chosenDiscounts = new List<PercentageDiscount>();
-            this.tranche.NumberOfItems = this.numberOfItems;
-            this.tranche.QuotaDiscount = this.quotaDiscount;
-            var checkedRows = this.dataGridDiscounts.Rows.Cast<DataGridViewRow>().Where(row => (bool?)row.Cells[0].Value == true).ToList();
-            List<PercentageDiscount> viableDiscounts = trancheService.GetViableDiscounts(tranche);
-            foreach (PercentageDiscount discount in viableDiscounts)
-            {
-                Boolean shouldBeAdded = false;
-                foreach (DataGridViewRow row in checkedRows)
-                {
-                    var id1 = discount.Id.ToString();
-                    var id2 = row.Cells["Id"].Value.ToString();
-                    if (id1.Equals(id2))
-                        shouldBeAdded = true;
-                }
-                if (shouldBeAdded)
-                    chosenDiscounts.Add(discount);
-            }
-            this.tranche.Discounts = chosenDiscounts;
             this.saved = true;
             this.Close();
         }

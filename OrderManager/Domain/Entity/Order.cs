@@ -15,6 +15,7 @@ namespace OrderManager.Domain.Entity
         realized = 4
     }
 
+    [Serializable]
     public class Order
     {
         private int? id;
@@ -88,47 +89,22 @@ namespace OrderManager.Domain.Entity
         internal Counterparty Counterparty { get => counterparty; set => counterparty = value; }
         internal ORDERSTATE State { get => state; set => state = value; }
         internal User Creator { get => creator; set => creator = value; }
-        internal List<Tranche> Tranches { get => tranches; set => tranches = value; }
+        internal List<Tranche> Tranches { get => tranches; set { if (value.Count() < 1) throw new ArgumentException(); tranches = value; } }
 
         internal Order ParentOrder
         {
-            get
-            {
-                if (parentOrder == null)
-                {
-                    DAL.InternalSysDAO.OrderDAO orderDAO = new DAL.InternalSysDAO.OrderDAO();
-                    DTO.OrderMapper orderMapper = new DTO.OrderMapper(orderDAO);
-                    DataTable parentTable = orderDAO.GetParentOrderById(0);//poprawic
-                    if (parentTable.Rows.Count < 1)
-                        parentOrder = null;
-                    else
-                        parentOrder = orderMapper.MapFrom(parentTable);
-                }
-                return parentOrder;
-            }
+            get => parentOrder;
             set => parentOrder = value;
         }
 
         public double PriceNetto
         {
-            get 
-            {
-                double price = 0.0;
-                foreach (Tranche tranche in Tranches)
-                    price += tranche.PriceNetto;
-                return price;
-            }
+            get { return tranches.Sum(t => t.PriceNetto); }
         }
 
         public double PriceBrutto
         {
-            get
-            {
-                double price = 0.0;
-                foreach (Tranche tranche in Tranches)
-                    price += tranche.PriceBrutto;
-                return price;
-            }
+            get { return tranches.Sum(t => t.PriceBrutto); }
         }
 
         public override bool Equals(object obj)
@@ -140,6 +116,7 @@ namespace OrderManager.Domain.Entity
         {
             return name.GetHashCode();
         }
+        
         public override string ToString() { return "Zamowienie " + id + " " + name + ", stan: " + state + ", user: " + creator.ToString() + ", data utworzenia: " + dateOfCreation + ", kontrahent: " + counterparty.ToString(); }
     }
 }

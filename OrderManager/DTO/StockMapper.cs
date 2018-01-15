@@ -50,7 +50,7 @@ namespace OrderManager.DTO
             dataRow["ID"] = tDomain.Id;
             dataRow["MinimumMagazynowe"] = tDomain.MinInStockRoom;
             dataRow["WagaSztuki"] = tDomain.WeightOfItem;
-            dataRow["MaksLiczbaSztukNaEuropalecie"] = tDomain.maxNumberOfItemsOnEuropallet;
+            dataRow["MaksLiczbaSztukNaEuropalecie"] = tDomain.MaxNumberOfItemsOnEuropallet;
             dataRow["LiczbaSztuk"] = tDomain.NumberOfItemsInStockRoom;
             dataRow["MaksimumMagazynowe"] = tDomain.MaxInStockRoom;
             dataRow["VAT"] = tDomain.VAT;
@@ -65,7 +65,7 @@ namespace OrderManager.DTO
         {
             DataRow stockRow = stockTable.Rows[numberOfRow];
             IStockDAO stockDAO = new StockDAO();
-            DataRow categoryRow = stockDAO.GetStocksCategory(stockTable).Rows[0];
+            DataRow categoryRow = stockDAO.GetStocksCategory(stockRow).Rows[0];
             Stock stock = new Stock(
             Convert.ToInt32(stockRow["ID"]),
             Convert.ToInt32(stockRow["MaksimumMagazynowe"]),
@@ -77,7 +77,8 @@ namespace OrderManager.DTO
             Convert.ToInt32(stockRow["VAT"]),
             Convert.ToString(stockRow["Kod"]),
             Convert.ToString(stockRow["Nazwa"]),
-            new Category(Convert.ToInt32(categoryRow["KategoriaID"]), Convert.ToString(categoryRow["NazwaKategorii"])));
+            new Category(Convert.ToInt32(categoryRow["ID"]), Convert.ToString(categoryRow["NazwaKategorii"])),
+            Convert.ToBoolean(stockRow["WGenerowanymZamowieniu"]));
             return stock;
         }
 

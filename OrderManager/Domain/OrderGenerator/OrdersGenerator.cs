@@ -34,10 +34,19 @@ namespace OrderManager.Domain
             List<Tranche> tranches = new List<Tranche>();
 
             foreach (Priority priority in Enum.GetValues(typeof(Priority)))
-                strategies.Add(GetStrategy(priority, 
-                    stockToOrder.Where(tuple =>
+            {
+                foreach(var st in stockToOrder)
+                {
+                    var prio = priorityService.GetStockPriority(st.Key).First();
+                    bool eq = prio.Equals(priority);
+                }
+
+                var stockToStartegy = stockToOrder.Where(tuple =>
                     priorityService.GetStockPriority(tuple.Key).First()
-                    .Equals(priority)).ToDictionary(i => i.Key, i => i.Value)));
+                    .Equals(priority));
+                var dictinary = stockToStartegy.ToDictionary(i => i.Key, i => i.Value);
+                strategies.Add(GetStrategy(priority, dictinary));
+            }
             foreach (var strategy in strategies)
                 tranches.AddRange(strategy.BestChosenOfferts());
 
@@ -47,17 +56,20 @@ namespace OrderManager.Domain
         private List<Order> groupTranchesInOrders(List<Tranche> tranches)
         {
             List<Order> orders = new List<Order>();
-            List<string> eligibleNames = eligibleOrdersNamesService.FetchNames(
-                tranches.GroupBy(tranche => tranche.Stock.Counterparty)
-                .Select(counterparty => counterparty.First()).Count());
-            int numberOfName = 0;
-            foreach(var counterparty in tranches.ToLookup(tranche => tranche.Stock.Counterparty, tranche => tranche))
+            if(tranches != null || !(tranches.Count == 0))
             {
-                List<Tranche> tranchesInOrder = new List<Tranche>();
-                foreach (Tranche trancheInOrder in counterparty)
-                    tranchesInOrder.Add(trancheInOrder);
-                orders.Add(new Order(null, eligibleNames[numberOfName], counterparty.Key, DateTime.Now, ORDERSTATE.duringRealization, LoggedUser.User, tranchesInOrder));
-                numberOfName++;
+                List<string> eligibleNames = eligibleOrdersNamesService.FetchNames(
+                    tranches.GroupBy(tranche => tranche.Stock.Counterparty)
+                    .Select(counterparty => counterparty.First()).Count());
+                int numberOfName = 0;
+                foreach (var counterparty in tranches.ToLookup(tranche => tranche.Stock.Counterparty, tranche => tranche))
+                {
+                    List<Tranche> tranchesInOrder = new List<Tranche>();
+                    foreach (Tranche trancheInOrder in counterparty)
+                        tranchesInOrder.Add(trancheInOrder);
+                    orders.Add(new Order(null, eligibleNames[numberOfName], counterparty.Key, DateTime.Now, ORDERSTATE.duringRealization, LoggedUser.User, tranchesInOrder));
+                    numberOfName++;
+                }
             }
             return orders;
         }

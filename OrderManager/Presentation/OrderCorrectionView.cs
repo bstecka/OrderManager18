@@ -15,6 +15,7 @@ namespace OrderManager.Presentation
     public partial class OrderCorrectionView : Form
     {
         private Order order;
+        private Order originalOrder;
         private List<Tranche> tranchesToUpdate;
         private List<Tranche> tranchesToDelete;
         private IOrderService orderService;
@@ -24,7 +25,8 @@ namespace OrderManager.Presentation
         public OrderCorrectionView(Order order, IOrderService orderService, ITrancheService trancheService)
         {
             InitializeComponent();
-            this.order = order;
+            this.order = CloneObj.DeepClone<Order>(order);
+            originalOrder = order;
             this.orderService = orderService;
             this.trancheService = trancheService;
             this.tranchesToUpdate = new List<Tranche>();
@@ -41,8 +43,8 @@ namespace OrderManager.Presentation
             labelDate.Text = order.DateOfCreation.ToString("dd/MM/yyyy");
             labelCounterpartysName.Text = order.Counterparty.Name;
             labelCounterpartysCode.Text = order.Counterparty.Nip.ToString();
-            labelNetto.Text = order.PriceNetto.ToString();
-            labelBrutto.Text = order.PriceBrutto.ToString();
+            labelNetto.Text = Math.Round(order.PriceNetto, 2).ToString();
+            labelBrutto.Text = Math.Round(order.PriceBrutto, 2).ToString();
             labelAuthor.Text = order.Creator.Name + " " + order.Creator.Surname;
             FillTranches();
             AddActionColumns();
@@ -138,7 +140,7 @@ namespace OrderManager.Presentation
                 }
                 else if (tranche != null && e.ColumnIndex.Equals(1))
                 {
-                    this.tranchesToDelete.Add(tranche);
+                    order.Tranches.RemoveAt(e.RowIndex);
                     dataGridViewTranches.Rows.RemoveAt(e.RowIndex);
                 }
             }
@@ -146,7 +148,7 @@ namespace OrderManager.Presentation
 
         void TrancheCorrectionView_Closed(object sender, FormClosedEventArgs e)
         {
-            TrancheCorrectionView form = (TrancheCorrectionView) sender;
+            TrancheCorrectionView form = (TrancheCorrectionView)sender;
             if (form.Saved)
             {
                 Tranche tr = form.Tranche;
@@ -166,32 +168,20 @@ namespace OrderManager.Presentation
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            Order newOrder = this.order;
-            newOrder.State = ORDERSTATE.duringReview;
-            int newOrderId = orderService.InsertOrder(newOrder);
-            foreach (Tranche tranche in newOrder.Tranches)
+            order.State = ORDERSTATE.duringRealization;
+            originalOrder.State = ORDERSTATE.cancelled; 
+            int newOrderId = orderService.InsertOrder(order);
+            order.Id = newOrderId;
+            foreach (var tranche in order.Tranches)
             {
-                Boolean shouldBeOmitted = false;
                 tranche.OrderId = newOrderId;
-                foreach (Tranche toDelete in tranchesToDelete)
-                {
-                    if (toDelete.Id == tranche.Id)
-                        shouldBeOmitted = true;
-                }
-                if (!shouldBeOmitted)
-                {
-                    int newTrancheId = trancheService.InsertTranche(tranche);
-                    tranche.Id = newTrancheId;
-                    foreach (PercentageDiscount discount in tranche.Discounts)
-                    {
-                        trancheService.AssignDiscountToTranche(tranche, discount);
-                    }
-                }
+                int newTrancheId = trancheService.InsertTranche(tranche);
+                tranche.Id = newTrancheId;
+                foreach (PercentageDiscount discount in tranche.Discounts)
+                    trancheService.AssignDiscountToTranche(tranche, discount);
             }
-            Order cancelledOrder = this.order;
-            cancelledOrder.State = ORDERSTATE.cancelled;
-            cancelledOrder.ParentOrder = orderService.GetById("" + newOrderId);
-            orderService.UpdateOrder(cancelledOrder);
+            originalOrder.ParentOrder = orderService.GetById(newOrderId.ToString());
+            orderService.UpdateOrder(originalOrder);
             this.saved = true;
             this.Close();
         }

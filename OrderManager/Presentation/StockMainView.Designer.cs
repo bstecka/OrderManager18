@@ -1,6 +1,6 @@
 ﻿namespace OrderManager
 {
-    partial class ThePrettiestGUIEver
+    partial class StockMainView
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThePrettiestGUIEver));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StockMainView));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -489,6 +489,7 @@
             this.dataGridViewStock.RowHeadersVisible = false;
             this.dataGridViewStock.Size = new System.Drawing.Size(627, 201);
             this.dataGridViewStock.TabIndex = 3;
+            this.dataGridViewStock.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridViewStock_CellValidating);
             // 
             // label1
             // 
@@ -496,7 +497,7 @@
             this.label1.BackColor = System.Drawing.Color.SlateGray;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Verdana", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Info;
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(0, 24);
             this.label1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.label1.Name = "label1";

@@ -26,11 +26,23 @@ namespace OrderManager.DAL.InternalSysDAO
                 WHERE TowarID IN (" + stock.Rows[0]["ID"] + ")");
         }
 
-        public DataTable GetStocksCategory(DataTable stock)
+        public DataTable GetStocksCategory(DataRow stock)
         {
+            /*
             return DBOperations.Query(@"SELECT * FROM Kategoria JOIN Towar
                 ON Kategoria.ID = Towar.KategoriaID
-                WHERE Towar.ID IN (" + stock.Rows[0]["ID"] + ")");
+                WHERE Towar.ID IN (" + stock.Rows[0]["ID"] + ")");*/
+            return DBOperations.Query("SELECT * FROM Kategoria WHERE ID = " + stock["KategoriaID"]);
         }
+
+        public bool SetPossibilityToGenerateOrder(int id, int value) 
+            //Gdyby to byl oracle, to bym zrobila triggera before update i rzucala z niego wyjatek, jak checmy true 
+            //zmienic na true, tu bym go lapala i w catchu zwracal false, ale mssql to zlo jak caly microsoft, wiec moge tylko plakac.
+        {
+            DBOperations.OpertionThatRequiresOpeningDBConnection(@"UPDATE Towar SET WGenerowanymZamowieniu = " 
+            + value + " WHERE ID = " + id);
+            return true; 
+        }
+        
     }
 }

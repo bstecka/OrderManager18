@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneratedOrdersView));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelContent = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -136,7 +137,6 @@
             this.dataGridViewOrders.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewOrders.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewOrders.Name = "dataGridViewOrders";
-            this.dataGridViewOrders.ReadOnly = true;
             this.dataGridViewOrders.RowHeadersVisible = false;
             this.dataGridViewOrders.Size = new System.Drawing.Size(764, 244);
             this.dataGridViewOrders.TabIndex = 7;
@@ -147,7 +147,7 @@
             this.labelTitle.BackColor = System.Drawing.Color.SlateGray;
             this.labelTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelTitle.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelTitle.ForeColor = System.Drawing.SystemColors.Info;
+            this.labelTitle.ForeColor = System.Drawing.Color.White;
             this.labelTitle.Location = new System.Drawing.Point(0, 22);
             this.labelTitle.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.labelTitle.Name = "labelTitle";
@@ -176,6 +176,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 446);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GeneratedOrdersView";
             this.Text = "OrderManager2018 Wygenerowane zamówienia";
             this.tableLayoutPanel1.ResumeLayout(false);

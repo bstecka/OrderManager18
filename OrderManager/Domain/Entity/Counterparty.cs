@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace OrderManager.Domain.Entity
 {
+    [Serializable]
     public class Counterparty
     {
         private int id;

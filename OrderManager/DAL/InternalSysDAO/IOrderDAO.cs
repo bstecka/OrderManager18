@@ -19,5 +19,6 @@ namespace OrderManager.DAL.InternalSysDAO
         DataTable GetOrderState(DataRow order);
         void UpdateOrders(DataTable table);
         void UpdateOrder(DataRow row);
+        void OrderCorrection(DataTable oldOrder, DataTable newOrder);
     }
 }

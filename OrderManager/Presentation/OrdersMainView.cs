@@ -14,7 +14,6 @@ namespace OrderManager.Presentation
 {
     public partial class OrdersMainView : Form
     {
-
         private IOrderService orderService;
         private ITrancheService trancheService;
         private List<Order> listOrder;
@@ -63,13 +62,12 @@ namespace OrderManager.Presentation
             foreach (var order in listOrder)
             {
                 DataRow dataRow = dataGridSource.NewRow();
-
                 dataRow["Nazwa"] = order.Name;
                 dataRow["Kontrahent"] = order.Counterparty;
                 dataRow["Status"] = GetTranslatedOrderStateString(order.State);
-                dataRow["Data złożenia"] = order.DateOfCreation;
-                dataRow["Suma wart. poz. Netto"] = order.PriceNetto;
-                dataRow["Suma wart. poz. Brutto"] = order.PriceBrutto;
+                dataRow["Data złożenia"] = order.DateOfCreation.ToShortDateString();
+                dataRow["Suma wart. poz. Netto"] = Math.Round(order.PriceNetto, 2).ToString();
+                dataRow["Suma wart. poz. Brutto"] = Math.Round(order.PriceBrutto, 2).ToString();
                 dataGridSource.Rows.Add(dataRow);
             }
 
@@ -147,7 +145,7 @@ namespace OrderManager.Presentation
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
-            var stockForm = new ThePrettiestGUIEver();
+            var stockForm = new StockMainView();
             stockForm.Closed += (s, args) => this.Close();
             stockForm.Show();
         }
