@@ -255,7 +255,6 @@ namespace OrderManager.Presentation
             textBoxQuota.Text = "" + tranche.QuotaDiscount;
             labelNetto.Text = "" + Math.Round(tranche.PriceNetto, 2).ToString();
             labelBrutto.Text = "" + Math.Round(tranche.PriceBrutto, 2).ToString();
-            //AddCheckBoxColumn();
 
             (new DataGridviewCheckBoxColumnProwider(dataGridDiscounts)).addCheckBoxColumn();
             FillDiscounts();
@@ -313,9 +312,9 @@ namespace OrderManager.Presentation
             {
                 DataRow dataRow = dataGridSource.NewRow();
                 dataRow["Id"] = discount.Id;
-                dataRow["Wysokość"] = discount.Amount;
-                dataRow["Data rozpoczęcia"] = discount.Since;
-                dataRow["Data zakończenia"] = discount.Until;
+                dataRow["Wysokość"] = Math.Round(discount.Amount,2);
+                dataRow["Data rozpoczęcia"] = discount.Since.ToShortDateString();
+                dataRow["Data zakończenia"] = discount.Until.ToShortDateString();
                 dataGridSource.Rows.Add(dataRow);
                 lp++;
             }

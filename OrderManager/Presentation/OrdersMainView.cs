@@ -66,7 +66,7 @@ namespace OrderManager.Presentation
                 dataRow["Nazwa"] = order.Name;
                 dataRow["Kontrahent"] = order.Counterparty;
                 dataRow["Status"] = GetTranslatedOrderStateString(order.State);
-                dataRow["Data złożenia"] = order.DateOfCreation;
+                dataRow["Data złożenia"] = order.DateOfCreation.ToShortDateString();
                 dataRow["Suma wart. poz. Netto"] = Math.Round(order.PriceNetto, 2).ToString();
                 dataRow["Suma wart. poz. Brutto"] = Math.Round(order.PriceBrutto, 2).ToString();
                 dataGridSource.Rows.Add(dataRow);
