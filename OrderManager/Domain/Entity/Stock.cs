@@ -46,7 +46,7 @@ namespace OrderManager.Domain.Entity
             set { if (value < 0) throw new ArgumentException(); minInStockRoom = value; }
         }
         public int NumberOfItemsInStockRoom { get => numberOfImtems;}
-        public int WeightOfItem { get => weightOfItem; set { if (value <= 0) throw new ArgumentException(); weightOfItem = value; } }
+        public int WeightOfItem { get => weightOfItem; set { if (value < 0) throw new ArgumentException(); weightOfItem = value; } }
         public int MaxNumberOfItemsOnEuropallet { get => maxNumOfItemsOnEuropallet; set { if (value < 0) throw new ArgumentException(); maxNumOfItemsOnEuropallet = value; } }
         public int VAT { get => vat; set => vat = value; }
         public string Code { get => code; set => code = value; }

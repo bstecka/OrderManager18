@@ -353,7 +353,7 @@ namespace OrderManager.Presentation
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            order.State = ORDERSTATE.duringReview;
+            order.State = ORDERSTATE.duringRealization;
             originalOrder.State = ORDERSTATE.cancelled; 
             int newOrderId = orderService.InsertOrder(order);
             originalOrder.ParentOrder = orderService.GetById(newOrderId.ToString());
