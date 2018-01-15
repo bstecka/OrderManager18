@@ -95,8 +95,8 @@ namespace OrderManager.Presentation
                 DataRow dataRow = dataGridSource.NewRow();
                 dataRow["Id"] = discount.Id;
                 dataRow["Wysokość"] = Math.Round(discount.Amount, 2);
-                dataRow["Data rozpoczęcia"] = discount.Since;
-                dataRow["Data zakończenia"] = discount.Until;
+                dataRow["Data rozpoczęcia"] = discount.Since.ToString("dd/MM/yyyy");
+                dataRow["Data zakończenia"] = discount.Until.ToString("dd/MM/yyyy");
                 dataGridSource.Rows.Add(dataRow);
                 lp++;
             }

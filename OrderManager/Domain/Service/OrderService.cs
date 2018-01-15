@@ -53,5 +53,14 @@ namespace OrderManager.Domain.Service
             DataTable table = mapper.MapTo(order);
             return DAO.Add(table);
         }
+
+        public Order GetParentOrder(Order order)
+        {
+            DataTable parentTable = DAO.GetParentOrderById(order.Id.GetValueOrDefault());
+            if (parentTable.Rows.Count < 1)
+                return null;
+            else
+                return mapper.MapFrom(parentTable);
+        }
     }
 }
