@@ -356,6 +356,15 @@ namespace OrderManager.Presentation
             order.State = ORDERSTATE.duringRealization;
             originalOrder.State = ORDERSTATE.cancelled; 
             int newOrderId = orderService.InsertOrder(order);
+            order.Id = newOrderId;
+            foreach (var tranche in order.Tranches)
+            {
+                tranche.OrderId = newOrderId;
+                int newTrancheId = trancheService.InsertTranche(tranche);
+                tranche.Id = newTrancheId;
+                foreach (PercentageDiscount discount in tranche.Discounts)
+                    trancheService.AssignDiscountToTranche(tranche, discount);
+            }
             originalOrder.ParentOrder = orderService.GetById(newOrderId.ToString());
             orderService.UpdateOrder(originalOrder);
             this.saved = true;
