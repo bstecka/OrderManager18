@@ -120,7 +120,6 @@
     <Compile Include="Domain\Service\OrderService.cs" />
     <Compile Include="Domain\Service\PriorityService.cs" />
     <Compile Include="Domain\Service\StockService.cs" />
-    <Compile Include="DTO\CategoryMapper.cs" />
     <Compile Include="DTO\CounterpartyMapper.cs" />
     <Compile Include="DTO\CounterpartysStockMapper.cs" />
     <Compile Include="DTO\EligibleOrdersNamesMapper.cs" />

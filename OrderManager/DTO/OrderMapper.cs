@@ -14,11 +14,20 @@ namespace OrderManager.DTO
     {
         IOrderDAO orderDAO;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OrderMapper"/> class.
+        /// </summary>
+        /// <param name="orderDAO">The order DAO.</param>
         public OrderMapper(IOrderDAO orderDAO)
         {
             this.orderDAO = orderDAO;
         }
 
+        /// <summary>
+        /// Maps from the dataTable to a list of order entities.
+        /// </summary>
+        /// <param name="orderTable">The order table.</param>
+        /// <returns>Returns a list of order entities.</returns>
         public List<Order> MapAllFrom(DataTable orderTable)
         {
             List<Order> result = new List<Order>();
@@ -28,11 +37,22 @@ namespace OrderManager.DTO
             return result;
         }
 
+        /// <summary>
+        /// Maps from the dataTable to an order entity.
+        /// </summary>
+        /// <param name="orderTable">The order table.</param>
+        /// <returns>Returns the order entity.</returns>
         public Order MapFrom(DataTable orderTable)
         {
             return MapFrom(orderTable, 0);
         }
 
+        /// <summary>
+        /// Maps from a specified row of the dataTable to an order entity.
+        /// </summary>
+        /// <param name="orderTable">The order table.</param>
+        /// <param name="numberOfRow">The number of row.</param>
+        /// <returns>Returns the order entity.</returns>
         Order MapFrom(DataTable orderTable, int numberOfRow)
         {
             DataRow orderRow = orderTable.Rows[numberOfRow];
@@ -68,6 +88,11 @@ namespace OrderManager.DTO
                 );
         }
 
+        /// <summary>
+        /// Maps from the order entity to a DataTable.
+        /// </summary>
+        /// <param name="orderDomain">The order domain.</param>
+        /// <returns>Returns a DataTable with values corresponding to the order entity.</returns>
         public DataTable MapTo(Order orderDomain)
         {
             DataTable dataTable = new DataTable();
