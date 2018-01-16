@@ -1,0 +1,1273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpTOC>
+
+  <HelpTOCNode Id="fb6d0c11-0a5b-4d15-a13f-e564208fc597" Title="OrderManager Namespace" Url="html/N-OrderManager.htm">
+    <HelpTOCNode Id="55432c6c-7c10-451c-b8a4-0c6c0838d1f3" Title="DependencyInjector Class" Url="html/T-OrderManager.DependencyInjector.htm">
+      <HelpTOCNode Title="DependencyInjector Members" Url="html/AllMembers.T-OrderManager.DependencyInjector.htm" />
+      <HelpTOCNode Id="f7ecc83c-dcf1-4afc-92e6-5cf887ab72f8" Title="DependencyInjector Properties" Url="html/Properties.T-OrderManager.DependencyInjector.htm">
+        <HelpTOCNode Title="ICounterpartyDAO Property " Url="html/P-OrderManager.DependencyInjector.ICounterpartyDAO.htm" />
+        <HelpTOCNode Title="ICounterpartyService Property " Url="html/P-OrderManager.DependencyInjector.ICounterpartyService.htm" />
+        <HelpTOCNode Title="ICounterpartysStockDAO Property " Url="html/P-OrderManager.DependencyInjector.ICounterpartysStockDAO.htm" />
+        <HelpTOCNode Title="ICounterpartysStockService Property " Url="html/P-OrderManager.DependencyInjector.ICounterpartysStockService.htm" />
+        <HelpTOCNode Title="IEligibleOrdersNamesDAO Property " Url="html/P-OrderManager.DependencyInjector.IEligibleOrdersNamesDAO.htm" />
+        <HelpTOCNode Title="IEligibleOrdersNamesService Property " Url="html/P-OrderManager.DependencyInjector.IEligibleOrdersNamesService.htm" />
+        <HelpTOCNode Title="IMapperBaseCounterparty Property " Url="html/P-OrderManager.DependencyInjector.IMapperBaseCounterparty.htm" />
+        <HelpTOCNode Title="IMapperBaseCounterpartysStock Property " Url="html/P-OrderManager.DependencyInjector.IMapperBaseCounterpartysStock.htm" />
+        <HelpTOCNode Title="IMapperBaseOrder Property " Url="html/P-OrderManager.DependencyInjector.IMapperBaseOrder.htm" />
+        <HelpTOCNode Title="IMapperBaseOrdersNames Property " Url="html/P-OrderManager.DependencyInjector.IMapperBaseOrdersNames.htm" />
+        <HelpTOCNode Title="IMapperBasePercentageDiscount Property " Url="html/P-OrderManager.DependencyInjector.IMapperBasePercentageDiscount.htm" />
+        <HelpTOCNode Title="IMapperBasePriority Property " Url="html/P-OrderManager.DependencyInjector.IMapperBasePriority.htm" />
+        <HelpTOCNode Title="IMapperBaseStock Property " Url="html/P-OrderManager.DependencyInjector.IMapperBaseStock.htm" />
+        <HelpTOCNode Title="IMapperBaseTranche Property " Url="html/P-OrderManager.DependencyInjector.IMapperBaseTranche.htm" />
+        <HelpTOCNode Title="IOrderDAO Property " Url="html/P-OrderManager.DependencyInjector.IOrderDAO.htm" />
+        <HelpTOCNode Title="IOrderService Property " Url="html/P-OrderManager.DependencyInjector.IOrderService.htm" />
+        <HelpTOCNode Title="IPercentageDiscountDAO Property " Url="html/P-OrderManager.DependencyInjector.IPercentageDiscountDAO.htm" />
+        <HelpTOCNode Title="IPriorityDAO Property " Url="html/P-OrderManager.DependencyInjector.IPriorityDAO.htm" />
+        <HelpTOCNode Title="IPriorityService Property " Url="html/P-OrderManager.DependencyInjector.IPriorityService.htm" />
+        <HelpTOCNode Title="IStockDAO Property " Url="html/P-OrderManager.DependencyInjector.IStockDAO.htm" />
+        <HelpTOCNode Title="IStockService Property " Url="html/P-OrderManager.DependencyInjector.IStockService.htm" />
+        <HelpTOCNode Title="ITrancheDAO Property " Url="html/P-OrderManager.DependencyInjector.ITrancheDAO.htm" />
+        <HelpTOCNode Title="ITrancheService Property " Url="html/P-OrderManager.DependencyInjector.ITrancheService.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="97455f9b-aebb-4c50-bf9f-139eac300e32" Title="StockMainView Class" Url="html/T-OrderManager.StockMainView.htm">
+      <HelpTOCNode Title="StockMainView Members" Url="html/AllMembers.T-OrderManager.StockMainView.htm" />
+      <HelpTOCNode Title="StockMainView Constructor " Url="html/M-OrderManager.StockMainView.-ctor.htm" />
+      <HelpTOCNode Id="228a9654-3dfc-4650-ab61-4336876e3aaa" Title="StockMainView Fields" Url="html/Fields.T-OrderManager.StockMainView.htm">
+        <HelpTOCNode Title="button2 Field" Url="html/F-OrderManager.StockMainView.button2.htm" />
+        <HelpTOCNode Title="button3 Field" Url="html/F-OrderManager.StockMainView.button3.htm" />
+        <HelpTOCNode Title="buttonGenerateOrders Field" Url="html/F-OrderManager.StockMainView.buttonGenerateOrders.htm" />
+        <HelpTOCNode Title="comboBoxCategory Field" Url="html/F-OrderManager.StockMainView.comboBoxCategory.htm" />
+        <HelpTOCNode Title="comboBoxOrdered Field" Url="html/F-OrderManager.StockMainView.comboBoxOrdered.htm" />
+        <HelpTOCNode Title="comboBoxState Field" Url="html/F-OrderManager.StockMainView.comboBoxState.htm" />
+        <HelpTOCNode Title="components Field" Url="html/F-OrderManager.StockMainView.components.htm" />
+        <HelpTOCNode Title="dataGridViewStock Field" Url="html/F-OrderManager.StockMainView.dataGridViewStock.htm" />
+        <HelpTOCNode Title="filtersHeight Field" Url="html/F-OrderManager.StockMainView.filtersHeight.htm" />
+        <HelpTOCNode Title="flowLayoutPanel1 Field" Url="html/F-OrderManager.StockMainView.flowLayoutPanel1.htm" />
+        <HelpTOCNode Title="flowLayoutPanelFilter Field" Url="html/F-OrderManager.StockMainView.flowLayoutPanelFilter.htm" />
+        <HelpTOCNode Title="flowLayoutPanelSearch Field" Url="html/F-OrderManager.StockMainView.flowLayoutPanelSearch.htm" />
+        <HelpTOCNode Title="label1 Field" Url="html/F-OrderManager.StockMainView.label1.htm" />
+        <HelpTOCNode Title="label10 Field" Url="html/F-OrderManager.StockMainView.label10.htm" />
+        <HelpTOCNode Title="label11 Field" Url="html/F-OrderManager.StockMainView.label11.htm" />
+        <HelpTOCNode Title="label12 Field" Url="html/F-OrderManager.StockMainView.label12.htm" />
+        <HelpTOCNode Title="label13 Field" Url="html/F-OrderManager.StockMainView.label13.htm" />
+        <HelpTOCNode Title="label14 Field" Url="html/F-OrderManager.StockMainView.label14.htm" />
+        <HelpTOCNode Title="label15 Field" Url="html/F-OrderManager.StockMainView.label15.htm" />
+        <HelpTOCNode Title="label2 Field" Url="html/F-OrderManager.StockMainView.label2.htm" />
+        <HelpTOCNode Title="label3ContentName Field" Url="html/F-OrderManager.StockMainView.label3ContentName.htm" />
+        <HelpTOCNode Title="label4 Field" Url="html/F-OrderManager.StockMainView.label4.htm" />
+        <HelpTOCNode Title="label5 Field" Url="html/F-OrderManager.StockMainView.label5.htm" />
+        <HelpTOCNode Title="label7 Field" Url="html/F-OrderManager.StockMainView.label7.htm" />
+        <HelpTOCNode Title="label8 Field" Url="html/F-OrderManager.StockMainView.label8.htm" />
+        <HelpTOCNode Title="label9 Field" Url="html/F-OrderManager.StockMainView.label9.htm" />
+        <HelpTOCNode Title="linkLabel1 Field" Url="html/F-OrderManager.StockMainView.linkLabel1.htm" />
+        <HelpTOCNode Title="linkLabel2 Field" Url="html/F-OrderManager.StockMainView.linkLabel2.htm" />
+        <HelpTOCNode Title="listStock Field" Url="html/F-OrderManager.StockMainView.listStock.htm" />
+        <HelpTOCNode Title="pictureBoxFilter Field" Url="html/F-OrderManager.StockMainView.pictureBoxFilter.htm" />
+        <HelpTOCNode Title="pictureBoxSearch Field" Url="html/F-OrderManager.StockMainView.pictureBoxSearch.htm" />
+        <HelpTOCNode Title="stockService Field" Url="html/F-OrderManager.StockMainView.stockService.htm" />
+        <HelpTOCNode Title="tableLayoutPanel1 Field" Url="html/F-OrderManager.StockMainView.tableLayoutPanel1.htm" />
+        <HelpTOCNode Title="tableLayoutPanel2 Field" Url="html/F-OrderManager.StockMainView.tableLayoutPanel2.htm" />
+        <HelpTOCNode Title="tableLayoutPanel4 Field" Url="html/F-OrderManager.StockMainView.tableLayoutPanel4.htm" />
+        <HelpTOCNode Title="tableLayoutPanel6 Field" Url="html/F-OrderManager.StockMainView.tableLayoutPanel6.htm" />
+        <HelpTOCNode Title="tableLayoutPanelContent Field" Url="html/F-OrderManager.StockMainView.tableLayoutPanelContent.htm" />
+        <HelpTOCNode Title="tableLayoutPanelFilter Field" Url="html/F-OrderManager.StockMainView.tableLayoutPanelFilter.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="062e0f19-314f-42ad-97c8-620aa2b26729" Title="StockMainView Methods" Url="html/Methods.T-OrderManager.StockMainView.htm">
+        <HelpTOCNode Title="AddDataSourceForFilters Method " Url="html/M-OrderManager.StockMainView.AddDataSourceForFilters.htm" />
+        <HelpTOCNode Title="ButtonGenerateOrders_MouseClick Method " Url="html/M-OrderManager.StockMainView.ButtonGenerateOrders_MouseClick.htm" />
+        <HelpTOCNode Title="comboBoxCategory_SelectedIndexChanged Method " Url="html/M-OrderManager.StockMainView.comboBoxCategory_SelectedIndexChanged.htm" />
+        <HelpTOCNode Title="comboBoxState_SelectedIndexChanged Method " Url="html/M-OrderManager.StockMainView.comboBoxState_SelectedIndexChanged.htm" />
+        <HelpTOCNode Title="dataGridViewStock_CellValidating Method " Url="html/M-OrderManager.StockMainView.dataGridViewStock_CellValidating.htm" />
+        <HelpTOCNode Title="Dispose Method " Url="html/M-OrderManager.StockMainView.Dispose.htm" />
+        <HelpTOCNode Title="FillGridview Method " Url="html/M-OrderManager.StockMainView.FillGridview.htm" />
+        <HelpTOCNode Title="getCategories Method " Url="html/M-OrderManager.StockMainView.getCategories.htm" />
+        <HelpTOCNode Title="GetNumberOfItemsInIndividualOrdersColumn Method " Url="html/M-OrderManager.StockMainView.GetNumberOfItemsInIndividualOrdersColumn.htm" />
+        <HelpTOCNode Title="InformAboutUnorderedStock Method " Url="html/M-OrderManager.StockMainView.InformAboutUnorderedStock.htm" />
+        <HelpTOCNode Title="InitializeComponent Method " Url="html/M-OrderManager.StockMainView.InitializeComponent.htm" />
+        <HelpTOCNode Title="LinkLabel2_LinkClicked Method " Url="html/M-OrderManager.StockMainView.LinkLabel2_LinkClicked.htm" />
+        <HelpTOCNode Title="MainStockView_FormClosing Method " Url="html/M-OrderManager.StockMainView.MainStockView_FormClosing.htm" />
+        <HelpTOCNode Title="pictureBoxFilter_MouseClick Method " Url="html/M-OrderManager.StockMainView.pictureBoxFilter_MouseClick.htm" />
+        <HelpTOCNode Title="prepareFiltersPanel Method " Url="html/M-OrderManager.StockMainView.prepareFiltersPanel.htm" />
+        <HelpTOCNode Title="StockMainView_FormClosing Method " Url="html/M-OrderManager.StockMainView.StockMainView_FormClosing.htm" />
+        <HelpTOCNode Title="StockMainView_MouseClick Method " Url="html/M-OrderManager.StockMainView.StockMainView_MouseClick.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="0c536fda-dcac-48be-bf79-987f3933e56e" Title="OrderManager.DAL Namespace" Url="html/N-OrderManager.DAL.htm">
+    <HelpTOCNode Id="f7d57be8-2be5-4821-929b-4b725d436ef1" Title="IReadableDAO Interface" Url="html/T-OrderManager.DAL.IReadableDAO.htm">
+      <HelpTOCNode Title="IReadableDAO Members" Url="html/AllMembers.T-OrderManager.DAL.IReadableDAO.htm" />
+      <HelpTOCNode Id="de412280-36d6-4303-89d2-157ef4547833" Title="IReadableDAO Methods" Url="html/Methods.T-OrderManager.DAL.IReadableDAO.htm">
+        <HelpTOCNode Title="Exist Method " Url="html/M-OrderManager.DAL.IReadableDAO.Exist.htm" />
+        <HelpTOCNode Title="GetAll Method " Url="html/M-OrderManager.DAL.IReadableDAO.GetAll.htm" />
+        <HelpTOCNode Title="GetById Method " Url="html/M-OrderManager.DAL.IReadableDAO.GetById.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="0b2b08a7-45c8-4077-9f10-8f62e54d2ba8" Title="IWritableDAO Interface" Url="html/T-OrderManager.DAL.IWritableDAO.htm">
+      <HelpTOCNode Title="IWritableDAO Members" Url="html/AllMembers.T-OrderManager.DAL.IWritableDAO.htm" />
+      <HelpTOCNode Id="40c81dd6-dedd-4da8-9e2f-bc0e7b653154" Title="IWritableDAO Methods" Url="html/Methods.T-OrderManager.DAL.IWritableDAO.htm">
+        <HelpTOCNode Title="Add Method " Url="html/M-OrderManager.DAL.IWritableDAO.Add.htm" />
+        <HelpTOCNode Title="Remove Method " Url="html/M-OrderManager.DAL.IWritableDAO.Remove.htm" />
+        <HelpTOCNode Title="Update Method " Url="html/M-OrderManager.DAL.IWritableDAO.Update.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="54a3fcec-0465-4604-9249-a2f1528963be" Title="ReaderAndWriterDAO Class" Url="html/T-OrderManager.DAL.ReaderAndWriterDAO.htm">
+      <HelpTOCNode Title="ReaderAndWriterDAO Members" Url="html/AllMembers.T-OrderManager.DAL.ReaderAndWriterDAO.htm" />
+      <HelpTOCNode Title="ReaderAndWriterDAO Constructor " Url="html/M-OrderManager.DAL.ReaderAndWriterDAO.-ctor.htm" />
+      <HelpTOCNode Id="a7888600-cc6d-4dd8-91dc-a798ecbaa2ad" Title="ReaderAndWriterDAO Methods" Url="html/Methods.T-OrderManager.DAL.ReaderAndWriterDAO.htm">
+        <HelpTOCNode Title="Add Method " Url="html/M-OrderManager.DAL.ReaderAndWriterDAO.Add.htm" />
+        <HelpTOCNode Title="Remove Method " Url="html/M-OrderManager.DAL.ReaderAndWriterDAO.Remove.htm" />
+        <HelpTOCNode Title="Update Method " Url="html/M-OrderManager.DAL.ReaderAndWriterDAO.Update.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="952b883c-fdb5-4f24-b431-7d55c39b8c65" Title="ReaderDAO Class" Url="html/T-OrderManager.DAL.ReaderDAO.htm">
+      <HelpTOCNode Title="ReaderDAO Members" Url="html/AllMembers.T-OrderManager.DAL.ReaderDAO.htm" />
+      <HelpTOCNode Title="ReaderDAO Constructor " Url="html/M-OrderManager.DAL.ReaderDAO.-ctor.htm" />
+      <HelpTOCNode Id="1056bae0-bc4f-4fac-9e5b-12a36606f05d" Title="ReaderDAO Fields" Url="html/Fields.T-OrderManager.DAL.ReaderDAO.htm">
+        <HelpTOCNode Title="tableName Field" Url="html/F-OrderManager.DAL.ReaderDAO.tableName.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="4da6f861-adb9-412f-912b-900bd74b0dd2" Title="ReaderDAO Methods" Url="html/Methods.T-OrderManager.DAL.ReaderDAO.htm">
+        <HelpTOCNode Title="Exist Method " Url="html/M-OrderManager.DAL.ReaderDAO.Exist.htm" />
+        <HelpTOCNode Title="GetAll Method " Url="html/M-OrderManager.DAL.ReaderDAO.GetAll.htm" />
+        <HelpTOCNode Title="GetById Method " Url="html/M-OrderManager.DAL.ReaderDAO.GetById.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="1aec90bf-0774-4e8b-96c5-4bfb8ec77bfb" Title="OrderManager.DAL.ExternalSysDAO Namespace" Url="html/N-OrderManager.DAL.ExternalSysDAO.htm">
+    <HelpTOCNode Id="2f83e8f4-d21d-4d76-a529-e8a044e6aecf" Title="CounterpartysStockDAO Class" Url="html/T-OrderManager.DAL.ExternalSysDAO.CounterpartysStockDAO.htm">
+      <HelpTOCNode Title="CounterpartysStockDAO Members" Url="html/AllMembers.T-OrderManager.DAL.ExternalSysDAO.CounterpartysStockDAO.htm" />
+      <HelpTOCNode Title="CounterpartysStockDAO Constructor " Url="html/M-OrderManager.DAL.ExternalSysDAO.CounterpartysStockDAO.-ctor.htm" />
+      <HelpTOCNode Id="b1af39a8-a031-48f9-aa02-eee8dc463e13" Title="CounterpartysStockDAO Methods" Url="html/Methods.T-OrderManager.DAL.ExternalSysDAO.CounterpartysStockDAO.htm">
+        <HelpTOCNode Id="11df7f55-1dd8-4a8e-9729-dd8198054976" Title="GetCounterparty Method " Url="html/Overload-OrderManager.DAL.ExternalSysDAO.CounterpartysStockDAO.GetCounterparty.htm">
+          <HelpTOCNode Title="GetCounterparty Method (DataTable)" Url="html/M-OrderManager.DAL.ExternalSysDAO.CounterpartysStockDAO.GetCounterparty.htm" />
+          <HelpTOCNode Title="GetCounterparty Method (DataRow)" Url="html/M-OrderManager.DAL.ExternalSysDAO.CounterpartysStockDAO.GetCounterparty_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="GetCounterpartysStockValidDicounts Method " Url="html/M-OrderManager.DAL.ExternalSysDAO.CounterpartysStockDAO.GetCounterpartysStockValidDicounts.htm" />
+        <HelpTOCNode Id="4a1e5692-c359-4b14-abf9-f722abd62f1a" Title="GetStock Method " Url="html/Overload-OrderManager.DAL.ExternalSysDAO.CounterpartysStockDAO.GetStock.htm">
+          <HelpTOCNode Title="GetStock Method (DataTable)" Url="html/M-OrderManager.DAL.ExternalSysDAO.CounterpartysStockDAO.GetStock.htm" />
+          <HelpTOCNode Title="GetStock Method (DataRow)" Url="html/M-OrderManager.DAL.ExternalSysDAO.CounterpartysStockDAO.GetStock_1.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="bd72ae05-572b-4ace-bb80-47df828527e1" Title="ICounterpartysStockDAO Interface" Url="html/T-OrderManager.DAL.ExternalSysDAO.ICounterpartysStockDAO.htm">
+      <HelpTOCNode Title="ICounterpartysStockDAO Members" Url="html/AllMembers.T-OrderManager.DAL.ExternalSysDAO.ICounterpartysStockDAO.htm" />
+      <HelpTOCNode Id="af1533da-1e8c-449e-a759-2806068be4e4" Title="ICounterpartysStockDAO Methods" Url="html/Methods.T-OrderManager.DAL.ExternalSysDAO.ICounterpartysStockDAO.htm">
+        <HelpTOCNode Id="559cabd8-a7af-47af-bf36-f8e0566a19d7" Title="GetCounterparty Method " Url="html/Overload-OrderManager.DAL.ExternalSysDAO.ICounterpartysStockDAO.GetCounterparty.htm">
+          <HelpTOCNode Title="GetCounterparty Method (DataTable)" Url="html/M-OrderManager.DAL.ExternalSysDAO.ICounterpartysStockDAO.GetCounterparty.htm" />
+          <HelpTOCNode Title="GetCounterparty Method (DataRow)" Url="html/M-OrderManager.DAL.ExternalSysDAO.ICounterpartysStockDAO.GetCounterparty_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="GetCounterpartysStockValidDicounts Method " Url="html/M-OrderManager.DAL.ExternalSysDAO.ICounterpartysStockDAO.GetCounterpartysStockValidDicounts.htm" />
+        <HelpTOCNode Id="1d5c86c5-a1d5-4406-80c1-dc65b5ade34a" Title="GetStock Method " Url="html/Overload-OrderManager.DAL.ExternalSysDAO.ICounterpartysStockDAO.GetStock.htm">
+          <HelpTOCNode Title="GetStock Method (DataRow)" Url="html/M-OrderManager.DAL.ExternalSysDAO.ICounterpartysStockDAO.GetStock.htm" />
+          <HelpTOCNode Title="GetStock Method (DataTable)" Url="html/M-OrderManager.DAL.ExternalSysDAO.ICounterpartysStockDAO.GetStock_1.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="20a7549f-cde3-48fc-b1bf-46eb3152ac83" Title="OrderManager.DAL.InternalSysDAO Namespace" Url="html/N-OrderManager.DAL.InternalSysDAO.htm">
+    <HelpTOCNode Id="ce9bfda2-0907-4a9c-b8e1-9c281bceba6b" Title="EligibleOrdersNames Class" Url="html/T-OrderManager.DAL.InternalSysDAO.EligibleOrdersNames.htm">
+      <HelpTOCNode Title="EligibleOrdersNames Members" Url="html/AllMembers.T-OrderManager.DAL.InternalSysDAO.EligibleOrdersNames.htm" />
+      <HelpTOCNode Title="EligibleOrdersNames Constructor " Url="html/M-OrderManager.DAL.InternalSysDAO.EligibleOrdersNames.-ctor.htm" />
+      <HelpTOCNode Id="b5a4009a-bbd0-441e-b049-5abc62cf4534" Title="EligibleOrdersNames Methods" Url="html/Methods.T-OrderManager.DAL.InternalSysDAO.EligibleOrdersNames.htm">
+        <HelpTOCNode Title="FetchNames Method " Url="html/M-OrderManager.DAL.InternalSysDAO.EligibleOrdersNames.FetchNames.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="1732e6bc-74e0-48c4-8ec1-366e144ef115" Title="ICounterpartyDAO Interface" Url="html/T-OrderManager.DAL.InternalSysDAO.ICounterpartyDAO.htm">
+      <HelpTOCNode Title="ICounterpartyDAO Members" Url="html/AllMembers.T-OrderManager.DAL.InternalSysDAO.ICounterpartyDAO.htm" />
+      <HelpTOCNode Id="31273506-580b-4f38-b7e4-6789c1ef706d" Title="ICounterpartyDAO Methods" Url="html/Methods.T-OrderManager.DAL.InternalSysDAO.ICounterpartyDAO.htm">
+        <HelpTOCNode Title="GetCounterpartysOrders Method " Url="html/M-OrderManager.DAL.InternalSysDAO.ICounterpartyDAO.GetCounterpartysOrders.htm" />
+        <HelpTOCNode Title="GetCounterpartysStock Method " Url="html/M-OrderManager.DAL.InternalSysDAO.ICounterpartyDAO.GetCounterpartysStock.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="c1eff3db-a1e8-4767-b3fb-963172ecd227" Title="IEligibleOrdersNamesDAO Interface" Url="html/T-OrderManager.DAL.InternalSysDAO.IEligibleOrdersNamesDAO.htm">
+      <HelpTOCNode Title="IEligibleOrdersNamesDAO Members" Url="html/AllMembers.T-OrderManager.DAL.InternalSysDAO.IEligibleOrdersNamesDAO.htm" />
+      <HelpTOCNode Id="ce8fd5f9-32af-414d-8cf4-0422c46ce3b8" Title="IEligibleOrdersNamesDAO Methods" Url="html/Methods.T-OrderManager.DAL.InternalSysDAO.IEligibleOrdersNamesDAO.htm">
+        <HelpTOCNode Title="FetchNames Method " Url="html/M-OrderManager.DAL.InternalSysDAO.IEligibleOrdersNamesDAO.FetchNames.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="8c3ffce4-05f1-4ffe-b317-fc4839335b7d" Title="IOrderDAO Interface" Url="html/T-OrderManager.DAL.InternalSysDAO.IOrderDAO.htm">
+      <HelpTOCNode Title="IOrderDAO Members" Url="html/AllMembers.T-OrderManager.DAL.InternalSysDAO.IOrderDAO.htm" />
+      <HelpTOCNode Id="463161cc-ee67-4b12-b3d0-8623366ea879" Title="IOrderDAO Methods" Url="html/Methods.T-OrderManager.DAL.InternalSysDAO.IOrderDAO.htm">
+        <HelpTOCNode Title="GetAllByState Method " Url="html/M-OrderManager.DAL.InternalSysDAO.IOrderDAO.GetAllByState.htm" />
+        <HelpTOCNode Title="GetAllDuringRealization Method " Url="html/M-OrderManager.DAL.InternalSysDAO.IOrderDAO.GetAllDuringRealization.htm" />
+        <HelpTOCNode Title="GetCounterparty Method " Url="html/M-OrderManager.DAL.InternalSysDAO.IOrderDAO.GetCounterparty.htm" />
+        <HelpTOCNode Title="GetOrderState Method " Url="html/M-OrderManager.DAL.InternalSysDAO.IOrderDAO.GetOrderState.htm" />
+        <HelpTOCNode Title="GetParentOrder Method " Url="html/M-OrderManager.DAL.InternalSysDAO.IOrderDAO.GetParentOrder.htm" />
+        <HelpTOCNode Title="GetParentOrderById Method " Url="html/M-OrderManager.DAL.InternalSysDAO.IOrderDAO.GetParentOrderById.htm" />
+        <HelpTOCNode Title="GetTranches Method " Url="html/M-OrderManager.DAL.InternalSysDAO.IOrderDAO.GetTranches.htm" />
+        <HelpTOCNode Title="GetUser Method " Url="html/M-OrderManager.DAL.InternalSysDAO.IOrderDAO.GetUser.htm" />
+        <HelpTOCNode Title="OrderCorrection Method " Url="html/M-OrderManager.DAL.InternalSysDAO.IOrderDAO.OrderCorrection.htm" />
+        <HelpTOCNode Title="UpdateOrder Method " Url="html/M-OrderManager.DAL.InternalSysDAO.IOrderDAO.UpdateOrder.htm" />
+        <HelpTOCNode Title="UpdateOrders Method " Url="html/M-OrderManager.DAL.InternalSysDAO.IOrderDAO.UpdateOrders.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="89b0f1fb-ae9a-4494-aef2-c3409a298041" Title="IPercentageDiscountDAO Interface" Url="html/T-OrderManager.DAL.InternalSysDAO.IPercentageDiscountDAO.htm">
+      <HelpTOCNode Title="IPercentageDiscountDAO Members" Url="html/AllMembers.T-OrderManager.DAL.InternalSysDAO.IPercentageDiscountDAO.htm" />
+      <HelpTOCNode Id="4cb80d33-9926-4404-9dac-00fc6d323b94" Title="IPercentageDiscountDAO Methods" Url="html/Methods.T-OrderManager.DAL.InternalSysDAO.IPercentageDiscountDAO.htm">
+        <HelpTOCNode Id="95b83e7f-9f95-43bd-bf49-d43c54370815" Title="GetCounterpartiesStockWithDiscount Method " Url="html/Overload-OrderManager.DAL.InternalSysDAO.IPercentageDiscountDAO.GetCounterpartiesStockWithDiscount.htm">
+          <HelpTOCNode Title="GetCounterpartiesStockWithDiscount Method (DataTable)" Url="html/M-OrderManager.DAL.InternalSysDAO.IPercentageDiscountDAO.GetCounterpartiesStockWithDiscount.htm" />
+          <HelpTOCNode Title="GetCounterpartiesStockWithDiscount Method (DataRow)" Url="html/M-OrderManager.DAL.InternalSysDAO.IPercentageDiscountDAO.GetCounterpartiesStockWithDiscount_1.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="b675d2cd-c453-4ece-9e72-287354f41ac9" Title="IPriorityDAO Interface" Url="html/T-OrderManager.DAL.InternalSysDAO.IPriorityDAO.htm">
+      <HelpTOCNode Title="IPriorityDAO Members" Url="html/AllMembers.T-OrderManager.DAL.InternalSysDAO.IPriorityDAO.htm" />
+      <HelpTOCNode Id="c6aacbf0-2957-4a41-bff5-c6b53b405f86" Title="IPriorityDAO Methods" Url="html/Methods.T-OrderManager.DAL.InternalSysDAO.IPriorityDAO.htm">
+        <HelpTOCNode Id="a04d1f60-70b2-4d2d-b7bc-3f458b0bd815" Title="GetPriority Method " Url="html/Overload-OrderManager.DAL.InternalSysDAO.IPriorityDAO.GetPriority.htm">
+          <HelpTOCNode Title="GetPriority Method (DataTable)" Url="html/M-OrderManager.DAL.InternalSysDAO.IPriorityDAO.GetPriority.htm" />
+          <HelpTOCNode Title="GetPriority Method (DataRow)" Url="html/M-OrderManager.DAL.InternalSysDAO.IPriorityDAO.GetPriority_1.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="e6e31e24-5aa5-49ab-a3a4-40a14fc777e8" Title="IStockDAO Interface" Url="html/T-OrderManager.DAL.InternalSysDAO.IStockDAO.htm">
+      <HelpTOCNode Title="IStockDAO Members" Url="html/AllMembers.T-OrderManager.DAL.InternalSysDAO.IStockDAO.htm" />
+      <HelpTOCNode Id="c9724172-083e-40b7-8a96-43a679a9bae9" Title="IStockDAO Methods" Url="html/Methods.T-OrderManager.DAL.InternalSysDAO.IStockDAO.htm">
+        <HelpTOCNode Title="GetStocksActiveOrders Method " Url="html/M-OrderManager.DAL.InternalSysDAO.IStockDAO.GetStocksActiveOrders.htm" />
+        <HelpTOCNode Title="GetStocksCategory Method " Url="html/M-OrderManager.DAL.InternalSysDAO.IStockDAO.GetStocksCategory.htm" />
+        <HelpTOCNode Title="GetStocksCounterpartysStock Method " Url="html/M-OrderManager.DAL.InternalSysDAO.IStockDAO.GetStocksCounterpartysStock.htm" />
+        <HelpTOCNode Title="SetPossibilityToGenerateOrder Method " Url="html/M-OrderManager.DAL.InternalSysDAO.IStockDAO.SetPossibilityToGenerateOrder.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="03701879-f23d-49d3-be25-a946e4edead0" Title="ITrancheDAO Interface" Url="html/T-OrderManager.DAL.InternalSysDAO.ITrancheDAO.htm">
+      <HelpTOCNode Title="ITrancheDAO Members" Url="html/AllMembers.T-OrderManager.DAL.InternalSysDAO.ITrancheDAO.htm" />
+      <HelpTOCNode Id="f6765614-d897-4d9f-9b2d-b851aca0b393" Title="ITrancheDAO Methods" Url="html/Methods.T-OrderManager.DAL.InternalSysDAO.ITrancheDAO.htm">
+        <HelpTOCNode Title="AssignDiscountToTranche Method " Url="html/M-OrderManager.DAL.InternalSysDAO.ITrancheDAO.AssignDiscountToTranche.htm" />
+        <HelpTOCNode Title="GetCounterpartysStock Method " Url="html/M-OrderManager.DAL.InternalSysDAO.ITrancheDAO.GetCounterpartysStock.htm" />
+        <HelpTOCNode Title="GetPercentageDiscounts Method " Url="html/M-OrderManager.DAL.InternalSysDAO.ITrancheDAO.GetPercentageDiscounts.htm" />
+        <HelpTOCNode Title="GetViableDiscounts Method " Url="html/M-OrderManager.DAL.InternalSysDAO.ITrancheDAO.GetViableDiscounts.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="a86071b1-94d8-4908-8fcf-8191fa2475e8" Title="OrderDAO Class" Url="html/T-OrderManager.DAL.InternalSysDAO.OrderDAO.htm">
+      <HelpTOCNode Title="OrderDAO Members" Url="html/AllMembers.T-OrderManager.DAL.InternalSysDAO.OrderDAO.htm" />
+      <HelpTOCNode Title="OrderDAO Constructor " Url="html/M-OrderManager.DAL.InternalSysDAO.OrderDAO.-ctor.htm" />
+      <HelpTOCNode Id="012cc2fe-ac45-4a82-a2b4-d762ff4ebdef" Title="OrderDAO Methods" Url="html/Methods.T-OrderManager.DAL.InternalSysDAO.OrderDAO.htm">
+        <HelpTOCNode Title="GetAllByState Method " Url="html/M-OrderManager.DAL.InternalSysDAO.OrderDAO.GetAllByState.htm" />
+        <HelpTOCNode Title="GetAllDuringRealization Method " Url="html/M-OrderManager.DAL.InternalSysDAO.OrderDAO.GetAllDuringRealization.htm" />
+        <HelpTOCNode Title="GetCounterparty Method " Url="html/M-OrderManager.DAL.InternalSysDAO.OrderDAO.GetCounterparty.htm" />
+        <HelpTOCNode Title="GetOrderState Method " Url="html/M-OrderManager.DAL.InternalSysDAO.OrderDAO.GetOrderState.htm" />
+        <HelpTOCNode Title="GetParentOrder Method " Url="html/M-OrderManager.DAL.InternalSysDAO.OrderDAO.GetParentOrder.htm" />
+        <HelpTOCNode Title="GetParentOrderById Method " Url="html/M-OrderManager.DAL.InternalSysDAO.OrderDAO.GetParentOrderById.htm" />
+        <HelpTOCNode Title="GetTranches Method " Url="html/M-OrderManager.DAL.InternalSysDAO.OrderDAO.GetTranches.htm" />
+        <HelpTOCNode Title="GetUser Method " Url="html/M-OrderManager.DAL.InternalSysDAO.OrderDAO.GetUser.htm" />
+        <HelpTOCNode Title="OrderCorrection Method " Url="html/M-OrderManager.DAL.InternalSysDAO.OrderDAO.OrderCorrection.htm" />
+        <HelpTOCNode Title="UpdateOrder Method " Url="html/M-OrderManager.DAL.InternalSysDAO.OrderDAO.UpdateOrder.htm" />
+        <HelpTOCNode Title="UpdateOrders Method " Url="html/M-OrderManager.DAL.InternalSysDAO.OrderDAO.UpdateOrders.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="4d09172d-ef84-4eef-b286-f14fb75ffcc4" Title="PercentageDiscountDAO Class" Url="html/T-OrderManager.DAL.InternalSysDAO.PercentageDiscountDAO.htm">
+      <HelpTOCNode Title="PercentageDiscountDAO Members" Url="html/AllMembers.T-OrderManager.DAL.InternalSysDAO.PercentageDiscountDAO.htm" />
+      <HelpTOCNode Title="PercentageDiscountDAO Constructor " Url="html/M-OrderManager.DAL.InternalSysDAO.PercentageDiscountDAO.-ctor.htm" />
+      <HelpTOCNode Id="cfaf3652-c919-4f58-a130-d62cf89a666d" Title="PercentageDiscountDAO Methods" Url="html/Methods.T-OrderManager.DAL.InternalSysDAO.PercentageDiscountDAO.htm">
+        <HelpTOCNode Id="65a078b4-0e15-4900-9c8e-5547d027c836" Title="GetCounterpartiesStockWithDiscount Method " Url="html/Overload-OrderManager.DAL.InternalSysDAO.PercentageDiscountDAO.GetCounterpartiesStockWithDiscount.htm">
+          <HelpTOCNode Title="GetCounterpartiesStockWithDiscount Method (DataTable)" Url="html/M-OrderManager.DAL.InternalSysDAO.PercentageDiscountDAO.GetCounterpartiesStockWithDiscount.htm" />
+          <HelpTOCNode Title="GetCounterpartiesStockWithDiscount Method (DataRow)" Url="html/M-OrderManager.DAL.InternalSysDAO.PercentageDiscountDAO.GetCounterpartiesStockWithDiscount_1.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="e1f8eb95-97f7-4a69-ad90-790bc6b217c9" Title="PriorityDAO Class" Url="html/T-OrderManager.DAL.InternalSysDAO.PriorityDAO.htm">
+      <HelpTOCNode Title="PriorityDAO Members" Url="html/AllMembers.T-OrderManager.DAL.InternalSysDAO.PriorityDAO.htm" />
+      <HelpTOCNode Title="PriorityDAO Constructor " Url="html/M-OrderManager.DAL.InternalSysDAO.PriorityDAO.-ctor.htm" />
+      <HelpTOCNode Id="7547f628-40c0-4b91-b828-b5a54df7676e" Title="PriorityDAO Methods" Url="html/Methods.T-OrderManager.DAL.InternalSysDAO.PriorityDAO.htm">
+        <HelpTOCNode Id="fd821bae-7a2e-4f94-93ba-5fa7ac2c65c0" Title="GetPriority Method " Url="html/Overload-OrderManager.DAL.InternalSysDAO.PriorityDAO.GetPriority.htm">
+          <HelpTOCNode Title="GetPriority Method (DataTable)" Url="html/M-OrderManager.DAL.InternalSysDAO.PriorityDAO.GetPriority.htm" />
+          <HelpTOCNode Title="GetPriority Method (DataRow)" Url="html/M-OrderManager.DAL.InternalSysDAO.PriorityDAO.GetPriority_1.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="d16c3f59-4876-4dec-bc93-3223844d858c" Title="StockDAO Class" Url="html/T-OrderManager.DAL.InternalSysDAO.StockDAO.htm">
+      <HelpTOCNode Title="StockDAO Members" Url="html/AllMembers.T-OrderManager.DAL.InternalSysDAO.StockDAO.htm" />
+      <HelpTOCNode Title="StockDAO Constructor " Url="html/M-OrderManager.DAL.InternalSysDAO.StockDAO.-ctor.htm" />
+      <HelpTOCNode Id="88a831f8-6e2e-4d40-ba77-ee9afc57bd06" Title="StockDAO Methods" Url="html/Methods.T-OrderManager.DAL.InternalSysDAO.StockDAO.htm">
+        <HelpTOCNode Title="GetStocksActiveOrders Method " Url="html/M-OrderManager.DAL.InternalSysDAO.StockDAO.GetStocksActiveOrders.htm" />
+        <HelpTOCNode Title="GetStocksCategory Method " Url="html/M-OrderManager.DAL.InternalSysDAO.StockDAO.GetStocksCategory.htm" />
+        <HelpTOCNode Title="GetStocksCounterpartysStock Method " Url="html/M-OrderManager.DAL.InternalSysDAO.StockDAO.GetStocksCounterpartysStock.htm" />
+        <HelpTOCNode Title="SetPossibilityToGenerateOrder Method " Url="html/M-OrderManager.DAL.InternalSysDAO.StockDAO.SetPossibilityToGenerateOrder.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="b29de15d-a711-4373-b1db-09065eae1d01" Title="TrancheDAO Class" Url="html/T-OrderManager.DAL.InternalSysDAO.TrancheDAO.htm">
+      <HelpTOCNode Title="TrancheDAO Members" Url="html/AllMembers.T-OrderManager.DAL.InternalSysDAO.TrancheDAO.htm" />
+      <HelpTOCNode Title="TrancheDAO Constructor " Url="html/M-OrderManager.DAL.InternalSysDAO.TrancheDAO.-ctor.htm" />
+      <HelpTOCNode Id="d9137563-3d1a-422f-86ab-a9878256429f" Title="TrancheDAO Methods" Url="html/Methods.T-OrderManager.DAL.InternalSysDAO.TrancheDAO.htm">
+        <HelpTOCNode Title="AssignDiscountToTranche Method " Url="html/M-OrderManager.DAL.InternalSysDAO.TrancheDAO.AssignDiscountToTranche.htm" />
+        <HelpTOCNode Title="GetCounterpartysStock Method " Url="html/M-OrderManager.DAL.InternalSysDAO.TrancheDAO.GetCounterpartysStock.htm" />
+        <HelpTOCNode Title="GetPercentageDiscounts Method " Url="html/M-OrderManager.DAL.InternalSysDAO.TrancheDAO.GetPercentageDiscounts.htm" />
+        <HelpTOCNode Title="GetViableDiscounts Method " Url="html/M-OrderManager.DAL.InternalSysDAO.TrancheDAO.GetViableDiscounts.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="561549f3-df7e-4f61-9573-0b64d5a0dd0b" Title="OrderManager.DAO Namespace" Url="html/N-OrderManager.DAO.htm">
+    <HelpTOCNode Id="9c34de70-ed39-4840-918f-62b16b8d23b6" Title="DBOperations Class" Url="html/T-OrderManager.DAO.DBOperations.htm">
+      <HelpTOCNode Title="DBOperations Members" Url="html/AllMembers.T-OrderManager.DAO.DBOperations.htm" />
+      <HelpTOCNode Title="DBOperations Constructor " Url="html/M-OrderManager.DAO.DBOperations.-ctor.htm" />
+      <HelpTOCNode Id="441199db-f823-42d3-aea9-7848bcfcb9f7" Title="DBOperations Fields" Url="html/Fields.T-OrderManager.DAO.DBOperations.htm">
+        <HelpTOCNode Title="connection Field" Url="html/F-OrderManager.DAO.DBOperations.connection.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="baddfecb-5788-4f86-be5d-eb59b5b69538" Title="DBOperations Methods" Url="html/Methods.T-OrderManager.DAO.DBOperations.htm">
+        <HelpTOCNode Title="Insert Method " Url="html/M-OrderManager.DAO.DBOperations.Insert.htm" />
+        <HelpTOCNode Title="insertWithoutCommit Method " Url="html/M-OrderManager.DAO.DBOperations.insertWithoutCommit.htm" />
+        <HelpTOCNode Id="e1c8f404-c8de-4b27-863a-1bec86c8be83" Title="OpertionThatRequiresOpeningDBConnection Method " Url="html/Overload-OrderManager.DAO.DBOperations.OpertionThatRequiresOpeningDBConnection.htm">
+          <HelpTOCNode Title="OpertionThatRequiresOpeningDBConnection Method (String)" Url="html/M-OrderManager.DAO.DBOperations.OpertionThatRequiresOpeningDBConnection.htm" />
+          <HelpTOCNode Title="OpertionThatRequiresOpeningDBConnection Method (String, Dictionary(String, String))" Url="html/M-OrderManager.DAO.DBOperations.OpertionThatRequiresOpeningDBConnection_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="Query Method " Url="html/M-OrderManager.DAO.DBOperations.Query.htm" />
+        <HelpTOCNode Title="Update Method " Url="html/M-OrderManager.DAO.DBOperations.Update.htm" />
+        <HelpTOCNode Title="UpdateAndSave Method " Url="html/M-OrderManager.DAO.DBOperations.UpdateAndSave.htm" />
+        <HelpTOCNode Title="updateWithoutCommit Method " Url="html/M-OrderManager.DAO.DBOperations.updateWithoutCommit.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="4f3edcca-2db8-4652-aec3-113855ce5e1b" Title="DBOperations Properties" Url="html/Properties.T-OrderManager.DAO.DBOperations.htm">
+        <HelpTOCNode Title="Connection Property " Url="html/P-OrderManager.DAO.DBOperations.Connection.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="171221d7-ddbd-49ec-94fd-dad24b7e0608" Title="OrderManager.Domain Namespace" Url="html/N-OrderManager.Domain.htm">
+    <HelpTOCNode Id="19b41b96-c28c-44d8-b353-18b3c6dc2e3a" Title="DiscountCounter Class" Url="html/T-OrderManager.Domain.DiscountCounter.htm">
+      <HelpTOCNode Title="DiscountCounter Members" Url="html/AllMembers.T-OrderManager.Domain.DiscountCounter.htm" />
+      <HelpTOCNode Id="0d9e9825-46a1-4547-ad28-0f17dc376612" Title="DiscountCounter Constructor " Url="html/Overload-OrderManager.Domain.DiscountCounter.-ctor.htm">
+        <HelpTOCNode Title="DiscountCounter Constructor (Dictionary(CounterpartysStock, Int32), ICounterpartysStockService, IStockService)" Url="html/M-OrderManager.Domain.DiscountCounter.-ctor.htm" />
+        <HelpTOCNode Title="DiscountCounter Constructor (Dictionary(Stock, Int32), ICounterpartysStockService, IStockService)" Url="html/M-OrderManager.Domain.DiscountCounter.-ctor_1.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="1a6d4e14-f6dc-4961-8b82-94529ff37bb5" Title="DiscountCounter Fields" Url="html/Fields.T-OrderManager.Domain.DiscountCounter.htm">
+        <HelpTOCNode Title="counterpartysStockService Field" Url="html/F-OrderManager.Domain.DiscountCounter.counterpartysStockService.htm" />
+        <HelpTOCNode Title="dictionary Field" Url="html/F-OrderManager.Domain.DiscountCounter.dictionary.htm" />
+        <HelpTOCNode Title="stockService Field" Url="html/F-OrderManager.Domain.DiscountCounter.stockService.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="13bee707-44d4-4de7-9e8c-f1df603e4c61" Title="DiscountCounter Methods" Url="html/Methods.T-OrderManager.Domain.DiscountCounter.htm">
+        <HelpTOCNode Title="adjustDiscountToDemand Method " Url="html/M-OrderManager.Domain.DiscountCounter.adjustDiscountToDemand.htm" />
+        <HelpTOCNode Title="allPossibleCombinationsOfDiscount Method " Url="html/M-OrderManager.Domain.DiscountCounter.allPossibleCombinationsOfDiscount.htm" />
+        <HelpTOCNode Title="BestChosenDiscounts Method " Url="html/M-OrderManager.Domain.DiscountCounter.BestChosenDiscounts.htm" />
+        <HelpTOCNode Title="discountCanBeUsed Method " Url="html/M-OrderManager.Domain.DiscountCounter.discountCanBeUsed.htm" />
+        <HelpTOCNode Title="discountsAreDisjunctive Method " Url="html/M-OrderManager.Domain.DiscountCounter.discountsAreDisjunctive.htm" />
+        <HelpTOCNode Title="getAllCombos(T) Method " Url="html/M-OrderManager.Domain.DiscountCounter.getAllCombos--1.htm" />
+        <HelpTOCNode Title="getProfit Method " Url="html/M-OrderManager.Domain.DiscountCounter.getProfit.htm" />
+        <HelpTOCNode Title="getProfits Method " Url="html/M-OrderManager.Domain.DiscountCounter.getProfits.htm" />
+        <HelpTOCNode Title="lowestPricesWithoutDiscount Method " Url="html/M-OrderManager.Domain.DiscountCounter.lowestPricesWithoutDiscount.htm" />
+        <HelpTOCNode Title="makeTranches Method " Url="html/M-OrderManager.Domain.DiscountCounter.makeTranches.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="439d3fcb-040d-4e87-84da-f2cbc0ec34e0" Title="IOrdersGenerator Interface" Url="html/T-OrderManager.Domain.IOrdersGenerator.htm">
+      <HelpTOCNode Title="IOrdersGenerator Members" Url="html/AllMembers.T-OrderManager.Domain.IOrdersGenerator.htm" />
+      <HelpTOCNode Id="d0607e96-266d-429d-803b-f30c11667533" Title="IOrdersGenerator Methods" Url="html/Methods.T-OrderManager.Domain.IOrdersGenerator.htm">
+        <HelpTOCNode Title="Generate Method " Url="html/M-OrderManager.Domain.IOrdersGenerator.Generate.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="ad28b9d5-a7b9-4c8b-bdba-ada973605e80" Title="OrdersGenerator Class" Url="html/T-OrderManager.Domain.OrdersGenerator.htm">
+      <HelpTOCNode Title="OrdersGenerator Members" Url="html/AllMembers.T-OrderManager.Domain.OrdersGenerator.htm" />
+      <HelpTOCNode Title="OrdersGenerator Constructor " Url="html/M-OrderManager.Domain.OrdersGenerator.-ctor.htm" />
+      <HelpTOCNode Id="43b47328-57be-4106-814a-52d1fa952bea" Title="OrdersGenerator Fields" Url="html/Fields.T-OrderManager.Domain.OrdersGenerator.htm">
+        <HelpTOCNode Title="counterpartyService Field" Url="html/F-OrderManager.Domain.OrdersGenerator.counterpartyService.htm" />
+        <HelpTOCNode Title="counterpartysStockService Field" Url="html/F-OrderManager.Domain.OrdersGenerator.counterpartysStockService.htm" />
+        <HelpTOCNode Title="eligibleOrdersNamesService Field" Url="html/F-OrderManager.Domain.OrdersGenerator.eligibleOrdersNamesService.htm" />
+        <HelpTOCNode Title="priorityService Field" Url="html/F-OrderManager.Domain.OrdersGenerator.priorityService.htm" />
+        <HelpTOCNode Title="stockService Field" Url="html/F-OrderManager.Domain.OrdersGenerator.stockService.htm" />
+        <HelpTOCNode Title="stockToOrder Field" Url="html/F-OrderManager.Domain.OrdersGenerator.stockToOrder.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="275f41a8-88ad-47f5-856c-eb423ee34093" Title="OrdersGenerator Methods" Url="html/Methods.T-OrderManager.Domain.OrdersGenerator.htm">
+        <HelpTOCNode Title="Generate Method " Url="html/M-OrderManager.Domain.OrdersGenerator.Generate.htm" />
+        <HelpTOCNode Title="GetStrategy Method " Url="html/M-OrderManager.Domain.OrdersGenerator.GetStrategy.htm" />
+        <HelpTOCNode Title="groupTranchesInOrders Method " Url="html/M-OrderManager.Domain.OrdersGenerator.groupTranchesInOrders.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="Priority Enumeration" Url="html/T-OrderManager.Domain.Priority.htm" />
+  </HelpTOCNode>
+  <HelpTOCNode Id="8fc44cec-84f9-4895-a549-47d1fc814dce" Title="OrderManager.Domain.Entity Namespace" Url="html/N-OrderManager.Domain.Entity.htm">
+    <HelpTOCNode Id="ee9b9cd3-159f-42aa-ae10-f516948b5310" Title="Category Class" Url="html/T-OrderManager.Domain.Entity.Category.htm">
+      <HelpTOCNode Title="Category Members" Url="html/AllMembers.T-OrderManager.Domain.Entity.Category.htm" />
+      <HelpTOCNode Title="Category Constructor " Url="html/M-OrderManager.Domain.Entity.Category.-ctor.htm" />
+      <HelpTOCNode Id="b8843894-9426-4cbb-b58a-dfbab85faa95" Title="Category Fields" Url="html/Fields.T-OrderManager.Domain.Entity.Category.htm">
+        <HelpTOCNode Title="id Field" Url="html/F-OrderManager.Domain.Entity.Category.id.htm" />
+        <HelpTOCNode Title="name Field" Url="html/F-OrderManager.Domain.Entity.Category.name.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="d5d4447a-649c-486b-ae5f-7f3626502e22" Title="Category Properties" Url="html/Properties.T-OrderManager.Domain.Entity.Category.htm">
+        <HelpTOCNode Title="Id Property " Url="html/P-OrderManager.Domain.Entity.Category.Id.htm" />
+        <HelpTOCNode Title="Name Property " Url="html/P-OrderManager.Domain.Entity.Category.Name.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="c2b1e27b-c9b5-41b6-bc26-c5a4d99ab6b7" Title="CloneObj Class" Url="html/T-OrderManager.Domain.Entity.CloneObj.htm">
+      <HelpTOCNode Title="CloneObj Members" Url="html/AllMembers.T-OrderManager.Domain.Entity.CloneObj.htm" />
+      <HelpTOCNode Id="99aa1e54-4d62-4ddf-b9ae-ed07f1e70014" Title="CloneObj Methods" Url="html/Methods.T-OrderManager.Domain.Entity.CloneObj.htm">
+        <HelpTOCNode Title="DeepClone(T) Method " Url="html/M-OrderManager.Domain.Entity.CloneObj.DeepClone--1.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="0f9c3a37-a7e8-4c95-aded-5c4ad773585d" Title="Counterparty Class" Url="html/T-OrderManager.Domain.Entity.Counterparty.htm">
+      <HelpTOCNode Title="Counterparty Members" Url="html/AllMembers.T-OrderManager.Domain.Entity.Counterparty.htm" />
+      <HelpTOCNode Title="Counterparty Constructor " Url="html/M-OrderManager.Domain.Entity.Counterparty.-ctor.htm" />
+      <HelpTOCNode Id="5417f412-1ba8-4adc-a14e-1086cc74ff8c" Title="Counterparty Fields" Url="html/Fields.T-OrderManager.Domain.Entity.Counterparty.htm">
+        <HelpTOCNode Title="distance Field" Url="html/F-OrderManager.Domain.Entity.Counterparty.distance.htm" />
+        <HelpTOCNode Title="id Field" Url="html/F-OrderManager.Domain.Entity.Counterparty.id.htm" />
+        <HelpTOCNode Title="name Field" Url="html/F-OrderManager.Domain.Entity.Counterparty.name.htm" />
+        <HelpTOCNode Title="nip Field" Url="html/F-OrderManager.Domain.Entity.Counterparty.nip.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="82d6278f-6445-49ba-9b4f-c424fde69c24" Title="Counterparty Methods" Url="html/Methods.T-OrderManager.Domain.Entity.Counterparty.htm">
+        <HelpTOCNode Title="Equals Method " Url="html/M-OrderManager.Domain.Entity.Counterparty.Equals.htm" />
+        <HelpTOCNode Title="GetHashCode Method " Url="html/M-OrderManager.Domain.Entity.Counterparty.GetHashCode.htm" />
+        <HelpTOCNode Title="ToString Method " Url="html/M-OrderManager.Domain.Entity.Counterparty.ToString.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="a4b429d6-9ba0-4900-8fbe-8edecc80b8e5" Title="Counterparty Properties" Url="html/Properties.T-OrderManager.Domain.Entity.Counterparty.htm">
+        <HelpTOCNode Title="Distance Property " Url="html/P-OrderManager.Domain.Entity.Counterparty.Distance.htm" />
+        <HelpTOCNode Title="Id Property " Url="html/P-OrderManager.Domain.Entity.Counterparty.Id.htm" />
+        <HelpTOCNode Title="Name Property " Url="html/P-OrderManager.Domain.Entity.Counterparty.Name.htm" />
+        <HelpTOCNode Title="Nip Property " Url="html/P-OrderManager.Domain.Entity.Counterparty.Nip.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="6d6b841c-bcca-42a7-9e7d-52720ef45315" Title="CounterpartysStock Class" Url="html/T-OrderManager.Domain.Entity.CounterpartysStock.htm">
+      <HelpTOCNode Title="CounterpartysStock Members" Url="html/AllMembers.T-OrderManager.Domain.Entity.CounterpartysStock.htm" />
+      <HelpTOCNode Title="CounterpartysStock Constructor " Url="html/M-OrderManager.Domain.Entity.CounterpartysStock.-ctor.htm" />
+      <HelpTOCNode Id="2923c213-31a1-4772-9f7b-1f45ec3a747f" Title="CounterpartysStock Fields" Url="html/Fields.T-OrderManager.Domain.Entity.CounterpartysStock.htm">
+        <HelpTOCNode Title="counterparty Field" Url="html/F-OrderManager.Domain.Entity.CounterpartysStock.counterparty.htm" />
+        <HelpTOCNode Title="id Field" Url="html/F-OrderManager.Domain.Entity.CounterpartysStock.id.htm" />
+        <HelpTOCNode Title="priceNetto Field" Url="html/F-OrderManager.Domain.Entity.CounterpartysStock.priceNetto.htm" />
+        <HelpTOCNode Title="stock Field" Url="html/F-OrderManager.Domain.Entity.CounterpartysStock.stock.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="d8ed88ca-7c12-4052-972a-3858aa222624" Title="CounterpartysStock Methods" Url="html/Methods.T-OrderManager.Domain.Entity.CounterpartysStock.htm">
+        <HelpTOCNode Title="Equals Method " Url="html/M-OrderManager.Domain.Entity.CounterpartysStock.Equals.htm" />
+        <HelpTOCNode Title="GetHashCode Method " Url="html/M-OrderManager.Domain.Entity.CounterpartysStock.GetHashCode.htm" />
+        <HelpTOCNode Title="ToString Method " Url="html/M-OrderManager.Domain.Entity.CounterpartysStock.ToString.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="21a16e57-b464-4aa3-b396-bb881f55a89a" Title="CounterpartysStock Properties" Url="html/Properties.T-OrderManager.Domain.Entity.CounterpartysStock.htm">
+        <HelpTOCNode Title="Counterparty Property " Url="html/P-OrderManager.Domain.Entity.CounterpartysStock.Counterparty.htm" />
+        <HelpTOCNode Title="Id Property " Url="html/P-OrderManager.Domain.Entity.CounterpartysStock.Id.htm" />
+        <HelpTOCNode Title="PriceNetto Property " Url="html/P-OrderManager.Domain.Entity.CounterpartysStock.PriceNetto.htm" />
+        <HelpTOCNode Title="Stock Property " Url="html/P-OrderManager.Domain.Entity.CounterpartysStock.Stock.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="a27a3d24-9009-4d18-b8da-4ec328ede138" Title="LoggedUser Class" Url="html/T-OrderManager.Domain.Entity.LoggedUser.htm">
+      <HelpTOCNode Title="LoggedUser Members" Url="html/AllMembers.T-OrderManager.Domain.Entity.LoggedUser.htm" />
+      <HelpTOCNode Title="LoggedUser Constructor " Url="html/M-OrderManager.Domain.Entity.LoggedUser.-ctor.htm" />
+      <HelpTOCNode Id="1bb6e099-01f7-4ede-8b08-fac19befcc44" Title="LoggedUser Fields" Url="html/Fields.T-OrderManager.Domain.Entity.LoggedUser.htm">
+        <HelpTOCNode Title="user Field" Url="html/F-OrderManager.Domain.Entity.LoggedUser.user.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="3a345c4a-72d0-4726-b8eb-ae58d8c2b213" Title="LoggedUser Properties" Url="html/Properties.T-OrderManager.Domain.Entity.LoggedUser.htm">
+        <HelpTOCNode Title="User Property " Url="html/P-OrderManager.Domain.Entity.LoggedUser.User.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="25861e56-6426-47d4-8df3-b79247a94073" Title="Order Class" Url="html/T-OrderManager.Domain.Entity.Order.htm">
+      <HelpTOCNode Title="Order Members" Url="html/AllMembers.T-OrderManager.Domain.Entity.Order.htm" />
+      <HelpTOCNode Id="a6264e4c-34d4-4cf3-a6dd-7db7f8df3bb6" Title="Order Constructor " Url="html/Overload-OrderManager.Domain.Entity.Order.-ctor.htm">
+        <HelpTOCNode Title="Order Constructor (Nullable(Int32), String, Counterparty, DateTime, ORDERSTATE, User, List(Tranche))" Url="html/M-OrderManager.Domain.Entity.Order.-ctor.htm" />
+        <HelpTOCNode Title="Order Constructor (Int32, String, Counterparty, DateTime, DateTime, ORDERSTATE, User, List(Tranche))" Url="html/M-OrderManager.Domain.Entity.Order.-ctor_1.htm" />
+        <HelpTOCNode Title="Order Constructor (Int32, String, Counterparty, DateTime, ORDERSTATE, User, List(Tranche), Order)" Url="html/M-OrderManager.Domain.Entity.Order.-ctor_2.htm" />
+        <HelpTOCNode Title="Order Constructor (Int32, String, Counterparty, DateTime, DateTime, ORDERSTATE, User, List(Tranche), Order)" Url="html/M-OrderManager.Domain.Entity.Order.-ctor_3.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="8b7b74eb-26a1-426d-a08d-12d27ecb0434" Title="Order Fields" Url="html/Fields.T-OrderManager.Domain.Entity.Order.htm">
+        <HelpTOCNode Title="counterparty Field" Url="html/F-OrderManager.Domain.Entity.Order.counterparty.htm" />
+        <HelpTOCNode Title="creator Field" Url="html/F-OrderManager.Domain.Entity.Order.creator.htm" />
+        <HelpTOCNode Title="dateOfConclusion Field" Url="html/F-OrderManager.Domain.Entity.Order.dateOfConclusion.htm" />
+        <HelpTOCNode Title="dateOfCreation Field" Url="html/F-OrderManager.Domain.Entity.Order.dateOfCreation.htm" />
+        <HelpTOCNode Title="id Field" Url="html/F-OrderManager.Domain.Entity.Order.id.htm" />
+        <HelpTOCNode Title="name Field" Url="html/F-OrderManager.Domain.Entity.Order.name.htm" />
+        <HelpTOCNode Title="parentOrder Field" Url="html/F-OrderManager.Domain.Entity.Order.parentOrder.htm" />
+        <HelpTOCNode Title="state Field" Url="html/F-OrderManager.Domain.Entity.Order.state.htm" />
+        <HelpTOCNode Title="tranches Field" Url="html/F-OrderManager.Domain.Entity.Order.tranches.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="ec30d5ed-8cd8-478c-9d3f-13fac7e2873f" Title="Order Methods" Url="html/Methods.T-OrderManager.Domain.Entity.Order.htm">
+        <HelpTOCNode Title="Equals Method " Url="html/M-OrderManager.Domain.Entity.Order.Equals.htm" />
+        <HelpTOCNode Title="GetHashCode Method " Url="html/M-OrderManager.Domain.Entity.Order.GetHashCode.htm" />
+        <HelpTOCNode Title="ToString Method " Url="html/M-OrderManager.Domain.Entity.Order.ToString.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="f5402cfe-920a-44f7-9e4f-f1193e5474ee" Title="Order Properties" Url="html/Properties.T-OrderManager.Domain.Entity.Order.htm">
+        <HelpTOCNode Title="Counterparty Property " Url="html/P-OrderManager.Domain.Entity.Order.Counterparty.htm" />
+        <HelpTOCNode Title="Creator Property " Url="html/P-OrderManager.Domain.Entity.Order.Creator.htm" />
+        <HelpTOCNode Title="DateOfConclusion Property " Url="html/P-OrderManager.Domain.Entity.Order.DateOfConclusion.htm" />
+        <HelpTOCNode Title="DateOfCreation Property " Url="html/P-OrderManager.Domain.Entity.Order.DateOfCreation.htm" />
+        <HelpTOCNode Title="Id Property " Url="html/P-OrderManager.Domain.Entity.Order.Id.htm" />
+        <HelpTOCNode Title="Name Property " Url="html/P-OrderManager.Domain.Entity.Order.Name.htm" />
+        <HelpTOCNode Title="ParentOrder Property " Url="html/P-OrderManager.Domain.Entity.Order.ParentOrder.htm" />
+        <HelpTOCNode Title="PriceBrutto Property " Url="html/P-OrderManager.Domain.Entity.Order.PriceBrutto.htm" />
+        <HelpTOCNode Title="PriceNetto Property " Url="html/P-OrderManager.Domain.Entity.Order.PriceNetto.htm" />
+        <HelpTOCNode Title="State Property " Url="html/P-OrderManager.Domain.Entity.Order.State.htm" />
+        <HelpTOCNode Title="Tranches Property " Url="html/P-OrderManager.Domain.Entity.Order.Tranches.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="ORDERSTATE Enumeration" Url="html/T-OrderManager.Domain.Entity.ORDERSTATE.htm" />
+    <HelpTOCNode Id="ac4ca712-b7e6-4bce-be06-6d3608d06a87" Title="PercentageDiscount Class" Url="html/T-OrderManager.Domain.Entity.PercentageDiscount.htm">
+      <HelpTOCNode Title="PercentageDiscount Members" Url="html/AllMembers.T-OrderManager.Domain.Entity.PercentageDiscount.htm" />
+      <HelpTOCNode Id="1fbfb08a-fba9-4e0a-9891-1ed901e9dde8" Title="PercentageDiscount Constructor " Url="html/Overload-OrderManager.Domain.Entity.PercentageDiscount.-ctor.htm">
+        <HelpTOCNode Title="PercentageDiscount Constructor (Int32, DateTime, DateTime, Double, Double, Boolean, Boolean, List(CounterpartysStock))" Url="html/M-OrderManager.Domain.Entity.PercentageDiscount.-ctor.htm" />
+        <HelpTOCNode Title="PercentageDiscount Constructor (PercentageDiscount, List(CounterpartysStock))" Url="html/M-OrderManager.Domain.Entity.PercentageDiscount.-ctor_1.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="69e0d379-a7cb-408d-8aec-19a6c8c08ceb" Title="PercentageDiscount Fields" Url="html/Fields.T-OrderManager.Domain.Entity.PercentageDiscount.htm">
+        <HelpTOCNode Title="active Field" Url="html/F-OrderManager.Domain.Entity.PercentageDiscount.active.htm" />
+        <HelpTOCNode Title="amount Field" Url="html/F-OrderManager.Domain.Entity.PercentageDiscount.amount.htm" />
+        <HelpTOCNode Title="counterpartysStock Field" Url="html/F-OrderManager.Domain.Entity.PercentageDiscount.counterpartysStock.htm" />
+        <HelpTOCNode Title="id Field" Url="html/F-OrderManager.Domain.Entity.PercentageDiscount.id.htm" />
+        <HelpTOCNode Title="since Field" Url="html/F-OrderManager.Domain.Entity.PercentageDiscount.since.htm" />
+        <HelpTOCNode Title="summing Field" Url="html/F-OrderManager.Domain.Entity.PercentageDiscount.summing.htm" />
+        <HelpTOCNode Title="sumNetto Field" Url="html/F-OrderManager.Domain.Entity.PercentageDiscount.sumNetto.htm" />
+        <HelpTOCNode Title="until Field" Url="html/F-OrderManager.Domain.Entity.PercentageDiscount.until.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="8dc35e90-1048-4d31-b000-ebd2710362ae" Title="PercentageDiscount Methods" Url="html/Methods.T-OrderManager.Domain.Entity.PercentageDiscount.htm">
+        <HelpTOCNode Title="Equals Method " Url="html/M-OrderManager.Domain.Entity.PercentageDiscount.Equals.htm" />
+        <HelpTOCNode Title="GetHashCode Method " Url="html/M-OrderManager.Domain.Entity.PercentageDiscount.GetHashCode.htm" />
+        <HelpTOCNode Title="ToString Method " Url="html/M-OrderManager.Domain.Entity.PercentageDiscount.ToString.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="c29ca9d1-b295-4fdc-9032-0fba9d8c5338" Title="PercentageDiscount Properties" Url="html/Properties.T-OrderManager.Domain.Entity.PercentageDiscount.htm">
+        <HelpTOCNode Title="Active Property " Url="html/P-OrderManager.Domain.Entity.PercentageDiscount.Active.htm" />
+        <HelpTOCNode Title="Amount Property " Url="html/P-OrderManager.Domain.Entity.PercentageDiscount.Amount.htm" />
+        <HelpTOCNode Title="CounterpartysStock Property " Url="html/P-OrderManager.Domain.Entity.PercentageDiscount.CounterpartysStock.htm" />
+        <HelpTOCNode Title="Id Property " Url="html/P-OrderManager.Domain.Entity.PercentageDiscount.Id.htm" />
+        <HelpTOCNode Title="Since Property " Url="html/P-OrderManager.Domain.Entity.PercentageDiscount.Since.htm" />
+        <HelpTOCNode Title="Summing Property " Url="html/P-OrderManager.Domain.Entity.PercentageDiscount.Summing.htm" />
+        <HelpTOCNode Title="SumNetto Property " Url="html/P-OrderManager.Domain.Entity.PercentageDiscount.SumNetto.htm" />
+        <HelpTOCNode Title="Until Property " Url="html/P-OrderManager.Domain.Entity.PercentageDiscount.Until.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="9d5c619e-0cdd-4768-b5c1-4eceed95b94b" Title="Stock Class" Url="html/T-OrderManager.Domain.Entity.Stock.htm">
+      <HelpTOCNode Title="Stock Members" Url="html/AllMembers.T-OrderManager.Domain.Entity.Stock.htm" />
+      <HelpTOCNode Title="Stock Constructor " Url="html/M-OrderManager.Domain.Entity.Stock.-ctor.htm" />
+      <HelpTOCNode Id="dafb47b7-5caa-42c3-ac73-534bb4037af2" Title="Stock Fields" Url="html/Fields.T-OrderManager.Domain.Entity.Stock.htm">
+        <HelpTOCNode Title="category Field" Url="html/F-OrderManager.Domain.Entity.Stock.category.htm" />
+        <HelpTOCNode Title="code Field" Url="html/F-OrderManager.Domain.Entity.Stock.code.htm" />
+        <HelpTOCNode Title="id Field" Url="html/F-OrderManager.Domain.Entity.Stock.id.htm" />
+        <HelpTOCNode Title="inGeneratedOrders Field" Url="html/F-OrderManager.Domain.Entity.Stock.inGeneratedOrders.htm" />
+        <HelpTOCNode Title="maxInStockRoom Field" Url="html/F-OrderManager.Domain.Entity.Stock.maxInStockRoom.htm" />
+        <HelpTOCNode Title="maxNumOfItemsOnEuropallet Field" Url="html/F-OrderManager.Domain.Entity.Stock.maxNumOfItemsOnEuropallet.htm" />
+        <HelpTOCNode Title="minInStockRoom Field" Url="html/F-OrderManager.Domain.Entity.Stock.minInStockRoom.htm" />
+        <HelpTOCNode Title="name Field" Url="html/F-OrderManager.Domain.Entity.Stock.name.htm" />
+        <HelpTOCNode Title="numberOfImtems Field" Url="html/F-OrderManager.Domain.Entity.Stock.numberOfImtems.htm" />
+        <HelpTOCNode Title="vat Field" Url="html/F-OrderManager.Domain.Entity.Stock.vat.htm" />
+        <HelpTOCNode Title="weightOfItem Field" Url="html/F-OrderManager.Domain.Entity.Stock.weightOfItem.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="d4264205-b8df-4b25-b2e9-207798782c5f" Title="Stock Methods" Url="html/Methods.T-OrderManager.Domain.Entity.Stock.htm">
+        <HelpTOCNode Title="Equals Method " Url="html/M-OrderManager.Domain.Entity.Stock.Equals.htm" />
+        <HelpTOCNode Title="GetHashCode Method " Url="html/M-OrderManager.Domain.Entity.Stock.GetHashCode.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="6575baf1-374c-4974-b90f-4e93ca6f7e2f" Title="Stock Properties" Url="html/Properties.T-OrderManager.Domain.Entity.Stock.htm">
+        <HelpTOCNode Title="Category Property " Url="html/P-OrderManager.Domain.Entity.Stock.Category.htm" />
+        <HelpTOCNode Title="Code Property " Url="html/P-OrderManager.Domain.Entity.Stock.Code.htm" />
+        <HelpTOCNode Title="Id Property " Url="html/P-OrderManager.Domain.Entity.Stock.Id.htm" />
+        <HelpTOCNode Title="InGeneratedOrders Property " Url="html/P-OrderManager.Domain.Entity.Stock.InGeneratedOrders.htm" />
+        <HelpTOCNode Title="MaxInStockRoom Property " Url="html/P-OrderManager.Domain.Entity.Stock.MaxInStockRoom.htm" />
+        <HelpTOCNode Title="MaxNumberOfItemsOnEuropallet Property " Url="html/P-OrderManager.Domain.Entity.Stock.MaxNumberOfItemsOnEuropallet.htm" />
+        <HelpTOCNode Title="MinInStockRoom Property " Url="html/P-OrderManager.Domain.Entity.Stock.MinInStockRoom.htm" />
+        <HelpTOCNode Title="Name Property " Url="html/P-OrderManager.Domain.Entity.Stock.Name.htm" />
+        <HelpTOCNode Title="NumberOfItemsInStockRoom Property " Url="html/P-OrderManager.Domain.Entity.Stock.NumberOfItemsInStockRoom.htm" />
+        <HelpTOCNode Title="VAT Property " Url="html/P-OrderManager.Domain.Entity.Stock.VAT.htm" />
+        <HelpTOCNode Title="WeightOfItem Property " Url="html/P-OrderManager.Domain.Entity.Stock.WeightOfItem.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="22a441fe-249c-444c-94e4-8bb9db9c888a" Title="Tranche Class" Url="html/T-OrderManager.Domain.Entity.Tranche.htm">
+      <HelpTOCNode Title="Tranche Members" Url="html/AllMembers.T-OrderManager.Domain.Entity.Tranche.htm" />
+      <HelpTOCNode Id="0599d287-9a3f-4b2c-a6dd-1cdd01317f35" Title="Tranche Constructor " Url="html/Overload-OrderManager.Domain.Entity.Tranche.-ctor.htm">
+        <HelpTOCNode Title="Tranche Constructor (Nullable(Int32), CounterpartysStock, Int32)" Url="html/M-OrderManager.Domain.Entity.Tranche.-ctor.htm" />
+        <HelpTOCNode Title="Tranche Constructor (Nullable(Int32), CounterpartysStock, Int32, Nullable(Int32))" Url="html/M-OrderManager.Domain.Entity.Tranche.-ctor_1.htm" />
+        <HelpTOCNode Title="Tranche Constructor (Nullable(Int32), CounterpartysStock, Int32, Nullable(Int32), List(PercentageDiscount))" Url="html/M-OrderManager.Domain.Entity.Tranche.-ctor_2.htm" />
+        <HelpTOCNode Title="Tranche Constructor (Nullable(Int32), CounterpartysStock, Int32, Nullable(Int32), Double, List(PercentageDiscount))" Url="html/M-OrderManager.Domain.Entity.Tranche.-ctor_3.htm" />
+        <HelpTOCNode Title="Tranche Constructor (Nullable(Int32), Int32, CounterpartysStock, List(PercentageDiscount))" Url="html/M-OrderManager.Domain.Entity.Tranche.-ctor_4.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="27a9cbe5-70e7-495a-b6e3-5cef0eb5fbcb" Title="Tranche Fields" Url="html/Fields.T-OrderManager.Domain.Entity.Tranche.htm">
+        <HelpTOCNode Title="discounts Field" Url="html/F-OrderManager.Domain.Entity.Tranche.discounts.htm" />
+        <HelpTOCNode Title="id Field" Url="html/F-OrderManager.Domain.Entity.Tranche.id.htm" />
+        <HelpTOCNode Title="numberOfItems Field" Url="html/F-OrderManager.Domain.Entity.Tranche.numberOfItems.htm" />
+        <HelpTOCNode Title="orderId Field" Url="html/F-OrderManager.Domain.Entity.Tranche.orderId.htm" />
+        <HelpTOCNode Title="quotaDiscount Field" Url="html/F-OrderManager.Domain.Entity.Tranche.quotaDiscount.htm" />
+        <HelpTOCNode Title="stock Field" Url="html/F-OrderManager.Domain.Entity.Tranche.stock.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="6d04a90c-a456-4967-a08e-9a48c97fa916" Title="Tranche Methods" Url="html/Methods.T-OrderManager.Domain.Entity.Tranche.htm">
+        <HelpTOCNode Title="Equals Method " Url="html/M-OrderManager.Domain.Entity.Tranche.Equals.htm" />
+        <HelpTOCNode Title="GetHashCode Method " Url="html/M-OrderManager.Domain.Entity.Tranche.GetHashCode.htm" />
+        <HelpTOCNode Title="stocksPriceWithDiscounts Method " Url="html/M-OrderManager.Domain.Entity.Tranche.stocksPriceWithDiscounts.htm" />
+        <HelpTOCNode Title="ToString Method " Url="html/M-OrderManager.Domain.Entity.Tranche.ToString.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="4103aeab-b33e-4cc2-88e0-e84dd889547f" Title="Tranche Properties" Url="html/Properties.T-OrderManager.Domain.Entity.Tranche.htm">
+        <HelpTOCNode Title="Discounts Property " Url="html/P-OrderManager.Domain.Entity.Tranche.Discounts.htm" />
+        <HelpTOCNode Title="Id Property " Url="html/P-OrderManager.Domain.Entity.Tranche.Id.htm" />
+        <HelpTOCNode Title="NumberOfItems Property " Url="html/P-OrderManager.Domain.Entity.Tranche.NumberOfItems.htm" />
+        <HelpTOCNode Title="OrderId Property " Url="html/P-OrderManager.Domain.Entity.Tranche.OrderId.htm" />
+        <HelpTOCNode Title="PriceBrutto Property " Url="html/P-OrderManager.Domain.Entity.Tranche.PriceBrutto.htm" />
+        <HelpTOCNode Title="PriceNetto Property " Url="html/P-OrderManager.Domain.Entity.Tranche.PriceNetto.htm" />
+        <HelpTOCNode Title="QuotaDiscount Property " Url="html/P-OrderManager.Domain.Entity.Tranche.QuotaDiscount.htm" />
+        <HelpTOCNode Title="Stock Property " Url="html/P-OrderManager.Domain.Entity.Tranche.Stock.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="e1c8ee1b-7873-4f1e-8b26-ef7bc3876e4a" Title="User Class" Url="html/T-OrderManager.Domain.Entity.User.htm">
+      <HelpTOCNode Title="User Members" Url="html/AllMembers.T-OrderManager.Domain.Entity.User.htm" />
+      <HelpTOCNode Title="User Constructor " Url="html/M-OrderManager.Domain.Entity.User.-ctor.htm" />
+      <HelpTOCNode Id="ccb8cb50-03bb-4cec-92a5-4233d4b6e527" Title="User Fields" Url="html/Fields.T-OrderManager.Domain.Entity.User.htm">
+        <HelpTOCNode Title="id Field" Url="html/F-OrderManager.Domain.Entity.User.id.htm" />
+        <HelpTOCNode Title="login Field" Url="html/F-OrderManager.Domain.Entity.User.login.htm" />
+        <HelpTOCNode Title="name Field" Url="html/F-OrderManager.Domain.Entity.User.name.htm" />
+        <HelpTOCNode Title="password Field" Url="html/F-OrderManager.Domain.Entity.User.password.htm" />
+        <HelpTOCNode Title="phoneNumber Field" Url="html/F-OrderManager.Domain.Entity.User.phoneNumber.htm" />
+        <HelpTOCNode Title="surname Field" Url="html/F-OrderManager.Domain.Entity.User.surname.htm" />
+        <HelpTOCNode Title="type Field" Url="html/F-OrderManager.Domain.Entity.User.type.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="2753e945-06a1-4311-b71f-39f9dce42af9" Title="User Methods" Url="html/Methods.T-OrderManager.Domain.Entity.User.htm">
+        <HelpTOCNode Title="ToString Method " Url="html/M-OrderManager.Domain.Entity.User.ToString.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="ca937621-bc5e-4522-a04a-c7810a169190" Title="User Properties" Url="html/Properties.T-OrderManager.Domain.Entity.User.htm">
+        <HelpTOCNode Title="Id Property " Url="html/P-OrderManager.Domain.Entity.User.Id.htm" />
+        <HelpTOCNode Title="Login Property " Url="html/P-OrderManager.Domain.Entity.User.Login.htm" />
+        <HelpTOCNode Title="Name Property " Url="html/P-OrderManager.Domain.Entity.User.Name.htm" />
+        <HelpTOCNode Title="Password Property " Url="html/P-OrderManager.Domain.Entity.User.Password.htm" />
+        <HelpTOCNode Title="PhoneNumber Property " Url="html/P-OrderManager.Domain.Entity.User.PhoneNumber.htm" />
+        <HelpTOCNode Title="Surname Property " Url="html/P-OrderManager.Domain.Entity.User.Surname.htm" />
+        <HelpTOCNode Title="Type Property " Url="html/P-OrderManager.Domain.Entity.User.Type.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="7061837b-0334-4900-a467-5d09d7a8d3b6" Title="OrderManager.Domain.OrderGenerator Namespace" Url="html/N-OrderManager.Domain.OrderGenerator.htm">
+    <HelpTOCNode Id="4791306f-8e98-4246-9556-3853603ff6ac" Title="CouterpartysPropertyChoice Class" Url="html/T-OrderManager.Domain.OrderGenerator.CouterpartysPropertyChoice.htm">
+      <HelpTOCNode Title="CouterpartysPropertyChoice Members" Url="html/AllMembers.T-OrderManager.Domain.OrderGenerator.CouterpartysPropertyChoice.htm" />
+      <HelpTOCNode Title="CouterpartysPropertyChoice Constructor " Url="html/M-OrderManager.Domain.OrderGenerator.CouterpartysPropertyChoice.-ctor.htm" />
+      <HelpTOCNode Id="7ecb4ccd-217c-48fc-9d0b-e1b5fb8a9bd7" Title="CouterpartysPropertyChoice Fields" Url="html/Fields.T-OrderManager.Domain.OrderGenerator.CouterpartysPropertyChoice.htm">
+        <HelpTOCNode Title="counterpartyService Field" Url="html/F-OrderManager.Domain.OrderGenerator.CouterpartysPropertyChoice.counterpartyService.htm" />
+        <HelpTOCNode Title="counterpartysStockService Field" Url="html/F-OrderManager.Domain.OrderGenerator.CouterpartysPropertyChoice.counterpartysStockService.htm" />
+        <HelpTOCNode Title="stockService Field" Url="html/F-OrderManager.Domain.OrderGenerator.CouterpartysPropertyChoice.stockService.htm" />
+        <HelpTOCNode Title="stockToOrder Field" Url="html/F-OrderManager.Domain.OrderGenerator.CouterpartysPropertyChoice.stockToOrder.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="46f56d28-0968-4db7-bb03-7b8841030038" Title="CouterpartysPropertyChoice Methods" Url="html/Methods.T-OrderManager.Domain.OrderGenerator.CouterpartysPropertyChoice.htm">
+        <HelpTOCNode Title="BestChosenOffers Method " Url="html/M-OrderManager.Domain.OrderGenerator.CouterpartysPropertyChoice.BestChosenOffers.htm" />
+        <HelpTOCNode Title="SortCounterparties Method " Url="html/M-OrderManager.Domain.OrderGenerator.CouterpartysPropertyChoice.SortCounterparties.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="75722f43-f796-47c9-93b8-35f15788d09f" Title="PriorityDistanceChoice Class" Url="html/T-OrderManager.Domain.OrderGenerator.PriorityDistanceChoice.htm">
+      <HelpTOCNode Title="PriorityDistanceChoice Members" Url="html/AllMembers.T-OrderManager.Domain.OrderGenerator.PriorityDistanceChoice.htm" />
+      <HelpTOCNode Title="PriorityDistanceChoice Constructor " Url="html/M-OrderManager.Domain.OrderGenerator.PriorityDistanceChoice.-ctor.htm" />
+      <HelpTOCNode Id="9cfba997-9af7-4690-afbc-4d88862a6977" Title="PriorityDistanceChoice Methods" Url="html/Methods.T-OrderManager.Domain.OrderGenerator.PriorityDistanceChoice.htm">
+        <HelpTOCNode Title="SortCounterparties Method " Url="html/M-OrderManager.Domain.OrderGenerator.PriorityDistanceChoice.SortCounterparties.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="b828fc6c-92a6-4cab-9201-2a8f17c2b7c2" Title="PriorityFrequencyChoice Class" Url="html/T-OrderManager.Domain.OrderGenerator.PriorityFrequencyChoice.htm">
+      <HelpTOCNode Title="PriorityFrequencyChoice Members" Url="html/AllMembers.T-OrderManager.Domain.OrderGenerator.PriorityFrequencyChoice.htm" />
+      <HelpTOCNode Title="PriorityFrequencyChoice Constructor " Url="html/M-OrderManager.Domain.OrderGenerator.PriorityFrequencyChoice.-ctor.htm" />
+      <HelpTOCNode Id="a16f799c-3a8e-401a-a4a7-b80deeb117e7" Title="PriorityFrequencyChoice Methods" Url="html/Methods.T-OrderManager.Domain.OrderGenerator.PriorityFrequencyChoice.htm">
+        <HelpTOCNode Title="SortCounterparties Method " Url="html/M-OrderManager.Domain.OrderGenerator.PriorityFrequencyChoice.SortCounterparties.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="8701047c-7c85-46b3-86c6-d488564fbe8d" Title="OrderManager.Domain.Service Namespace" Url="html/N-OrderManager.Domain.Service.htm">
+    <HelpTOCNode Id="94afb7fc-7e51-406b-8bb4-49500e6c0a2c" Title="CounterpartyService Class" Url="html/T-OrderManager.Domain.Service.CounterpartyService.htm">
+      <HelpTOCNode Title="CounterpartyService Members" Url="html/AllMembers.T-OrderManager.Domain.Service.CounterpartyService.htm" />
+      <HelpTOCNode Title="CounterpartyService Constructor " Url="html/M-OrderManager.Domain.Service.CounterpartyService.-ctor.htm" />
+      <HelpTOCNode Id="160a55ff-9e79-43f4-88b6-0af74758bdc7" Title="CounterpartyService Fields" Url="html/Fields.T-OrderManager.Domain.Service.CounterpartyService.htm">
+        <HelpTOCNode Title="counterpartysStockMapper Field" Url="html/F-OrderManager.Domain.Service.CounterpartyService.counterpartysStockMapper.htm" />
+        <HelpTOCNode Title="DAO Field" Url="html/F-OrderManager.Domain.Service.CounterpartyService.DAO.htm" />
+        <HelpTOCNode Title="mapper Field" Url="html/F-OrderManager.Domain.Service.CounterpartyService.mapper.htm" />
+        <HelpTOCNode Title="orderMapper Field" Url="html/F-OrderManager.Domain.Service.CounterpartyService.orderMapper.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="04d15785-1734-499e-9128-5fa80c522702" Title="CounterpartyService Methods" Url="html/Methods.T-OrderManager.Domain.Service.CounterpartyService.htm">
+        <HelpTOCNode Title="GetAll Method " Url="html/M-OrderManager.Domain.Service.CounterpartyService.GetAll.htm" />
+        <HelpTOCNode Title="GetById Method " Url="html/M-OrderManager.Domain.Service.CounterpartyService.GetById.htm" />
+        <HelpTOCNode Title="GetCounterpartysOrders Method " Url="html/M-OrderManager.Domain.Service.CounterpartyService.GetCounterpartysOrders.htm" />
+        <HelpTOCNode Title="GetCounterpartysStock Method " Url="html/M-OrderManager.Domain.Service.CounterpartyService.GetCounterpartysStock.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="8bc8b0f0-c0ed-47da-b817-91d0e6a5ed78" Title="CounterpartysStockService Class" Url="html/T-OrderManager.Domain.Service.CounterpartysStockService.htm">
+      <HelpTOCNode Title="CounterpartysStockService Members" Url="html/AllMembers.T-OrderManager.Domain.Service.CounterpartysStockService.htm" />
+      <HelpTOCNode Title="CounterpartysStockService Constructor " Url="html/M-OrderManager.Domain.Service.CounterpartysStockService.-ctor.htm" />
+      <HelpTOCNode Id="94f0369c-b19d-4bc5-a142-13968b611da9" Title="CounterpartysStockService Fields" Url="html/Fields.T-OrderManager.Domain.Service.CounterpartysStockService.htm">
+        <HelpTOCNode Title="counterpartysStockDAO Field" Url="html/F-OrderManager.Domain.Service.CounterpartysStockService.counterpartysStockDAO.htm" />
+        <HelpTOCNode Title="counterpartysStockMapper Field" Url="html/F-OrderManager.Domain.Service.CounterpartysStockService.counterpartysStockMapper.htm" />
+        <HelpTOCNode Title="percentageDiscountMapper Field" Url="html/F-OrderManager.Domain.Service.CounterpartysStockService.percentageDiscountMapper.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="203e5e85-1ad9-49a3-a8bf-ca9b5c8f1e17" Title="CounterpartysStockService Methods" Url="html/Methods.T-OrderManager.Domain.Service.CounterpartysStockService.htm">
+        <HelpTOCNode Title="GetAll Method " Url="html/M-OrderManager.Domain.Service.CounterpartysStockService.GetAll.htm" />
+        <HelpTOCNode Title="GetById Method " Url="html/M-OrderManager.Domain.Service.CounterpartysStockService.GetById.htm" />
+        <HelpTOCNode Title="GetValidDiscounts Method " Url="html/M-OrderManager.Domain.Service.CounterpartysStockService.GetValidDiscounts.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="c2500038-7a98-44e6-9d78-e56b3384a6ce" Title="EligibleORersNamesService Class" Url="html/T-OrderManager.Domain.Service.EligibleORersNamesService.htm">
+      <HelpTOCNode Title="EligibleORersNamesService Members" Url="html/AllMembers.T-OrderManager.Domain.Service.EligibleORersNamesService.htm" />
+      <HelpTOCNode Title="EligibleORersNamesService Constructor " Url="html/M-OrderManager.Domain.Service.EligibleORersNamesService.-ctor.htm" />
+      <HelpTOCNode Id="63dfb5f7-8723-4f4c-9074-3174b3855036" Title="EligibleORersNamesService Fields" Url="html/Fields.T-OrderManager.Domain.Service.EligibleORersNamesService.htm">
+        <HelpTOCNode Title="eligibleOrdersNamesDAO Field" Url="html/F-OrderManager.Domain.Service.EligibleORersNamesService.eligibleOrdersNamesDAO.htm" />
+        <HelpTOCNode Title="mapper Field" Url="html/F-OrderManager.Domain.Service.EligibleORersNamesService.mapper.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="56cdf101-78b3-4c35-b783-e71e8679cbc3" Title="EligibleORersNamesService Methods" Url="html/Methods.T-OrderManager.Domain.Service.EligibleORersNamesService.htm">
+        <HelpTOCNode Title="FetchNames Method " Url="html/M-OrderManager.Domain.Service.EligibleORersNamesService.FetchNames.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="ICategoryService Interface" Url="html/T-OrderManager.Domain.Service.ICategoryService.htm" />
+    <HelpTOCNode Id="9a507add-80ef-4174-87b1-cd3b9a4161b5" Title="ICounterpartyService Interface" Url="html/T-OrderManager.Domain.Service.ICounterpartyService.htm">
+      <HelpTOCNode Title="ICounterpartyService Members" Url="html/AllMembers.T-OrderManager.Domain.Service.ICounterpartyService.htm" />
+      <HelpTOCNode Id="ec0d2dc8-b2df-4280-8281-3da4639b5df8" Title="ICounterpartyService Methods" Url="html/Methods.T-OrderManager.Domain.Service.ICounterpartyService.htm">
+        <HelpTOCNode Title="GetCounterpartysOrders Method " Url="html/M-OrderManager.Domain.Service.ICounterpartyService.GetCounterpartysOrders.htm" />
+        <HelpTOCNode Title="GetCounterpartysStock Method " Url="html/M-OrderManager.Domain.Service.ICounterpartyService.GetCounterpartysStock.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="0c933187-ce6b-4ba5-b3c6-3546b40e3c7e" Title="ICounterpartysStockService Interface" Url="html/T-OrderManager.Domain.Service.ICounterpartysStockService.htm">
+      <HelpTOCNode Title="ICounterpartysStockService Members" Url="html/AllMembers.T-OrderManager.Domain.Service.ICounterpartysStockService.htm" />
+      <HelpTOCNode Id="c5400f31-ac83-437a-8d00-501e95609b7b" Title="ICounterpartysStockService Methods" Url="html/Methods.T-OrderManager.Domain.Service.ICounterpartysStockService.htm">
+        <HelpTOCNode Title="GetValidDiscounts Method " Url="html/M-OrderManager.Domain.Service.ICounterpartysStockService.GetValidDiscounts.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="89e64491-1a32-47b1-af1a-a097746209f1" Title="IEligibleOrdersNamesService Interface" Url="html/T-OrderManager.Domain.Service.IEligibleOrdersNamesService.htm">
+      <HelpTOCNode Title="IEligibleOrdersNamesService Members" Url="html/AllMembers.T-OrderManager.Domain.Service.IEligibleOrdersNamesService.htm" />
+      <HelpTOCNode Id="edf2e6cc-2f9f-48ac-b2ce-419b216887db" Title="IEligibleOrdersNamesService Methods" Url="html/Methods.T-OrderManager.Domain.Service.IEligibleOrdersNamesService.htm">
+        <HelpTOCNode Title="FetchNames Method " Url="html/M-OrderManager.Domain.Service.IEligibleOrdersNamesService.FetchNames.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="7b1fcea8-f63d-49fe-8a06-5a8a4bd9fa2b" Title="IEntityServiceBase(T) Interface" Url="html/T-OrderManager.Domain.Service.IEntityServiceBase-1.htm">
+      <HelpTOCNode Title="IEntityServiceBase Members" Url="html/AllMembers.T-OrderManager.Domain.Service.IEntityServiceBase-1.htm" />
+      <HelpTOCNode Id="56549dab-bd91-4cbd-ae39-b733c68aa665" Title="IEntityServiceBase Methods" Url="html/Methods.T-OrderManager.Domain.Service.IEntityServiceBase-1.htm">
+        <HelpTOCNode Title="GetAll Method " Url="html/M-OrderManager.Domain.Service.IEntityServiceBase-1.GetAll.htm" />
+        <HelpTOCNode Title="GetById Method " Url="html/M-OrderManager.Domain.Service.IEntityServiceBase-1.GetById.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="a1cdfff6-aca6-4580-91cb-b988c724d6e0" Title="IOffersChoice Interface" Url="html/T-OrderManager.Domain.Service.IOffersChoice.htm">
+      <HelpTOCNode Title="IOffersChoice Members" Url="html/AllMembers.T-OrderManager.Domain.Service.IOffersChoice.htm" />
+      <HelpTOCNode Id="e95dfb97-e3b1-4023-9549-93e6dca4c5b4" Title="IOffersChoice Methods" Url="html/Methods.T-OrderManager.Domain.Service.IOffersChoice.htm">
+        <HelpTOCNode Title="BestChosenOffers Method " Url="html/M-OrderManager.Domain.Service.IOffersChoice.BestChosenOffers.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="4942d545-77f9-45ed-a75e-8bb7a24c5808" Title="IOrderService Interface" Url="html/T-OrderManager.Domain.Service.IOrderService.htm">
+      <HelpTOCNode Title="IOrderService Members" Url="html/AllMembers.T-OrderManager.Domain.Service.IOrderService.htm" />
+      <HelpTOCNode Id="d1f1cfd5-65a7-4eda-b019-cb9cf68be235" Title="IOrderService Methods" Url="html/Methods.T-OrderManager.Domain.Service.IOrderService.htm">
+        <HelpTOCNode Title="GetAllByState Method " Url="html/M-OrderManager.Domain.Service.IOrderService.GetAllByState.htm" />
+        <HelpTOCNode Title="GetAllDuringRealization Method " Url="html/M-OrderManager.Domain.Service.IOrderService.GetAllDuringRealization.htm" />
+        <HelpTOCNode Title="GetParentOrder Method " Url="html/M-OrderManager.Domain.Service.IOrderService.GetParentOrder.htm" />
+        <HelpTOCNode Title="InsertOrder Method " Url="html/M-OrderManager.Domain.Service.IOrderService.InsertOrder.htm" />
+        <HelpTOCNode Title="OrderCorrection Method " Url="html/M-OrderManager.Domain.Service.IOrderService.OrderCorrection.htm" />
+        <HelpTOCNode Title="UpdateOrder Method " Url="html/M-OrderManager.Domain.Service.IOrderService.UpdateOrder.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="1e1db553-3aa2-4f5b-b7fa-8a70b7bee8ef" Title="IPriorityService Interface" Url="html/T-OrderManager.Domain.Service.IPriorityService.htm">
+      <HelpTOCNode Title="IPriorityService Members" Url="html/AllMembers.T-OrderManager.Domain.Service.IPriorityService.htm" />
+      <HelpTOCNode Id="2777146f-45f2-4612-baf2-8eb0a76ca163" Title="IPriorityService Methods" Url="html/Methods.T-OrderManager.Domain.Service.IPriorityService.htm">
+        <HelpTOCNode Title="GetStockPriority Method " Url="html/M-OrderManager.Domain.Service.IPriorityService.GetStockPriority.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="35b6fe82-60e9-4a64-8c9e-19df386a3416" Title="IStockService Interface" Url="html/T-OrderManager.Domain.Service.IStockService.htm">
+      <HelpTOCNode Title="IStockService Members" Url="html/AllMembers.T-OrderManager.Domain.Service.IStockService.htm" />
+      <HelpTOCNode Id="ef18989f-e301-4e05-bdf7-86f3e22f4a41" Title="IStockService Methods" Url="html/Methods.T-OrderManager.Domain.Service.IStockService.htm">
+        <HelpTOCNode Title="GetNumOfItemsInOrders Method " Url="html/M-OrderManager.Domain.Service.IStockService.GetNumOfItemsInOrders.htm" />
+        <HelpTOCNode Title="GetNumOfItemsToOrder Method " Url="html/M-OrderManager.Domain.Service.IStockService.GetNumOfItemsToOrder.htm" />
+        <HelpTOCNode Title="GetStocksActiveOrders Method " Url="html/M-OrderManager.Domain.Service.IStockService.GetStocksActiveOrders.htm" />
+        <HelpTOCNode Title="GetStocksCounterpartysStock Method " Url="html/M-OrderManager.Domain.Service.IStockService.GetStocksCounterpartysStock.htm" />
+        <HelpTOCNode Title="SetPossibilityToGenerateOrder Method " Url="html/M-OrderManager.Domain.Service.IStockService.SetPossibilityToGenerateOrder.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="ac4f14f4-e792-4951-a390-115a9fc28027" Title="ITrancheService Interface" Url="html/T-OrderManager.Domain.Service.ITrancheService.htm">
+      <HelpTOCNode Title="ITrancheService Members" Url="html/AllMembers.T-OrderManager.Domain.Service.ITrancheService.htm" />
+      <HelpTOCNode Id="47760907-9729-488c-ac2c-b343921a8651" Title="ITrancheService Methods" Url="html/Methods.T-OrderManager.Domain.Service.ITrancheService.htm">
+        <HelpTOCNode Title="AssignDiscountToTranche Method " Url="html/M-OrderManager.Domain.Service.ITrancheService.AssignDiscountToTranche.htm" />
+        <HelpTOCNode Title="GetPercentageDiscounts Method " Url="html/M-OrderManager.Domain.Service.ITrancheService.GetPercentageDiscounts.htm" />
+        <HelpTOCNode Title="GetViableDiscounts Method " Url="html/M-OrderManager.Domain.Service.ITrancheService.GetViableDiscounts.htm" />
+        <HelpTOCNode Title="InsertTranche Method " Url="html/M-OrderManager.Domain.Service.ITrancheService.InsertTranche.htm" />
+        <HelpTOCNode Title="UpdateTranche Method " Url="html/M-OrderManager.Domain.Service.ITrancheService.UpdateTranche.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="3bdf3a1e-dff5-4714-8f0a-a151dc817bf0" Title="OrderService Class" Url="html/T-OrderManager.Domain.Service.OrderService.htm">
+      <HelpTOCNode Title="OrderService Members" Url="html/AllMembers.T-OrderManager.Domain.Service.OrderService.htm" />
+      <HelpTOCNode Title="OrderService Constructor " Url="html/M-OrderManager.Domain.Service.OrderService.-ctor.htm" />
+      <HelpTOCNode Id="e525b7c3-bbfa-4690-8c12-8c9d1f8c27c8" Title="OrderService Fields" Url="html/Fields.T-OrderManager.Domain.Service.OrderService.htm">
+        <HelpTOCNode Title="DAO Field" Url="html/F-OrderManager.Domain.Service.OrderService.DAO.htm" />
+        <HelpTOCNode Title="mapper Field" Url="html/F-OrderManager.Domain.Service.OrderService.mapper.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="986abacc-8bc5-4721-92da-9be24555c8b1" Title="OrderService Methods" Url="html/Methods.T-OrderManager.Domain.Service.OrderService.htm">
+        <HelpTOCNode Title="GetAll Method " Url="html/M-OrderManager.Domain.Service.OrderService.GetAll.htm" />
+        <HelpTOCNode Title="GetAllByState Method " Url="html/M-OrderManager.Domain.Service.OrderService.GetAllByState.htm" />
+        <HelpTOCNode Title="GetAllDuringRealization Method " Url="html/M-OrderManager.Domain.Service.OrderService.GetAllDuringRealization.htm" />
+        <HelpTOCNode Title="GetById Method " Url="html/M-OrderManager.Domain.Service.OrderService.GetById.htm" />
+        <HelpTOCNode Title="GetParentOrder Method " Url="html/M-OrderManager.Domain.Service.OrderService.GetParentOrder.htm" />
+        <HelpTOCNode Title="InsertOrder Method " Url="html/M-OrderManager.Domain.Service.OrderService.InsertOrder.htm" />
+        <HelpTOCNode Title="OrderCorrection Method " Url="html/M-OrderManager.Domain.Service.OrderService.OrderCorrection.htm" />
+        <HelpTOCNode Title="UpdateOrder Method " Url="html/M-OrderManager.Domain.Service.OrderService.UpdateOrder.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="15d337c2-4f43-46d3-9529-f58dfa4bd346" Title="PriorityPriceChoice Class" Url="html/T-OrderManager.Domain.Service.PriorityPriceChoice.htm">
+      <HelpTOCNode Title="PriorityPriceChoice Members" Url="html/AllMembers.T-OrderManager.Domain.Service.PriorityPriceChoice.htm" />
+      <HelpTOCNode Title="PriorityPriceChoice Constructor " Url="html/M-OrderManager.Domain.Service.PriorityPriceChoice.-ctor.htm" />
+      <HelpTOCNode Id="2b5afe82-6d71-4c20-9791-a7e3900e431f" Title="PriorityPriceChoice Fields" Url="html/Fields.T-OrderManager.Domain.Service.PriorityPriceChoice.htm">
+        <HelpTOCNode Title="counterpartysStockService Field" Url="html/F-OrderManager.Domain.Service.PriorityPriceChoice.counterpartysStockService.htm" />
+        <HelpTOCNode Title="stockService Field" Url="html/F-OrderManager.Domain.Service.PriorityPriceChoice.stockService.htm" />
+        <HelpTOCNode Title="stockToOrder Field" Url="html/F-OrderManager.Domain.Service.PriorityPriceChoice.stockToOrder.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="b6fb122b-18ea-4e69-a020-c5323102e5be" Title="PriorityPriceChoice Methods" Url="html/Methods.T-OrderManager.Domain.Service.PriorityPriceChoice.htm">
+        <HelpTOCNode Title="BestChosenOffers Method " Url="html/M-OrderManager.Domain.Service.PriorityPriceChoice.BestChosenOffers.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="23e31df2-22f0-4d40-af31-b91234c8d8bc" Title="PriorityService Class" Url="html/T-OrderManager.Domain.Service.PriorityService.htm">
+      <HelpTOCNode Title="PriorityService Members" Url="html/AllMembers.T-OrderManager.Domain.Service.PriorityService.htm" />
+      <HelpTOCNode Title="PriorityService Constructor " Url="html/M-OrderManager.Domain.Service.PriorityService.-ctor.htm" />
+      <HelpTOCNode Id="63e31013-649e-477b-82e7-68621bcbdaa4" Title="PriorityService Fields" Url="html/Fields.T-OrderManager.Domain.Service.PriorityService.htm">
+        <HelpTOCNode Title="priorityDAO Field" Url="html/F-OrderManager.Domain.Service.PriorityService.priorityDAO.htm" />
+        <HelpTOCNode Title="priorityMapper Field" Url="html/F-OrderManager.Domain.Service.PriorityService.priorityMapper.htm" />
+        <HelpTOCNode Title="stockMapper Field" Url="html/F-OrderManager.Domain.Service.PriorityService.stockMapper.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="de31b540-71b2-4e5d-9ebe-83796073dcf5" Title="PriorityService Methods" Url="html/Methods.T-OrderManager.Domain.Service.PriorityService.htm">
+        <HelpTOCNode Title="GetStockPriority Method " Url="html/M-OrderManager.Domain.Service.PriorityService.GetStockPriority.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="8457787b-4f45-4688-bea5-3bc39ccc64f4" Title="StockService Class" Url="html/T-OrderManager.Domain.Service.StockService.htm">
+      <HelpTOCNode Title="StockService Members" Url="html/AllMembers.T-OrderManager.Domain.Service.StockService.htm" />
+      <HelpTOCNode Title="StockService Constructor " Url="html/M-OrderManager.Domain.Service.StockService.-ctor.htm" />
+      <HelpTOCNode Id="ebd87226-63fd-48cc-a356-d3e3a55e8733" Title="StockService Fields" Url="html/Fields.T-OrderManager.Domain.Service.StockService.htm">
+        <HelpTOCNode Title="counterpartysStockMapper Field" Url="html/F-OrderManager.Domain.Service.StockService.counterpartysStockMapper.htm" />
+        <HelpTOCNode Title="DAO Field" Url="html/F-OrderManager.Domain.Service.StockService.DAO.htm" />
+        <HelpTOCNode Title="mapper Field" Url="html/F-OrderManager.Domain.Service.StockService.mapper.htm" />
+        <HelpTOCNode Title="orderMapper Field" Url="html/F-OrderManager.Domain.Service.StockService.orderMapper.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="221c677b-6d41-492c-8d99-a781f53acb8a" Title="StockService Methods" Url="html/Methods.T-OrderManager.Domain.Service.StockService.htm">
+        <HelpTOCNode Title="GetAll Method " Url="html/M-OrderManager.Domain.Service.StockService.GetAll.htm" />
+        <HelpTOCNode Title="GetById Method " Url="html/M-OrderManager.Domain.Service.StockService.GetById.htm" />
+        <HelpTOCNode Title="GetNumOfItemsInOrders Method " Url="html/M-OrderManager.Domain.Service.StockService.GetNumOfItemsInOrders.htm" />
+        <HelpTOCNode Title="GetNumOfItemsToOrder Method " Url="html/M-OrderManager.Domain.Service.StockService.GetNumOfItemsToOrder.htm" />
+        <HelpTOCNode Title="GetStocksActiveOrders Method " Url="html/M-OrderManager.Domain.Service.StockService.GetStocksActiveOrders.htm" />
+        <HelpTOCNode Title="GetStocksCounterpartysStock Method " Url="html/M-OrderManager.Domain.Service.StockService.GetStocksCounterpartysStock.htm" />
+        <HelpTOCNode Title="SetPossibilityToGenerateOrder Method " Url="html/M-OrderManager.Domain.Service.StockService.SetPossibilityToGenerateOrder.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="fbd3c9f1-1bb5-41d6-8a59-06bccc32ab00" Title="TrancheService Class" Url="html/T-OrderManager.Domain.Service.TrancheService.htm">
+      <HelpTOCNode Title="TrancheService Members" Url="html/AllMembers.T-OrderManager.Domain.Service.TrancheService.htm" />
+      <HelpTOCNode Title="TrancheService Constructor " Url="html/M-OrderManager.Domain.Service.TrancheService.-ctor.htm" />
+      <HelpTOCNode Id="80cd5691-fcf6-48e5-b6a7-88ce62c1c0f6" Title="TrancheService Fields" Url="html/Fields.T-OrderManager.Domain.Service.TrancheService.htm">
+        <HelpTOCNode Title="DAO Field" Url="html/F-OrderManager.Domain.Service.TrancheService.DAO.htm" />
+        <HelpTOCNode Title="discountMapper Field" Url="html/F-OrderManager.Domain.Service.TrancheService.discountMapper.htm" />
+        <HelpTOCNode Title="mapper Field" Url="html/F-OrderManager.Domain.Service.TrancheService.mapper.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="07ad26eb-6e4c-4cd7-8131-fec8ba98183d" Title="TrancheService Methods" Url="html/Methods.T-OrderManager.Domain.Service.TrancheService.htm">
+        <HelpTOCNode Title="AssignDiscountToTranche Method " Url="html/M-OrderManager.Domain.Service.TrancheService.AssignDiscountToTranche.htm" />
+        <HelpTOCNode Title="GetAll Method " Url="html/M-OrderManager.Domain.Service.TrancheService.GetAll.htm" />
+        <HelpTOCNode Title="GetById Method " Url="html/M-OrderManager.Domain.Service.TrancheService.GetById.htm" />
+        <HelpTOCNode Title="GetPercentageDiscounts Method " Url="html/M-OrderManager.Domain.Service.TrancheService.GetPercentageDiscounts.htm" />
+        <HelpTOCNode Title="GetViableDiscounts Method " Url="html/M-OrderManager.Domain.Service.TrancheService.GetViableDiscounts.htm" />
+        <HelpTOCNode Title="InsertTranche Method " Url="html/M-OrderManager.Domain.Service.TrancheService.InsertTranche.htm" />
+        <HelpTOCNode Title="UpdateTranche Method " Url="html/M-OrderManager.Domain.Service.TrancheService.UpdateTranche.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="aa18319f-cfdb-4e17-b798-0fb0745a363d" Title="OrderManager.DTO Namespace" Url="html/N-OrderManager.DTO.htm">
+    <HelpTOCNode Id="e31f25ee-e193-4cc2-822e-8c946298654e" Title="CounterpartyMapper Class" Url="html/T-OrderManager.DTO.CounterpartyMapper.htm">
+      <HelpTOCNode Title="CounterpartyMapper Members" Url="html/AllMembers.T-OrderManager.DTO.CounterpartyMapper.htm" />
+      <HelpTOCNode Id="f7cc73b1-69bd-4d78-bdb3-ad42db8d4134" Title="CounterpartyMapper Methods" Url="html/Methods.T-OrderManager.DTO.CounterpartyMapper.htm">
+        <HelpTOCNode Title="MapAllFrom Method " Url="html/M-OrderManager.DTO.CounterpartyMapper.MapAllFrom.htm" />
+        <HelpTOCNode Id="bf711924-338b-4f26-8388-0f5a52e4b660" Title="MapFrom Method " Url="html/Overload-OrderManager.DTO.CounterpartyMapper.MapFrom.htm">
+          <HelpTOCNode Title="MapFrom Method (DataTable)" Url="html/M-OrderManager.DTO.CounterpartyMapper.MapFrom.htm" />
+          <HelpTOCNode Title="MapFrom Method (DataTable, Int32)" Url="html/M-OrderManager.DTO.CounterpartyMapper.MapFrom_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="MapTo Method " Url="html/M-OrderManager.DTO.CounterpartyMapper.MapTo.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="a1a1f8eb-db04-45a0-9885-744b4facb95c" Title="CounterpartysStockMapper Class" Url="html/T-OrderManager.DTO.CounterpartysStockMapper.htm">
+      <HelpTOCNode Title="CounterpartysStockMapper Members" Url="html/AllMembers.T-OrderManager.DTO.CounterpartysStockMapper.htm" />
+      <HelpTOCNode Title="CounterpartysStockMapper Constructor " Url="html/M-OrderManager.DTO.CounterpartysStockMapper.-ctor.htm" />
+      <HelpTOCNode Id="03d338a4-a5e1-4ef0-83f6-e32a89c13bcd" Title="CounterpartysStockMapper Fields" Url="html/Fields.T-OrderManager.DTO.CounterpartysStockMapper.htm">
+        <HelpTOCNode Title="counterpartysStockDAO Field" Url="html/F-OrderManager.DTO.CounterpartysStockMapper.counterpartysStockDAO.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="ab49d071-f7c9-4bf0-b4a5-0559acbc4a57" Title="CounterpartysStockMapper Methods" Url="html/Methods.T-OrderManager.DTO.CounterpartysStockMapper.htm">
+        <HelpTOCNode Title="MapAllFrom Method " Url="html/M-OrderManager.DTO.CounterpartysStockMapper.MapAllFrom.htm" />
+        <HelpTOCNode Id="6e9a31b9-cc67-4ea1-9b8b-a8683d326dd8" Title="MapFrom Method " Url="html/Overload-OrderManager.DTO.CounterpartysStockMapper.MapFrom.htm">
+          <HelpTOCNode Title="MapFrom Method (DataTable)" Url="html/M-OrderManager.DTO.CounterpartysStockMapper.MapFrom.htm" />
+          <HelpTOCNode Title="MapFrom Method (DataTable, Int32)" Url="html/M-OrderManager.DTO.CounterpartysStockMapper.MapFrom_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="MapTo Method " Url="html/M-OrderManager.DTO.CounterpartysStockMapper.MapTo.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="472b7a1c-bec4-4b65-ad5d-292aa7f69d5e" Title="EligibleOrdersNamesMapper Class" Url="html/T-OrderManager.DTO.EligibleOrdersNamesMapper.htm">
+      <HelpTOCNode Title="EligibleOrdersNamesMapper Members" Url="html/AllMembers.T-OrderManager.DTO.EligibleOrdersNamesMapper.htm" />
+      <HelpTOCNode Id="01d34364-1173-41fc-967a-4033e2699b3b" Title="EligibleOrdersNamesMapper Methods" Url="html/Methods.T-OrderManager.DTO.EligibleOrdersNamesMapper.htm">
+        <HelpTOCNode Title="MapAllFrom Method " Url="html/M-OrderManager.DTO.EligibleOrdersNamesMapper.MapAllFrom.htm" />
+        <HelpTOCNode Id="6a837277-99e1-4ed0-a2bd-e81b5798586f" Title="MapFrom Method " Url="html/Overload-OrderManager.DTO.EligibleOrdersNamesMapper.MapFrom.htm">
+          <HelpTOCNode Title="MapFrom Method (DataTable)" Url="html/M-OrderManager.DTO.EligibleOrdersNamesMapper.MapFrom.htm" />
+          <HelpTOCNode Title="MapFrom Method (DataTable, Int32)" Url="html/M-OrderManager.DTO.EligibleOrdersNamesMapper.MapFrom_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="MapTo Method " Url="html/M-OrderManager.DTO.EligibleOrdersNamesMapper.MapTo.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="20d3c1ea-fa44-48b2-bee8-d9f52092b338" Title="IMapperBase(T) Interface" Url="html/T-OrderManager.DTO.IMapperBase-1.htm">
+      <HelpTOCNode Title="IMapperBase Members" Url="html/AllMembers.T-OrderManager.DTO.IMapperBase-1.htm" />
+      <HelpTOCNode Id="0ffa16ee-22cd-49db-b3c6-365659663621" Title="IMapperBase Methods" Url="html/Methods.T-OrderManager.DTO.IMapperBase-1.htm">
+        <HelpTOCNode Title="MapAllFrom Method " Url="html/M-OrderManager.DTO.IMapperBase-1.MapAllFrom.htm" />
+        <HelpTOCNode Title="MapFrom Method " Url="html/M-OrderManager.DTO.IMapperBase-1.MapFrom.htm" />
+        <HelpTOCNode Title="MapTo Method " Url="html/M-OrderManager.DTO.IMapperBase-1.MapTo.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="1b581f59-8cc2-4fe4-8e74-44bb115cc2cd" Title="OrderMapper Class" Url="html/T-OrderManager.DTO.OrderMapper.htm">
+      <HelpTOCNode Title="OrderMapper Members" Url="html/AllMembers.T-OrderManager.DTO.OrderMapper.htm" />
+      <HelpTOCNode Title="OrderMapper Constructor " Url="html/M-OrderManager.DTO.OrderMapper.-ctor.htm" />
+      <HelpTOCNode Id="c1895d1c-3f8c-4282-a32b-ac8317232a23" Title="OrderMapper Fields" Url="html/Fields.T-OrderManager.DTO.OrderMapper.htm">
+        <HelpTOCNode Title="orderDAO Field" Url="html/F-OrderManager.DTO.OrderMapper.orderDAO.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="e8a77b3b-4ce5-433b-86b6-5326cc75a8a5" Title="OrderMapper Methods" Url="html/Methods.T-OrderManager.DTO.OrderMapper.htm">
+        <HelpTOCNode Title="MapAllFrom Method " Url="html/M-OrderManager.DTO.OrderMapper.MapAllFrom.htm" />
+        <HelpTOCNode Id="4d7d2446-a2a6-481e-89bc-516c8ec1c796" Title="MapFrom Method " Url="html/Overload-OrderManager.DTO.OrderMapper.MapFrom.htm">
+          <HelpTOCNode Title="MapFrom Method (DataTable)" Url="html/M-OrderManager.DTO.OrderMapper.MapFrom.htm" />
+          <HelpTOCNode Title="MapFrom Method (DataTable, Int32)" Url="html/M-OrderManager.DTO.OrderMapper.MapFrom_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="MapTo Method " Url="html/M-OrderManager.DTO.OrderMapper.MapTo.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="e60f4638-087a-4c29-b22f-02c233a2bae4" Title="PercentageDiscountMapper Class" Url="html/T-OrderManager.DTO.PercentageDiscountMapper.htm">
+      <HelpTOCNode Title="PercentageDiscountMapper Members" Url="html/AllMembers.T-OrderManager.DTO.PercentageDiscountMapper.htm" />
+      <HelpTOCNode Title="PercentageDiscountMapper Constructor " Url="html/M-OrderManager.DTO.PercentageDiscountMapper.-ctor.htm" />
+      <HelpTOCNode Id="91cda256-2ddf-47b4-a992-3ef44f9b92d9" Title="PercentageDiscountMapper Fields" Url="html/Fields.T-OrderManager.DTO.PercentageDiscountMapper.htm">
+        <HelpTOCNode Title="counterpartysStockDAO Field" Url="html/F-OrderManager.DTO.PercentageDiscountMapper.counterpartysStockDAO.htm" />
+        <HelpTOCNode Title="percentageDiscountDAO Field" Url="html/F-OrderManager.DTO.PercentageDiscountMapper.percentageDiscountDAO.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="8c7ba3e6-9a06-4fc8-9c80-939e992f22aa" Title="PercentageDiscountMapper Methods" Url="html/Methods.T-OrderManager.DTO.PercentageDiscountMapper.htm">
+        <HelpTOCNode Title="MapAllFrom Method " Url="html/M-OrderManager.DTO.PercentageDiscountMapper.MapAllFrom.htm" />
+        <HelpTOCNode Id="2921e4c8-cbf1-45c0-b388-2930ef43ab8e" Title="MapFrom Method " Url="html/Overload-OrderManager.DTO.PercentageDiscountMapper.MapFrom.htm">
+          <HelpTOCNode Title="MapFrom Method (DataTable)" Url="html/M-OrderManager.DTO.PercentageDiscountMapper.MapFrom.htm" />
+          <HelpTOCNode Title="MapFrom Method (DataTable, Int32)" Url="html/M-OrderManager.DTO.PercentageDiscountMapper.MapFrom_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="MapTo Method " Url="html/M-OrderManager.DTO.PercentageDiscountMapper.MapTo.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="7e5ceb9b-bfe3-4c47-86bf-b1e19a4c2374" Title="PriorityMapper Class" Url="html/T-OrderManager.DTO.PriorityMapper.htm">
+      <HelpTOCNode Title="PriorityMapper Members" Url="html/AllMembers.T-OrderManager.DTO.PriorityMapper.htm" />
+      <HelpTOCNode Id="f46f2cf6-fbb8-4998-b978-5d3dc3ba9f54" Title="PriorityMapper Methods" Url="html/Methods.T-OrderManager.DTO.PriorityMapper.htm">
+        <HelpTOCNode Title="GetPriority Method " Url="html/M-OrderManager.DTO.PriorityMapper.GetPriority.htm" />
+        <HelpTOCNode Title="MapAllFrom Method " Url="html/M-OrderManager.DTO.PriorityMapper.MapAllFrom.htm" />
+        <HelpTOCNode Title="MapFrom Method " Url="html/M-OrderManager.DTO.PriorityMapper.MapFrom.htm" />
+        <HelpTOCNode Title="MapTo Method " Url="html/M-OrderManager.DTO.PriorityMapper.MapTo.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="c3029a3b-0631-4f17-892f-3d87438f0582" Title="StockMapper Class" Url="html/T-OrderManager.DTO.StockMapper.htm">
+      <HelpTOCNode Title="StockMapper Members" Url="html/AllMembers.T-OrderManager.DTO.StockMapper.htm" />
+      <HelpTOCNode Id="62e1bab3-b4f3-45a4-9a28-c174ea5ae05d" Title="StockMapper Methods" Url="html/Methods.T-OrderManager.DTO.StockMapper.htm">
+        <HelpTOCNode Title="MapAllFrom Method " Url="html/M-OrderManager.DTO.StockMapper.MapAllFrom.htm" />
+        <HelpTOCNode Id="9f94c122-9b9c-40fb-87d6-42917b352985" Title="MapFrom Method " Url="html/Overload-OrderManager.DTO.StockMapper.MapFrom.htm">
+          <HelpTOCNode Title="MapFrom Method (DataTable)" Url="html/M-OrderManager.DTO.StockMapper.MapFrom.htm" />
+          <HelpTOCNode Title="MapFrom Method (DataTable, Int32)" Url="html/M-OrderManager.DTO.StockMapper.MapFrom_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="b7f5a8a4-c243-4172-8249-0e8245e70f19" Title="MapTo Method " Url="html/Overload-OrderManager.DTO.StockMapper.MapTo.htm">
+          <HelpTOCNode Title="MapTo Method (Stock)" Url="html/M-OrderManager.DTO.StockMapper.MapTo.htm" />
+          <HelpTOCNode Title="MapTo Method (Stock, DataTable)" Url="html/M-OrderManager.DTO.StockMapper.MapTo_1.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="66341bd0-549f-43fe-80be-1b3d6454a782" Title="TrancheMapper Class" Url="html/T-OrderManager.DTO.TrancheMapper.htm">
+      <HelpTOCNode Title="TrancheMapper Members" Url="html/AllMembers.T-OrderManager.DTO.TrancheMapper.htm" />
+      <HelpTOCNode Title="TrancheMapper Constructor " Url="html/M-OrderManager.DTO.TrancheMapper.-ctor.htm" />
+      <HelpTOCNode Id="300629c3-ee06-4ce4-98eb-d1548f23fb33" Title="TrancheMapper Fields" Url="html/Fields.T-OrderManager.DTO.TrancheMapper.htm">
+        <HelpTOCNode Title="trancheDAO Field" Url="html/F-OrderManager.DTO.TrancheMapper.trancheDAO.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="3cc32a20-1792-4a3c-8794-0d551d1f6f2c" Title="TrancheMapper Methods" Url="html/Methods.T-OrderManager.DTO.TrancheMapper.htm">
+        <HelpTOCNode Title="MapAllFrom Method " Url="html/M-OrderManager.DTO.TrancheMapper.MapAllFrom.htm" />
+        <HelpTOCNode Id="661e6497-21e9-4b04-8b4a-9ec428d5bb5e" Title="MapFrom Method " Url="html/Overload-OrderManager.DTO.TrancheMapper.MapFrom.htm">
+          <HelpTOCNode Title="MapFrom Method (DataTable)" Url="html/M-OrderManager.DTO.TrancheMapper.MapFrom.htm" />
+          <HelpTOCNode Title="MapFrom Method (DataTable, Int32)" Url="html/M-OrderManager.DTO.TrancheMapper.MapFrom_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="MapTo Method " Url="html/M-OrderManager.DTO.TrancheMapper.MapTo.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="479f4b47-d86c-4e50-8162-d71fee064b01" Title="UserMapper Class" Url="html/T-OrderManager.DTO.UserMapper.htm">
+      <HelpTOCNode Title="UserMapper Members" Url="html/AllMembers.T-OrderManager.DTO.UserMapper.htm" />
+      <HelpTOCNode Id="1c33de4f-93a7-45b9-87ed-59491a76462e" Title="UserMapper Methods" Url="html/Methods.T-OrderManager.DTO.UserMapper.htm">
+        <HelpTOCNode Title="MapAllFrom Method " Url="html/M-OrderManager.DTO.UserMapper.MapAllFrom.htm" />
+        <HelpTOCNode Id="bf699d8b-d8a4-4fde-b865-26191b82578e" Title="MapFrom Method " Url="html/Overload-OrderManager.DTO.UserMapper.MapFrom.htm">
+          <HelpTOCNode Title="MapFrom Method (DataTable)" Url="html/M-OrderManager.DTO.UserMapper.MapFrom.htm" />
+          <HelpTOCNode Title="MapFrom Method (DataTable, Int32)" Url="html/M-OrderManager.DTO.UserMapper.MapFrom_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="MapTo Method " Url="html/M-OrderManager.DTO.UserMapper.MapTo.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="2c75043f-674e-4078-9f87-692a267789d9" Title="OrderManager.ExternalSysDAO Namespace" Url="html/N-OrderManager.ExternalSysDAO.htm">
+    <HelpTOCNode Id="ea4ec6cd-d667-4f6f-9e86-e23e97eb799a" Title="CounterpartyDAO Class" Url="html/T-OrderManager.ExternalSysDAO.CounterpartyDAO.htm">
+      <HelpTOCNode Title="CounterpartyDAO Members" Url="html/AllMembers.T-OrderManager.ExternalSysDAO.CounterpartyDAO.htm" />
+      <HelpTOCNode Title="CounterpartyDAO Constructor " Url="html/M-OrderManager.ExternalSysDAO.CounterpartyDAO.-ctor.htm" />
+      <HelpTOCNode Id="fc42805c-147e-4899-9a5d-60bdb81c9227" Title="CounterpartyDAO Methods" Url="html/Methods.T-OrderManager.ExternalSysDAO.CounterpartyDAO.htm">
+        <HelpTOCNode Title="GetCounterpartysOrders Method " Url="html/M-OrderManager.ExternalSysDAO.CounterpartyDAO.GetCounterpartysOrders.htm" />
+        <HelpTOCNode Title="GetCounterpartysStock Method " Url="html/M-OrderManager.ExternalSysDAO.CounterpartyDAO.GetCounterpartysStock.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="236a969f-c0bd-456e-9c72-d41a3cdcb8a1" Title="OrderManager.Presentation Namespace" Url="html/N-OrderManager.Presentation.htm">
+    <HelpTOCNode Id="f0af0312-7023-4dd7-9d8b-790a5479f1e2" Title="DataGridviewCheckBoxColumnProwider Class" Url="html/T-OrderManager.Presentation.DataGridviewCheckBoxColumnProwider.htm">
+      <HelpTOCNode Title="DataGridviewCheckBoxColumnProwider Members" Url="html/AllMembers.T-OrderManager.Presentation.DataGridviewCheckBoxColumnProwider.htm" />
+      <HelpTOCNode Title="DataGridviewCheckBoxColumnProwider Constructor " Url="html/M-OrderManager.Presentation.DataGridviewCheckBoxColumnProwider.-ctor.htm" />
+      <HelpTOCNode Id="2ee92996-ae53-4e70-b921-2283833f6115" Title="DataGridviewCheckBoxColumnProwider Fields" Url="html/Fields.T-OrderManager.Presentation.DataGridviewCheckBoxColumnProwider.htm">
+        <HelpTOCNode Title="list Field" Url="html/F-OrderManager.Presentation.DataGridviewCheckBoxColumnProwider.list.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="635eb3af-e3dd-473d-b1bb-82efc7538901" Title="DataGridviewCheckBoxColumnProwider Methods" Url="html/Methods.T-OrderManager.Presentation.DataGridviewCheckBoxColumnProwider.htm">
+        <HelpTOCNode Title="addCheckBoxColumn Method " Url="html/M-OrderManager.Presentation.DataGridviewCheckBoxColumnProwider.addCheckBoxColumn.htm" />
+        <HelpTOCNode Title="checkboxHeader_CheckedChanged Method " Url="html/M-OrderManager.Presentation.DataGridviewCheckBoxColumnProwider.checkboxHeader_CheckedChanged.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="4e86ee22-0a47-47e1-ab48-d9f9ca78d261" Title="GeneratedOrdersView Class" Url="html/T-OrderManager.Presentation.GeneratedOrdersView.htm">
+      <HelpTOCNode Title="GeneratedOrdersView Members" Url="html/AllMembers.T-OrderManager.Presentation.GeneratedOrdersView.htm" />
+      <HelpTOCNode Title="GeneratedOrdersView Constructor " Url="html/M-OrderManager.Presentation.GeneratedOrdersView.-ctor.htm" />
+      <HelpTOCNode Id="6658826f-aede-4a88-b550-88cdda7a49b1" Title="GeneratedOrdersView Fields" Url="html/Fields.T-OrderManager.Presentation.GeneratedOrdersView.htm">
+        <HelpTOCNode Title="buttonDelete Field" Url="html/F-OrderManager.Presentation.GeneratedOrdersView.buttonDelete.htm" />
+        <HelpTOCNode Title="buttonEdit Field" Url="html/F-OrderManager.Presentation.GeneratedOrdersView.buttonEdit.htm" />
+        <HelpTOCNode Title="buttonSave Field" Url="html/F-OrderManager.Presentation.GeneratedOrdersView.buttonSave.htm" />
+        <HelpTOCNode Title="components Field" Url="html/F-OrderManager.Presentation.GeneratedOrdersView.components.htm" />
+        <HelpTOCNode Title="dataGridViewOrders Field" Url="html/F-OrderManager.Presentation.GeneratedOrdersView.dataGridViewOrders.htm" />
+        <HelpTOCNode Title="displayedOrders Field" Url="html/F-OrderManager.Presentation.GeneratedOrdersView.displayedOrders.htm" />
+        <HelpTOCNode Title="label2 Field" Url="html/F-OrderManager.Presentation.GeneratedOrdersView.label2.htm" />
+        <HelpTOCNode Title="labelTitle Field" Url="html/F-OrderManager.Presentation.GeneratedOrdersView.labelTitle.htm" />
+        <HelpTOCNode Title="orders Field" Url="html/F-OrderManager.Presentation.GeneratedOrdersView.orders.htm" />
+        <HelpTOCNode Title="stockService Field" Url="html/F-OrderManager.Presentation.GeneratedOrdersView.stockService.htm" />
+        <HelpTOCNode Title="tableLayoutPanel1 Field" Url="html/F-OrderManager.Presentation.GeneratedOrdersView.tableLayoutPanel1.htm" />
+        <HelpTOCNode Title="tableLayoutPanel2 Field" Url="html/F-OrderManager.Presentation.GeneratedOrdersView.tableLayoutPanel2.htm" />
+        <HelpTOCNode Title="tableLayoutPanelContent Field" Url="html/F-OrderManager.Presentation.GeneratedOrdersView.tableLayoutPanelContent.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="b05a3dc9-0387-4b97-8ea7-dcaced68dc85" Title="GeneratedOrdersView Methods" Url="html/Methods.T-OrderManager.Presentation.GeneratedOrdersView.htm">
+        <HelpTOCNode Title="buttonEdit_Click_1 Method " Url="html/M-OrderManager.Presentation.GeneratedOrdersView.buttonEdit_Click_1.htm" />
+        <HelpTOCNode Title="Dispose Method " Url="html/M-OrderManager.Presentation.GeneratedOrdersView.Dispose.htm" />
+        <HelpTOCNode Title="FillDataGridView Method " Url="html/M-OrderManager.Presentation.GeneratedOrdersView.FillDataGridView.htm" />
+        <HelpTOCNode Title="GeneratedOrders_FormClosing Method " Url="html/M-OrderManager.Presentation.GeneratedOrdersView.GeneratedOrders_FormClosing.htm" />
+        <HelpTOCNode Title="InitializeComponent Method " Url="html/M-OrderManager.Presentation.GeneratedOrdersView.InitializeComponent.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="f456c391-2ce8-4c7c-880d-4d5ed7eda4d5" Title="GeneratedOrderView Class" Url="html/T-OrderManager.Presentation.GeneratedOrderView.htm">
+      <HelpTOCNode Title="GeneratedOrderView Members" Url="html/AllMembers.T-OrderManager.Presentation.GeneratedOrderView.htm" />
+      <HelpTOCNode Title="GeneratedOrderView Constructor " Url="html/M-OrderManager.Presentation.GeneratedOrderView.-ctor.htm" />
+      <HelpTOCNode Id="dd5844f1-3a7c-46cb-9dcd-60dc9dcadf0c" Title="GeneratedOrderView Fields" Url="html/Fields.T-OrderManager.Presentation.GeneratedOrderView.htm">
+        <HelpTOCNode Title="button1 Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.button1.htm" />
+        <HelpTOCNode Title="button2 Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.button2.htm" />
+        <HelpTOCNode Title="button3 Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.button3.htm" />
+        <HelpTOCNode Title="buttonGenerateOrders Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.buttonGenerateOrders.htm" />
+        <HelpTOCNode Title="components Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.components.htm" />
+        <HelpTOCNode Title="dataGridViewTranches Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.dataGridViewTranches.htm" />
+        <HelpTOCNode Title="label1 Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.label1.htm" />
+        <HelpTOCNode Title="label10 Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.label10.htm" />
+        <HelpTOCNode Title="label12 Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.label12.htm" />
+        <HelpTOCNode Title="label13 Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.label13.htm" />
+        <HelpTOCNode Title="label3 Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.label3.htm" />
+        <HelpTOCNode Title="label4 Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.label4.htm" />
+        <HelpTOCNode Title="label5 Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.label5.htm" />
+        <HelpTOCNode Title="label6 Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.label6.htm" />
+        <HelpTOCNode Title="label7 Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.label7.htm" />
+        <HelpTOCNode Title="label8 Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.label8.htm" />
+        <HelpTOCNode Title="labelAuthor Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.labelAuthor.htm" />
+        <HelpTOCNode Title="labelBrutto Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.labelBrutto.htm" />
+        <HelpTOCNode Title="labelCounterpartysCode Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.labelCounterpartysCode.htm" />
+        <HelpTOCNode Title="labelCounterpartysName Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.labelCounterpartysName.htm" />
+        <HelpTOCNode Title="labelDate Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.labelDate.htm" />
+        <HelpTOCNode Title="labelNetto Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.labelNetto.htm" />
+        <HelpTOCNode Title="labelOrdersName Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.labelOrdersName.htm" />
+        <HelpTOCNode Title="labelTitle Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.labelTitle.htm" />
+        <HelpTOCNode Title="linkLabel1 Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.linkLabel1.htm" />
+        <HelpTOCNode Title="order Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.order.htm" />
+        <HelpTOCNode Title="tableLayoutPanel1 Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.tableLayoutPanel1.htm" />
+        <HelpTOCNode Title="tableLayoutPanel2 Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.tableLayoutPanel2.htm" />
+        <HelpTOCNode Title="tableLayoutPanel3 Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.tableLayoutPanel3.htm" />
+        <HelpTOCNode Title="tableLayoutPanel4 Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.tableLayoutPanel4.htm" />
+        <HelpTOCNode Title="tableLayoutPanel5 Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.tableLayoutPanel5.htm" />
+        <HelpTOCNode Title="tableLayoutPanel6 Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.tableLayoutPanel6.htm" />
+        <HelpTOCNode Title="tableLayoutPanel7 Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.tableLayoutPanel7.htm" />
+        <HelpTOCNode Title="tableLayoutPanel8 Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.tableLayoutPanel8.htm" />
+        <HelpTOCNode Title="tableLayoutPanel9 Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.tableLayoutPanel9.htm" />
+        <HelpTOCNode Title="tableLayoutPanelContent Field" Url="html/F-OrderManager.Presentation.GeneratedOrderView.tableLayoutPanelContent.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="e1b0365d-26e8-4e56-8c14-122be142afb6" Title="GeneratedOrderView Methods" Url="html/Methods.T-OrderManager.Presentation.GeneratedOrderView.htm">
+        <HelpTOCNode Title="Dispose Method " Url="html/M-OrderManager.Presentation.GeneratedOrderView.Dispose.htm" />
+        <HelpTOCNode Title="FillForm Method " Url="html/M-OrderManager.Presentation.GeneratedOrderView.FillForm.htm" />
+        <HelpTOCNode Title="FillTranches Method " Url="html/M-OrderManager.Presentation.GeneratedOrderView.FillTranches.htm" />
+        <HelpTOCNode Title="InitializeComponent Method " Url="html/M-OrderManager.Presentation.GeneratedOrderView.InitializeComponent.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="88847004-2a8d-49ef-ab4b-bcf4f21af97f" Title="OrderCorrectionView Class" Url="html/T-OrderManager.Presentation.OrderCorrectionView.htm">
+      <HelpTOCNode Title="OrderCorrectionView Members" Url="html/AllMembers.T-OrderManager.Presentation.OrderCorrectionView.htm" />
+      <HelpTOCNode Title="OrderCorrectionView Constructor " Url="html/M-OrderManager.Presentation.OrderCorrectionView.-ctor.htm" />
+      <HelpTOCNode Id="2f9f686f-cd5d-46dc-a36c-2b7f2a380a7d" Title="OrderCorrectionView Fields" Url="html/Fields.T-OrderManager.Presentation.OrderCorrectionView.htm">
+        <HelpTOCNode Title="cancelButton Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.cancelButton.htm" />
+        <HelpTOCNode Title="components Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.components.htm" />
+        <HelpTOCNode Title="dataGridViewTranches Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.dataGridViewTranches.htm" />
+        <HelpTOCNode Title="label1 Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.label1.htm" />
+        <HelpTOCNode Title="label10 Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.label10.htm" />
+        <HelpTOCNode Title="label12 Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.label12.htm" />
+        <HelpTOCNode Title="label13 Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.label13.htm" />
+        <HelpTOCNode Title="label3 Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.label3.htm" />
+        <HelpTOCNode Title="label4 Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.label4.htm" />
+        <HelpTOCNode Title="label5 Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.label5.htm" />
+        <HelpTOCNode Title="label6 Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.label6.htm" />
+        <HelpTOCNode Title="label7 Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.label7.htm" />
+        <HelpTOCNode Title="label8 Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.label8.htm" />
+        <HelpTOCNode Title="labelAuthor Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.labelAuthor.htm" />
+        <HelpTOCNode Title="labelBrutto Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.labelBrutto.htm" />
+        <HelpTOCNode Title="labelCounterpartysCode Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.labelCounterpartysCode.htm" />
+        <HelpTOCNode Title="labelCounterpartysName Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.labelCounterpartysName.htm" />
+        <HelpTOCNode Title="labelDate Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.labelDate.htm" />
+        <HelpTOCNode Title="labelNetto Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.labelNetto.htm" />
+        <HelpTOCNode Title="labelOrdersName Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.labelOrdersName.htm" />
+        <HelpTOCNode Title="labelTitle Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.labelTitle.htm" />
+        <HelpTOCNode Title="linkLabel1 Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.linkLabel1.htm" />
+        <HelpTOCNode Title="order Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.order.htm" />
+        <HelpTOCNode Title="orderService Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.orderService.htm" />
+        <HelpTOCNode Title="originalOrder Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.originalOrder.htm" />
+        <HelpTOCNode Title="saveButton Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.saveButton.htm" />
+        <HelpTOCNode Title="saved Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.saved.htm" />
+        <HelpTOCNode Title="tableLayoutPanel1 Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.tableLayoutPanel1.htm" />
+        <HelpTOCNode Title="tableLayoutPanel2 Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.tableLayoutPanel2.htm" />
+        <HelpTOCNode Title="tableLayoutPanel3 Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.tableLayoutPanel3.htm" />
+        <HelpTOCNode Title="tableLayoutPanel4 Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.tableLayoutPanel4.htm" />
+        <HelpTOCNode Title="tableLayoutPanel5 Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.tableLayoutPanel5.htm" />
+        <HelpTOCNode Title="tableLayoutPanel6 Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.tableLayoutPanel6.htm" />
+        <HelpTOCNode Title="tableLayoutPanel7 Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.tableLayoutPanel7.htm" />
+        <HelpTOCNode Title="tableLayoutPanel8 Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.tableLayoutPanel8.htm" />
+        <HelpTOCNode Title="tableLayoutPanel9 Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.tableLayoutPanel9.htm" />
+        <HelpTOCNode Title="tableLayoutPanelContent Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.tableLayoutPanelContent.htm" />
+        <HelpTOCNode Title="trancheService Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.trancheService.htm" />
+        <HelpTOCNode Title="tranchesToDelete Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.tranchesToDelete.htm" />
+        <HelpTOCNode Title="tranchesToUpdate Field" Url="html/F-OrderManager.Presentation.OrderCorrectionView.tranchesToUpdate.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="0feaeb5f-d0d3-4ab8-a039-8c059d5d6447" Title="OrderCorrectionView Methods" Url="html/Methods.T-OrderManager.Presentation.OrderCorrectionView.htm">
+        <HelpTOCNode Title="AddActionColumns Method " Url="html/M-OrderManager.Presentation.OrderCorrectionView.AddActionColumns.htm" />
+        <HelpTOCNode Title="CancelButton_Click Method " Url="html/M-OrderManager.Presentation.OrderCorrectionView.CancelButton_Click.htm" />
+        <HelpTOCNode Title="DataGridViewTranches_CellContentClick Method " Url="html/M-OrderManager.Presentation.OrderCorrectionView.DataGridViewTranches_CellContentClick.htm" />
+        <HelpTOCNode Title="Dispose Method " Url="html/M-OrderManager.Presentation.OrderCorrectionView.Dispose.htm" />
+        <HelpTOCNode Title="FillForm Method " Url="html/M-OrderManager.Presentation.OrderCorrectionView.FillForm.htm" />
+        <HelpTOCNode Title="FillTranches Method " Url="html/M-OrderManager.Presentation.OrderCorrectionView.FillTranches.htm" />
+        <HelpTOCNode Title="InitializeComponent Method " Url="html/M-OrderManager.Presentation.OrderCorrectionView.InitializeComponent.htm" />
+        <HelpTOCNode Title="OrderCorrectionView_FormClosing Method " Url="html/M-OrderManager.Presentation.OrderCorrectionView.OrderCorrectionView_FormClosing.htm" />
+        <HelpTOCNode Title="OrderCorrectionView_Load Method " Url="html/M-OrderManager.Presentation.OrderCorrectionView.OrderCorrectionView_Load.htm" />
+        <HelpTOCNode Title="SaveButton_Click Method " Url="html/M-OrderManager.Presentation.OrderCorrectionView.SaveButton_Click.htm" />
+        <HelpTOCNode Title="TrancheCorrectionView_Closed Method " Url="html/M-OrderManager.Presentation.OrderCorrectionView.TrancheCorrectionView_Closed.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="6d4e2056-1d0a-40b5-8abf-a4775a42cef6" Title="OrdersMainView Class" Url="html/T-OrderManager.Presentation.OrdersMainView.htm">
+      <HelpTOCNode Title="OrdersMainView Members" Url="html/AllMembers.T-OrderManager.Presentation.OrdersMainView.htm" />
+      <HelpTOCNode Title="OrdersMainView Constructor " Url="html/M-OrderManager.Presentation.OrdersMainView.-ctor.htm" />
+      <HelpTOCNode Id="d7914ce0-4537-4147-a3fc-3d6f8f8f0960" Title="OrdersMainView Fields" Url="html/Fields.T-OrderManager.Presentation.OrdersMainView.htm">
+        <HelpTOCNode Title="button1 Field" Url="html/F-OrderManager.Presentation.OrdersMainView.button1.htm" />
+        <HelpTOCNode Title="button2 Field" Url="html/F-OrderManager.Presentation.OrdersMainView.button2.htm" />
+        <HelpTOCNode Title="button3 Field" Url="html/F-OrderManager.Presentation.OrdersMainView.button3.htm" />
+        <HelpTOCNode Title="button4 Field" Url="html/F-OrderManager.Presentation.OrdersMainView.button4.htm" />
+        <HelpTOCNode Title="comboBoxCategory Field" Url="html/F-OrderManager.Presentation.OrdersMainView.comboBoxCategory.htm" />
+        <HelpTOCNode Title="comboBoxOrdered Field" Url="html/F-OrderManager.Presentation.OrdersMainView.comboBoxOrdered.htm" />
+        <HelpTOCNode Title="comboBoxState Field" Url="html/F-OrderManager.Presentation.OrdersMainView.comboBoxState.htm" />
+        <HelpTOCNode Title="components Field" Url="html/F-OrderManager.Presentation.OrdersMainView.components.htm" />
+        <HelpTOCNode Title="dataGridViewOrders Field" Url="html/F-OrderManager.Presentation.OrdersMainView.dataGridViewOrders.htm" />
+        <HelpTOCNode Title="filtersHeight Field" Url="html/F-OrderManager.Presentation.OrdersMainView.filtersHeight.htm" />
+        <HelpTOCNode Title="flowLayoutPanel1 Field" Url="html/F-OrderManager.Presentation.OrdersMainView.flowLayoutPanel1.htm" />
+        <HelpTOCNode Title="flowLayoutPanelFilter Field" Url="html/F-OrderManager.Presentation.OrdersMainView.flowLayoutPanelFilter.htm" />
+        <HelpTOCNode Title="flowLayoutPanelSearch Field" Url="html/F-OrderManager.Presentation.OrdersMainView.flowLayoutPanelSearch.htm" />
+        <HelpTOCNode Title="label1 Field" Url="html/F-OrderManager.Presentation.OrdersMainView.label1.htm" />
+        <HelpTOCNode Title="label10 Field" Url="html/F-OrderManager.Presentation.OrdersMainView.label10.htm" />
+        <HelpTOCNode Title="label11 Field" Url="html/F-OrderManager.Presentation.OrdersMainView.label11.htm" />
+        <HelpTOCNode Title="label12 Field" Url="html/F-OrderManager.Presentation.OrdersMainView.label12.htm" />
+        <HelpTOCNode Title="label13 Field" Url="html/F-OrderManager.Presentation.OrdersMainView.label13.htm" />
+        <HelpTOCNode Title="label14 Field" Url="html/F-OrderManager.Presentation.OrdersMainView.label14.htm" />
+        <HelpTOCNode Title="label15 Field" Url="html/F-OrderManager.Presentation.OrdersMainView.label15.htm" />
+        <HelpTOCNode Title="label2 Field" Url="html/F-OrderManager.Presentation.OrdersMainView.label2.htm" />
+        <HelpTOCNode Title="label3ContentName Field" Url="html/F-OrderManager.Presentation.OrdersMainView.label3ContentName.htm" />
+        <HelpTOCNode Title="label4 Field" Url="html/F-OrderManager.Presentation.OrdersMainView.label4.htm" />
+        <HelpTOCNode Title="label5 Field" Url="html/F-OrderManager.Presentation.OrdersMainView.label5.htm" />
+        <HelpTOCNode Title="label7 Field" Url="html/F-OrderManager.Presentation.OrdersMainView.label7.htm" />
+        <HelpTOCNode Title="label8 Field" Url="html/F-OrderManager.Presentation.OrdersMainView.label8.htm" />
+        <HelpTOCNode Title="label9 Field" Url="html/F-OrderManager.Presentation.OrdersMainView.label9.htm" />
+        <HelpTOCNode Title="linkLabel1 Field" Url="html/F-OrderManager.Presentation.OrdersMainView.linkLabel1.htm" />
+        <HelpTOCNode Title="linkLabel2 Field" Url="html/F-OrderManager.Presentation.OrdersMainView.linkLabel2.htm" />
+        <HelpTOCNode Title="listOrder Field" Url="html/F-OrderManager.Presentation.OrdersMainView.listOrder.htm" />
+        <HelpTOCNode Title="orderService Field" Url="html/F-OrderManager.Presentation.OrdersMainView.orderService.htm" />
+        <HelpTOCNode Title="pictureBoxFilter Field" Url="html/F-OrderManager.Presentation.OrdersMainView.pictureBoxFilter.htm" />
+        <HelpTOCNode Title="pictureBoxSearch Field" Url="html/F-OrderManager.Presentation.OrdersMainView.pictureBoxSearch.htm" />
+        <HelpTOCNode Title="tableLayoutPanel1 Field" Url="html/F-OrderManager.Presentation.OrdersMainView.tableLayoutPanel1.htm" />
+        <HelpTOCNode Title="tableLayoutPanel2 Field" Url="html/F-OrderManager.Presentation.OrdersMainView.tableLayoutPanel2.htm" />
+        <HelpTOCNode Title="tableLayoutPanel4 Field" Url="html/F-OrderManager.Presentation.OrdersMainView.tableLayoutPanel4.htm" />
+        <HelpTOCNode Title="tableLayoutPanel5 Field" Url="html/F-OrderManager.Presentation.OrdersMainView.tableLayoutPanel5.htm" />
+        <HelpTOCNode Title="tableLayoutPanelContent Field" Url="html/F-OrderManager.Presentation.OrdersMainView.tableLayoutPanelContent.htm" />
+        <HelpTOCNode Title="tableLayoutPanelFilter Field" Url="html/F-OrderManager.Presentation.OrdersMainView.tableLayoutPanelFilter.htm" />
+        <HelpTOCNode Title="trancheService Field" Url="html/F-OrderManager.Presentation.OrdersMainView.trancheService.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="ba4a402e-e4b8-4a80-a04a-174c2e29a3fd" Title="OrdersMainView Methods" Url="html/Methods.T-OrderManager.Presentation.OrdersMainView.htm">
+        <HelpTOCNode Title="AddCheckBoxColumn Method " Url="html/M-OrderManager.Presentation.OrdersMainView.AddCheckBoxColumn.htm" />
+        <HelpTOCNode Title="AddDataSourceForFilters Method " Url="html/M-OrderManager.Presentation.OrdersMainView.AddDataSourceForFilters.htm" />
+        <HelpTOCNode Title="button3_Click_1 Method " Url="html/M-OrderManager.Presentation.OrdersMainView.button3_Click_1.htm" />
+        <HelpTOCNode Title="CheckboxHeader_CheckedChanged Method " Url="html/M-OrderManager.Presentation.OrdersMainView.CheckboxHeader_CheckedChanged.htm" />
+        <HelpTOCNode Title="comboBoxState_SelectedIndexChanged Method " Url="html/M-OrderManager.Presentation.OrdersMainView.comboBoxState_SelectedIndexChanged.htm" />
+        <HelpTOCNode Title="Dispose Method " Url="html/M-OrderManager.Presentation.OrdersMainView.Dispose.htm" />
+        <HelpTOCNode Title="FillGridview Method " Url="html/M-OrderManager.Presentation.OrdersMainView.FillGridview.htm" />
+        <HelpTOCNode Title="GetTranslatedOrderStateString Method " Url="html/M-OrderManager.Presentation.OrdersMainView.GetTranslatedOrderStateString.htm" />
+        <HelpTOCNode Title="InitializeComponent Method " Url="html/M-OrderManager.Presentation.OrdersMainView.InitializeComponent.htm" />
+        <HelpTOCNode Title="linkLabel1_LinkClicked Method " Url="html/M-OrderManager.Presentation.OrdersMainView.linkLabel1_LinkClicked.htm" />
+        <HelpTOCNode Title="MainOrdersView_FormClosing Method " Url="html/M-OrderManager.Presentation.OrdersMainView.MainOrdersView_FormClosing.htm" />
+        <HelpTOCNode Title="MainOrdersView_Load Method " Url="html/M-OrderManager.Presentation.OrdersMainView.MainOrdersView_Load.htm" />
+        <HelpTOCNode Title="pictureBoxFilter_Click Method " Url="html/M-OrderManager.Presentation.OrdersMainView.pictureBoxFilter_Click.htm" />
+        <HelpTOCNode Title="SetButtonsForOrdersDuringRealization Method " Url="html/M-OrderManager.Presentation.OrdersMainView.SetButtonsForOrdersDuringRealization.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="b062bad0-4785-42bc-b4d9-d499e0ac536f" Title="TrancheCorrectionView Class" Url="html/T-OrderManager.Presentation.TrancheCorrectionView.htm">
+      <HelpTOCNode Title="TrancheCorrectionView Members" Url="html/AllMembers.T-OrderManager.Presentation.TrancheCorrectionView.htm" />
+      <HelpTOCNode Title="TrancheCorrectionView Constructor " Url="html/M-OrderManager.Presentation.TrancheCorrectionView.-ctor.htm" />
+      <HelpTOCNode Id="d583e95d-b0b1-4005-8bad-a1f083403257" Title="TrancheCorrectionView Fields" Url="html/Fields.T-OrderManager.Presentation.TrancheCorrectionView.htm">
+        <HelpTOCNode Title="button1 Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.button1.htm" />
+        <HelpTOCNode Title="button4 Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.button4.htm" />
+        <HelpTOCNode Title="components Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.components.htm" />
+        <HelpTOCNode Title="dataGridDiscounts Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.dataGridDiscounts.htm" />
+        <HelpTOCNode Title="discounts Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.discounts.htm" />
+        <HelpTOCNode Title="label1 Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.label1.htm" />
+        <HelpTOCNode Title="label10 Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.label10.htm" />
+        <HelpTOCNode Title="label2 Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.label2.htm" />
+        <HelpTOCNode Title="label3 Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.label3.htm" />
+        <HelpTOCNode Title="label4 Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.label4.htm" />
+        <HelpTOCNode Title="label5 Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.label5.htm" />
+        <HelpTOCNode Title="label6 Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.label6.htm" />
+        <HelpTOCNode Title="label7 Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.label7.htm" />
+        <HelpTOCNode Title="label8 Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.label8.htm" />
+        <HelpTOCNode Title="labelBrutto Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.labelBrutto.htm" />
+        <HelpTOCNode Title="labelCode Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.labelCode.htm" />
+        <HelpTOCNode Title="labelNetto Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.labelNetto.htm" />
+        <HelpTOCNode Title="labelNumberOfItems Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.labelNumberOfItems.htm" />
+        <HelpTOCNode Title="labelObsolete Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.labelObsolete.htm" />
+        <HelpTOCNode Title="labelObsolete2 Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.labelObsolete2.htm" />
+        <HelpTOCNode Title="labelQuota Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.labelQuota.htm" />
+        <HelpTOCNode Title="labelStockPrice Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.labelStockPrice.htm" />
+        <HelpTOCNode Title="labelTitle Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.labelTitle.htm" />
+        <HelpTOCNode Title="labelTrancheName Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.labelTrancheName.htm" />
+        <HelpTOCNode Title="labelVAT Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.labelVAT.htm" />
+        <HelpTOCNode Title="numberOfItems Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.numberOfItems.htm" />
+        <HelpTOCNode Title="priceBrutto Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.priceBrutto.htm" />
+        <HelpTOCNode Title="priceNetto Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.priceNetto.htm" />
+        <HelpTOCNode Title="quotaDiscount Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.quotaDiscount.htm" />
+        <HelpTOCNode Title="saved Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.saved.htm" />
+        <HelpTOCNode Title="tableLayoutPanel1 Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.tableLayoutPanel1.htm" />
+        <HelpTOCNode Title="tableLayoutPanel2 Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.tableLayoutPanel2.htm" />
+        <HelpTOCNode Title="tableLayoutPanel3 Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.tableLayoutPanel3.htm" />
+        <HelpTOCNode Title="tableLayoutPanel4 Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.tableLayoutPanel4.htm" />
+        <HelpTOCNode Title="tableLayoutPanel5 Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.tableLayoutPanel5.htm" />
+        <HelpTOCNode Title="tableLayoutPanel6 Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.tableLayoutPanel6.htm" />
+        <HelpTOCNode Title="textBoxNumberOfItems Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.textBoxNumberOfItems.htm" />
+        <HelpTOCNode Title="textBoxQuota Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.textBoxQuota.htm" />
+        <HelpTOCNode Title="tranche Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.tranche.htm" />
+        <HelpTOCNode Title="trancheService Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.trancheService.htm" />
+        <HelpTOCNode Title="viableDiscounts Field" Url="html/F-OrderManager.Presentation.TrancheCorrectionView.viableDiscounts.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="ec03d291-8bd4-4575-98b9-2869671b5edb" Title="TrancheCorrectionView Methods" Url="html/Methods.T-OrderManager.Presentation.TrancheCorrectionView.htm">
+        <HelpTOCNode Title="AddCheckBoxColumn Method " Url="html/M-OrderManager.Presentation.TrancheCorrectionView.AddCheckBoxColumn.htm" />
+        <HelpTOCNode Title="Button1_Click Method " Url="html/M-OrderManager.Presentation.TrancheCorrectionView.Button1_Click.htm" />
+        <HelpTOCNode Title="Button4_Click Method " Url="html/M-OrderManager.Presentation.TrancheCorrectionView.Button4_Click.htm" />
+        <HelpTOCNode Title="checkedDiscountsChanged Method " Url="html/M-OrderManager.Presentation.TrancheCorrectionView.checkedDiscountsChanged.htm" />
+        <HelpTOCNode Title="Dispose Method " Url="html/M-OrderManager.Presentation.TrancheCorrectionView.Dispose.htm" />
+        <HelpTOCNode Title="FillDiscounts Method " Url="html/M-OrderManager.Presentation.TrancheCorrectionView.FillDiscounts.htm" />
+        <HelpTOCNode Title="FillForm Method " Url="html/M-OrderManager.Presentation.TrancheCorrectionView.FillForm.htm" />
+        <HelpTOCNode Title="InitializeComponent Method " Url="html/M-OrderManager.Presentation.TrancheCorrectionView.InitializeComponent.htm" />
+        <HelpTOCNode Title="TableLayoutPanel_CellPaint Method " Url="html/M-OrderManager.Presentation.TrancheCorrectionView.TableLayoutPanel_CellPaint.htm" />
+        <HelpTOCNode Title="TextBoxNumberOfItems_KeyPress Method " Url="html/M-OrderManager.Presentation.TrancheCorrectionView.TextBoxNumberOfItems_KeyPress.htm" />
+        <HelpTOCNode Title="TextBoxNumberOfItems_TextChanged Method " Url="html/M-OrderManager.Presentation.TrancheCorrectionView.TextBoxNumberOfItems_TextChanged.htm" />
+        <HelpTOCNode Title="TextBoxQuota_KeyPress Method " Url="html/M-OrderManager.Presentation.TrancheCorrectionView.TextBoxQuota_KeyPress.htm" />
+        <HelpTOCNode Title="TextBoxQuota_TextChanged Method " Url="html/M-OrderManager.Presentation.TrancheCorrectionView.TextBoxQuota_TextChanged.htm" />
+        <HelpTOCNode Title="TrancheCorrectionView_FormClosing Method " Url="html/M-OrderManager.Presentation.TrancheCorrectionView.TrancheCorrectionView_FormClosing.htm" />
+        <HelpTOCNode Title="TrancheCorrectionView_Load Method " Url="html/M-OrderManager.Presentation.TrancheCorrectionView.TrancheCorrectionView_Load.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="bb46fbe2-dc95-4e8d-ba43-5e4c08657951" Title="TrancheCorrectionView Properties" Url="html/Properties.T-OrderManager.Presentation.TrancheCorrectionView.htm">
+        <HelpTOCNode Title="NumberOfItems Property " Url="html/P-OrderManager.Presentation.TrancheCorrectionView.NumberOfItems.htm" />
+        <HelpTOCNode Title="QuotaDiscount Property " Url="html/P-OrderManager.Presentation.TrancheCorrectionView.QuotaDiscount.htm" />
+        <HelpTOCNode Title="Saved Property " Url="html/P-OrderManager.Presentation.TrancheCorrectionView.Saved.htm" />
+        <HelpTOCNode Title="Tranche Property " Url="html/P-OrderManager.Presentation.TrancheCorrectionView.Tranche.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="18bad94d-f334-4b2a-ac57-1c1b5af6155f" Title="OrderManager.Properties Namespace" Url="html/N-OrderManager.Properties.htm">
+    <HelpTOCNode Id="efb7b8ed-0526-4964-8b0e-1468aabcd2e2" Title="Resources Class" Url="html/T-OrderManager.Properties.Resources.htm">
+      <HelpTOCNode Title="Resources Members" Url="html/AllMembers.T-OrderManager.Properties.Resources.htm" />
+      <HelpTOCNode Title="Resources Constructor " Url="html/M-OrderManager.Properties.Resources.-ctor.htm" />
+      <HelpTOCNode Id="fdf8803b-d458-484a-b2a2-0a0bfdae4147" Title="Resources Fields" Url="html/Fields.T-OrderManager.Properties.Resources.htm">
+        <HelpTOCNode Title="resourceCulture Field" Url="html/F-OrderManager.Properties.Resources.resourceCulture.htm" />
+        <HelpTOCNode Title="resourceMan Field" Url="html/F-OrderManager.Properties.Resources.resourceMan.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="58f76d72-668d-4046-bf8a-7d15aad8e089" Title="Resources Properties" Url="html/Properties.T-OrderManager.Properties.Resources.htm">
+        <HelpTOCNode Title="arrow Property " Url="html/P-OrderManager.Properties.Resources.arrow.htm" />
+        <HelpTOCNode Title="arrowDown Property " Url="html/P-OrderManager.Properties.Resources.arrowDown.htm" />
+        <HelpTOCNode Title="ArrowDown1 Property " Url="html/P-OrderManager.Properties.Resources.ArrowDown1.htm" />
+        <HelpTOCNode Title="ArrowRight Property " Url="html/P-OrderManager.Properties.Resources.ArrowRight.htm" />
+        <HelpTOCNode Title="Culture Property " Url="html/P-OrderManager.Properties.Resources.Culture.htm" />
+        <HelpTOCNode Title="ResourceManager Property " Url="html/P-OrderManager.Properties.Resources.ResourceManager.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="68f4ed47-8d1e-4d02-8daf-1c1003ace48b" Title="Settings Class" Url="html/T-OrderManager.Properties.Settings.htm">
+      <HelpTOCNode Title="Settings Members" Url="html/AllMembers.T-OrderManager.Properties.Settings.htm" />
+      <HelpTOCNode Id="6236dc57-fd2d-44ee-9388-8add12784388" Title="Settings Fields" Url="html/Fields.T-OrderManager.Properties.Settings.htm">
+        <HelpTOCNode Title="defaultInstance Field" Url="html/F-OrderManager.Properties.Settings.defaultInstance.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="11fda2d7-8d40-4bdb-8943-5886aaa89b35" Title="Settings Properties" Url="html/Properties.T-OrderManager.Properties.Settings.htm">
+        <HelpTOCNode Title="Default Property " Url="html/P-OrderManager.Properties.Settings.Default.htm" />
+        <HelpTOCNode Title="GeneralPriority Property " Url="html/P-OrderManager.Properties.Settings.GeneralPriority.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+</HelpTOC>
