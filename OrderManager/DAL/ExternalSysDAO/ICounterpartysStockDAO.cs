@@ -9,7 +9,6 @@ namespace OrderManager.DAL.ExternalSysDAO
 {
     interface ICounterpartysStockDAO : IReadableDAO
     {
-        DataTable GetPercentageDiscounts(DataTable counterpartysStock);
         DataTable GetCounterparty(DataTable counterpartysStock);
         DataTable GetStock(DataRow counterpartysStock);
         DataTable GetCounterparty(DataRow counterpartysStock);

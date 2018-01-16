@@ -12,8 +12,17 @@ namespace OrderManager.DAO
     {
         private static SqlConnection connection;
 
+        /// <summary>
+        /// Prevents a default instance of the <see cref="DBOperations"/> class from being created.
+        /// </summary>
         private DBOperations() { }
-        
+
+        /// <summary>
+        /// Estabilishes the connection with the MS SQL database.
+        /// </summary>
+        /// <value>
+        /// The connection.
+        /// </value>
         public static SqlConnection Connection
         {
             get
@@ -24,6 +33,11 @@ namespace OrderManager.DAO
             }
         }
 
+        /// <summary>
+        /// Queries the specified command.
+        /// </summary>
+        /// <param name="command">The command.</param>
+        /// <returns>Returns the DataTable result of issuing a given command on the database.</returns>
         public static DataTable Query(string command)
         {
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command, Connection);
@@ -32,6 +46,12 @@ namespace OrderManager.DAO
             return dataTable;
         }
 
+        /// <summary>
+        /// Inserts the specified entity inside the database.
+        /// </summary>
+        /// <param name="entityToSave">The entity to save.</param>
+        /// <param name="tableName">Name of the table.</param>
+        /// <returns>Returns the id of the inserted row.</returns>
         public static int Insert(DataTable entityToSave, string tableName)
         {  
             connection.Open();
@@ -40,6 +60,11 @@ namespace OrderManager.DAO
             return insertedRowId;
         }
 
+        /// <summary>
+        /// Updates the specified entity in the database.
+        /// </summary>
+        /// <param name="entityToUpdate">The entity to update.</param>
+        /// <param name="tableName">Name of the table.</param>
         public static void Update(DataTable entityToUpdate, string tableName)
         {
             connection.Open();
@@ -47,9 +72,13 @@ namespace OrderManager.DAO
             connection.Close();
         }
 
+        /// <summary>
+        /// Updates the entity in the database without committing.
+        /// </summary>
+        /// <param name="entityToUpdate">The entity to update.</param>
+        /// <param name="tableName">Name of the table.</param>
         private static void updateWithoutCommit(DataTable entityToUpdate, string tableName)
         {
-
             String commandText = "";
             foreach (DataRow row in entityToUpdate.Rows)
             {
@@ -74,9 +103,14 @@ namespace OrderManager.DAO
             }
         }
 
+        /// <summary>
+        /// Inserts a value inside database without committing.
+        /// </summary>
+        /// <param name="entityToSave">The entity to save.</param>
+        /// <param name="tableName">Name of the table.</param>
+        /// <returns>Returns the id of the inserted row.</returns>
         private static int insertWithoutCommit(DataTable entityToSave, string tableName)
         {
-
             String commandText = "";
             String valuesText = "";
             int insertedRowId = 0;
@@ -112,6 +146,12 @@ namespace OrderManager.DAO
             return insertedRowId;
         }
 
+        /// <summary>
+        /// Updates an entity and commits.
+        /// </summary>
+        /// <param name="entityToUpdate">The entity to update.</param>
+        /// <param name="entityToSave">The entity to save.</param>
+        /// <param name="tableName">Name of the table.</param>
         public static void UpdateAndSave(DataTable entityToUpdate, DataTable entityToSave, string tableName)
         {
             using(IDbTransaction tran = connection.BeginTransaction())
@@ -130,6 +170,10 @@ namespace OrderManager.DAO
             }
         }
 
+        /// <summary>
+        /// Opens the connection
+        /// </summary>
+        /// <param name="command">The command.</param>
         public static void OpertionThatRequiresOpeningDBConnection(string command)
         {
             connection.Open();
@@ -138,6 +182,11 @@ namespace OrderManager.DAO
             connection.Close();
         }
 
+        /// <summary>
+        /// Opens the connection and adds a dictionary of connection parameters.
+        /// </summary>
+        /// <param name="command">The command.</param>
+        /// <param name="parameters">The parameters.</param>
         public static void OpertionThatRequiresOpeningDBConnection(string command, Dictionary<string, string> parameters)
         {
             connection.Open();
