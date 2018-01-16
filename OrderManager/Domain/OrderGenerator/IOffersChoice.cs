@@ -9,6 +9,6 @@ namespace OrderManager.Domain.Service
 {
     interface IOffersChoice
     {
-        List<Tranche> BestChosenOfferts();
+        List<Tranche> BestChosenOffers();
     }
 }

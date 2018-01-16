@@ -15,6 +15,13 @@ namespace OrderManager.Domain.OrderGenerator
         protected ICounterpartysStockService counterpartysStockService;
         protected IStockService stockService;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CouterpartysPropertyChoice"/> class.
+        /// </summary>
+        /// <param name="stockToOrder">The stock to order.</param>
+        /// <param name="counterpartyService">The counterparty service.</param>
+        /// <param name="counterpartysStockService">The counterpartys stock service.</param>
+        /// <param name="stockService">The stock service.</param>
         protected CouterpartysPropertyChoice(Dictionary<Stock, int> stockToOrder, 
             ICounterpartyService counterpartyService, 
             ICounterpartysStockService counterpartysStockService, IStockService stockService)
@@ -27,7 +34,11 @@ namespace OrderManager.Domain.OrderGenerator
 
         public abstract List<Counterparty> SortCounterparties();
 
-        public List<Tranche> BestChosenOfferts()
+        /// <summary>
+        /// Gets the list of tranches with properties representing the best chosen offers, according to the set priorites.
+        /// </summary>
+        /// <returns>Returns the list of tranches with properties representing the best chosen offers.</returns>
+        public List<Tranche> BestChosenOffers()
         {
             if (stockToOrder.Count == 0) return new List<Tranche>();
             List<Counterparty> sortedCounterparties = SortCounterparties();
