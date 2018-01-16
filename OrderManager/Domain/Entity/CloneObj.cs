@@ -10,6 +10,12 @@ namespace OrderManager.Domain.Entity
 {
     class CloneObj
     {
+        /// <summary>
+        /// Parametrized method for deep cloning of entities.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj">The object to clone.</param>
+        /// <returns>Returns a parametrized clone of the given object.</returns>
         public static T DeepClone<T>(T obj)
         {
             using (var ms = new MemoryStream())
