@@ -11,26 +11,46 @@ namespace OrderManager.DTO
 {
     class StockMapper : IMapperBase<Stock>
     {
-        public List<Stock> MapAllFrom(DataTable tDAO)
+        /// <summary>
+        /// Maps from the dataTable to a list of stock entities.
+        /// </summary>
+        /// <param name="stockTable">The stock DataTable.</param>
+        /// <returns>Returns a list of stock entities.</returns>
+        public List<Stock> MapAllFrom(DataTable stockTable)
         {
             List<Stock> result = new List<Stock>();
-            foreach (DataRow row in tDAO.Rows)
-                result.Add(MapFrom(tDAO,
-                    tDAO.Rows.IndexOf(row)));
+            foreach (DataRow row in stockTable.Rows)
+                result.Add(MapFrom(stockTable,
+                    stockTable.Rows.IndexOf(row)));
             return result;
         }
 
-        public Stock MapFrom(DataTable tDAO)
+        /// <summary>
+        /// Maps from the dataTable to a stock entity.
+        /// </summary>
+        /// <param name="stockTable">The stock table.</param>
+        /// <returns>Returns a stock entity.</returns>
+        public Stock MapFrom(DataTable stockTable)
         {
-            return MapFrom(tDAO, 0);
+            return MapFrom(stockTable, 0);
         }
 
-        public DataTable MapTo(Stock tDomain)
+        /// <summary>
+        /// Maps from the stock entity to a DataTable.
+        /// </summary>
+        /// <param name="discountDomain">The stock enity.</param>
+        /// <returns>Returns a DataTable with values corresponding to the stock entity.</returns>
+        public DataTable MapTo(Stock stockDomain)
         {
-            return MapTo(tDomain, null);
+            return MapTo(stockDomain, null);
         }
 
-        public DataTable MapTo(Stock tDomain, DataTable dataTableToAdd)
+        /// <summary>
+        /// Maps from the stock entity to a DataTable, with added values from the dataTableToAdd.
+        /// </summary>
+        /// <param name="stockDomain">The stock enity.</param>
+        /// <returns>Returns a DataTable with values corresponding to the stock entity.</returns>
+        public DataTable MapTo(Stock stockDomain, DataTable dataTableToAdd)
         {
             if(dataTableToAdd == null)
             {
@@ -47,20 +67,26 @@ namespace OrderManager.DTO
                 dataTableToAdd.Columns.Add("KategoriaID");
             }
             DataRow dataRow = dataTableToAdd.NewRow();
-            dataRow["ID"] = tDomain.Id;
-            dataRow["MinimumMagazynowe"] = tDomain.MinInStockRoom;
-            dataRow["WagaSztuki"] = tDomain.WeightOfItem;
-            dataRow["MaksLiczbaSztukNaEuropalecie"] = tDomain.MaxNumberOfItemsOnEuropallet;
-            dataRow["LiczbaSztuk"] = tDomain.NumberOfItemsInStockRoom;
-            dataRow["MaksimumMagazynowe"] = tDomain.MaxInStockRoom;
-            dataRow["VAT"] = tDomain.VAT;
-            dataRow["Kod"] = tDomain.Code;
-            dataRow["Nazwa"] = tDomain.Name;
-            dataRow["KategoriaID"] = tDomain.Category.Id;
+            dataRow["ID"] = stockDomain.Id;
+            dataRow["MinimumMagazynowe"] = stockDomain.MinInStockRoom;
+            dataRow["WagaSztuki"] = stockDomain.WeightOfItem;
+            dataRow["MaksLiczbaSztukNaEuropalecie"] = stockDomain.MaxNumberOfItemsOnEuropallet;
+            dataRow["LiczbaSztuk"] = stockDomain.NumberOfItemsInStockRoom;
+            dataRow["MaksimumMagazynowe"] = stockDomain.MaxInStockRoom;
+            dataRow["VAT"] = stockDomain.VAT;
+            dataRow["Kod"] = stockDomain.Code;
+            dataRow["Nazwa"] = stockDomain.Name;
+            dataRow["KategoriaID"] = stockDomain.Category.Id;
             dataTableToAdd.Rows.Add(dataRow);
             return dataTableToAdd;
         }
 
+        /// <summary>
+        /// Maps from a specified row of the dataTable to a stock entity.
+        /// </summary>
+        /// <param name="stockTable">The stock table.</param>
+        /// <param name="numberOfRow">The number of row.</param>
+        /// <returns>Returns the stock entity.</returns>
         private Stock MapFrom(DataTable stockTable, int numberOfRow)
         {
             DataRow stockRow = stockTable.Rows[numberOfRow];
@@ -72,7 +98,6 @@ namespace OrderManager.DTO
             Convert.ToInt32(stockRow["MinimumMagazynowe"]),
             Convert.ToInt32(stockRow["LiczbaSztuk"]),
             Convert.ToInt32(stockRow["WagaSztuki"]),
-            //Convert.ToInt32(stockRow["MaksLiczbaSztukNaEuropalecie"]),
             0,
             Convert.ToInt32(stockRow["VAT"]),
             Convert.ToString(stockRow["Kod"]),

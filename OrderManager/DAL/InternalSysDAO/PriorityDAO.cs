@@ -10,13 +10,26 @@ namespace OrderManager.DAL.InternalSysDAO
 {
     class PriorityDAO : ReaderAndWriterDAO, IPriorityDAO
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PriorityDAO"/> class.
+        /// </summary>
         public PriorityDAO() : base("PriorytetTowaru") { }
 
+        /// <summary>
+        /// Gets the priority of given stock.
+        /// </summary>
+        /// <param name="stock">The stock.</param>
+        /// <returns>Returns the DataTable containing the priority of given stock.</returns>
         public DataTable GetPriority(DataTable stock)
         {
             return GetPriority(stock.Rows[0]);
         }
 
+        /// <summary>
+        /// Gets the priority of given stock.
+        /// </summary>
+        /// <param name="stock">The stock.</param>
+        /// <returns>Returns the DataTable containing the priority of given stock.</returns>
         public DataTable GetPriority(DataRow stock)
         {
             var stocksPriority = DBOperations.Query(@"SELECT ListaKryteriow 

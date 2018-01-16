@@ -19,6 +19,9 @@ namespace OrderManager.Presentation
         private List<Order> listOrder;
         private int filtersHeight;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OrdersMainView"/> class.
+        /// </summary>
         internal OrdersMainView()
         {
             InitializeComponent();
@@ -40,6 +43,9 @@ namespace OrderManager.Presentation
 
         }
 
+        /// <summary>
+        /// Adds the data source for the filters enabling to filter orders by state.
+        /// </summary>
         private void AddDataSourceForFilters()
         {
             string[] comboBoxStateDataSource = { "W trakcie realizacji", "Zrealizowane", "Anulowane", "W trakcie reklamacji" };
@@ -49,6 +55,10 @@ namespace OrderManager.Presentation
             comboBoxOrdered.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
+        /// <summary>
+        /// Fills the gridview with the data of orders.
+        /// </summary>
+        /// <param name="listOrder">The list of orders.</param>
         private void FillGridview(IEnumerable<Order> listOrder)
         {
             DataTable dataGridSource = new DataTable();
@@ -81,6 +91,9 @@ namespace OrderManager.Presentation
                     column.ReadOnly = true;
         }
 
+        /// <summary>
+        /// Adds the CheckBox column to the dataGridView containing order data. 
+        /// </summary>
         private void AddCheckBoxColumn()
         {
             var list = dataGridViewOrders;
@@ -101,6 +114,12 @@ namespace OrderManager.Presentation
             list.Controls.Add(checkboxHeader);
         }
 
+        /// <summary>
+        /// Handles the CheckedChanged event of the checkboxHeader control. Updates the state of checkboxes
+        /// corresponding to the state of the checkbox in the header.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void CheckboxHeader_CheckedChanged(object sender, EventArgs e)
         {
             var list = dataGridViewOrders;
@@ -111,6 +130,12 @@ namespace OrderManager.Presentation
             list.EndEdit();
         }
 
+        /// <summary>
+        /// Handles the FormClosing event of the OrderCorrectionView control. Asks for confirmation to close the form,
+        /// if the changes were not saved.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="FormClosingEventArgs"/> instance containing the event data.</param>
         private void MainOrdersView_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (((Form)sender).Visible)
@@ -122,12 +147,23 @@ namespace OrderManager.Presentation
             }
         }
 
+        /// <summary>
+        /// Enables or disables the buttons corresponding to actions that can be performed on orders that are currently
+        /// under realization.
+        /// </summary>
+        /// <param name="value">value determining whether buttons should be enabled or disabled</param>
         private void SetButtonsForOrdersDuringRealization(bool value)
         {
             button3.Enabled = value;
             button4.Enabled = value;
         }
 
+        /// <summary>
+        /// Handles the SelectedIndexChanged event of the comboBoxState control. Changes the content of the order
+        /// dataGridView to correspond to the state chosen in the state filter.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void comboBoxState_SelectedIndexChanged(object sender, EventArgs e)
         {
             List<Order> orders = listOrder;
@@ -142,6 +178,11 @@ namespace OrderManager.Presentation
             FillGridview(orders);
         }
 
+        /// <summary>
+        /// Handles the LinkClicked event of the linkLabel1 control. Closes the form and switches to the main view containing stock.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="LinkLabelLinkClickedEventArgs"/> instance containing the event data.</param>
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
@@ -150,6 +191,12 @@ namespace OrderManager.Presentation
             stockForm.Show();
         }
 
+        /// <summary>
+        /// Handles the click event of the button3 control. Opens a form enabling to correct the details of the order
+        /// for all currently selected orders.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void button3_Click_1(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dataGridViewOrders.Rows)
@@ -166,6 +213,11 @@ namespace OrderManager.Presentation
             }
         }
 
+        /// <summary>
+        /// Translates the enum representing the state of the order to a string that is more readable for the end user.
+        /// </summary>
+        /// <param name="state">The enum representing the state of the order.</param>
+        /// <returns></returns>
         private string GetTranslatedOrderStateString(ORDERSTATE state)
         {
             String value = "";
@@ -187,6 +239,11 @@ namespace OrderManager.Presentation
             return value;
         }
 
+        /// <summary>
+        /// Handles the Click event of the pictureBoxFilter control. Shows or hides the filters.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void pictureBoxFilter_Click(object sender, EventArgs e)
         {
             (tableLayoutPanelFilter.RowStyles)[1].SizeType = SizeType.Absolute;

@@ -454,7 +454,7 @@
             this.Name = "TrancheCorrectionView";
             this.Text = "Korekta pozycji ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.OrderCorrectionView_Load);
+            this.Load += new System.EventHandler(this.TrancheCorrectionView_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);

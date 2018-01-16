@@ -8,11 +8,13 @@ using OrderManager.Domain.Entity;
 
 namespace OrderManager.DTO
 {
-    /// <summary>
-    /// UNFINISHED
-    /// </summary>
     class UserMapper : IMapperBase<Domain.Entity.User>
     {
+        /// <summary>
+        /// Maps from the dataTable to a list of user entities.
+        /// </summary>
+        /// <param name="userTable">The user DataTable.</param>
+        /// <returns>Returns a list of user entities.</returns>
         public List<User> MapAllFrom(DataTable userTable)
         {
             List<User> result = new List<User>();
@@ -22,11 +24,21 @@ namespace OrderManager.DTO
             return result;
         }
 
+        /// <summary>
+        /// Maps from the dataTable to a user entity.
+        /// </summary>
+        /// <param name="userTable">The user table.</param>
+        /// <returns>Returns a user entity.</returns>
         public User MapFrom(DataTable userTable)
         {
             return MapFrom(userTable, 0);
         }
 
+        /// Maps from a specified row of the dataTable to a user entity.
+        /// </summary>
+        /// <param name="userTable">The user table.</param>
+        /// <param name="numberOfRow">The number of row.</param>
+        /// <returns>Returns the user entity.</returns>
         User MapFrom(DataTable userTable, int numberOfRow)
         {
             DataRow userRow = userTable.Rows[numberOfRow];
@@ -41,6 +53,11 @@ namespace OrderManager.DTO
                 );
         }
 
+        /// <summary>
+        /// Maps from the user entity to a DataTable.
+        /// </summary>
+        /// <param name="userDomain">The user enity.</param>
+        /// <returns>Returns a DataTable with values corresponding to the user entity.</returns>
         public DataTable MapTo(User userDomain)
         {
             DataTable dataTable = new DataTable();

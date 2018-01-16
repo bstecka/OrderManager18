@@ -14,11 +14,20 @@ namespace OrderManager.DTO
     {
         ICounterpartysStockDAO counterpartysStockDAO;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CounterpartysStockMapper"/> class.
+        /// </summary>
+        /// <param name="counterpartysStockDAO">The counterpartys stock DAO.</param>
         public CounterpartysStockMapper(ICounterpartysStockDAO counterpartysStockDAO)
         {
             this.counterpartysStockDAO = counterpartysStockDAO;
         }
 
+        /// <summary>
+        /// Maps from the dataTable to a list of counterparty stock entities.
+        /// </summary>
+        /// <param name="counterpartysStockDAO">The counterpartys stock DAO.</param>
+        /// <returns>The list of counterparty stock entities.</returns>
         public List<Domain.Entity.CounterpartysStock> MapAllFrom(DataTable counterpartysStockDAO)
         {
             List<Domain.Entity.CounterpartysStock> result = new List<Domain.Entity.CounterpartysStock>();
@@ -28,11 +37,22 @@ namespace OrderManager.DTO
             return result;
         }
 
+        /// <summary>
+        /// Maps from a dataTable to counterparty stock entity.
+        /// </summary>
+        /// <param name="counterpartysStockTable">The counterpartys stock table.</param>
+        /// <returns>Counterparty stock entity</returns>
         public Domain.Entity.CounterpartysStock MapFrom(DataTable counterpartysStockTable)
         {
             return MapFrom(counterpartysStockTable, 0);
         }
 
+        /// <summary>
+        /// Maps from a specified row of dataTable to counterparty stock entity.
+        /// </summary>
+        /// <param name="counterpartysStockTable">The counterpartys stock table.</param>
+        /// <param name="numberOfRow">The number of row.</param>
+        /// <returns>Counterparty stock entity</returns>
         public Domain.Entity.CounterpartysStock MapFrom(DataTable counterpartysStockTable, int numberOfRow)
         {
             DataRow counterpartysStockRow = counterpartysStockTable.Rows[numberOfRow];
@@ -47,6 +67,11 @@ namespace OrderManager.DTO
                 Convert.ToDouble(counterpartysStockRow["CenaNetto"]));
         }
 
+        /// <summary>
+        /// Maps from the counterparty stock entity to a DataTable.
+        /// </summary>
+        /// <param name="counterpartsStockyDomain">The counterparts stocky domain.</param>
+        /// <returns>Returns a DataTable with values corresponding to the counterparty entity.</returns>
         public DataTable MapTo(Domain.Entity.CounterpartysStock counterpartsStockyDomain)
         {
             DataTable dataTable = new DataTable();

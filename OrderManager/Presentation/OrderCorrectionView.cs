@@ -22,6 +22,12 @@ namespace OrderManager.Presentation
         private ITrancheService trancheService;
         private Boolean saved;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OrderCorrectionView"/> class.
+        /// </summary>
+        /// <param name="order">The order.</param>
+        /// <param name="orderService">The order service.</param>
+        /// <param name="trancheService">The tranche service.</param>
         public OrderCorrectionView(Order order, IOrderService orderService, ITrancheService trancheService)
         {
             InitializeComponent();
@@ -36,6 +42,9 @@ namespace OrderManager.Presentation
             FillForm();
         }
 
+        /// <summary>
+        /// Fills the form with the data of the single order currently being corrected.
+        /// </summary>
         private void FillForm()
         {
             labelTitle.Text += order.Name;
@@ -50,6 +59,9 @@ namespace OrderManager.Presentation
             AddActionColumns();
         }
 
+        /// <summary>
+        /// Fills the dataGridView with the data of the currently edited order's tranches.
+        /// </summary>
         private void FillTranches()
         {
             DataTable dataGridSource = new DataTable();
@@ -81,6 +93,9 @@ namespace OrderManager.Presentation
             dataGridViewTranches.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
+        /// <summary>
+        /// Adds the columns enabling to edit or delete tranche to the dataGridView containing tranche data.
+        /// </summary>
         private void AddActionColumns()
         {
             var list = dataGridViewTranches;
@@ -96,11 +111,22 @@ namespace OrderManager.Presentation
             list.Columns.Insert(list.ColumnCount, deleteColumn);
         }
 
+        /// <summary>
+        /// Handles the Click event of the CancelButton control. Closes the form.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Handles the FormClosing event of the OrderCorrectionView control. Asks for confirmation to close the form,
+        /// if the changes were not saved, and informs about changes being saved if they were.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="FormClosingEventArgs"/> instance containing the event data.</param>
         private void OrderCorrectionView_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!this.saved)
@@ -116,11 +142,22 @@ namespace OrderManager.Presentation
             }
         }
 
+        /// <summary>
+        /// Handles the Load event of the OrderCorrectionView control. Adds the closing handler to form.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OrderCorrectionView_Load(object sender, EventArgs e)
         {
             this.FormClosing += new FormClosingEventHandler(OrderCorrectionView_FormClosing);
         }
 
+        /// <summary>
+        /// Handles the CellContentClick event of the DataGridViewTranches control. Adds the events for tranche edition
+        /// (opening a new form) and tranche deletion to the DataGridView containing tranche data.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="DataGridViewCellEventArgs"/> instance containing the event data.</param>
         private void DataGridViewTranches_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex.Equals(0) || e.ColumnIndex.Equals(1))
@@ -146,6 +183,12 @@ namespace OrderManager.Presentation
             }
         }
 
+        /// <summary>
+        /// Handles the Closed event of the TrancheCorrectionView control. Edits the tranche DataGridView to 
+        /// properly display changed tranche data.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="FormClosedEventArgs"/> instance containing the event data.</param>
         void TrancheCorrectionView_Closed(object sender, FormClosedEventArgs e)
         {
             TrancheCorrectionView form = (TrancheCorrectionView)sender;
@@ -166,6 +209,12 @@ namespace OrderManager.Presentation
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the SaveButton control. Performs database operations for the new order, its
+        /// assigned tranches and percentage discounts. Sets the state of edited order to 'cancelled'.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void SaveButton_Click(object sender, EventArgs e)
         {
             order.State = ORDERSTATE.duringRealization;

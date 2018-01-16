@@ -15,26 +15,47 @@ namespace OrderManager.DTO
         private IPercentageDiscountDAO percentageDiscountDAO;
         private ICounterpartysStockDAO counterpartysStockDAO;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PercentageDiscountMapper"/> class.
+        /// </summary>
+        /// <param name="percentageDiscountDAO">The percentage discount DAO.</param>
+        /// <param name="counterpartysStockDAO">The counterpartys stock DAO.</param>
         public PercentageDiscountMapper(IPercentageDiscountDAO percentageDiscountDAO, ICounterpartysStockDAO counterpartysStockDAO)
         {
             this.percentageDiscountDAO = percentageDiscountDAO;
             this.counterpartysStockDAO = counterpartysStockDAO;
         }
 
-        public List<Domain.Entity.PercentageDiscount> MapAllFrom(DataTable tDAO)
+        /// <summary>
+        /// Maps from the dataTable to a list of percentageDiscount entities.
+        /// </summary>
+        /// <param name="discountTable">The discount table.</param>
+        /// <returns>Returns a list of percentageDiscount entities.</returns>
+        public List<Domain.Entity.PercentageDiscount> MapAllFrom(DataTable discountTable)
         {
             List<Domain.Entity.PercentageDiscount> result = new List<Domain.Entity.PercentageDiscount>();
-            foreach (DataRow row in tDAO.Rows)
-                result.Add(MapFrom(tDAO,
-                    tDAO.Rows.IndexOf(row)));
+            foreach (DataRow row in discountTable.Rows)
+                result.Add(MapFrom(discountTable,
+                    discountTable.Rows.IndexOf(row)));
             return result;
         }
 
-        public Domain.Entity.PercentageDiscount MapFrom(DataTable tDAO)
+        /// <summary>
+        /// Maps from the dataTable to a percentageDiscount entity.
+        /// </summary>
+        /// <param name="discountTable">The percentageDiscount table.</param>
+        /// <returns>Returns the percentageDiscount entity.</returns>
+        public Domain.Entity.PercentageDiscount MapFrom(DataTable discountTable)
         {
-            return MapFrom(tDAO, 0);
+            return MapFrom(discountTable, 0);
         }
 
+        /// <summary>
+        /// Maps from a specified row of the dataTable to a percentageDiscount entity.
+        /// </summary>
+        /// <param name="discountTable">The percentageDiscount table.</param>
+        /// <param name="numberOfRow">The number of row.</param>
+        /// <returns>Returns the percentageDiscount entity.</returns>
         private Domain.Entity.PercentageDiscount MapFrom(DataTable discountTable, int numberOfRow)
         {
             CounterpartysStockMapper counterpartysStockMapper = new CounterpartysStockMapper(counterpartysStockDAO);
@@ -50,6 +71,11 @@ namespace OrderManager.DTO
             counterpartysStockMapper.MapAllFrom(percentageDiscountDAO.GetCounterpartiesStockWithDiscount(discountTable.Rows[numberOfRow])));
         }
 
+        /// <summary>
+        /// Maps from the percentageDiscount entity to a DataTable.
+        /// </summary>
+        /// <param name="discountDomain">The percentageDiscount enity.</param>
+        /// <returns>Returns a DataTable with values corresponding to the percentageDiscount entity.</returns>
         public DataTable MapTo(Domain.Entity.PercentageDiscount discountDomain)
         {
             DataTable dataTable = new DataTable();

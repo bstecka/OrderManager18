@@ -48,7 +48,7 @@ namespace OrderManager.Domain
                 strategies.Add(GetStrategy(priority, dictinary));
             }
             foreach (var strategy in strategies)
-                tranches.AddRange(strategy.BestChosenOfferts());
+                tranches.AddRange(strategy.BestChosenOffers());
 
             return groupTranchesInOrders(tranches);
         }

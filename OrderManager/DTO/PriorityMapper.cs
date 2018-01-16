@@ -11,14 +11,25 @@ namespace OrderManager.DTO
 {
     class PriorityMapper : IMapperBase<List<Priority>>
     {
+        /// <summary>
+        /// Unneeded mapper.
+        /// </summary>
+        /// <param name="tDAO">The t DAO.</param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
         public List<List<Priority>> MapAllFrom(DataTable tDAO)
         {
             throw new NotImplementedException();
         }
 
-        public List<Priority> MapFrom(DataTable tDAO)
+        /// <summary>
+        /// Maps from the dataTable to a priority entity.
+        /// </summary>
+        /// <param name="priorityTable">The priority table.</param>
+        /// <returns>Returns the priority entity.</returns>
+        public List<Priority> MapFrom(DataTable priorityTable)
         {
-            string field = tDAO.Rows[0]["ListaKryteriow"].ToString();
+            string field = priorityTable.Rows[0]["ListaKryteriow"].ToString();
             string[] criteria = field.Split(new char[1] { ',' });
             List<Priority> priorities = new List<Priority>();
             foreach (string criterium in criteria)
@@ -26,6 +37,12 @@ namespace OrderManager.DTO
             return priorities;
         }
 
+        /// <summary>
+        /// Maps a string value to Priority enum value.
+        /// </summary>
+        /// <param name="priorityValue">The priority value in a form readable to the end user.</param>
+        /// <returns>Returns a value of the priority enum.</returns>
+        /// <exception cref="ArgumentException"></exception>
         public static Priority GetPriority(string priorityValue)
         {
             switch (priorityValue)
@@ -37,6 +54,12 @@ namespace OrderManager.DTO
             }
         }
 
+        /// <summary>
+        /// Unneeded mapper
+        /// </summary>
+        /// <param name="tDomain">The t domain.</param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
         public DataTable MapTo(List<Priority> tDomain)
         {
             throw new NotImplementedException();

@@ -14,6 +14,12 @@ namespace OrderManager.Domain
         private ICounterpartysStockService counterpartysStockService;
         private IStockService stockService;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DiscountCounter"/> class.
+        /// </summary>
+        /// <param name="dictionary">The dictionary.</param>
+        /// <param name="counterpartysStockService">The counterpartys stock service.</param>
+        /// <param name="stockService">The stock service.</param>
         public DiscountCounter(Dictionary<CounterpartysStock, int> dictionary, 
             ICounterpartysStockService counterpartysStockService,
             IStockService stockService)
@@ -23,6 +29,12 @@ namespace OrderManager.Domain
             this.stockService = stockService;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DiscountCounter"/> class.
+        /// </summary>
+        /// <param name="dictionary">The dictionary.</param>
+        /// <param name="counterpartysStockService">The counterpartys stock service.</param>
+        /// <param name="stockService">The stock service.</param>
         public DiscountCounter(Dictionary<Stock, int> dictionary,
             ICounterpartysStockService counterpartysStockService,
             IStockService stockService)
@@ -35,6 +47,10 @@ namespace OrderManager.Domain
                     (this.dictionary).Add(counterpartysStock, oneStock.Value);
         }
 
+        /// <summary>
+        /// Gets the list of tranches with the best possible discounts.
+        /// </summary>
+        /// <returns>Returns the list of tranches with the best possible discounts.</returns>
         public List<Tranche> BestChosenDiscounts()
         {
             if (dictionary.Count == 0) return new List<Tranche>();
@@ -62,13 +78,23 @@ namespace OrderManager.Domain
             return makeTranches(discountsInOrders, bestStockWithoutDiscounts);
         }
 
+        /// <summary>
+        /// Boolean representing if the discounts contained in a given list are a disjunctive set.
+        /// </summary>
+        /// <param name="discounts">The discounts.</param>
+        /// <returns>Returns a Boolean representing if the discounts contained in a given list are a disjunctive set.</returns>
         private bool discountsAreDisjunctive(List<PercentageDiscount> discounts)
         {
             var stockWithRepetitions = discounts.Select(disc =>
             disc.CounterpartysStock).SelectMany(i => i).Select(stock => stock.Stock);
             return stockWithRepetitions.SequenceEqual(new HashSet<Stock>(stockWithRepetitions));
         }
-        
+
+        /// <summary>
+        /// Gets the list of the counterparty stock that has the lowest price, when not counting discounts.
+        /// </summary>
+        /// <param name="dictionary">The dictionary.</param>
+        /// <returns>Returns the list of the counterparty stock with the lowest base price.</returns>
         private List<CounterpartysStock> lowestPricesWithoutDiscount(Dictionary<CounterpartysStock, int> dictionary)
         {
             List<CounterpartysStock> result = new List<CounterpartysStock>();
@@ -79,12 +105,21 @@ namespace OrderManager.Domain
             return result;
         }
 
+        /// <summary>
+        /// Adjusts the discount to demand.
+        /// </summary>
+        /// <param name="discount">The discount.</param>
         private void adjustDiscountToDemand(PercentageDiscount discount)
         {
             discount.CounterpartysStock = new List<CounterpartysStock>
                 (discount.CounterpartysStock.Intersect(dictionary.Keys));
         }
 
+        /// <summary>
+        /// Tells if a given discounts can be used.
+        /// </summary>
+        /// <param name="discount">The discount.</param>
+        /// <returns>Returns a boolean representing if the given discount can be used.</returns>
         private bool discountCanBeUsed(PercentageDiscount discount)
         {
             double valueOfOrder = 0;
@@ -92,7 +127,13 @@ namespace OrderManager.Domain
                 valueOfOrder += dictionary[element] * element.PriceNetto;
             return valueOfOrder >= discount.SumNetto;
         }
-        
+
+        /// <summary>
+        /// Gets the profits for a calculated combination of discounts and a list of counterparty stock with lowest base price.
+        /// </summary>
+        /// <param name="combinationsOfDiscounts">The combinations of discounts.</param>
+        /// <param name="bestStockWithoutDiscounts">The best stock without discounts.</param>
+        /// <returns>Returns the dictionary of sets of discounts and calculated profits.</returns>
         private Dictionary<List<PercentageDiscount>, double> getProfits(List<List<PercentageDiscount>> combinationsOfDiscounts, List<CounterpartysStock> bestStockWithoutDiscounts)
         {
             Dictionary<List<PercentageDiscount>, double> result = new Dictionary<List<PercentageDiscount>, double>();
@@ -100,7 +141,13 @@ namespace OrderManager.Domain
                 result.Add(combination, getProfit(combination, bestStockWithoutDiscounts));
             return result;
         }
-        
+
+        /// <summary>
+        /// Gets the profits for a given set of discounts and and a list of counterparty stock with lowest base price.
+        /// </summary>
+        /// <param name="discountsInOneSetOfOrders">The discounts in one set of orders.</param>
+        /// <param name="bestStockWithoutDiscounts">The best stock without discounts.</param>
+        /// <returns>Returns a double value representing profit.</returns>
         private double getProfit(List<PercentageDiscount> discountsInOneSetOfOrders, List<CounterpartysStock> bestStockWithoutDiscounts) 
         {
             var stockWithDiscount = new HashSet<Stock>(
@@ -116,7 +163,12 @@ namespace OrderManager.Domain
                         * dictionary[counterpartysStock];
             return profit;
         }
-        
+
+        /// <summary>
+        /// Gets all possible combinations of discounts for a given discount.
+        /// </summary>
+        /// <param name="discount">The discount.</param>
+        /// <returns>Returns a list of discounts representing all possible combinations of discounts for a given discount.</returns>
         private List<PercentageDiscount> allPossibleCombinationsOfDiscount(PercentageDiscount discount)
         {
             List<CounterpartysStock> counterpartysStockInDiscount = discount.CounterpartysStock;
@@ -129,6 +181,12 @@ namespace OrderManager.Domain
             return result;
         }
 
+        /// <summary>
+        /// Gets tranches with given discounts and stock
+        /// </summary>
+        /// <param name="discountsInOrders">The discounts in orders.</param>
+        /// <param name="stockWtithLowestPricesWithoutDiscount">The stock wtith lowest prices without discount.</param>
+        /// <returns>Returns a list of tranche entities with given discounts and stock</returns>
         private List<Tranche> makeTranches(List<PercentageDiscount> discountsInOrders,
             List<CounterpartysStock> stockWtithLowestPricesWithoutDiscount)
         {
@@ -151,6 +209,12 @@ namespace OrderManager.Domain
             return result;
         }
 
+        /// <summary>
+        /// Generic method for getting all the combinations of list.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list">The list.</param>
+        /// <returns>Returns a parametrized list of lists representing all the combinations of list.</returns>
         private List<List<T>> getAllCombos<T>(List<T> list)
         {
             List<List<T>> result = new List<List<T>>();

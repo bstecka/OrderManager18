@@ -13,11 +13,20 @@ namespace OrderManager.DTO
     {
         ITrancheDAO trancheDAO;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TrancheMapper"/> class.
+        /// </summary>
+        /// <param name="trancheDAO">The tranche DAO.</param>
         public TrancheMapper(ITrancheDAO trancheDAO)
         {
             this.trancheDAO = trancheDAO;
         }
 
+        /// <summary>
+        /// Maps from the tranche entity to a DataTable.
+        /// </summary>
+        /// <param name="trancheDomain">The tranche enity.</param>
+        /// <returns>Returns a DataTable with values corresponding to the tranche entity.</returns>
         public DataTable MapTo(Domain.Entity.Tranche trancheDomain)
         {
             DataTable dataTable = new DataTable();
@@ -36,6 +45,11 @@ namespace OrderManager.DTO
             return dataTable;
         }
 
+        /// <summary>
+        /// Maps from the dataTable to a list of tranche entities.
+        /// </summary>
+        /// <param name="trancheTable">The tranche DataTable.</param>
+        /// <returns>Returns a list of tranche entities.</returns>
         public List<Domain.Entity.Tranche> MapAllFrom(DataTable trancheTable)
         {
             List<Domain.Entity.Tranche> result = new List<Domain.Entity.Tranche>();
@@ -45,11 +59,21 @@ namespace OrderManager.DTO
             return result;
         }
 
+        /// <summary>
+        /// Maps from the dataTable to a tranche entity.
+        /// </summary>
+        /// <param name="trancheTable">The tranche table.</param>
+        /// <returns>Returns a tranche entity.</returns>
         public Domain.Entity.Tranche MapFrom(DataTable trancheTable)
         {
             return MapFrom(trancheTable, 0);
         }
 
+        /// Maps from a specified row of the dataTable to a tranche entity.
+        /// </summary>
+        /// <param name="trancheTable">The tranche table.</param>
+        /// <param name="numberOfRow">The number of row.</param>
+        /// <returns>Returns the tranche entity.</returns>
         Domain.Entity.Tranche MapFrom(DataTable trancheTable, int numberOfRow)
         {
             DataRow trancheRow = trancheTable.Rows[numberOfRow];

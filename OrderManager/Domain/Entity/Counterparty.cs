@@ -17,6 +17,13 @@ namespace OrderManager.Domain.Entity
         private Int64 nip;
         private string name;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Counterparty"/> class.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <param name="nip">The nip.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="distance">The distance.</param>
         public Counterparty(int id, long nip, string name, int distance)
         {
             this.id = id;
@@ -25,20 +32,63 @@ namespace OrderManager.Domain.Entity
             this.name = name;
         }
 
+        /// <summary>
+        /// Gets or sets the identifier.
+        /// </summary>
+        /// <value>
+        /// The identifier.
+        /// </value>
         public int Id { get => id; set => id = value; }
+        /// <summary>
+        /// Gets or sets the distance.
+        /// </summary>
+        /// <value>
+        /// The distance.
+        /// </value>
         public int Distance { get => distance; set => distance = value; }
+        /// <summary>
+        /// Gets or sets the nip.
+        /// </summary>
+        /// <value>
+        /// The nip.
+        /// </value>
         public long Nip { get => nip; set => nip = value; }
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
         public string Name { get => name; set => name = value; }
 
+        /// <summary>
+        /// Returns a <see cref="System.String" /> that represents this instance.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="System.String" /> that represents this instance.
+        /// </returns>
         public override string ToString() { return id + " " + name; }
+        /// <summary>
+        /// Determines whether the specified <see cref="System.Object" />, is equal to this instance.
+        /// </summary>
+        /// <param name="obj">The <see cref="System.Object" /> to compare with this instance.</param>
+        /// <returns>
+        ///   <c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.
+        /// </returns>
         public override bool Equals(object obj)
         {
             return obj is Counterparty && ((Counterparty)obj).Id == id;
         }
 
+        /// <summary>
+        /// Returns a hash code for this instance.
+        /// </summary>
+        /// <returns>
+        /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+        /// </returns>
         public override int GetHashCode()
         {
-            return id;
+            return id.GetHashCode();
         }
     }
 }

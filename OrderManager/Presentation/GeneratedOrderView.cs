@@ -15,6 +15,10 @@ namespace OrderManager.Presentation
     {
 
         private Order order;
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GeneratedOrderView"/> class.
+        /// </summary>
+        /// <param name="order">The order.</param>
         public GeneratedOrderView(Order order)
         {
             InitializeComponent();
@@ -23,6 +27,9 @@ namespace OrderManager.Presentation
             this.Text += order.Name;
         }
 
+        /// <summary>
+        /// Fills the form with the details of a single generated order.
+        /// </summary>
         private void FillForm()
         {
             labelTitle.Text += order.Name;
@@ -36,6 +43,9 @@ namespace OrderManager.Presentation
             FillTranches();
         }
 
+        /// <summary>
+        /// Fills the dataGridView with the data of a generated orders' tranches.
+        /// </summary>
         private void FillTranches()
         {
             DataTable dataGridSource = new DataTable();

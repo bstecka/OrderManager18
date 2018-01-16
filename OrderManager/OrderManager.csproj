@@ -55,11 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAL\ExternalSysDAO\CategoryDAO.cs" />
     <Compile Include="DAL\ExternalSysDAO\CounterpartyDAO.cs" />
     <Compile Include="DAL\DBOperations.cs" />
     <Compile Include="DAL\ExternalSysDAO\CounterpartysStockDAO.cs" />
-    <Compile Include="DAL\ExternalSysDAO\ICategoryDAO.cs" />
     <Compile Include="DAL\ExternalSysDAO\ICounterpartyDAO.cs" />
     <Compile Include="DAL\ExternalSysDAO\ICounterpartysStockDAO.cs" />
     <Compile Include="DAL\ExternalSysDAO\IStockDAO.cs" />
@@ -101,7 +99,6 @@
     <Compile Include="Domain\OrderGenerator\OrdersGenerator.cs" />
     <Compile Include="Domain\OrderGenerator\PriorityDistanceChoice.cs" />
     <Compile Include="Domain\OrderGenerator\PriorityFrequencyChoice.cs" />
-    <Compile Include="Domain\Service\CategoryService.cs" />
     <Compile Include="Domain\Service\CounterpartyService.cs" />
     <Compile Include="Domain\Service\CounterpartysStockService.cs" />
     <Compile Include="Domain\Service\EligibleORersNamesService.cs" />
@@ -120,7 +117,6 @@
     <Compile Include="Domain\Service\OrderService.cs" />
     <Compile Include="Domain\Service\PriorityService.cs" />
     <Compile Include="Domain\Service\StockService.cs" />
-    <Compile Include="DTO\CategoryMapper.cs" />
     <Compile Include="DTO\CounterpartyMapper.cs" />
     <Compile Include="DTO\CounterpartysStockMapper.cs" />
     <Compile Include="DTO\EligibleOrdersNamesMapper.cs" />
