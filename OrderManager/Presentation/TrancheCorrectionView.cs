@@ -25,6 +25,11 @@ namespace OrderManager.Presentation
         private Boolean saved;
         private List<PercentageDiscount> viableDiscounts;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TrancheCorrectionView"/> class.
+        /// </summary>
+        /// <param name="tranche">The tranche.</param>
+        /// <param name="trancheService">The tranche service.</param>
         public TrancheCorrectionView(Tranche tranche, ITrancheService trancheService)
         {
             InitializeComponent();
@@ -46,6 +51,9 @@ namespace OrderManager.Presentation
         public Boolean Saved { get => saved; }
         public Tranche Tranche { get => tranche; }
 
+        /// <summary>
+        /// Fills the form with the data of the tranche currently being edited.
+        /// </summary>
         private void FillForm()
         {
             labelTitle.Text += tranche.Stock.Stock.Name;
@@ -63,6 +71,11 @@ namespace OrderManager.Presentation
             dataGridDiscounts.CellValueChanged += checkedDiscountsChanged;
         }
 
+        /// <summary>
+        /// Updates the discounts of the tranche to match currently selected discounts. Updates the view accordingly.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="DataGridViewCellEventArgs"/> instance containing the event data.</param>
         private void checkedDiscountsChanged(object sender, DataGridViewCellEventArgs e)
         {
             List<PercentageDiscount> discounts = new List<PercentageDiscount>();
@@ -78,6 +91,9 @@ namespace OrderManager.Presentation
             labelBrutto.Text = Math.Round(tranche.PriceBrutto, 2).ToString();
         }
 
+        /// <summary>
+        /// Adds the CheckBox column to the dataGridView containing discount data. 
+        /// </summary>
         private void AddCheckBoxColumn()
         {
             var list = dataGridDiscounts;
@@ -99,6 +115,9 @@ namespace OrderManager.Presentation
             }
         }
 
+        /// <summary>
+        /// Fills the discounts dataGridView with the data of discounts which can be assigned to the currently edited tranche.
+        /// </summary>
         private void FillDiscounts()
         {
             DataTable dataGridSource = new DataTable();
@@ -138,11 +157,21 @@ namespace OrderManager.Presentation
             }
         }
 
+        /// <summary>
+        /// Handles the CellPaint event of the TableLayoutPanel control. Changes the look of the layout.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="TableLayoutCellPaintEventArgs"/> instance containing the event data.</param>
         private void TableLayoutPanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
         {
             e.Graphics.DrawLine(Pens.Black, e.CellBounds.Location, new Point(e.CellBounds.Right, e.CellBounds.Top));
         }
 
+        /// <summary>
+        /// Handles the FormClosing event of the TrancheCorrectionView control. Asks for confirmation to close the form.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="FormClosingEventArgs"/> instance containing the event data.</param>
         private void TrancheCorrectionView_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!this.saved)
@@ -154,28 +183,56 @@ namespace OrderManager.Presentation
             }
         }
 
-        private void OrderCorrectionView_Load(object sender, EventArgs e)
+        /// <summary>
+        /// Handles the Load event of the TrancheCorrectionView control. Adds the closing handler to form.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void TrancheCorrectionView_Load(object sender, EventArgs e)
         {
             this.FormClosing += new FormClosingEventHandler(TrancheCorrectionView_FormClosing);
         }
 
+        /// <summary>
+        /// Handles the Click event of the Button1 control. Closes the form.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void Button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Handles the KeyPress event of the TextBoxNumberOfItems control. Disallows user to input any key other
+        /// than a digit or backspace in the textbox for assigning the number of items to the tranche.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="KeyPressEventArgs"/> instance containing the event data.</param>
         private void TextBoxNumberOfItems_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(Char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back))
                 e.Handled = true;
         }
 
+        /// <summary>
+        /// Handles the KeyPress event of the TextBoxQuota control. Disallows user to input any key other
+        /// than a digit, comma or backspace in the textbox for assigning the quota discount to the tranche.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="KeyPressEventArgs"/> instance containing the event data.</param>
         private void TextBoxQuota_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(Char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == 44))
                 e.Handled = true;
         }
 
+        /// <summary>
+        /// Handles the TextChanged event of the TextBoxNumberOfItems control. Updates the view so that the prices
+        /// of the tranche match the changed value of numberOfItems.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void TextBoxNumberOfItems_TextChanged(object sender, EventArgs e)
         {
             if (textBoxNumberOfItems.Text.Length > 0 && textBoxNumberOfItems.Text.Length < 10)
@@ -185,6 +242,12 @@ namespace OrderManager.Presentation
             labelBrutto.Text = Math.Round(tranche.PriceBrutto, 2).ToString();
         }
 
+        /// <summary>
+        /// Handles the TextChanged event of the TextBoxQuota control. Updates the view so that the prices
+        /// of the tranche match the changed value of the quotaDiscount.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void TextBoxQuota_TextChanged(object sender, EventArgs e)
         {
             Regex regexObj = new Regex(@"-?\d+(?:\,\d+)?");
@@ -196,6 +259,11 @@ namespace OrderManager.Presentation
             labelBrutto.Text = Math.Round(tranche.PriceBrutto, 2).ToString();
         }
 
+        /// <summary>
+        /// Handles the Click event of the Button4 control. Sets the state of the form to saved and closes the form.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void Button4_Click(object sender, EventArgs e)
         {
             this.saved = true;

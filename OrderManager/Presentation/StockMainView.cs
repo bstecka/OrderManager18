@@ -20,6 +20,9 @@ namespace OrderManager
         private IStockService stockService;
         private List<Domain.Entity.Stock> listStock;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="StockMainView"/> class.
+        /// </summary>
         internal StockMainView()
         {
             InitializeComponent();
@@ -36,6 +39,10 @@ namespace OrderManager
             this.FormClosing += MainStockView_FormClosing;
         }
 
+        /// <summary>
+        /// Gets the categories.
+        /// </summary>
+        /// <returns></returns>
         private string[] getCategories()
         {
             HashSet<string> categories = new HashSet<string>(listStock.Select(s => s.Category.Name));
@@ -43,6 +50,9 @@ namespace OrderManager
             return categories.ToArray();
         }
 
+        /// <summary>
+        /// Adds the data source for filters for stock category, current supply in stockroom and last time ordered.
+        /// </summary>
         private void AddDataSourceForFilters()
         {
             string[] comboBoxStateDataSource = { "Dowolny", "Ponizej minimum" };
@@ -58,6 +68,10 @@ namespace OrderManager
             comboBoxCategory.SelectedIndexChanged += comboBoxCategory_SelectedIndexChanged;
         }
 
+        /// <summary>
+        /// Fills the gridview with the data of stock.
+        /// </summary>
+        /// <param name="listStock">The list stock.</param>
         private void FillGridview(IEnumerable<Stock> listStock)
         {
             DataTable dataGridSource = new DataTable();
@@ -93,6 +107,11 @@ namespace OrderManager
                     column.ReadOnly = true;
         }
 
+        /// <summary>
+        /// Informs about unordered stock in case of inability to create orders.
+        /// </summary>
+        /// <param name="stock">The collection of unordered stock.</param>
+        /// <param name="extraMessage">The extra message.</param>
         private void InformAboutUnorderedStock(IEnumerable<Stock> stock, String extraMessage)
         {
             StringBuilder message = new StringBuilder("Nie udało się wygenerować zamówień dla części wybranych towarów.");
@@ -103,7 +122,12 @@ namespace OrderManager
                 message.AppendLine(extraMessage);
             MessageBox.Show(message.ToString());
         }
-        
+
+        /// <summary>
+        /// Gets the number of items in individual orders column.
+        /// </summary>
+        /// <param name="row">The row.</param>
+        /// <returns></returns>
         private int GetNumberOfItemsInIndividualOrdersColumn(DataGridViewRow row)
         {
             int number;
@@ -111,6 +135,12 @@ namespace OrderManager
                 number : 0;
         }
 
+        /// <summary>
+        /// Handles the SelectedIndexChanged event of the comboBoxState control. Fills the dataGridView with the stock
+        /// corresponding to the number of items in stockroom corresponding to the variant chosen from the filter.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void comboBoxState_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (comboBoxState.SelectedValue)
@@ -122,6 +152,12 @@ namespace OrderManager
             }
         }
 
+        /// <summary>
+        /// Handles the SelectedIndexChanged event of the comboBoxCategory control. Fills the dataGridView with the stock
+        /// corresponding to the category chosen from the filter.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void comboBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxCategory.SelectedValue.Equals("Dowolna"))
@@ -134,13 +170,21 @@ namespace OrderManager
         {
         }
 
+        /// <summary>
+        /// Sets visual properties of the filters panel.
+        /// </summary>
         private void prepareFiltersPanel()
         {
             (tableLayoutPanelFilter.RowStyles)[1].SizeType = SizeType.Absolute;
             (tableLayoutPanelFilter.RowStyles)[1].Height = 0;
             (tableLayoutPanelContent.RowStyles)[1].Height = filtersHeight * 2;
         }
-        
+
+        /// <summary>
+        /// Handles the MouseClick event of the pictureBoxFilter control. Opens up the filters.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
         private void pictureBoxFilter_MouseClick(object sender, MouseEventArgs e)
         {
             (tableLayoutPanelFilter.RowStyles)[1].SizeType = SizeType.Absolute;
@@ -158,7 +202,13 @@ namespace OrderManager
             }
         }
 
-        private void buttonGenerateOrders_MouseClick(object sender, MouseEventArgs e)
+        /// <summary>
+        /// Handles the MouseClick event of the buttonGenerateOrders control. Generates orders for selected stock, 
+        /// with counterparties chosen according to the set main priority, or specified priority for a single stock.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        private void ButtonGenerateOrders_MouseClick(object sender, MouseEventArgs e)
         {
             listStock = stockService.GetAll();
             try
@@ -201,6 +251,11 @@ namespace OrderManager
             }
         }
 
+        /// <summary>
+        /// Handles the LinkClicked event of the LinkLabel2 control. Closes the form and switches to the main view containing orders.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="LinkLabelLinkClickedEventArgs"/> instance containing the event data.</param>
         private void LinkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
@@ -209,12 +264,22 @@ namespace OrderManager
             ordersForm.Show();
         }
 
+        /// <summary>
+        /// Handles the MouseClick event of the StockMainView control. After confirmation from a message box, quits the Form.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
         private void StockMainView_MouseClick(object sender, MouseEventArgs e)
         {
             if (MessageBox.Show("Czy chcesz zamknąć to okno?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 Close();
         }
 
+        /// <summary>
+        /// Handles the FormClosing event of the StockMainView control. Asks user to confirm if they want to quit.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="FormClosingEventArgs"/> instance containing the event data.</param>
         private void StockMainView_FormClosing(object sender, FormClosingEventArgs e)
         {
             if(((Form) sender).Visible)

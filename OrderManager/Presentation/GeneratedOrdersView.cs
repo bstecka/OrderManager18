@@ -18,6 +18,10 @@ namespace OrderManager.Presentation
         private IStockService stockService;
         private List<GeneratedOrderView> displayedOrders;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GeneratedOrdersView"/> class.
+        /// </summary>
+        /// <param name="orders">The orders to be displayed.</param>
         internal GeneratedOrdersView(List<Order> orders)
         {
             InitializeComponent();
@@ -35,6 +39,9 @@ namespace OrderManager.Presentation
             this.FormClosing += GeneratedOrders_FormClosing;
         }
 
+        /// <summary>
+        /// Fills the data grid view with the data of orders.
+        /// </summary>
         private void FillDataGridView()
         {
             DataTable dataGridSource = new DataTable();
@@ -56,6 +63,12 @@ namespace OrderManager.Presentation
             dataGridViewOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
+        /// <summary>
+        /// Handles the click event of the buttonEdit_Click control. Opens the GeneratedOrderView displaying the
+        /// details of a single generated order.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void buttonEdit_Click_1(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dataGridViewOrders.Rows)
@@ -72,7 +85,13 @@ namespace OrderManager.Presentation
                 }
                    }
         }
-        
+
+        /// <summary>
+        /// Handles the FormClosing event of the GeneratedOrders control. Asks for confirmation to close the form,
+        /// if confirmed closes the form and all children forms.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="FormClosingEventArgs"/> instance containing the event data.</param>
         private void GeneratedOrders_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (((Form)sender).Visible)
