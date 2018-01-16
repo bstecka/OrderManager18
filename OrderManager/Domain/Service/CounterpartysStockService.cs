@@ -16,6 +16,12 @@ namespace OrderManager.Domain.Service
         private IMapperBase<Entity.CounterpartysStock> counterpartysStockMapper;
         private IMapperBase<Entity.PercentageDiscount> percentageDiscountMapper;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CounterpartysStockService"/> class.
+        /// </summary>
+        /// <param name="counterpartysStockDAO">The counterpartys stock DAO.</param>
+        /// <param name="counterpartysStockMapper">The counterpartys stock mapper.</param>
+        /// <param name="percentageDiscountMapper">The percentage discount mapper.</param>
         public CounterpartysStockService(ICounterpartysStockDAO counterpartysStockDAO, IMapperBase<Entity.CounterpartysStock> counterpartysStockMapper, IMapperBase<Entity.PercentageDiscount> percentageDiscountMapper)
         {
             this.counterpartysStockDAO = counterpartysStockDAO;
@@ -23,16 +29,30 @@ namespace OrderManager.Domain.Service
             this.percentageDiscountMapper = percentageDiscountMapper;
         }
 
+        /// <summary>
+        /// Gets all counterparty stock.
+        /// </summary>
+        /// <returns>Returns a list of counterparty stock entities</returns>
         public List<Entity.CounterpartysStock> GetAll()
         {
             return counterpartysStockMapper.MapAllFrom(counterpartysStockDAO.GetAll());
         }
 
+        /// <summary>
+        /// Gets counterparty stock by identifier.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns>Returns a counterparty stock entity with a given id.</returns>
         public Entity.CounterpartysStock GetById(string id)
         {
             return counterpartysStockMapper.MapFrom(counterpartysStockDAO.GetById(id));
         }
 
+        /// <summary>
+        /// Gets all valid discounts for a given counterparty stock.
+        /// </summary>
+        /// <param name="counterpartysStock">The counterpartys stock.</param>
+        /// <returns>Returns a list of percentage discount entities.</returns>
         public List<Entity.PercentageDiscount> GetValidDiscounts
             (Entity.CounterpartysStock counterpartysStock)
         {
