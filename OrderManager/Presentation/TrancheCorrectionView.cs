@@ -237,7 +237,7 @@ namespace OrderManager.Presentation
         {
             if (textBoxNumberOfItems.Text.Length > 0 && textBoxNumberOfItems.Text.Length < 10)
                 try { tranche.NumberOfItems = Int32.Parse(textBoxNumberOfItems.Text); }
-                catch(ArgumentException) { MessageBox.Show("Nieprawidłowa wartość."); }
+                catch(System.FormatException) { MessageBox.Show("Nieprawidłowa wartość."); textBoxNumberOfItems.Text = "1"; }
             labelNetto.Text = Math.Round(tranche.PriceNetto, 2).ToString();
             labelBrutto.Text = Math.Round(tranche.PriceBrutto, 2).ToString();
         }
@@ -254,7 +254,7 @@ namespace OrderManager.Presentation
             Match matchResult = regexObj.Match(textBoxQuota.Text);
             if (textBoxQuota.Text.Length > 0 && textBoxQuota.Text.Length < 10 && matchResult.Length > 0)
                 try { tranche.QuotaDiscount = Double.Parse(textBoxQuota.Text); }
-                catch (ArgumentException) { MessageBox.Show("Nieprawidłowa wartość."); }
+                catch (System.FormatException) { MessageBox.Show("Nieprawidłowa wartość."); textBoxQuota.Text = "0"; }
             labelNetto.Text = Math.Round(tranche.PriceNetto, 2).ToString();
             labelBrutto.Text = Math.Round(tranche.PriceBrutto, 2).ToString();
         }
