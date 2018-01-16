@@ -242,7 +242,7 @@
             this.linkLabel2.TabIndex = 8;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "Zamówienia";
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel2_LinkClicked);
             // 
             // tableLayoutPanelContent
             // 
@@ -311,7 +311,7 @@
             this.buttonGenerateOrders.TabIndex = 1;
             this.buttonGenerateOrders.Text = "Wygeneruj zamówienia";
             this.buttonGenerateOrders.UseVisualStyleBackColor = true;
-            this.buttonGenerateOrders.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonGenerateOrders_MouseClick);
+            this.buttonGenerateOrders.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ButtonGenerateOrders_MouseClick);
             // 
             // label3ContentName
             // 
@@ -531,8 +531,8 @@
             this.Name = "ThePrettiestGUIEver";
             this.Text = "OrderManager2018";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ThePrettiestGUIEver_FormClosing);
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ThePrettiestGUIEver_MouseClick);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StockMainView_FormClosing);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.StockMainView_MouseClick);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);

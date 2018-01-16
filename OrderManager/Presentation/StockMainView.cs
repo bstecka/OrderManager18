@@ -201,7 +201,7 @@ namespace OrderManager
             }
         }
 
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LinkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
             var ordersForm = new OrdersMainView();
@@ -209,13 +209,13 @@ namespace OrderManager
             ordersForm.Show();
         }
 
-        private void ThePrettiestGUIEver_MouseClick(object sender, MouseEventArgs e)
+        private void StockMainView_MouseClick(object sender, MouseEventArgs e)
         {
             if (MessageBox.Show("Czy chcesz zamknąć to okno?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 Close();
         }
 
-        private void ThePrettiestGUIEver_FormClosing(object sender, FormClosingEventArgs e)
+        private void StockMainView_FormClosing(object sender, FormClosingEventArgs e)
         {
             if(((Form) sender).Visible)
             {
