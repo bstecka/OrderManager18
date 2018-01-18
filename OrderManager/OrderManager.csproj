@@ -79,12 +79,6 @@
     <Compile Include="DAL\ReaderAndWriterDAO.cs" />
     <Compile Include="DAL\ReaderDAO.cs" />
     <Compile Include="DependencyInjector.cs" />
-    <Compile Include="Display.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Display.Designer.cs">
-      <DependentUpon>Display.cs</DependentUpon>
-    </Compile>
     <Compile Include="Domain\Entity\Category.cs" />
     <Compile Include="Domain\Entity\CloneObj.cs" />
     <Compile Include="Domain\Entity\LoggedUser.cs" />
@@ -162,36 +156,6 @@
       <DependentUpon>ThePrettiestGUIEver.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\DataGridviewCheckBoxColumnProwider.cs" />
-    <Compile Include="Presentation\ToDelete\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Presentation\ToDelete\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Presentation\ToDelete\GeneratedOrders.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Presentation\ToDelete\GeneratedOrders.Designer.cs">
-      <DependentUpon>GeneratedOrders.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Presentation\ToDelete\MainOrdersView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Presentation\ToDelete\MainOrdersView.Designer.cs">
-      <DependentUpon>MainOrdersView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Presentation\ToDelete\MainStockView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Presentation\ToDelete\MainStockView.Designer.cs">
-      <DependentUpon>MainStockView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Presentation\ToDelete\MainView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Presentation\ToDelete\MainView.Designer.cs">
-      <DependentUpon>MainView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Presentation\TrancheCorrectionView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,16 +163,7 @@
       <DependentUpon>TrancheCorrectionView.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="Tester.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Tester.Designer.cs">
-      <DependentUpon>Tester.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Display.resx">
-      <DependentUpon>Display.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\GeneratedOrdersView.resx">
       <DependentUpon>GeneratedOrdersView.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,21 +178,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\ThePrettiestGUIEver.resx">
       <DependentUpon>ThePrettiestGUIEver.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\ToDelete\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\ToDelete\GeneratedOrders.resx">
-      <DependentUpon>GeneratedOrders.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\ToDelete\MainOrdersView.resx">
-      <DependentUpon>MainOrdersView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\ToDelete\MainStockView.resx">
-      <DependentUpon>MainStockView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\ToDelete\MainView.resx">
-      <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\TrancheCorrectionView.resx">
       <DependentUpon>TrancheCorrectionView.cs</DependentUpon>

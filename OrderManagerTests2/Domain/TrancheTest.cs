@@ -91,7 +91,6 @@ namespace OrderManager.Domain.Entity.Tests
         [TestMethod()]
         public void TrancheQuotDiscountTest()
         {
-            //happy path, brak rabatów procentowych
             int numberOfItems = 22;
             setExemplaryCounterpartysStock(7);
             Tranche tranche = new Tranche(1, counterpartysStockMock.Object, numberOfItems);
@@ -102,7 +101,6 @@ namespace OrderManager.Domain.Entity.Tests
         [TestMethod()]
         public void TrancheQuotDiscountTest1()
         {
-            //happy path, suma wartości rabatów procentowych i kwotoego nie przekracza wartości transzy
             Tranche tranche = getExemplaryTrancheWithDisounts(10, 50, 0.1, 0);
             tranche.QuotaDiscount = 2;
             Assert.AreEqual(tranche.PriceNetto, 300);
@@ -111,7 +109,6 @@ namespace OrderManager.Domain.Entity.Tests
         [TestMethod()]
         public void TrancheQuotDiscountTest2()
         {
-            //happy path, suma wartości rabatów procentowych i kwotoego nie przekracza wartości transzy
             Tranche tranche = getExemplaryTrancheWithDisounts(10, 50, 0.1, 0);
             tranche.QuotaDiscount = 3;
             Assert.AreEqual(tranche.PriceNetto, 250);
@@ -120,7 +117,6 @@ namespace OrderManager.Domain.Entity.Tests
         [TestMethod()]
         public void TrancheQuotDiscountTest3()
         {
-            //Wartość rabatu kwotowego jest wwiększa od wartości transzy, brak rabatów procentowych
             int numberOfItems = 22;
             setExemplaryCounterpartysStock(7);
             Tranche tranche = new Tranche(1, counterpartysStockMock.Object, numberOfItems);
@@ -140,8 +136,6 @@ namespace OrderManager.Domain.Entity.Tests
         [TestMethod()]
         public void TrancheQuotDiscountTest5()
         {
-            //Wartość rabatu kwotowego jest mniejsza od wartości transzy ez uwzglądniania innych rabatów, 
-            //ale po uwzględnieniu rabatów procentowych, wartość transzy jest mniejsz od 0.01
             Tranche tranche = getExemplaryTrancheWithDisounts(10, 5, 0.4, 0);
             tranche.QuotaDiscount = 10;
             Assert.AreEqual(tranche.PriceNetto, 0.01 * 5);
@@ -150,7 +144,6 @@ namespace OrderManager.Domain.Entity.Tests
         [TestMethod()]
         public void TrancheDiscountsTest()
         {
-            //happy path
             int numberOfItems = 10;
             setExemplaryCounterpartysStock(124);
             Tranche tranche = new Tranche(1, counterpartysStockMock.Object, numberOfItems);
@@ -161,7 +154,6 @@ namespace OrderManager.Domain.Entity.Tests
         [TestMethod()]
         public void TrancheDiscountsTest1()
         {
-            //Wartość transzy po naliczeniu zniek dodatni, ale wartość towaru w transzy < 0.01
             int numberOfItems = 10;
             setExemplaryCounterpartysStock(0.05);
             Tranche tranche = new Tranche(1, counterpartysStockMock.Object, numberOfItems);
@@ -173,7 +165,6 @@ namespace OrderManager.Domain.Entity.Tests
         [TestMethod()]
         public void TrancheDiscountsTest2()
         {
-            //Wartość transzy z raatem kwotowym po naliczeniu zniżek mniejsza od 0.01
             int numberOfItems = 10;
             setExemplaryCounterpartysStock(124);
             Tranche tranche = new Tranche(1, counterpartysStockMock.Object, numberOfItems);

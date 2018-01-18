@@ -1,5 +1,6 @@
 ﻿using OrderManager.DAL.ExternalSysDAO;
 using OrderManager.DAL.InternalSysDAO;
+using OrderManager.Domain;
 using OrderManager.Domain.Entity;
 using OrderManager.Domain.Service;
 using OrderManager.DTO;
@@ -13,6 +14,16 @@ namespace OrderManager
 {
     class DependencyInjector
     {
+        public static IOrdersGenerator IOrdersGenerator
+        {
+            get
+            {
+                return new OrdersGenerator(DependencyInjector.ICounterpartyService,
+                    DependencyInjector.IPriorityService, DependencyInjector.ICounterpartysStockService,
+                    DependencyInjector.IStockService, DependencyInjector.IEligibleOrdersNamesService);
+            }
+        }
+
         public static ICounterpartyService ICounterpartyService
         {
             get

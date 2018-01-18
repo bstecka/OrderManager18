@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrderManager.Domain.Entity
 {
@@ -65,7 +63,7 @@ namespace OrderManager.Domain.Entity
             get => quotaDiscount;
             set
             {
-                if (value < 0) //|| stocksPriceWithDiscounts(discounts, value) < 0.01)
+                if (value < 0)
                     throw new ArgumentException("Naliczenie rabatu spowoduje obniżenie ceny transzy poniżej 0.01 zł.");
                 quotaDiscount = value;
             }
@@ -83,12 +81,7 @@ namespace OrderManager.Domain.Entity
         public List<PercentageDiscount> Discounts
         {
             get => discounts;
-            set
-            {
-                //if (stocksPriceWithDiscounts(value, quotaDiscount) < 0.01)
-                    //throw new ArgumentException("Naliczenie rabatów spowoduje obniżenie ceny transzy poniżej 0.01 zł.");
-                discounts = value;
-            }
+            set { discounts = value; }
         }
 
         public double PriceNetto

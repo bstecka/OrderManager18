@@ -489,6 +489,7 @@
             this.dataGridViewStock.RowHeadersVisible = false;
             this.dataGridViewStock.Size = new System.Drawing.Size(627, 201);
             this.dataGridViewStock.TabIndex = 3;
+            this.dataGridViewStock.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStock_CellEnter);
             this.dataGridViewStock.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridViewStock_CellValidating);
             // 
             // label1

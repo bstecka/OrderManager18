@@ -18,6 +18,7 @@ namespace OrderManager
     {
         private int filtersHeight;
         private IStockService stockService;
+        private IOrdersGenerator ordersGenerator;
         private List<Domain.Entity.Stock> listStock;
 
         internal ThePrettiestGUIEver()
@@ -27,6 +28,7 @@ namespace OrderManager
             filtersHeight = 30;
 
             stockService = DependencyInjector.IStockService;
+            ordersGenerator = DependencyInjector.IOrdersGenerator;
             listStock = stockService.GetAll();
 
             (new DataGridviewCheckBoxColumnProwider(dataGridViewStock)).addCheckBoxColumn();
@@ -101,14 +103,21 @@ namespace OrderManager
                 message.AppendLine(unorderedStock.Name);
             if(extraMessage != null)
                 message.AppendLine(extraMessage);
+            foreach (Stock s in stock)
+                stockService.SetPossibilityToGenerateOrder(s.Id, 0);
             MessageBox.Show(message.ToString());
         }
         
         private int GetNumberOfItemsInIndividualOrdersColumn(DataGridViewRow row)
         {
             int number;
-            return int.TryParse(row.Cells[7].Value.ToString(), out number) && number > 0 ?
-                number : 0;
+            if (!int.TryParse(row.Cells[7].Value.ToString(), out number) && number < 0)
+            {
+                number = 0;
+                row.Cells[7].Value = number;
+            }
+            row.Cells[7].Tag = number.ToString();
+            return number;
         }
 
         private void comboBoxState_SelectedIndexChanged(object sender, EventArgs e)
@@ -157,35 +166,43 @@ namespace OrderManager
                 (tableLayoutPanelContent.RowStyles)[1].Height = filtersHeight * 2;
             }
         }
+        private Tuple<Dictionary<Stock, int>, List<Stock>> getStockToOrder()
+        {
+
+            Dictionary<Stock, int> stockToOrder = new Dictionary<Stock, int>();
+            List<Stock> blockedStock = new List<Stock>();
+            foreach (DataGridViewRow row in dataGridViewStock.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells[0].Value))
+                {
+                    Stock currentStock =
+                        listStock.FirstOrDefault(stock => stock.Code.Equals(row.Cells[1].Value));
+                    int numberOfItemsToOrder = stockService.GetNumOfItemsToOrder(currentStock)
+                        + GetNumberOfItemsInIndividualOrdersColumn(row);
+                    if (numberOfItemsToOrder > 0)
+                        if (currentStock.InGeneratedOrders ||
+                        !stockService.SetPossibilityToGenerateOrder(currentStock.Id, 1))
+                            blockedStock.Add(currentStock);
+                        else
+                            stockToOrder.Add(currentStock, numberOfItemsToOrder);
+                }
+            }
+
+            return new Tuple<Dictionary<Stock, int>, List<Stock>>(stockToOrder, blockedStock);
+        }
 
         private void buttonGenerateOrders_MouseClick(object sender, MouseEventArgs e)
         {
             listStock = stockService.GetAll();
             try
             {
-                Dictionary<Stock, int> stockToOrder = new Dictionary<Stock, int>();
-                List<Stock> blockedStock = new List<Stock>();
-                foreach (DataGridViewRow row in dataGridViewStock.Rows)
-                {
-                    if (Convert.ToBoolean(row.Cells[0].Value))
-                    {
-                        Stock currentStock =
-                            listStock.FirstOrDefault(stock => stock.Code.Equals(row.Cells[1].Value));
-                        int numberOfItemsToOrder = stockService.GetNumOfItemsToOrder(currentStock)
-                            + GetNumberOfItemsInIndividualOrdersColumn(row);
-                        if (numberOfItemsToOrder > 0)
-                            if (currentStock.InGeneratedOrders ||
-                            !stockService.SetPossibilityToGenerateOrder(currentStock.Id, 1))
-                                blockedStock.Add(currentStock);
-                            else
-                                stockToOrder.Add(currentStock, numberOfItemsToOrder);
-                    }
-                }
-                List<Order> orders = (new OrdersGenerator(stockToOrder, DependencyInjector.ICounterpartyService,
-                    DependencyInjector.IPriorityService, DependencyInjector.ICounterpartysStockService,
-                    DependencyInjector.IStockService, DependencyInjector.IEligibleOrdersNamesService)).Generate();
+                var selectedStock = getStockToOrder();
+                Dictionary<Stock, int> stockToOrder = selectedStock.Item1;
+                var stockToOrderCopy = stockToOrder.Select(s => s.Key).ToList();
+                List<Stock> blockedStock = selectedStock.Item2;
+                List<Order> orders = ordersGenerator.Generate(stockToOrder);
                 var orderedStock = new HashSet<Stock>(orders.Select(order => order.Tranches).SelectMany(i => i).Select(tranche => tranche.Stock.Stock));
-                var unorderedStock = (stockToOrder.Keys).Except(orderedStock);
+                var unorderedStock = (stockToOrderCopy).Except(orderedStock);
                 if (blockedStock.Count() != 0)
                     InformAboutUnorderedStock(blockedStock, "Inny pracownik jest w trakcie generowania zamówienia na te towary.");
                 if (unorderedStock.Count() != 0)
@@ -242,6 +259,10 @@ namespace OrderManager
                 e.Cancel = true;
                 dataGridViewStock.Rows[e.RowIndex].ErrorText = "the value must be a non-negative integer";
             }*/
+        }
+
+        private void dataGridViewStock_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
         }
     }
 }

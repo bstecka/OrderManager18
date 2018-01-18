@@ -16,11 +16,10 @@ namespace OrderManager.Domain
         private IStockService stockService;
         private IEligibleOrdersNamesService eligibleOrdersNamesService;
 
-        public OrdersGenerator(Dictionary<Stock, int> stockToOrder, ICounterpartyService counterpartyService, 
+        public OrdersGenerator(ICounterpartyService counterpartyService, 
             IPriorityService priorityService, ICounterpartysStockService counterpartysStockService,
             IStockService stockService, IEligibleOrdersNamesService eligibleOrdersNamesService)
         {
-            this.stockToOrder = stockToOrder;
             this.counterpartyService = counterpartyService;
             this.priorityService = priorityService;
             this.counterpartysStockService = counterpartysStockService;
@@ -28,10 +27,16 @@ namespace OrderManager.Domain
             this.eligibleOrdersNamesService = eligibleOrdersNamesService;
         }
 
-        public List<Order> Generate()
+        public List<Order> Generate(Dictionary<Stock, int> stockToOrder)
         {
+            this.stockToOrder = stockToOrder;
             List<IOffersChoice> strategies = new List<IOffersChoice>();
             List<Tranche> tranches = new List<Tranche>();
+            var counterpartysStock = new HashSet<Stock>(counterpartysStockService.GetAll()
+                .Select(cs => cs.Stock));
+            var undeliveredStock = stockToOrder.Select(t => t.Key).Except(counterpartysStock);
+            foreach (Stock stock in undeliveredStock.ToList())
+                stockToOrder.Remove(stock);
 
             foreach (Priority priority in Enum.GetValues(typeof(Priority)))
             {

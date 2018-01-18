@@ -355,6 +355,15 @@ namespace OrderManager.Presentation
         {
             order.State = ORDERSTATE.duringReview;
             originalOrder.State = ORDERSTATE.cancelled; 
+            foreach(var t in order.Tranches)
+            {
+                int newTrancheId = trancheService.InsertTranche(t);
+                t.Id = newTrancheId;
+                foreach(var disc in t.Discounts)
+                {
+                    trancheService.AssignDiscountToTranche(t, disc);
+                }
+            }
             int newOrderId = orderService.InsertOrder(order);
             originalOrder.ParentOrder = orderService.GetById(newOrderId.ToString());
             orderService.UpdateOrder(originalOrder);
