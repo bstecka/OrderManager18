@@ -1,6 +1,8 @@
 ﻿using OrderManager.DAL.ExternalSysDAO;
 using OrderManager.DAL.InternalSysDAO;
+using OrderManager.Domain;
 using OrderManager.Domain.Entity;
+using OrderManager.Domain.OrderGenerator;
 using OrderManager.Domain.Service;
 using OrderManager.DTO;
 using System;
@@ -13,6 +15,21 @@ namespace OrderManager
 {
     class DependencyInjector
     {
+
+        /// <summary>
+        /// Injector for the order generator service.
+        /// </summary>
+        /// <value>The order generator service.</value>
+        public static IOrdersGenerator IOrdersGenerator
+        {
+            get
+            {
+                return new OrdersGenerator(DependencyInjector.ICounterpartyService,
+                    DependencyInjector.IPriorityService, DependencyInjector.ICounterpartysStockService,
+                    DependencyInjector.IStockService, DependencyInjector.IEligibleOrdersNamesService);
+            }
+        }
+
         /// <summary>
         /// Injector for the counterparty service.
         /// </summary>
@@ -271,7 +288,7 @@ namespace OrderManager
         /// <value>
         /// The priority mapper.
         /// </value>
-        public static IMapperBase<List<Domain.Priority>> IMapperBasePriority
+        public static IMapperBase<List<Priority>> IMapperBasePriority
         {
             get
             {

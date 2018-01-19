@@ -28,14 +28,25 @@ namespace OrderManager.Presentation
             filtersHeight = 30;
             orderService = DependencyInjector.IOrderService;
             trancheService = DependencyInjector.ITrancheService;
-            listOrder = orderService.GetAllDuringRealization();
-            (new DataGridviewCheckBoxColumnProwider(dataGridViewOrders)).addCheckBoxColumn();
+            try
+            {
+                listOrder = orderService.GetAllDuringRealization();
+                (new DataGridviewCheckBoxColumnProwider(dataGridViewOrders)).addCheckBoxColumn();
 
-            FillGridview(listOrder);
-            AddDataSourceForFilters();
-            comboBoxState.SelectedIndexChanged += comboBoxState_SelectedIndexChanged;
+                FillGridview(listOrder);
+                AddDataSourceForFilters();
+                comboBoxState.SelectedIndexChanged += comboBoxState_SelectedIndexChanged;
 
-            this.FormClosing += MainOrdersView_FormClosing;
+                this.FormClosing += MainOrdersView_FormClosing;
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Nie udało się pobrać danych zamówień. Sprawdź połączenie z bazą danych.");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Wystąpił nieprzewidziany błąd. Skontaktuj się z twórcami oprogramowania.");
+            }
         }
 
         private void MainOrdersView_Load(object sender, EventArgs e)

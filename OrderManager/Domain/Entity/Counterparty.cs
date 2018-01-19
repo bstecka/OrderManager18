@@ -91,4 +91,6 @@ namespace OrderManager.Domain.Entity
             return id.GetHashCode();
         }
     }
+    enum Priority { Price, Frequency, Distance };
+
 }
