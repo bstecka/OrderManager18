@@ -196,6 +196,5 @@ namespace OrderManager.DAO
             sqlCommand.ExecuteNonQuery();
             connection.Close();
         }
-
     }
 }

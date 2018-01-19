@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using OrderManager.Domain.Entity;
 using OrderManager.Domain.Service;
-using OrderManager.DTO;
 
 namespace OrderManager.Domain.OrderGenerator
 {
